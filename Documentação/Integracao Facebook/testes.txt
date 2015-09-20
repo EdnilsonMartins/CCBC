@@ -1,0 +1,108 @@
+App ID     : 1674189372812369
+API Version: v2.3
+App Secret : c0fdd0ee6d50fb55bfb47ede1676f3af
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1674189372812369',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+https://www.facebook.com/dialog/feed?
+  app_id=145634995501895
+  &display=popup&caption=An%20example%20caption 
+  &link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
+  &redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer
+
+
+https://www.facebook.com/v2.1/dialog/feed?app_id=289255557788943&display=popup&e2e=%7B%7D&link=http%3A%2F%2Fg1.globo.com%2Frs%2Frio-grande-do-sul%2Fnoticia%2F2015%2F07%2Fmotorista-levava-11-em-carro-e-bateu-em-carreta-no-rs-vai-para-cti.html%3Futm_source%3Dfacebook%26utm_medium%3Dshare-bar-desktop%26utm_campaign%3Dshare-bar&locale=en_US&name=Motorista%20que%20levava%2011%20em%20carro%20e%20bateu%20em%20carreta%20no%20RS%20vai%20para%20CTI&next=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FxRlIuTsSMoE.js%3Fversion%3D41%23cb%3Df1571a9e94%26domain%3Dg1.globo.com%26origin%3Dhttp%253A%252F%252Fg1.globo.com%252Ff3a75a486%26relation%3Dopener%26frame%3Dfe821113c%26result%3D%2522xxRESULTTOKENxx%2522&picture=http%3A%2F%2Fs2.glbimg.com%2FOTsVwIW3u7Gshm8myx8YGOjx6uk%3D%2F1200x630%2Fs.glbimg.com%2Fjo%2Fg1%2Ff%2Foriginal%2F2015%2F07%2F05%2Facidente4.jpg&sdk=joey&version=v2.1
+
+https://www.facebook.com/v2.1/dialog/feed?app_id=289255557788943&display=popup&e2e=%7B%7D&link=http%3A%2F%2Fg1.globo.com%2Frs%2Frio-grande-do-sul%2Fnoticia%2F2015%2F07%2Fmotorista-levava-11-em-carro-e-bateu-em-carreta-no-rs-vai-para-cti.html%3Futm_source%3Dfacebook%26utm_medium%3Dshare-bar-desktop%26utm_campaign%3Dshare-bar&locale=en_US&name=EEEEE%20que%20levava%2011%20em%20carro%20e%20bateu%20em%20carreta%20no%20RS%20vai%20para%20CTI&next=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FxRlIuTsSMoE.js%3Fversion%3D41%23cb%3Df1571a9e94%26domain%3Dg1.globo.com%26origin%3Dhttp%253A%252F%252Fg1.globo.com%252Ff3a75a486%26relation%3Dopener%26frame%3Dfe821113c%26result%3D%2522xxRESULTTOKENxx%2522&picture=http%3A%2F%2Fs2.glbimg.com%2FOTsVwIW3u7Gshm8myx8YGOjx6uk%3D%2F1200x630%2Fs.glbimg.com%2Fjo%2Fg1%2Ff%2Foriginal%2F2015%2F07%2F05%2Facidente4.jpg&sdk=joey&version=v2.1
+
+
+https://www.facebook.com/dialog/feed?
+  app_id=145634995501895
+&name=Venha
+&description=Logo
+  &display=popup&caption=An%20example%20captionED
+  &link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
+  &redirect_uri=https://developers.facebook.com/tools/explorer
+--->> Funciona
+https://www.facebook.com/dialog/feed?
+  app_id=1674189372812369
+&name=Venha
+&description=Logo
+  &display=popup&caption=An%20example%20captionED
+  &link=https%3A%2F%2Fwww.ccbc.org.br%2FEventos%2F
+  &redirect_uri=https://www.ccbc.org.br/Eventos
+---<<
+--->> Funciona também: 
+https://www.facebook.com/dialog/feed?
+  app_id=1674189372812369
+&name=O FUTURO DA TECNOLOGIA PARA PAGAMENTOS
+&description=Brasileiros e canadenses terão a oportunidade de trocar experiências na área de tecnologia para pagamentos ao longo desta semana. Durante o Ciab Febraban 2015, congresso e exposição em tecnologia da informação das instituições financeiras...
+  &display=popup&caption=ccbc.org.br
+  &link=http://www.ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+  &redirect_uri=http://www.ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+---<<
+--->> Funciona também: 
+https://www.facebook.com/dialog/feed?
+  app_id=1674189372812369
+&name=O FUTURO DA TECNOLOGIA PARA PAGAMENTOS
+&description=Brasileiros e canadenses terão a oportunidade de trocar experiências na área de tecnologia para pagamentos ao longo desta semana. Durante o Ciab Febraban 2015, congresso e exposição em tecnologia da informação das instituições financeiras...
+  &display=popup&caption=ccbc.org.br
+  &link=http://www.ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+  &redirect_uri=http://www.ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+&picture=http://www.ccbc.org.br/File?Id=10739
+---<<
+
+https://www.facebook.com/v2.3/dialog/feed?app_id=1674189372812369&caption=ccbc.org.br&description=Brasileiros%20e%20canadenses%20ter%C3%A3o%20a%20oportunidade%20de%20trocar%20experi%C3%AAncias...&display=popup&e2e=%7B%7D&link=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos&locale=en_US&name=O%20FUTURO%20DA%20TECNOLOGIA%20PARA%20PAGAMENTOS&picture=http%3A%2F%2Fwww.ccbc.org.br%2FFile%3FId%3D10739&sdk=joey&version=v2.3
+&redirect_uri=http://www.ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+
+https://www.facebook.com/v2.3/dialog/feed?app_id=1674189372812369&caption=ccbc.org.br&description=Brasileiros%20e%20canadenses%20ter%C3%A3o%20a%20oportunidade%20de%20trocar%20experi%C3%AAncias...&display=popup&e2e=%7B%7D&link=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos&locale=en_US&name=O%20FUTURO%20DA%20TECNOLOGIA%20PARA%20PAGAMENTOS&picture=http%3A%2F%2Fwww.ccbc.org.br%2FFile%3FId%3D10739&sdk=joey&version=v2.3
+&next=http://www.ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+
+https://www.facebook.com/v2.3/dialog/share?app_id=1674189372812369&caption=ccbc.org.br&description=Brasileiros%20e%20canadenses%20ter%C3%A3o%20a%20oportunidade%20de%20trocar%20experi%C3%AAncias...&display=popup&e2e=%7B%7D&link=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos&locale=en_US&name=O%20FUTURO%20DA%20TECNOLOGIA%20PARA%20PAGAMENTOS&next=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos&picture=http%3A%2F%2Fwww.ccbc.org.br%2FFile%3FId%3D10739&sdk=joey&version=v2.3
+&href=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos
+
+https://www.facebook.com/v2.3/dialog/feed?app_id=1674189372812369&caption=ccbc.org.br&description=11&display=popup&e2e=%7B%7D&link=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos&locale=en_US&name=O%20futuro%20da%20tecnologia%20para%20pagamentos&next=http%3A%2F%2Fwww.ccbc.org.br%2FNoticias%2F1291%2Fo-futuro-da-tecnologia-para-pagamentos&picture=http%3A%2F%2Fwww.ccbc.org.br%2FFile%3FId%3D10739&sdk=joey&version=v2.3
+
+https://www.facebook.com/sharer/sharer.php?u=oincrivelze.com.br/mec-oferece-30-cursos-de-tecnologia-da-informacao/?fb_action_ids=958746864148475&fb_action_types=og.comments
+
+
+
+Next = Redirect_URI
+
+
+http://ccbc.org.br/Noticias/1273/dolar-em-alta-deixa-canada-mais-atraente
+
+https://www.facebook.com/dialog/feed?
+  app_id=145634995501895
+&name=Venha
+&description=Logo
+  &display=popup&caption=An%20example%20captionED
+  &link=https%3A%2F%2Fccbc.org.br%2FEventos%2F
+  &redirect_uri=https://ccbc.org.br/Eventos
+
+
+https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&sdk=joey&u=http%3A%2F%2Fccbc.org.br%2FNoticias%2F1294%2Fus%24-1-milhao-para-carros-conectados&display=popup&ref=plugin&src=share_button&name=Venha
+&description=Logo
+
+https://www.facebook.com/sharer/sharer.php?app_id=1674189372812369&sdk=joey&u=http%3A%2F%2Fccbc.org.br%2FNoticias%2F1294%2Fus%24-1-milhao-para-carros-conectados%2F&display=popup&ref=plugin&src=share_button

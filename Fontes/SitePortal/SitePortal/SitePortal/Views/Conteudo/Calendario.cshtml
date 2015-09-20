@@ -1,0 +1,31 @@
+﻿
+<script language="javascript">
+    $(document).ready(
+        function () {
+
+
+            $("#nextCalendar").on("click", function () {
+                $.ajax({
+                    url: "/Conteudo/Calendario",
+                    type: "GET",
+                    data: { inc: 1 }
+                })
+                .done(function (partialViewResult) {
+                    $("#dvCalendario").html(partialViewResult);
+                });
+            });
+            $("#prevCalendar").on("click", function () {
+                $.ajax({
+                    url: "/Conteudo/Calendario",
+                    type: "GET",
+                    data: { inc: -1 }
+                })
+                .done(function (partialViewResult) {
+                    $("#dvCalendario").html(partialViewResult);
+                });
+            });
+
+    });
+</script>
+
+@(SitePortal.Helper.CalendarHelper.RenderControl(ViewBag.inc))

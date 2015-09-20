@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Setup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model BackofficeCMS.Models.CMS
+
+@if (!Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.CONFIGURACAO_SETUP)))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                <b>Conteúdo restrito, acesso negado!</b>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                <b>Serviço indisponível!</b>
+            </div>
+        </div>
+    </div>
+}

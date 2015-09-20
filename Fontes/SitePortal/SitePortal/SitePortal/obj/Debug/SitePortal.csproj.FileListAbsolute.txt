@@ -1,0 +1,110 @@
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.dll.config
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.pdb
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Infrastructure.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Deployment.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Razor.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Deployment.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Razor.xml
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.csprojResolveAssemblyReference.cache
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.pdb
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DAL.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DTO.dll
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DAL.pdb
+C:\Ed\Projeto CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DTO.pdb
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.dll.config
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.pdb
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Antlr3.Runtime.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\BundleTransformer.Core.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DAL.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DTO.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Infrastructure.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Optimization.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Deployment.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Razor.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\WebGrease.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DAL.pdb
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DTO.pdb
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Antlr3.Runtime.pdb
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Optimization.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Deployment.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Razor.xml
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.csprojResolveAssemblyReference.cache
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.dll
+C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.pdb
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.dll.config
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\SitePortal.pdb
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Antlr3.Runtime.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\BundleTransformer.Core.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DAL.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DTO.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Infrastructure.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Optimization.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Deployment.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Razor.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\WebGrease.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DAL.pdb
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\DTO.pdb
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Antlr3.Runtime.pdb
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Optimization.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Deployment.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.Razor.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.csprojResolveAssemblyReference.cache
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.pdb

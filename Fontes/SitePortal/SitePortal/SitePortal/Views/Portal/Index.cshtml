@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;// "~/Views/Shared/_Layout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="@Url.Content("~/Images/favicon.ico")" type="image/x-icon" />
+    <title>Portal CCBC / CAM-CCBC</title>
+    @Styles.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/demo"))
+
+    @*<script type="text/javascript" src="Scripts/Libs/modernizr.custom.86080.js"></script>*@
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/modern"))
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        .opacidade:hover {
+            opacity: 0.5;
+        }
+
+        .linha {
+            width: 500px;
+            height: auto;
+            margin: 100px auto;
+        }
+
+        .box {
+            float: left;
+            width: 50%;
+            height: auto;
+            min-height: 110px;
+        }
+
+            .box:hover {
+                opacity: 0.5;
+            }
+    </style>
+</head>
+<body>
+
+    <ul class="bg-slideshow">
+        <li>
+            <span>Image 01</span><div></div>
+        </li>
+        <li>
+            <span>Image 02</span><div></div>
+        </li>
+        @*<li>
+            <span>Image 03</span><div></div>
+        </li>*@
+        <li>
+            <span>Image 04</span><div></div>
+        </li>
+        <li>
+            <span>Image 05</span><div></div>
+        </li>
+        <li>
+            <span>Image 06</span><div></div>
+        </li>
+        <li>
+            <span>Image 07</span><div></div>
+        </li>
+        @*<li>
+            <span>Image 08</span><div></div>
+        </li>*@
+        <li>
+            <span>Image 09</span><div></div>
+        </li>
+        <li>
+            <span>Image 10</span><div></div>
+        </li>
+    </ul>
+    <!-- BG SlideShow -->
+
+
+
+
+    <div class="conteudo">
+
+
+        <!-- Logo + Menu -->
+        <div id="tdz_escolha_bg">
+
+            <div class="linha">
+                <br /><br />
+                @*<div class="box"><a href="@Url.Action("SessionSite", "Home", new { site = "1" })"><img src="~/Images/bt-01.png" alt="CCBC" title="CCBC" /></a></div>
+                <div class="box"><a href="@Url.Action("SessionSite", "Home", new { site = "2" })"><img src="~/Images/bt-02.png" alt="CAM-CCBC" title="CAM-CCBC" /></a></div>*@
+
+                <div class="box"><a href="@Url.Content("~/Home/SessionSite?_site=1")"><img src="~/Images/Logo_CCBC.png" alt="CCBC" title="CCBC" /></a></div>
+                <div class="box"><a href="@Url.Content("~/Home/SessionSite?_site=2")"><img src="~/Images/Logo_Cam.png" alt="CAM-CCBC" title="CAM-CCBC" /></a></div>
+
+                @*<div class="box">
+                        <a href="@Url.Action("SessionSite", "Home", new { site = "3" })">
+                            <img src="~/Images/bt-03.png" alt="ccbc" />
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="@Url.Action("SessionSite", "Home", new { site = "4" })">
+                            <img src="~/Images/bt-04.png" alt="ccbc" />
+                        </a>
+                    </div>*@
+            </div>
+
+
+
+
+        </div>
+        <!-- Logo + Menu -->
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@model BackofficeCMS.Models.CMS
+    
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EDITARARQUIVO)))
+{
+    <input id="optFunc_210" type="hidden" />
+}
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EXCLUIRARQUIVO)))
+{
+    <input id="optFunc_211" type="hidden" />
+}
+
+
+<form id="frmCadMediaCenter">
+
+    <div style="float: left; width: 980px; height: 430px; ">
+        <div  class="form-group">
+            <div style="float: left; width: 100%; display: block;">
+                <div class="btn-group" style="float: left; margin: 0 0 4px 0; padding: 0;">
+                    @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_CRIARPASTA)))
+                    {
+                        <a id="btnCriarPasta" class="btn blue-hoki" style="font-size: 13px !important; margin: 0 2px 0 0;"><i class="fa fa-plus"></i> Criar Pasta</a>
+                    }  
+                    
+                    @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EXCLUIRPASTA)))
+                    {
+                        <a id="btnExcluirPasta" class="btn blue-hoki" style="font-size: 13px !important; margin: 0 2px 0 0;"><i class="fa fa-trash-o"></i> Excluir Pasta</a>
+                    }
+                    
+                    @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_RENOMEARPASTA)))
+                    {
+                        <a id="btnEditarPasta" class="btn blue-hoki" style="font-size: 13px  !important; margin: 0 2px 0 0;"><i class="fa fa-edit"></i> Renomear Pasta  </a>
+                    }
+                    
+                    @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_ADICIONARARQUIVO)))
+                    {
+                        <a id="btnNovoArquivoMedia" class="btn blue-hoki" style="font-size: 13px !important;"><i class="fa fa-upload"></i> Adicionar Arquivo</a>
+                    }
+                </div>
+            </div>
+            <div id="dvPasta" style="float: left; width: 200px; height: 430px; border: 1px solid #67809f; border-right: none; overflow: auto;">
+                <div id="tvPasta">
+                </div>
+            </div>
+            <div >
+                <div id="dvPreview" style="float: left; width: 770px; height: 430px; border: 1px solid #67809f; padding-top: 10px; overflow: auto; overflow-x: auto;">
+
+                    <div class="mix-grid" id="gridMedia" ownerid="0" arquivocategoriatipoid="4">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+@{Html.RenderPartial("../Pasta/CadPasta", null);}

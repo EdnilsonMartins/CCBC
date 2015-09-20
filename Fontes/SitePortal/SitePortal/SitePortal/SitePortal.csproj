@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94BBB7EA-1CD9-4C25-93BF-C490EC3DD12D}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SitePortal</RootNamespace>
+    <AssemblyName>SitePortal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Core">
+      <HintPath>..\packages\BundleTransformer.Core.1.9.35\lib\net40\BundleTransformer.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Login.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Login.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Login.es-ES.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Login.fr-CA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.fr-CA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Portal.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Portal.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.es-ES.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Portal.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Portal.fr-CA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Portal.fr-CA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\BuscaController.cs" />
+    <Compile Include="Controllers\BuscaSocioController.cs" />
+    <Compile Include="Controllers\ContatoController.cs" />
+    <Compile Include="Controllers\ConteudoController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InternaController.cs" />
+    <Compile Include="Controllers\MateriaController.cs" />
+    <Compile Include="Controllers\NoticiasController.cs" />
+    <Compile Include="Controllers\PortalController.cs" />
+    <Compile Include="Controllers\PublicacaoController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\CalendarHelper.cs" />
+    <Compile Include="Models\Conteudo.cs" />
+    <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\Portal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WCFIntegracaoPortal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="HandlerFile.ashx.cs">
+      <DependentUpon>HandlerFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Weather\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\assets\Bt_seta_banner_prev.png" />
+    <Content Include="Content\assets\Bt_seta_banner_prox.png" />
+    <Content Include="Content\assets\d_icons.png" />
+    <Content Include="Content\assets\loader.gif" />
+    <Content Include="Content\assets\play_pause.png" />
+    <Content Include="Content\assets\select_arrow.png" />
+    <Content Include="Content\assets\spacer.png" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\popover.css" />
+    <Content Include="Content\coin-slider-styles.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\fancybox\blank.gif" />
+    <Content Include="Content\fancybox\fancybox-x.png" />
+    <Content Include="Content\fancybox\fancybox-y.png" />
+    <Content Include="Content\fancybox\fancybox.png" />
+    <Content Include="Content\fancybox\fancy_close.png" />
+    <Content Include="Content\fancybox\fancy_loading.png" />
+    <Content Include="Content\fancybox\fancy_nav_left.png" />
+    <Content Include="Content\fancybox\fancy_nav_right.png" />
+    <Content Include="Content\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\fancybox\fancy_title_left.png" />
+    <Content Include="Content\fancybox\fancy_title_main.png" />
+    <Content Include="Content\fancybox\fancy_title_over.png" />
+    <Content Include="Content\fancybox\fancy_title_right.png" />
+    <Content Include="Content\fancybox\jquery-1.4.3.min.js" />
+    <Content Include="Content\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Content\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Content\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Content\fancybox\style.css" />
+    <Content Include="Images\Bg_GERAL.jpg" />
+    <Content Include="Images\facebook.svg" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\Icon_Saiba_Mais.png" />
+    <Content Include="Content\list-rotator.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style1.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\bt-01.png" />
+    <Content Include="Images\bt-02.png" />
+    <Content Include="Images\bt-03.png" />
+    <Content Include="Images\bt-04.png" />
+    <Content Include="Images\divisoes_Cam_2.png" />
+    <Content Include="Images\Ico_contato.png" />
+    <Content Include="Images\Img_superbanner_interna.jpg" />
+    <Content Include="Images\landscape\01.jpg" />
+    <Content Include="Images\landscape\02.jpg" />
+    <Content Include="Images\landscape\03.jpg" />
+    <Content Include="Images\landscape\04.jpg" />
+    <Content Include="Images\landscape\05.jpg" />
+    <Content Include="Images\landscape\06.jpg" />
+    <Content Include="Images\landscape\07.jpg" />
+    <Content Include="Images\landscape\08.jpg" />
+    <Content Include="Images\linkedin.png" />
+    <Content Include="Images\Logo_amigoscanada.png" />
+    <Content Include="Images\Logo_cam.png" />
+    <Content Include="Images\Logo_CCBC.png" />
+    <Content Include="Images\Logo_instituto.png" />
+    <Content Include="Images\micro_bandeira_bra.gif" />
+    <Content Include="Images\micro_bandeira_can.gif" />
+    <Content Include="Images\Portal\1.jpg" />
+    <Content Include="Images\Portal\2.jpg" />
+    <Content Include="Images\Portal\3.jpg" />
+    <Content Include="Images\Portal\4.jpg" />
+    <Content Include="Images\Portal\5.jpg" />
+    <Content Include="Images\Portal\Bg_ccbc_escolha.png" />
+    <Content Include="Images\Portal\pattern.png" />
+    <Content Include="Images\selCidade.png" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Scripts\jBuscaSocio.js" />
+    <Content Include="Scripts\jCalculadora.js" />
+    <Content Include="Scripts\jCMSCounter.js" />
+    <None Include="Service References\Weather\globalweather.disco" />
+    <None Include="Service References\Weather\configuration91.svcinfo" />
+    <None Include="Service References\Weather\configuration.svcinfo" />
+    <None Include="Service References\Weather\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\jFace.js" />
+    <Content Include="Scripts\Libs\bootstrap.min.js" />
+    <Content Include="Scripts\Libs\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\Libs\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Scripts\Libs\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\Libs\jquery.maskMoney.min.js" />
+    <Content Include="Scripts\Libs\jssor_slider\jssor.js" />
+    <Content Include="Scripts\Libs\jssor_slider\jssor.slider.js" />
+    <Content Include="thanks.html" />
+    <Content Include="WebForm\WebForm1.aspx" />
+    <None Include="BundleTransformer.Configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\Deploy Portal CCBC - No Delete.pubxml" />
+    <None Include="Properties\PublishProfiles\Deploy Site Portal.pubxml" />
+    <None Include="Service References\WCFIntegracaoPortal\IntegracaoPortal.disco" />
+    <None Include="Service References\WCFIntegracaoPortal\configuration91.svcinfo" />
+    <None Include="Service References\WCFIntegracaoPortal\configuration.svcinfo" />
+    <None Include="Service References\WCFIntegracaoPortal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Images\Assos_01.jpg" />
+    <Content Include="Images\Assos_02.jpg" />
+    <Content Include="Images\Assos_03.jpg" />
+    <Content Include="Images\Assos_04.jpg" />
+    <Content Include="Images\Assos_05.jpg" />
+    <Content Include="Images\Assos_06.jpg" />
+    <Content Include="Images\Banner_reserve.png" />
+    <Content Include="Images\Banner_vale.png" />
+    <Content Include="Images\Bg_menu-hover.png" />
+    <Content Include="Images\Bg_pattern.jpg" />
+    <Content Include="Images\Bt_acesso_enviar.png" />
+    <Content Include="Images\Bt_buscar.png" />
+    <Content Include="Images\Bt_divisoes.png" />
+    <Content Include="Images\Bt_print.png" />
+    <Content Include="Images\divisoes_amigoscanada.png" />
+    <Content Include="Images\divisoes_Cam.png" />
+    <Content Include="Images\divisoes_CCBC.png" />
+    <Content Include="Images\divisoes_instituto.png" />
+    <Content Include="Images\evento01.jpg" />
+    <Content Include="Images\Evento02.jpg" />
+    <Content Include="Images\Evento03.jpg" />
+    <Content Include="Images\Icon_agenda.png" />
+    <Content Include="Images\Icon_eventos.png" />
+    <Content Include="Images\Icon_face.jpg" />
+    <Content Include="Images\Icon_flickr.jpg" />
+    <Content Include="Images\Icon_newsletter.png" />
+    <Content Include="Images\Icon_noticias.png" />
+    <Content Include="Images\Icon_quickmenu.png" />
+    <Content Include="Images\Icon_rss.jpg" />
+    <Content Include="Images\Icon_twitter.jpg" />
+    <Content Include="Images\Ico_quick_01.png" />
+    <Content Include="Images\Ico_quick_02.png" />
+    <Content Include="Images\Ico_quick_03.png" />
+    <Content Include="Images\Ico_quick_04.png" />
+    <Content Include="Images\Ico_quick_05.png" />
+    <Content Include="Images\Ico_quick_06.png" />
+    <Content Include="Images\Img_acesso_cadeado.png" />
+    <Content Include="Images\Img_acesso_cadeado_aberto.png" />
+    <Content Include="Images\Img_banner_home.jpg" />
+    <Content Include="Images\Img_banner_home2.jpg" />
+    <Content Include="Images\Img_banner_home3.jpg" />
+    <Content Include="Images\Img_cadeado.png" />
+    <Content Include="Images\Img_cadeado_fechado.png" />
+    <Content Include="Images\Img_noticias.jpg" />
+    <Content Include="Images\Img_publicidade.jpg" />
+    <Content Include="Images\Parceiros_01.jpg" />
+    <Content Include="Images\Parceiros_02.jpg" />
+    <Content Include="Images\Parceiros_03.jpg" />
+    <Content Include="Images\Parceiros_04.jpg" />
+    <Content Include="Images\Parceiros_05.jpg" />
+    <Content Include="Images\Parceiros_06.jpg" />
+    <Content Include="Images\scottwills_building2.jpg" />
+    <Content Include="Scripts\jBusca.js" />
+    <Content Include="Scripts\jConteudo.js" />
+    <Content Include="Scripts\jHome.js" />
+    <Content Include="Scripts\jPortal.js" />
+    <Content Include="Scripts\Libs\coin-slider.js" />
+    <Content Include="Scripts\Libs\coin-slider.min.js" />
+    <Content Include="Scripts\Libs\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\Libs\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\Libs\jquery.easing.1.3.min.js" />
+    <Content Include="Scripts\Libs\jquery.js" />
+    <Content Include="Scripts\Libs\jquery.list-rotator.js" />
+    <Content Include="Scripts\Libs\jquery.list-rotator.min.js" />
+    <Content Include="Scripts\Libs\modernizr.custom.86080.js" />
+    <Content Include="Scripts\Libs\show_hide.js" />
+    <Content Include="WebForm\Calendario.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <None Include="Service References\WCFIntegracaoPortal\IntegracaoPortal2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\WCFIntegracaoPortal\SitePortal.WCFIntegracaoPortal.ListaMenuResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Views\Interna\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPadrao.cshtml" />
+    <Content Include="Views\Contato\Index.cshtml" />
+    <Content Include="Views\Busca\Index.cshtml" />
+    <Content Include="Views\Conteudo\Index.cshtml" />
+    <Content Include="HandlerFile.ashx" />
+    <Content Include="Views\Eventos\Index.cshtml" />
+    <Content Include="Views\Noticias\Index.cshtml" />
+    <Content Include="Views\Conteudo\QuickMenu.cshtml" />
+    <Content Include="Views\Materia\Index.cshtml" />
+    <Content Include="Views\BuscaSocio\Index.cshtml" />
+    <None Include="Service References\Weather\globalweather.wsdl" />
+    <Content Include="Views\Busca\Resultado.cshtml" />
+    <Content Include="Views\Conteudo\Agenda.cshtml" />
+    <Content Include="Views\Conteudo\NewsLetter.cshtml" />
+    <Content Include="Views\Conteudo\Calendario.cshtml" />
+    <Content Include="Views\Conteudo\BannerPublicidadeRotativo.cshtml" />
+    <Content Include="Views\Conteudo\Calculadora2015.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Portal\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFIntegracaoPortal\" />
+    <WCFMetadataStorage Include="Service References\Weather\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFIntegracaoPortal\IntegracaoPortal.wsdl" />
+    <None Include="Service References\WCFIntegracaoPortal\IntegracaoPortal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFIntegracaoPortal\IntegracaoPortal1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ServicePortal\DAL\DAL.csproj">
+      <Project>{b96a4278-d660-4f79-a638-d7b42e32963e}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ServicePortal\DTO\DTO.csproj">
+      <Project>{595bc7ee-9f3d-4ea3-9b66-9e67a052d80f}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Login.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Login.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Login.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Login.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Login.es-ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Login.es-ES.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.es-ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.es-ES.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Login.fr-CA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Login.fr-CA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Portal.fr-CA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Portal.fr-CA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60638</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60638/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

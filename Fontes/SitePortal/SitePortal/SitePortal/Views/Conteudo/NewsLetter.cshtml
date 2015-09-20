@@ -1,0 +1,31 @@
+﻿<!-- Newsletter -->
+<div class="lateral-conteudo-newsletter">
+    <div class="ico">
+        <img src="@Url.Content("~/")Images/Icon_newsletter.png" alt="Icone CCBC" />
+    </div>
+    <div class="titulo">
+        <h1>@Resources.Portal.Home_NewsLetter_Titulo</h1>
+    </div>
+    <div class="subtitulo">
+        <h2>@Resources.Portal.Home_NewsLetter_SubTitulo</h2>
+    </div>
+    <div class="lateral-conteudo-newsletter-conteudo">
+        <input type="text" name="newsletter_nome" id="newsletter_nome" placeholder="@Resources.Portal.NewsLetter_Nome" />
+        <input type="text" name="newsletter_email" id="newsletter_email" placeholder="@Resources.Portal.NewsLetter_Email" />
+        <div class="lateral-conteudo-newsletter-conteudo-texto" style="width: 100%;">
+            <div style="float: left; margin-bottom: 15px; display: none;">
+                <span id="validaCamposNews">@Resources.Portal.NewsLetter_Obrigatorio</span>
+            </div>
+            <div style="float: left;">
+                <div style="float: left;"><input type="checkbox" value="1" id="chkInscrever" style="border: 1px; margin: 2px;" /></div>
+                <div style="float: left;"><span id="spInscrever" style="cursor: pointer; font-size: 14px;">@Resources.Portal.Home_NewsLetter_Inscrever</span></div>
+            </div>
+            <div style="float: right;">
+                <div style="float: left;"><input type="checkbox" value="1" id="chkDescadastrar" style="border: 1px; margin: 2px;" /></div>
+                <div style="float: left;"><span id="spDescadastrar" style="cursor: pointer; font-size: 14px;">@Resources.Portal.Home_NewsLetter_Descadastrar</span></div>
+            </div>
+        </div>
+        <input id="btnMailing" type="button" value="@Resources.Portal.NewsLetter_Botao" class="cor-padrao" style="background-color: #8ec63f;font-size: 14px; cursor: pointer;" />
+    </div>
+</div>
+<!--/Newsletter -->

@@ -1,0 +1,772 @@
+﻿@{
+    ViewBag.Title = "MinhaConta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.fileupload.js"></script>
+
+
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jArquivo.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jPublicacao.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jEditoria.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jMediaCenter.js" type="text/javascript"></script>
+
+
+}
+
+@model BackofficeCMS.Models.CMS
+
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EDITARARQUIVO)))
+{
+    <input id="optFunc_210" type="hidden" />
+}
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EXCLUIRARQUIVO)))
+{
+    <input id="optFunc_211" type="hidden" />
+}
+
+
+
+
+<div class="row" style="">
+
+    <div class="modalInterna" style="display: none;">
+        <img src="@Url.Content("~/Content/Images/loader.gif")" alt="Aguarde..." style="border: 1px solid gray; border-radius: 4px !important; left: 50%; margin-left: -16px; position: absolute; width: 32px; top: 50%; transform: translateY(-50%); " />
+    </div>
+
+    <div class="col-md-12">
+        <div class="">
+            @*portlet-body form*@
+            <!-- BEGIN FORM-->
+            <form id="frmCadPublicacao" action="#" class="horizontal-form">
+
+                
+
+                <input type="hidden" id="PublicacaoId" name="PublicacaoId" value="@ViewBag.PublicacaoId" />
+                <div class="form-body tabbable tabbable-custom tabbable-noborder">
+
+                    <!-- Abas -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tabGeral" data-toggle="tab">
+                                Geral
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Extra <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#tabEN" tabindex="-1" data-toggle="tab">
+                                        Inglês
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tabES" tabindex="-1" data-toggle="tab">
+                                        Espanhol
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tabFR" tabindex="-1" data-toggle="tab">
+                                        Francês
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#tabGaleria" data-toggle="tab">
+                                Media
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tabDivulgacao" data-toggle="tab">
+                                Divulgação
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tabAprovacao" data-toggle="tab">
+                                Aprovações
+                            </a>
+                        </li>
+                    </ul>
+                    <!--/Abas -->
+                    <!-- Conteúdo -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tabGeral">
+
+                            @*<h3 class="form-section">Geral</h3>*@
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="Titulo" name="Titulo" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Tipo</label>
+                                        <select id="PublicacaoTipo" name="PublicacaoTipo" class="bs-select form-control">
+                                            <option value="3">Matéria</option>
+                                            <option value="2">Notícia</option>
+                                            <option value="1">Evento</option>
+                                            <option value="4">Artigo</option>
+                                            <option value="5">Página</option>
+                                            <option value="6">Home</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Data</label>
+                                        <div class="input-group date date-picker" id="dtData" data-date-format="dd/mm/yyyy" style="width: 140px;">
+                                            <input type="text" class="form-control" readonly id="Data" name="Data">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Validade</label>
+                                        <div class="input-group date date-picker" id="dtDataValidade" data-date-format="dd/mm/yyyy" style="width: 140px;">
+                                            <input type="text" class="form-control" readonly id="DataValidade" name="DataValidade">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label"></label>
+
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Status</label>
+                                        <select id="Status" name="Status" class="bs-select form-control">
+                                            <option value=""></option>
+                                            <option value="1">Ativo</option>
+                                            <option value="0">Inativo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <!-- row -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fonte</label>
+                                        <input type="text" id="Fonte" name="Fonte" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Editoria</label>
+                                        @*<input type="text" id="Editoria" name="Editoria" class="form-control">*@
+                                        <div class="input-group">
+                                            <select id="Editoria" name="Editoria" class="bs-select form-control " data-live-search="true" data-size="10"></select>
+                                            <span class="input-group-addon" style="cursor: pointer;">
+                                                <i id="btnEditoria" class="fa fa-edit"></i>
+                                            </span>
+                                        </div>
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                            </div>
+                            <!--/row -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Tags</label>
+                                        <input id="tags_1" name="tags_1" type="text" class="form-control tags" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- row -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Link<span class="help-inline font-blue-soft">
+                                                (Gerado automaticamente)
+                                            </span>
+                                        </label>
+                                        <input type="text" id="LinkURL" name="LinkURL" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row -->
+
+                            <h3 class="form-section">Destaque</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Exibir na Home</label>
+                                        <div class="radio-list">
+                                            <label class="radio-inline">
+                                                <input type="radio" id="ExibirHome" name="ExibirHome" value="1"> Sim
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" id="ExibirHome" name="ExibirHome" value="0"> Não
+                                            </label>
+                                        </div>
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Posição</label>
+                                        <input type="text" id="Posicao" name="Posicao" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <h3 class="form-section">Conteúdo</h3>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Resumo</label>
+                                        <input type="text" id="Resumo" name="Resumo" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            @*** CKEditor customizado para testes do media center.***@
+                            @*<textarea id="editor1" class="form-control"  cols="10" rows="10"></textarea>*@
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Conteúdo</label>
+                                        <input type="hidden" id="PublicacaoConteudo" name="PublicacaoConteudo" />
+                                        <textarea class="form-control" id="Conteudo" name="Conteudo" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                        </div>
+
+                        <div class="tab-pane fade " id="tabEN">
+                            <div class="alert alert-info">
+                                O conteúdo registrado nesta área será exibido apenas quando o site estiver com o idioma <b>Inglês</b> selecionado.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="TituloEN" name="TituloEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <!-- row -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fonte</label>
+                                        <input type="text" id="FonteEN" name="FonteEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                                @*<div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Editoria</label>
+                                            <input type="text" id="EditoriaEN" name="EditoriaEN" class="form-control">
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>*@
+                                <!--/span -->
+                            </div>
+                            <!--/row -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Resumo</label>
+                                        <input type="text" id="ResumoEN" name="ResumoEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Conteúdo</label>
+                                        <input type="hidden" id="PublicacaoConteudoEN" name="PublicacaoConteudoEN" />
+                                        <textarea class="form-control" id="ConteudoEN" name="ConteudoEN" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+
+                        <div class="tab-pane fade " id="tabES">
+                            <div class="alert alert-info">
+                                O conteúdo registrado nesta área será exibido apenas quando o site estiver com o idioma <b>Espanhol</b> selecionado.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="TituloES" name="TituloES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <!-- row -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fonte</label>
+                                        <input type="text" id="FonteES" name="FonteES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                                @*<div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Editoria</label>
+                                            <input type="text" id="EditoriaES" name="EditoriaES" class="form-control">
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>*@
+                                <!--/span -->
+                            </div>
+                            <!--/row -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Resumo</label>
+                                        <input type="text" id="ResumoES" name="ResumoES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Conteúdo</label>
+                                        <input type="hidden" id="PublicacaoConteudoES" name="PublicacaoConteudoES" />
+                                        <textarea class="form-control" id="ConteudoES" name="ConteudoES" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+
+                        <div class="tab-pane fade " id="tabFR">
+                            <div class="alert alert-info">
+                                O conteúdo registrado nesta área será exibido apenas quando o site estiver com o idioma <b>Francês</b> selecionado.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="TituloFR" name="TituloFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <!-- row -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fonte</label>
+                                        <input type="text" id="FonteFR" name="FonteFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                                @*<div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Editoria</label>
+                                            <input type="text" id="EditoriaFR" name="EditoriaFR" class="form-control">
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>*@
+                                <!--/span -->
+                            </div>
+                            <!--/row -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Resumo</label>
+                                        <input type="text" id="ResumoFR" name="ResumoFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Conteúdo</label>
+                                        <input type="hidden" id="PublicacaoConteudoFR" name="PublicacaoConteudoFR" />
+                                        <textarea class="form-control" id="ConteudoFR" name="ConteudoFR" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+
+
+                        <div class="tab-pane fade " id="tabGaleria">
+
+                            <div class="table-toolbar">
+
+                                <div class="row">
+
+                                    <!-- Filtro de Arquivos-->
+                                    <div class="col-md-6">
+                                        <ul class="mix-filter">
+                                            <li class="filter" data-filter="mix_all">
+                                                Todas
+                                            </li>
+                                            <li class="filter" data-filter="category_1">
+                                                Destaque
+                                            </li>
+                                            <li class="filter" data-filter="category_2">
+                                                Galeria de Fotos
+                                            </li>
+                                            <li class="filter" data-filter="category_3">
+                                                Diversos
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/Filtro de Arquivos-->
+                                    @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EXPLORAR)))
+                                    {
+                                        <div class="col-md-6">
+                                            <div class="btn-group" style="float: right;">
+                                                <a id="btnNovoArquivo" class="btn blue-hoki" style="font-size: 13px !important;"><i class="fa fa-upload"></i> Gerenciador</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="row mix-grid" id="gridArquivos" ownerid="" arquivocategoriatipoid="">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade " id="tabDivulgacao">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Controle de Exibição do Conteúdo</label>
+                                        <div class="radio-list">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="Privado" id="Privado" value="0"> Público
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="Privado" id="Privado" value="1"> Privado
+                                            </label>
+                                        </div>
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div id="dvRestricao">
+                                <h3 class="form-section">Restrição</h3>
+                                <div class="alert alert-danger">
+                                    Apenas os <b>Usuários</b> selecionados ou pertencentes aos <b>Grupos / Departamentos</b> selecionados poderão visualizar esta publicação.
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label Header_Restricao_UsuarioGrupo_Usuario">Grupos / Departamentos</label>
+                                            @*<br /><br />
+                                                <div>
+                                                    <div class="" style="display: inline-block; margin: 0px 0px 0px 0px; border-bottom: 1px solid gray; width: 167px;"><label style="font-weight: bold;">Disponíveis</label></div>
+                                                    <div class="" style="display: inline-block; margin: 0px 0px 2px 33px; border-bottom: 1px solid gray; width: 166px;"><label class="blue-hoki" style="font-weight: bold;">Selecionados</label></div>
+                                                </div>
+                                                <select id="UsuarioGrupo" name="UsuarioGrupo" multiple="multiple" class="multi-select col-md-4">
+                                                </select>
+
+
+                                                <hr />*@
+                                            <div id="tvUsuarioGrupo" style="height: 250px; overflow: auto;"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" >
+                                            <label class="control-label Header_Restricao_UsuarioGrupo_Usuario">Usuários</label>
+                                            
+                                            <div id="tvUsuario" style="height: 250px; overflow: auto;"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+
+                        <div id="tabAprovacao" class="tab-pane fade">
+                            <div id="infoAprovado" class="alert alert-success" style="display: none;">
+                                O conteúdo desta publicação foi liberado em <b>xx/xx/xxxx</b> às <b>hh:mm</b>.
+                            </div>
+                            <div id="infoReprovado" class="alert alert-danger" style="display: none;">
+                                O conteúdo desta publicação foi reprovado em <b>xx/xx/xxxx</b> às <b>hh:mm</b>.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-wizard">
+                                        <div class="form-group">
+
+                                            <ul id="listaPassos" class="nav nav-pills nav-justified steps">
+                                                @*<li>
+                                                        <a href="#tab1" data-toggle="tab" class="step">
+                                                            <span class="number">
+                                                                1
+                                                            </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Account Setup
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#tab2" data-toggle="tab" class="step">
+                                                            <span class="number">
+                                                                2
+                                                            </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Profile Setup
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#tab3" data-toggle="tab" class="step active">
+                                                            <span class="number">
+                                                                3
+                                                            </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Billing Setup
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#tab4" data-toggle="tab" class="step">
+                                                            <span class="number">
+                                                                4
+                                                            </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> Confirm
+                                                            </span>
+                                                        </a>
+                                                    </li>*@
+                                            </ul>
+                                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                                <div id="barPercentual" class="progress-bar progress-bar-success">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6" style="border-right: 1px solid lightgray; min-height: 200px;">
+                                    <h3 class="form-section">Histórico de Aprovações</h3>
+                                    <div class="form-group">
+                                        <label id="InfoHistorico" class="control-label" style="display: none;">Nenhum registro até o momento.</label>
+                                        <ul id="listaPublicacaoAprovacaoHistorico" class="timeline">
+                                            @*<li class="timeline-grey">
+                                                    <div class="timeline-time" style="padding: 10px 14px 0 0;">
+                                                        <span class="date">
+                                                            4/10/13
+                                                        </span>
+                                                        <span class="date">
+                                                            18:30
+                                                        </span>
+                                                    </div>
+                                                    <div class="timeline-icon">
+                                                        <i class="fa fa-question"></i>
+                                                    </div>
+                                                    <div class="timeline-body" style="margin: 0 0 15px 27%;">
+                                                        <div class="timeline-content">
+                                                            Ednilson Martins  <br /><br />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="timeline-red timeline-noline">
+                                                    <div class="timeline-time" style="padding: 10px 14px 0 0;">
+                                                        <span class="date">
+                                                            4/10/13
+                                                        </span>
+                                                        <span class="date">
+                                                            18:30
+                                                        </span>
+                                                    </div>
+                                                    <div class="timeline-icon">
+                                                        <i class="fa fa-stop"></i>
+                                                    </div>
+                                                    <div class="timeline-body" style="margin: 0 0 15px 27%;">
+                                                        <div class="timeline-content">
+                                                            José Simão  <br /><br />
+                                                        </div>
+                                                    </div>
+                                                </li>*@
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div id="dvLiberacao" class="col-md-6">
+                                    <h3 class="form-section">Liberação</h3>
+                                    <div class="form-group">
+                                        <label id="dvLiberacaoInfo" class="control-label" style="display: none;">Você está apto a aprovar ou reprovar a publicação deste conteúdo, escolha uma opção e clique em confirmar.</label>
+                                        <div id="dvLiberacaoAcao" style="display: none;">
+                                            <div style="float: left; height: 100px; padding: 40px 0 0 0;">
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="Aprovado" name="Aprovado" value="1"> Aprovar
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="Aprovado" name="Aprovado" value="0"> Reprovar
+                                                </label>
+                                            </div>
+                                            <div style="float: left; padding: 32px 0 0 60px;">
+                                                <button type="button" id="btnLiberar" class="btn blue" title="Confirmar liberação"><i class="fa"></i> Confirmar</button>
+                                            </div>
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                    <!--/Conteúdo -->
+
+                </div>
+
+                <div style="width: 100%; text-align: right; margin-top: 0px; border-top: 1px solid lightgray; padding-top: 5px; ">
+                    <button type="button" id="btnSalvarPublicacao" class="btn green" title="Salvar dados da publicação"><i class="fa fa-check"></i> Salvar</button>
+                    <button type="button" id="btnFecharPublicacao" onclick="javascript: history.go(-1);" class="btn default">Voltar</button>
+                </div>
+
+            </form>
+            <!-- END FORM-->
+        </div>
+    </div>
+</div>
+
+
+@{Html.RenderPartial("CadArquivo", null);}
+@{Html.RenderPartial("../Editoria/CadEditoria", null);}
+
+@*@{Html.RenderPartial("../MediaCenter/CadMediaCenter", null);}*@
+@{Html.RenderPartial("../Publicacao/SelArquivo", null);}
+
+
+

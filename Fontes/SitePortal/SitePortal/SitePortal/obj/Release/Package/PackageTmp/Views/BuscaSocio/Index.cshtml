@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string letras = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
+}
+
+@model SitePortal.Models.Portal
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jBuscaSocio.js")"></script>
+}
+
+<div class="geral-1050">
+    <div class="conteudo">
+
+        <!-- nav internas -->
+        <div class="internas-navegacao">
+            <a href="@Url.Content("~")">Home</a>
+            <a href="#">-</a>
+            <a href="#">Resultados da Busca por @Model.AssociadoCategoria</a>
+        </div>
+        <!-- nav internas -->
+        <!-- contato -->
+        <div class="resultados-titulo">
+            <h1>BUSCA POR&nbsp;@Model.AssociadoCategoria.ToUpper()<span class="cor-padrao-texto"></span></h1>
+        </div>
+
+        <div class="busca-associados-filtro">
+            <div class="busca-associados-filtro-cabecalho">
+                <h1>Escolha uma letra</h1>
+            </div>
+            <div class="busca-associados-filtro-linha">
+                @for (int i = 0; i < 26; i++)
+                {
+                    <div class="busca-associados-filtro-linha-letra" letra="@letras.Substring(i, 1)" >
+                        <span class="itemLetra">@letras.Substring(i, 1)</span>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="busca-associados-filtro">
+            <div class="busca-associados-filtro-linha">
+                <div class="busca-associados-filtro-linha-letra" letra="" style="width: 74px !important; margin-top: 4px; ">
+                    <span class="itemLetra">TODOS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="busca-associados-resultados">
+
+            <div class="resultados">
+                <h3></h3>
+                <h1></h1>
+                <h2>Nenhum resultado localizado!</h2>
+            </div>
+
+            <input type="hidden" id="SiteId" value="@Model.SiteId" />
+            <input type="hidden" id="AssociadoCategoriaId" value="@Model.AssociadoCategoriaId" />
+            <div id="dvEsquerda" class="busca-associados-resultados-esquerda">
+                <h3 id="TituloEsquerda">Pessoa Jurídica</h3>
+                <div id="ListaEsquerda">
+                    @*@for (int a = 0; a < 10; a++)
+                        {
+                            <div class="busca-associados-resultados-item">
+                                <div class="busca-associados-resultados-item-linha">
+                                    <span class="bandeira"></span>
+                                    <span class="itemLetra">Nome do associado A-@a</span>
+                                    <span class="resumo" id="btnResumo_@a" resumoid="@a"></span>
+                                </div>
+                                <div class="busca-associados-resultados-item-linha-resumo" id="Resumo_@a">
+                                    <span class="itemResumo">Algum texto sobre este item poderá conter quebra de linha:<br />Você faz o que quiser!!!</span>
+                                </div>
+                            </div>
+                        }*@
+                </div>
+            </div>
+            <div id="dvDireita" class="busca-associados-resultados-direita">
+                <h3 id="TituloDireita">Pessoa Física</h3>
+                <div id="ListaDireita">
+                    @*@for (int b = 0; b < 10; b++)
+                        {
+                            <div class="busca-associados-resultados-item">
+                                <div class="busca-associados-resultados-item-linha">
+                                    <span class="bandeira"></span>
+                                    <span class="itemLetra">Nome do associado B-@b</span>
+                                    <span class="resumo" id="btnResumo_@b" resumoid="@b"></span>
+                                </div>
+                                <div class="busca-associados-resultados-item-linha-resumo" id="Resumo_@b">
+                                    <span class="itemResumo">Algum texto sobre este item poderá conter quebra de linha:<br />Você faz o que quiser!!!</span>
+                                </div>
+                            </div>
+                        }*@
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

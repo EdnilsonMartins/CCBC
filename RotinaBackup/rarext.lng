@@ -1,0 +1,62 @@
+***messages***
+
+;  Strings
+
+6886ff34="Extr&air arquivos..."
+b7a5f550="&Extrair para %s"
+b20dafca="E&xtrair aqui"
+021cbcfb="Extrair cada arquivo para uma pasta &separada"
+617acbba="Extrair arquivos. Opções adicionais são permitidas"
+ea005fbc="Extrair arquivos para pasta específica"
+f0beb393="Extrair arquivos para pasta atual"
+a7f5c6e4="Extrair cada arquivo selecionado para uma pasta separada"
+70d5b514="&Adicionar para o arquivo..."
+5967a561="Adicionar arquivos para um arquivo. Opções adicionais são permitidas"
+40fc5f05="Adicionar pa&ra %s"
+53569601="Adicionar arquivos para o arquivo"
+eef0b802="Abrir com o &WinRAR"
+158ded13="Abrir arquivo SFX no WinRAR"
+c0d0f264="Arquivo"
+8158fd94="Comentário"
+b80a083f="Desconhecido"
+5e6ee46d="sólido"
+f5a771c2="SFX"
+d3a85293="Volume %s"
+ddfb522e="Arquivo %s"
+e89001ef="Presente"
+fc9a1d99="Ausente"
+d17cc551="Comprimir para %s e enviar por e-mail"
+a8a78360="Comprimir e enviar por e-mail..."
+e29251a0="Testar arqu&ivo"
+d8ce9c87="Verificar arquivo em busca de erros"
+1c414d8e="Converter arquivo..."
+e87df313="Adicionar arquivos para um arquivo usando o perfil de compressão"
+4bcf6a1f="bytes"
+; Abbreviations for bytes and kilo-, mega-, giga-, terabytes.
+dd191876="B"
+22a9b969="KB"
+74f31eef="MB"
+8e1cf665="GB"
+eff3b7f7="TB"
+
+
+;  Dialog EXTARCINFODLG
+
+eeeda19a="100*100"
+53d2a87f="Versão do extrator"
+8bd73f03="Sistema operacional"
+99ae7f78="Total de arquivos"
+4d8b15d3="Tamanho total"
+6084fcf3="Tamanho comprimido"
+32074b3b="Proporção"
+11ee82f4="Tamanho do módulo SFX"
+8b8d700c="Comentário principal"
+18163b22="Senha"
+14430ece="Tamanho do dicionário"
+4ff6e844="Registro de recuperação"
+52ea323e="Bloqueio de Arquivo"
+
+
+;  Dialog EXTCMTARCINFODLG
+
+6014c9f8="100*100"

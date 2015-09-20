@@ -1,0 +1,15 @@
+
+
+Etapa 1:
+1. Cadastrar os menus e vincular o ID de uma publicacao.
+   Este tipo de menu sempre vem do topo.
+
+2. Cadastrar o quick menu que nao pode possuir filhos.
+   Sempre será o da lateral e simples.
+
+-----
+
+
+1. Cadastrar menu interno.
+   Somente serão visíveis de dentro de uma p;agina (publicacao).
+   Podem possuir outros itens vinculados (exemplo arquivo PDF)

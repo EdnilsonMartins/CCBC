@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Busca_PlaceHolder" xml:space="preserve">
+    <value>search here</value>
+  </data>
+  <data name="Contato_Assunto" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Contato_Departamento" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="Contato_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Contato_Mensagem" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Contato_Nome" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Contato_Telefone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Contato_Titulo_1" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Contato_Titulo_2" xml:space="preserve">
+    <value>us</value>
+  </data>
+  <data name="Home_Agenda_SubTitulo" xml:space="preserve">
+    <value>Events and Schedules</value>
+  </data>
+  <data name="Home_Agenda_Titulo" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="Home_Associados" xml:space="preserve">
+    <value>Sustaining Members</value>
+  </data>
+  <data name="Home_Evento_SubTitulo" xml:space="preserve">
+    <value>Save the date</value>
+  </data>
+  <data name="Home_Evento_Titulo" xml:space="preserve">
+    <value>Next Events</value>
+  </data>
+  <data name="Home_Informacoes_SubTitulo" xml:space="preserve">
+    <value>Weather and Exchange Fee</value>
+  </data>
+  <data name="Home_Informacoes_Titulo" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Home_Instituicoes" xml:space="preserve">
+    <value>CCBC Partners</value>
+  </data>
+  <data name="Home_Instituicoes_SubTitulo" xml:space="preserve">
+    <value>Those who cooperate to be here</value>
+  </data>
+  <data name="Home_NewsLetter_Inscrever" xml:space="preserve">
+    <value>Subscribe</value>
+  </data>
+  <data name="Home_NewsLetter_SubTitulo" xml:space="preserve">
+    <value>Subscription</value>
+  </data>
+  <data name="Home_NewsLetter_Titulo" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="Home_Noticias_SubTitulo" xml:space="preserve">
+    <value>Stay tuned</value>
+  </data>
+  <data name="Home_Noticias_Titulo" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="Home_Rodape_Aviso" xml:space="preserve">
+    <value>Republication and dissemination of public content are permitted provided that cited source, title and author. In the case of restricted content, the unauthorized use of the controller is not allowed. It is totally free to quote from the Portal URL (http // www.ccbc.org.br) in sites and third party sites.</value>
+  </data>
+  <data name="Home_Rodape_DireitosAutorais" xml:space="preserve">
+    <value>© 2014/2015 - CCBC - All rights reserved.</value>
+  </data>
+  <data name="Home_Saiba_Mais" xml:space="preserve">
+    <value>READ MORE</value>
+  </data>
+  <data name="Home_SobreNos_SubTitulo" xml:space="preserve">
+    <value>Learn more about the CAM CCBC</value>
+  </data>
+  <data name="Home_SobreNos_Titulo" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Home_Ver_Todos" xml:space="preserve">
+    <value>+ more</value>
+  </data>
+  <data name="Home_NewsLetter_Descadastrar" xml:space="preserve">
+    <value>Unsubscribe</value>
+  </data>
+  <data name="Informacao_TaxaCambio" xml:space="preserve">
+    <value>Exchange Rates</value>
+  </data>
+  <data name="Login_Mensagem_BemVindo" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Login_Mensagem_Desconectar" xml:space="preserve">
+    <value>Whether disconnect?</value>
+  </data>
+  <data name="Login_Mensagem_FiqueAvontade" xml:space="preserve">
+    <value>feel free, exclusive content</value>
+  </data>
+  <data name="Login_Mensagem_Invalido" xml:space="preserve">
+    <value>Invalid login. Access Denied!</value>
+  </data>
+  <data name="Login_Sair" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Login_Subtitulo" xml:space="preserve">
+    <value>exclusive content for members</value>
+  </data>
+  <data name="Login_Titulo" xml:space="preserve">
+    <value>Restricted Access</value>
+  </data>
+  <data name="NewsLetter_Botao" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="NewsLetter_Email" xml:space="preserve">
+    <value>e-mail</value>
+  </data>
+  <data name="NewsLetter_Nome" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewsLetter_Obrigatorio" xml:space="preserve">
+    <value>* Mandatory fields</value>
+  </data>
+  <data name="QuickMenu_Icon_Contato" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="QuickMenu_Subtitulo" xml:space="preserve">
+    <value>Find what you need</value>
+  </data>
+  <data name="QuickMenu_Titulo" xml:space="preserve">
+    <value>Quick Menu</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Home_NewsLetter_Descadastrar</value>
+  </data>
+  <data name="EventosDoDia" xml:space="preserve">
+    <value>Events of the day</value>
+  </data>
+  <data name="Contato_MensagemAgradecimento" xml:space="preserve">
+    <value>Thank you for contacting us!</value>
+  </data>
+  <data name="Contato_Enviar" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Rodape_Contato" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Rodape_Localizacao" xml:space="preserve">
+    <value>Localization</value>
+  </data>
+  <data name="Contato_Administrativo" xml:space="preserve">
+    <value>Administrative</value>
+  </data>
+  <data name="Contato_Desenvolvimento" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Contato_Financeiro" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+</root>

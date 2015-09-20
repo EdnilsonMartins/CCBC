@@ -1,0 +1,8 @@
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Release\DAL.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Release\DAL.pdb
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Release\DTO.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Release\Newtonsoft.Json.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Release\DTO.pdb
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\obj\Release\DAL.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\DAL\obj\Release\DAL.pdb

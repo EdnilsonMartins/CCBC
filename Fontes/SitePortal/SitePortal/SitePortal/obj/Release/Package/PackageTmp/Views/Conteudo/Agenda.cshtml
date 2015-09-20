@@ -1,0 +1,15 @@
+﻿<!-- Agenda -->
+<div class="lateral-conteudo-agenda">
+    <div class="ico">
+        <img src="@Url.Content("~/")Images/Icon_agenda.png" alt="Icone CCBC" />
+    </div>
+    <div class="titulo">
+        <h1>@Resources.Portal.Home_Agenda_Titulo</h1>
+    </div>
+    <div class="subtitulo" style="width: 75% !important;">
+        <h2>@Resources.Portal.Home_Agenda_SubTitulo</h2>
+    </div>
+    
+    <div id="dvCalendario">@{Html.RenderAction("Calendario", "Conteudo", new {inc = 0} );}</div>
+
+</div>

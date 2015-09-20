@@ -1,0 +1,123 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript">
+        var AppPath = '@Url.Content("~/")';
+    </script>
+
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Rotativo"))
+    @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>*@
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Calculadora"))
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculadora 2015</title>
+    <style>
+        .centro {
+            left: 50%;
+            margin-left: -100px; /* A metade de sua largura. */
+            position: absolute;
+            width: 200px; /* O valor que você desejar. */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .geral {
+            float: left;
+            width: 220px;
+            border: 1px solid silver;
+            border-radius: 6px;
+            padding-left: 8px;
+            padding-bottom: 11px;
+        }
+        .linha {
+            float: left;
+            margin-bottom: 8px;
+        }
+        .ferramenta {
+            float: left;
+            margin: 2px;
+            margin-bottom: 20px;
+            font-family: arial;
+            font-size: 13px;
+            color: #015291;
+            font-weight: bold;
+        }
+            .ferramenta .campo {
+                float: left;
+                width: 130px;
+                text-align: right;
+            }
+            .ferramenta .botao {
+                float: right;
+                margin-left: 4px;
+            }
+        .coluna1 {
+            float: left;
+            width: 200px;
+            background-color: #015291;
+            margin: 2px;
+            color: white;
+            font-family: arial;
+            font-size: 13px;
+            padding: 2px 2px 2px 6px;
+            border-radius: 5px;
+        }
+        .coluna2 {
+            float: left;
+            width: 200px;
+            margin: 2px;
+            border-bottom: 1px dotted #015291;
+            border-right: 1px dotted;
+            padding-right: 7px;
+        }
+            .coluna2 span {
+                float: left;
+                width: 100%;
+                text-align: right;
+                font-family: arial;
+                font-size: 13px;
+                min-height: 15px;
+            }
+    </style>
+</head>
+<body>
+    <div class="centro">
+        
+        <div class="geral">
+            <div class="linha">
+                <div class="ferramenta">
+                    Informe Valor da Disputa<br /><br />
+                    <input type="text" id="txtValor" name="txtValor" class="campo" data-thousands="." data-decimal="," data-prefix="R$ " />
+                    <input type="button" id="cmdCalcular" value="Calcular"class="botao" />
+                    <br /><br />
+                </div>
+            </div>
+
+            <div class="linha">
+                <div class="coluna1">Árbitro Único</div>
+                <div class="coluna2"><span id="lblArbitroUnico"></span></div>
+            </div>
+            <div class="linha">
+                <div class="coluna1">Presidente</div>
+                <div class="coluna2"><span id="lblPresidente"></span></div>
+            </div>
+            <div class="linha">
+                <div class="coluna1">Co-Árbitros</div>
+                <div class="coluna2"><span id="lblCoArbitros"></span></div>
+            </div>
+            <div class="linha">
+                <div class="coluna1">Total</div>
+                <div class="coluna2"><span id="lblTotal"></span></div>
+            </div>
+            <div class="linha">
+                <div class="coluna1">Despesas Administrativas</div>
+                <div class="coluna2"><span id="lblDespesasAdministrativas"></span></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

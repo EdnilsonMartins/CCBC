@@ -1,0 +1,87 @@
+---------------------------------------------------------------------
+IP – 177.70.120.244
+---------------------------------------------------------------------
+SQL
+banco: cdbc_prod
+usuario: user_prod
+senha: MSpr0d15#
+ 
+banco: cdbc_homolog
+usuario: user_hmg
+senha: HM15MGcd$
+---------------------------------------------------------------------
+FTP
+ 
+Principal
+Aplicação 1 = <ip>:80 = APP PORTAL
+Aplicação 2 = <ip>:80/admin = APP CMS
+ 
+usuario: ftp_prod
+senha: FTPpr0d15#
+home dir
+C:\web\producao
+ 
+Homologação
+Homologação
+Aplicação 3 = <ip>:8080 = APP PORTAL
+Aplicação 4 = <ip>:8080/admin = APP CMS
+ 
+usuario: ftp_hmg
+senha: ft15Mhmg$
+ 
+home dir
+C:\web\homolog
+------------------------------------------------------------------------
+
+AZURE
+https://manage.windowsazure.com
+ti@tendenza.com.br
+Ten2012za#
+
+Banco de Dados
+Server  : xpbzlzw7zk.database.windows.net,  1433
+Base	: dbGRUPPO
+Usuário : usuGRUPPOAdmin
+Senha   : letsGRUPPO2015!
+
+------------------------------------------------------------------------
+10:36 -> Gerar script completo (apenas tabelas)
+10:39 -> Script gerado com dados.
+
+------------------------------------------------------------------------
+Rotina de Liberação:
+caroline, marcos, marcelo, joao
+Publicação 1127
+
+1º Passo: Aprovação de 2 Coordenadores   
+2º Passo: Aprovação de 1 Gerente
+3º Passo: Aprovação de 1 Diretor
+
+
+1º PASSO - 2 COORDENADORES: marcos, caroline
+2º PASSO - 1 GERENTE      : marcelo
+3º PASSO - 1 DIRETOR      : joao
+
+
+14.7s   6.48s    7.53s
+20.96s	13.28s	14.11s
+
+http://ccbc.org.br/Materia/1169/estatuto
+2.75 /  3.56
+13.41/ 14.06
+
+http://ccbc.org.br/Noticias/1291/o-futuro-da-tecnologia-para-pagamentos
+2.00 / 2.58
+13.59/ 14.83
+4.33 / 5.69
+2.23 / 3.59
+
+
+31/08.
+- Redes Sociais (compartilhamento)
+- Capa de Revista (página das capas: http://ccbc.org.br/Materia/1182/galeria-de-midia)
+  A ideia inicial é criar um novo tipo de banner (Capa de Revista) e quando houver este tipo de banner, renderizar exibindo tais banners como sendo as capas.
+
+
+
+ na semana passada vc havia comentado da possibilidade de conseguir me passar algum valor da CCBC, teria alguma coisa ai?

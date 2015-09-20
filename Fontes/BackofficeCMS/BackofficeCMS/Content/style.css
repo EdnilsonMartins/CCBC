@@ -1,0 +1,69 @@
+﻿body {
+    background-color: silver;
+}
+
+
+
+.icon-excluir {
+    cursor: pointer;
+}
+
+.icon-editar {
+    cursor: pointer;
+}
+
+.icon-galeria {
+    cursor: pointer;
+}
+
+
+.width250 {
+    width: 250px;
+}
+
+.height168 {
+    height: 167px;
+}
+
+#MySplitter {
+	height: 470px;
+	width: 980px;
+	border: 5px solid #aaa;
+}
+#MySplitter div .movel {
+	overflow: auto;
+}
+.vsplitbar {
+	width: 5px;
+	background: #aaa;
+}
+
+.modalInterna{
+    
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    
+    z-index: 99999;
+    background-color: lightgray;
+    filter: alpha(opcaity=60);
+    -khtml-opacity: 0.60;
+    -moz-opacity: 0.60;
+    opacity: 0.60;
+    margin: 0px 0px 0px 0px;
+
+
+}
+
+
+
+
+.Header_Restricao_UsuarioGrupo_Usuario{
+    padding: 1px 8px 1px 8px!important;
+    margin: 0;
+    border: 1px solid silver;
+    border-radius: 4px !important;
+    background-color: whitesmoke;
+    width: 50%;
+}

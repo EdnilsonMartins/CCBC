@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model SitePortal.Models.Portal
+
+<div class="geral-1050">
+    <div class="conteudo">
+
+        <!-- nav internas -->
+        <div class="internas-navegacao">
+            <a href="/">Home</a>
+            <a href="#">-</a>
+            <a href="Contato">Contato</a>
+        </div>
+        <!-- nav internas -->
+        <!-- contato -->
+        <div class="contato-titulo">
+            <h1>@Resources.Portal.Contato_Titulo_1&nbsp;@Resources.Portal.Contato_Titulo_2<span class="cor-padrao-texto"></span></h1>
+        </div>
+        <div class="contato-form">
+            @if (String.IsNullOrEmpty(Model.NrProtocoloContato))
+            {
+                using (Html.BeginForm("Index", "Contato", new { }, FormMethod.Post))
+                {
+                    <input type="text" name="nome" placeholder="@Resources.Portal.Contato_Nome" />
+                    <input type="text" name="email" placeholder="@Resources.Portal.Contato_Email" />
+                    <input type="text" name="telefone" placeholder="@Resources.Portal.Contato_Telefone" />
+                    <select name="departamento">
+                        <option value="Departamento">@Resources.Portal.Contato_Departamento</option>
+                        <option value="Financeiro">@Resources.Portal.Contato_Financeiro</option>
+                        <option value="Administrativo">@Resources.Portal.Contato_Administrativo</option>
+                        <option value="Desenvolvimento">@Resources.Portal.Contato_Desenvolvimento</option>
+                    </select>
+                    <input type="text" name="assunto" value="" placeholder="@Resources.Portal.Contato_Assunto" />
+                    <textarea rows="auto" cols="auto" name="mensagem" placeholder="@Resources.Portal.Contato_Mensagem"></textarea>
+                    <input class="cor-padrao opacidade" type="submit" value="@Resources.Portal.Contato_Enviar" style="cursor: pointer;" />
+                }
+            }
+            else
+            {
+                using (Html.BeginForm("Index", "Contato", new { }, FormMethod.Post))
+                {
+                    <span class="mensagem-enviada-sucesso">@Resources.Portal.Contato_MensagemAgradecimento<b>@Model.NrProtocoloContato</b></span>
+                }
+            }
+        </div>
+        <div class="contato-mapa">
+            <div class="contato-mapa-mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.2890607735126!2d-46.68602249999999!3d-23.593964!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5746176c79e3%3A0x63c0c9a13f38972c!2sR.+do+Rocio%2C+220+-+Vila+Ol%C3%ADmpia%2C+S%C3%A3o+Paulo+-+SP!5e0!3m2!1spt-BR!2sbr!4v1416315817365" width="465" height="400" frameborder="0" style="border: 0"></iframe>
+            </div>
+            <div class="contato-mapa-texto">
+                <p>
+                    Rua do Rócio, 220 12º andar - cj.121<br />
+                    CEP. 04552-000 - Vila Olímpia São Paulo - SP - Brasil<br />
+                    +55-11-4058-0400  |  ccbc@ccbc.org.br
+                </p>
+            </div>
+        </div>
+        <!-- contato -->
+
+
+    </div>
+</div>

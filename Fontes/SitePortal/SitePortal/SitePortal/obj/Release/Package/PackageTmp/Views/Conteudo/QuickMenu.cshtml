@@ -1,0 +1,73 @@
+﻿@model SitePortal.Models.Portal
+
+@{
+    var larguraQuick = "";
+    if (Model.SiteId == 1 && Model.isHome)
+    {
+        larguraQuick = "width: 330px !important;";
+    }
+
+}
+<!--quick menu-->
+<div class="conteudo-home-quick" style="@larguraQuick">
+    <div class="ico">
+        <img src="~/Images/Icon_quickmenu.png" alt="Icone CCBC" />
+    </div>
+    <div class="titulo">
+        <h1>@Resources.Portal.QuickMenu_Titulo</h1>
+    </div>
+    <div class="subtitulo">
+        <h2>@Resources.Portal.QuickMenu_Subtitulo</h2>
+    </div>
+    @{var AppPath = Url.Content("~/");
+      var par = 1;
+    }
+    @foreach (var m in Model.ListaMenuQuick)
+    {
+        if (par == 1) { par = 0; } else { par = 1; }
+        string url = "";
+        if (m.MenuTipoAcaoId == 1)
+        {
+            url = Url.Content("~/") + m.LinkURL;
+        }
+        else if (m.MenuTipoAcaoId == 2)
+        {
+            url = m.LinkURL;
+        }
+        var _target = "_self";
+        if (m.TargetId == 1) { _target = "_parent"; }
+        if (m.TargetId == 2) { _target = "_blank"; }
+        var rotulo = @m.Rotulo;
+        <!--botao quick-->
+        <div class="conteudo-home-quick-botoes">
+            <div class="conteudo-home-quick-botoes-ico">
+                @if (!String.IsNullOrEmpty(m.ImageURL))
+                {
+                    <a href="@url" target="@_target">
+                        <img src="@Url.Content("~/")@m.ImageURL" alt="Quick Menu CCBC" />
+                    </a>
+                }
+            </div>
+            <div class="conteudo-home-quick-botoes-titulo">
+                <h3><a href="@url" target="@_target">@Html.Raw(@rotulo)</a></h3>
+            </div>
+        </div>
+        <!--botao quick-->
+    }
+
+    @if (par == 0 && !Model.isHome)
+    {
+        <div class="conteudo-home-quick-botoes">
+            <div class="conteudo-home-quick-botoes-ico">
+                <a href="@Url.Content("~/Contato")" target="_parent">
+                    <img src="@Url.Content("~/")Images/Ico_contato.png" alt="" />
+                </a>
+            </div>
+            <div class="conteudo-home-quick-botoes-titulo">
+                <h3><a href="@Url.Content("~/Contato")" target="_parent">@Resources.Portal.QuickMenu_Icon_Contato</a></h3>
+            </div>
+        </div>
+    }
+
+</div>
+<!--quick menu-->

@@ -1,0 +1,238 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@*<script type="text/javascript" src="@Url.Content("~/")Scripts/jConteudo.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.pack.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.css")" media="screen" />*@
+
+
+@*<script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.js"></script>*@
+
+
+@*<script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.fileupload.js"></script>*@
+
+@section Scripts
+{
+
+
+
+}
+
+@model BackofficeCMS.Models.CMS
+
+<!-- BEGIN DASHBOARD STATS -->
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.DASH_GERAL_VISUALIZARTOTALIZADORES))) {
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-light blue-soft" href="@Url.Content("~/Publicacao/ListaPublicacao")">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        @Model.Resumo.TotalMateria
+                    </div>
+                    <div class="desc">
+                        Matérias
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-light red-soft" href="@Url.Content("~/Publicacao/ListaPublicacao")">
+                <div class="visual">
+                    <i class="fa fa-trophy"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        @Model.Resumo.TotalEventos
+                    </div>
+                    <div class="desc">
+                        Eventos
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-light green-soft" href="@Url.Content("~/Publicacao/ListaPublicacao")">
+                <div class="visual">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        @Model.Resumo.TotalNoticias
+                    </div>
+                    <div class="desc">
+                        Notícias
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a class="dashboard-stat dashboard-stat-light purple-soft" href="@Url.Content("~/Mailing/ListaMailing")">
+                <div class="visual">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        @Model.Resumo.TotalAssinantes
+                    </div>
+                    <div class="desc">
+                        Assinantes
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+}
+<!-- END DASHBOARD STATS -->
+<div class="clearfix">
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <!-- BEGIN PORTLET-->
+        @*<div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-bar-chart font-green-sharp hide"></i>
+                        <span class="caption-subject font-green-sharp bold uppercase">Publicações Visualizadas</span>
+                        <span class="caption-helper">estatística mensal...</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group btn-group-devided" data-toggle="buttons" style="visibility: hidden;">
+                            <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">New
+                            </label>
+                            <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Returning
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="site_statistics_loading">
+                        <img src="../../assets/admin/layout/img/loading.gif" alt="loading" />
+                    </div>
+                    <div id="site_statistics_content" class="display-none">
+                        <div id="site_statistics" class="chart">
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <!-- END PORTLET-->
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <!-- BEGIN PORTLET-->
+        @*<div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-share font-red-sunglo hide"></i>
+                        <span class="caption-subject font-red-sunglo bold uppercase">ACESSO LOGADO</span>
+                        <span class="caption-helper">logins realizados no período...</span>
+                    </div>
+                </div>
+                <div class="portlet-body" style="">
+                    <div id="site_activities_loading">
+                        <img src="../../assets/admin/layout/img/loading.gif" alt="loading" />
+                    </div>
+                    <div id="site_activities_content" class="display-none">
+                        <div id="site_activities" style="height: 338px;">
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <!-- END PORTLET-->
+    </div>
+</div>
+
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.DASH_GERAL_PERMITIRAPROVACAO))) {
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <!-- BEGIN PORTLET-->
+                <div class="portlet light">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption">
+                            <i class="icon-globe font-green-sharp"></i>
+                            <span class="caption-subject font-green-sharp bold uppercase">Aprovações Pendentes</span>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab_1_1" data-toggle="tab">
+                                    Publicações
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portlet-body">
+                        <!--BEGIN TABS-->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1_1">
+                                <div class="scroller" style="height: 339px;" data-always-visible="1" data-rail-visible="0">
+                                    <ul class="feeds">
+                                        @if (Model.ListaPublicacao.Count == 0)
+                                {
+                                <li>
+                                    <div class="col1" style="width: auto !important;">
+                                        <div class="date">
+                                            <i>Nenhuma liberação aguardando sua aprovação.</i>
+                                        </div>
+                                    </div>
+                                </li>
+                                }
+                                        @foreach (var pub in Model.ListaPublicacao) {
+                                <li>
+                                    <div class="col1" style="width: auto !important;">
+                                        <div class="cont">
+                                            <div class="cont-col1">
+                                                <div class="label label-sm label-success">
+                                                    <i class="fa fa-bell-o"></i>
+                                                </div>
+                                            </div>
+                                            <div class="cont-col2">
+                                                <div class="desc">
+                                                    <a href="@Url.Content("~/")publicacao/CadPublicacao?PublicacaoId=@pub.PublicacaoId">
+                                                        @pub.Complemento.PublicacaoTipo: @pub.Detalhe.Titulo
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col2" style="float: right; width: auto !important;">
+                                        @*<div class="date">
+                                                Just now
+                                            </div>*@
+                                        <span class="label label-sm label-success btnHomeAprovar" id="@pub.PublicacaoId" style="float: left; padding: 3px 3px 4px 3px; margin: 3px 0 1px 0px; display: inline; width: 80px; cursor: pointer;">Aprovar <i class="fa fa-share"></i></span>
+                                        <span class="label label-sm label-danger btnHomeReprovar" id="@pub.PublicacaoId" style="float: left; padding: 3px 3px 4px 3px; margin: 3px 0 1px 2px; display: inline; width: 80px;">Reprovar <i class="fa fa-trash-o"></i></span>
+                                    </div>
+                                </li>
+                                }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END TABS-->
+                    </div>
+                </div>
+                <!-- END PORTLET-->
+            </div>
+        </div>
+}
+        <div class="clearfix">
+        </div>
+
+
+        <script>
+
+
+
+        </script>

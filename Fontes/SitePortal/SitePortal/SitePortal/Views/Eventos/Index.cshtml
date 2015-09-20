@@ -1,0 +1,88 @@
+﻿@using System
+@using System.Collections.Generic
+@using System.Linq
+@using System.Text
+@using System.Web.Helpers
+@using DTO.Menu
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var separador = "";
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jConteudo.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.pack.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.css")" media="screen" />
+
+}
+
+@model SitePortal.Models.Portal
+
+@{
+    var AppPath = Url.Content("~/");
+    var columns = new List<WebGridColumn>();
+    var grid = new WebGrid(Model.Eventos.OrderByDescending(x => x.Data), canPage: true, rowsPerPage: 10);
+
+    var colResult = "<div class=\"resultados\">{6} <div style=\"float: left; padding-left: 12px;\"><h3>{0}&nbsp;&nbsp;{3}</h3><h1><a href=\"" + AppPath + "Eventos/{4}/{5}\" class=\"opacidade\">{1}</a></h1><h2>{2}</h2></div></div>";
+
+    columns.Add(grid.Column("Detalhe.Titulo", "Título",
+        (item) => Html.Raw(
+            string.Format(
+                colResult,
+                (item.Data != null) ? item.Data.ToString().Replace(" 00:00:00", "").Replace(" 12:00:00 AM", "") : "",
+                item.Detalhe.Titulo,
+                item.Detalhe.Resumo,
+                (item.Complemento.Privado == true) ? @"<img src=""" + AppPath + @"Images/Img_cadeado.png"" alt=""cadeado ccbc"" />" : "",
+                item.PublicacaoId,
+                @DAL.Util.GerarURLAmigavel(item.Detalhe.Titulo),
+
+                //{6} = Imagem destaque
+                (item.ArquivoDestaqueId != null && item.ArquivoDestaqueId != 0) ? string.Format(@"<div style=""float: left; width: 100px; padding-left: 12px;""><img src=""" + AppPath + @"File?id={0}"" style=""width: 100px;"" /></div>", item.ArquivoDestaqueId) : ""
+
+            ))));
+
+}
+
+<div class="geral-1050">
+    <div class="conteudo">
+
+        @if (Model.Conteudo == null || Model.Conteudo.PublicacaoId == 0)
+        {
+            <!--internas navegacao-->
+            <div class="internas-navegacao">
+
+                <!-- BARRA DE NAVEGAÇÃO -->
+                @for (int i = Model.ListaMenuTree.Count; i > 0; i--)
+                {
+                    Menu m = Model.ListaMenuTree[i - 1];
+                    if (@separador == "1")
+                    {
+                        <span style="margin-left: 10px;">-</span>
+                    }
+                    if (m.MenuTipoAcaoId == 1)
+                    {
+                        <a href="@m.LinkURL">@m.Rotulo</a>
+                    }
+                    else if (m.MenuTipoAcaoId == 2)
+                    {
+                        <a href="~/Eventos/@m.PublicacaoId/@DAL.Util.GerarURLAmigavel(@m.Rotulo)">@m.Rotulo</a>
+                    }
+                    separador = "1";
+                }
+            </div>
+            <!--internas navegacao-->
+            <div class="resultados-titulo">
+                <h1><span class="cor-padrao-texto">EVENTOS</span></h1>
+            </div>
+
+            @grid.GetHtml(columns: columns, displayHeader: false)
+        }
+        else
+        {
+            Html.RenderAction("Index", "Conteudo", new { Id = Model.Conteudo.PublicacaoId });
+        }
+
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿<div class="modal fade" id="CadEditoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalTitle">Manutenção de Editoria</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="frmCadEditoria">
+                    <input type="hidden" id="EditoriaId" name="EditoriaId" value="0" />
+                    <input type="reset" value="Limpar" id="btnLimpar" style="display:none;" />
+                    <div class="row" style="margin-bottom: 10px !important;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Descrição</label>
+                            <div class="col-md-9">
+                                <input id="Descricao" name="Descricao" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 10px !important;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Descrição (EN)</label>
+                            <div class="col-md-9">
+                                <input id="DescricaoEN" name="DescricaoEN" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 10px !important;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Descrição (ES)</label>
+                            <div class="col-md-9">
+                                <input id="DescricaoES" name="DescricaoES" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 10px !important;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Descrição (FR)</label>
+                            <div class="col-md-9">
+                                <input id="DescricaoFR" name="DescricaoFR" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnNovoEditoria" class="btn blue-hoki" style="float: left;"><i class="fa fa-plus"></i> Novo</button>
+
+                <button type="button" id="btnSalvarEditoria" class="btn green"><i class="fa fa-check"></i> Ok</button>
+                <button type="button" id="btnFecharEditoria" class="btn btn-default " data-dismiss="modal">Fechar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

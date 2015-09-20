@@ -1,0 +1,23 @@
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\ServicePortal.dll.config
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\ServicePortal.dll
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\ServicePortal.pdb
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\obj\Debug\ServicePortal.csprojResolveAssemblyReference.cache
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\obj\Debug\ServicePortal.dll
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\obj\Debug\ServicePortal.pdb
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\DAL.dll
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\DTO.dll
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\DAL.pdb
+C:\Ed\Projeto CCBC\Fontes\ServicePortal\ServicePortal\bin\DTO.pdb
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\IntegracaoPortal.svc
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\IntegracaoPortal.svc.cs
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\ServicePortal.dll.config
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\ServicePortal.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\ServicePortal.pdb
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\DAL.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\DTO.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\Newtonsoft.Json.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\DAL.pdb
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\bin\DTO.pdb
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\obj\Debug\ServicePortal.csprojResolveAssemblyReference.cache
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\obj\Debug\ServicePortal.dll
+C:\Projetos\CCBC\Fontes\ServicePortal\ServicePortal\obj\Debug\ServicePortal.pdb

@@ -1,0 +1,96 @@
+﻿@model SitePortal.Models.Portal
+
+@if (Model.BannerInferiorRotativo.Count > 0) { 
+<div style="float: left; width: 100%;">
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/RotatorJssor"))
+    
+    <script>
+
+        jQuery(document).ready(function ($) {
+            var options = {
+                $SlideDuration: 500,                               //[Optional] Specifies default duration for right to left animation in milliseconds
+                $AutoPlayInterval: 8000,                           //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing
+                $AutoPlay: true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $DragOrientation: 0                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+            };
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            var options2 = {
+                $SlideDuration: 500,                               //[Optional] Specifies default duration for right to left animation in milliseconds
+                $AutoPlayInterval: 8000,                           //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing
+                $AutoPlay: true,                                   //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $DragOrientation: 0,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $PlayOrientation: 2                                 //[Optional] Orientation to play slide (for auto play, navigation), 1: horizental, 2: vertical, 5: horizental reverse, 6: vertical reverse
+            };
+            var jssor_slider2 = new $JssorSlider$("slider2_container", options2);
+
+        });
+    </script>
+
+    <div class="lateral-home" style="padding: 38px 0 0px;">
+        <div id="slider2_container" style="float: left; position: relative; top: 0px; left: 0px; width: 220px; height: 100px; ">
+            <!-- Slides Container -->
+            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 220px; height: 100px; overflow: hidden;">
+                @*<div><img u="image" src="@Url.Content("~/Images/Landscape/05.jpg")" style="width: 220px; height: 100px;" /></div>
+                <div><img u="image" src="@Url.Content("~/Images/Landscape/06.jpg")" style="width: 220px; height: 100px;" /></div>
+                <div><img u="image" src="@Url.Content("~/Images/Landscape/07.jpg")" style="width: 220px; height: 100px;" /></div>
+                <div><img u="image" src="@Url.Content("~/Images/Landscape/08.jpg")" style="width: 220px; height: 100px;" /></div>*@
+
+                @foreach (DTO.Banner.Banner b in Model.BannerInferiorEsquerdaRotativo)
+                {
+                    var _target = "_self";
+                    if (b.TargetId == 1) { _target = "_parent"; }
+                    if (b.TargetId == 2) { _target = "_blank"; }
+                    var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
+                    <div>
+                        <a href="@_link" target="@_target" title="@b.Detalhe.Resumo" class="cms-counter" style="text-decoration: none !important;" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
+                            @if (b.ArquivoId_Secundaria != null && b.ArquivoId_Secundaria != 0)
+                            {
+                                <img u="image" src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Primaria');" alt="@b.Detalhe.Resumo" class="opacidade" style="width: 220px; height: 100px;" />
+                            }
+                            else
+                            {
+                                <img u="image" src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="@b.Detalhe.Resumo" class="opacidade" style="width: 220px; height: 100px;" />
+                            }
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="conteudo-home-direita" style="padding: 38px 0 0px;">
+        <div id="slider1_container" style="float: left; position: relative; top: 0px; left: 0px; width: 740px; height: 100px; ">
+            <!-- Slides Container -->
+            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 740px; height: 100px; overflow: hidden; ">
+                @*<div><a href="#" class="cms-counter" referenciaid="2030" arquivoid="20382"><img u="image" src="@Url.Content("~/Images/Landscape/01.jpg")" style="width: 740px; height: 100px;" /></a></div>
+                <div><img u="image" src="@Url.Content("~/Images/Landscape/02.jpg")" style="width: 740px; height: 100px;" /></div>
+                <div><img u="image" src="@Url.Content("~/Images/Landscape/03.jpg")" style="width: 740px; height: 100px;" /></div>*@
+                
+                @foreach (DTO.Banner.Banner b in Model.BannerInferiorRotativo)
+                {
+                    var _target = "_self";
+                    if (b.TargetId == 1) { _target = "_parent"; }
+                    if (b.TargetId == 2) { _target = "_blank"; }
+                    var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
+                    <div>
+                        <a href="@_link" target="@_target" title="@b.Detalhe.Resumo" class="cms-counter" style="text-decoration: none !important;" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
+                            @if (b.ArquivoId_Secundaria != null && b.ArquivoId_Secundaria != 0)
+                                {
+                                    <img u="image" src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Primaria');" alt="@b.Detalhe.Resumo" class="opacidade" style="width: 740px; height: 100px;" />
+                                }
+                                else
+                                {
+                                <img u="image" src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="@b.Detalhe.Resumo" class="opacidade" style="width: 740px; height: 100px;" />
+                            }
+                        </a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+}

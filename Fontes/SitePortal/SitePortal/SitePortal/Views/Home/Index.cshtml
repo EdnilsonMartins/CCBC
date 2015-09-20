@@ -1,0 +1,580 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model SitePortal.Models.Portal
+@{
+    var larguraBanner = "";
+    var larguraQuick = "";
+    if (Model.SiteId == 1 && Model.isHome)
+    {
+        larguraBanner = "width: 690px !important; margin-right: 10px !important;";
+        larguraQuick = "width: 330px !important;";
+
+    }
+
+}
+<div class="geral-1050">
+    <div class="conteudo">
+
+        <!--banner roativo-->
+
+        <div class="conteudo-home-banner" style="@larguraBanner">
+            <div id='coin-slider'>
+
+                @foreach (DTO.Banner.Banner b in Model.BannerPrincipal)
+                {
+                    var _target = "_self";
+                    if (b.TargetId == 1) { _target = "_parent"; }
+                    if (b.TargetId == 2) { _target = "_blank"; }
+                    var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
+                    <a href="@_link" target="@_target" class="cms-counter" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
+                        <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="" />
+                    </a>
+                }
+
+            </div>
+        </div>
+        <!--banner roativo-->
+        <!--quick menu-->
+        @{
+            //Html.RenderPartial("QuickMenu");
+            Html.RenderAction("QuickMenu", "Conteudo", new { model = Model });
+        }
+        <!--quick menu-->
+        <!-- Lateral Esquerda -->
+        <div class="lateral-home">
+            <div class="lateral-conteudo">
+
+                <!-- Agenda -->
+                @{Html.RenderAction("Agenda", "Conteudo", new { model = Model });}
+                <!--/Agenda -->
+
+                <!-- Newsletter -->
+                @{Html.RenderAction("NewsLetter", "Conteudo", new { model = Model });}
+                <!--/Newsletter -->
+
+                <!-- Temperatura -->
+                @if (Model.SiteId == 1)
+                {
+                    <div class="lateral-conteudo-temperatura" >
+                        <div class="ico">
+                            <img src="@Url.Content("~/")Images/Icon_newsletter.png" alt="Icone CCBC" />
+                        </div>
+                        <div class="titulo">
+                            <h1>@Resources.Portal.Home_Informacoes_Titulo</h1>
+                        </div>
+                        <div class="subtitulo">
+                            <h2>@Resources.Portal.Home_Informacoes_SubTitulo</h2>
+                        </div>
+                        <div class="lateral-conteudo-temperatura-conteudo">
+
+                            <div class="esquerda">
+                                <div class="Titulo">
+                                    <p id="nomeCidade">Toronto, Canadá</p>
+                                </div>
+                                <div class="LinhaTemperatura">
+                                    <span id="lblTemperatura"></span>
+                                </div>
+                            </div>
+
+                            <div class="direita">
+                                <span id="selCidade" class="botao"><img src="@Url.Content("~/Images/selCidade.png")" /></span>
+                                <div id="ListaTemperatura" class="lateral-conteudo-temperatura-selecione">
+                                    <div class="itemCidade" id="17">
+                                        Calgary, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="14">
+                                        Edmonton, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="13">
+                                        Montreal, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="16">
+                                        Ottawa, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="1">
+                                        Quebec, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="2">
+                                        Toronto, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="3">
+                                        Vancouver, <b>Canadá</b>
+                                    </div>
+                                    <div class="itemCidade" id="15">
+                                        Winnipeg, <b>Canadá</b>
+                                    </div>
+                                    <br />
+                                    <div class="itemCidade" id="4">
+                                        São Paulo, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="5">
+                                        Brasilia, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="6">
+                                        Rio de Janeiro, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="7">
+                                        Recife, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="9">
+                                        Curitiba, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="10">
+                                        Salvador, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="11">
+                                        Belo Horizonte, <b>Brasil</b>
+                                    </div>
+                                    <div class="itemCidade" id="12">
+                                        Porto Alegre, <b>Brasil</b>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="float: left; width: 100%; border: none; border-bottom: 1px solid #eee;" />
+
+                            <div class="TituloTaxa">
+                                <p>@Resources.Portal.Informacao_TaxaCambio</p>
+                            </div>
+                            <div class="LinhaCotacao">
+                                <span id="lblTaxaCAN" class="Valor"></span><span class="Moeda">U$ CAN</span>
+                            </div>
+                            <div class="LinhaCotacao">
+                                <span id="lblTaxaUSA" class="Valor"></span><span class="Moeda">U$ EUA</span>
+                            </div>
+                            <div class="LinhaCotacao">
+                                <span id="lblTaxaEURO" class="Valor"></span><span class="Moeda">€ EURO</span>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                }
+                <!--/Temperatura -->
+                <!-- Banner Lateral -->
+                @if (Model.BannerLateral != null)
+                {
+                    <div class="lateral-conteudo-publicidade opacidade">
+                        @{
+                    var _target = "_self";
+                    if (Model.BannerLateral.TargetId == 1) { _target = "_parent"; }
+                    if (Model.BannerLateral.TargetId == 2) { _target = "_blank"; }
+                    var _link = String.IsNullOrEmpty(Model.BannerLateral.LinkURL) ? "" : Model.BannerLateral.LinkURL;
+                        }
+                        <a href="@_link" target="@_target" title="@Model.BannerLateral.Detalhe.Resumo" class="cms-counter" referenciaid="@Model.BannerLateral.BannerId" arquivoId="@Model.BannerLateral.ArquivoId_Primaria">
+                            @if (Model.BannerLateral.ArquivoId_Secundaria != null && Model.BannerLateral.ArquivoId_Secundaria != 0)
+                            {
+                                <img src="@Url.Content("~/")File?id=@Model.BannerLateral.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@Model.BannerLateral.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@Model.BannerLateral.ArquivoId_Primaria');" alt="@Model.BannerLateral.Detalhe.Resumo" class="opacidade" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/")File?id=@Model.BannerLateral.ArquivoId_Primaria" alt="@Model.BannerLateral.Detalhe.Resumo" class="opacidade" />
+                            }
+                        </a>
+                    </div>
+                }
+                <!--/Banner Lateral -->
+                <!--Banner Lateral Inferior-->
+                @if (Model.BannerInferiorEsquerda != null)
+                {
+                    <div class="lateral-conteudo-publicidade">
+                        @{
+                    var _target = "_self";
+                    if (Model.BannerInferiorEsquerda.TargetId == 1) { _target = "_parent"; }
+                    if (Model.BannerInferiorEsquerda.TargetId == 2) { _target = "_blank"; }
+                    var _link = String.IsNullOrEmpty(Model.BannerInferiorEsquerda.LinkURL) ? "" : Model.BannerInferiorEsquerda.LinkURL;
+                        }
+                        <a href="@_link" target="@_target" title="@Model.BannerInferiorEsquerda.Detalhe.Resumo" class="cms-counter" referenciaid="@Model.BannerInferiorEsquerda.BannerId" arquivoid="@Model.BannerLateral.ArquivoId_Primaria">
+                            @if (Model.BannerInferiorEsquerda.ArquivoId_Secundaria != null && Model.BannerInferiorEsquerda.ArquivoId_Secundaria != 0)
+                            {
+                                <img src="@Url.Content("~/")File?id=@Model.BannerInferiorEsquerda.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@Model.BannerInferiorEsquerda.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@Model.BannerInferiorEsquerda.ArquivoId_Primaria');" alt="@Model.BannerInferiorEsquerda.Detalhe.Resumo" class="opacidade" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/")File?id=@Model.BannerInferiorEsquerda.ArquivoId_Primaria" alt="@Model.BannerInferiorEsquerda.Detalhe.Resumo" class="opacidade" />
+                            }
+                        </a>
+
+                    </div>
+                }
+                <!--/Banner Lateral Inferior-->
+
+            </div>
+        </div>
+        <!-- Lateral Esquerda -->
+        <!-- Conteudo / Direta -->
+        <div class="conteudo-home-direita">
+
+            @if (Model.SiteId == 1)
+            {
+            <!-- Eventos -->
+                <div class="conteudo-home-direita-eventos">
+                    <div class="ico">
+                        <img src="@Url.Content("~/")Images/Icon_eventos.png" alt="Icone CCBC" />
+                    </div>
+                    <div class="titulo">
+                        <h1>@Resources.Portal.Home_Evento_Titulo</h1>
+                    </div>
+                    <div class="subtitulo">
+                        <h2>@Resources.Portal.Home_Evento_SubTitulo</h2>
+                    </div>
+                    <div class="conteudo-home-direita-eventos-conteudo">
+                        <div class="container" id="ControlePaiRotator">
+                            <div class="l-rotator">
+                                <div class="screen">
+                                    <noscript>
+
+                                    </noscript>
+                                </div>
+                                <div class="thumbnails">
+                                    <ul>
+
+                                        @foreach (DTO.Publicacao.Publicacao p in Model.Eventos.FindAll(x => x.Destaque == true).OrderBy(x => x.Data))
+                                        {
+                                            if (((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1) {
+                                            <!--evento-->
+                                                <li>
+                                                    <div class="thumb" style="cursor: pointer;" onclick='javascript: document.location.href = "@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)";'>
+                                                        <p style="width: 80%; float: left;">
+                                                            <!--TITULO-->
+                                                            <span class="title">@p.Detalhe.Titulo</span>
+                                                            <br />
+                                                            <!--DESCRICAO-->
+                                                            @p.Detalhe.Resumo
+                                                        </p>
+                                                        <!--DIA / MES-->
+                                                        <span class="data">
+                                                            @if (p.Data != null)
+                                                            {
+                                                                <h1>@Convert.ToDateTime(p.Data).ToString("dd")</h1>
+                                                                <h3>@Convert.ToDateTime(p.Data).ToString("MMMMM")</h3>
+                                                            }
+                                                        </span>
+                                                    </div>
+                                                    <a href="@Url.Content("~/")File?id=@p.ArquivoDestaqueId"></a>   
+                                                    <a href="@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)"></a>
+                                                </li>
+                                            <!--evento-->
+                                            }
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertodos"><a href="~/Eventos"><i>@Resources.Portal.Home_Ver_Todos</i></a></div>
+            <!--/Eventos -->
+
+            <!-- Notícias -->
+                <div class="conteudo-home-direita-noticias">
+                    <div class="ico">
+                        <img src="@Url.Content("~/")Images/Icon_noticias.png" alt="Icone CCBC" />
+                    </div>
+                    <div class="titulo">
+                        <h1>@Resources.Portal.Home_Noticias_Titulo</h1>
+                    </div>
+                    <div class="subtitulo">
+                        <h2>@Resources.Portal.Home_Noticias_SubTitulo</h2>
+                    </div>
+                    <div class="conteudo-home-direita-noticias-conteudo">
+                        <!--esquerda-->
+                        <div class="conteudo-home-direita-noticias-conteudo-esquerda">
+
+                            <div class="conteudo-home-direita-noticias-conteudo-esquerda-destaque">
+
+                                <!--noticia destaque-->
+                                @{
+                                        var Noticias = Model.Noticias.FindAll(x => x.Destaque == true);
+                                        if (Noticias.Count > 0)
+                                        {
+                                            if (Noticias[0].ArquivoDestaqueId != 0)
+                                            {
+                                                <div class="conteudo-home-direita-noticias-conteudo-esquerda-destaque-img opacidade">
+                                                    <a href="@Url.Content("~/")Noticias/@Noticias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[0].Detalhe.Titulo)">
+                                                        <img src="@Url.Content("~/")File?Id=@Noticias[0].ArquivoDestaqueId" alt="Noticias CCBC" style="width: 150px; height: 130px;" />
+                                                    </a>
+                                                </div>
+                                            }
+                                            <div class="conteudo-home-direita-noticias-conteudo-esquerda-destaque-texto">
+                                                <h2 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[0].Detalhe.Titulo)">@Noticias[0].Detalhe.Titulo</a></h2>
+                                                <p><a href="@Url.Content("~/")Noticias/@Noticias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[0].Detalhe.Titulo)" style="text-decoration: none;">@Noticias[0].Detalhe.Resumo</a></p>
+                                                <p class="data-noticias">
+                                                    @*<i>@Convert.ToDateTime(Noticias[0].Data).ToString("dd - MMMMM - yyyy")</i>*@
+                                                    <i>@Noticias[0].Complemento.Editoria</i>
+                                                </p>
+                                            </div>
+                                        }
+                                }
+                                <!--noticia destaque-->
+                                @if (Noticias.Count > 1)
+                                {
+                                    <div class="margem-top" style="width: 100%">
+                                        <hr size="1" style="border: none; border-bottom: 1px solid #eee;" />
+                                    </div>
+
+                                    <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                        <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[1].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[1].Detalhe.Titulo)">@Noticias[1].Detalhe.Titulo</a></h3>
+                                        <p><a href="@Url.Content("~/")Noticias/@Noticias[1].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[1].Detalhe.Titulo)">@Noticias[1].Detalhe.Resumo</a></p>
+                                        <p class="data-noticias">
+                                            @*<i>@Convert.ToDateTime(Noticias[1].Data).ToString("dd - MMMMM - yyyy")</i>*@
+                                            <i>@Noticias[1].Complemento.Editoria</i>
+                                        </p>
+                                    </div>
+                                }
+
+
+                            </div>
+                            <!--esquerda-->
+
+
+                        </div>
+
+                        <div class="conteudo-home-direita-noticias-conteudo-direita">
+                            @if (Noticias.Count > 2)
+                            {
+
+                                <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                    <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[2].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[2].Detalhe.Titulo)">@Noticias[2].Detalhe.Titulo</a></h3>
+                                    <p><a href="@Url.Content("~/")Noticias/@Noticias[2].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[2].Detalhe.Titulo)">@Noticias[2].Detalhe.Resumo</a></p>
+                                    <p class="data-noticias">
+                                        @*<i>@Convert.ToDateTime(Noticias[2].Data).ToString("dd - MMMMM - yyyy")</i>*@
+                                        <i>@Noticias[2].Complemento.Editoria</i>
+                                    </p>
+                                </div>
+
+                            }
+
+                            @if (Noticias.Count > 3)
+                            {
+                                @*<div class="margem-top margem-left">
+                                    <hr size="1" style="border: none; border-bottom: 1px solid #eee;" />
+                                </div>*@
+
+                                @*<div class="conteudo-home-direita-noticias-conteudo-direita">*@
+                                    <hr size="1" style="float: left; border: none; border-bottom: 1px solid #eee; width: 100%; margin: 0 0 10px 0; " />
+                                    <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                        <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[3].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[3].Detalhe.Titulo)">@Noticias[3].Detalhe.Titulo</a></h3>
+                                        <p><a href="@Url.Content("~/")Noticias/@Noticias[3].PublicacaoId/@DAL.Util.GerarURLAmigavel(@Noticias[3].Detalhe.Titulo)">@Noticias[3].Detalhe.Resumo</a></p>
+                                        <p class="data-noticias">
+                                            @*<i>@Convert.ToDateTime(Noticias[3].Data).ToString("dd - MMMMM - yyyy")</i>*@
+                                            <i>@Noticias[3].Complemento.Editoria</i>
+                                        </p>
+                                    </div>
+                                @*</div>*@
+                            }
+
+                            @if (Noticias.Count > 4)
+                            {
+                                @*<div class="margem-top margem-left">
+                                    <hr size="1" style="border: none; border-bottom: 1px solid #eee;" />
+                                </div>*@
+
+                                @*<div class="conteudo-home-direita-noticias-conteudo-direita">*@
+                                    <hr size="1" style="float: left; border: none; border-bottom: 1px solid #eee; width: 100%; margin: 0 0 10px 0; " />
+                                    <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                        <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[4].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[4].Detalhe.Titulo)">@Noticias[4].Detalhe.Titulo</a></h3>
+                                        <p><a href="@Url.Content("~/")Noticias/@Noticias[4].PublicacaoId/@DAL.Util.GerarURLAmigavel(@Noticias[4].Detalhe.Titulo)">@Noticias[4].Detalhe.Resumo</a></p>
+                                        <p class="data-noticias">
+                                            @*<i>@Convert.ToDateTime(Noticias[4].Data).ToString("dd - MMMMM - yyyy")</i>*@
+                                            <i>@Noticias[4].Complemento.Editoria</i>
+                                        </p>
+                                    </div>
+                                @*</div>*@
+                            }
+                        </div>      
+
+                    </div>
+                </div>
+                <div class="vertodos"><a href="~/Noticias"><i>@Resources.Portal.Home_Ver_Todos</i></a></div>
+            <!--/Notícias -->
+
+            <!--Mantenedores-->
+                <div class="conteudo-home-direita-assossiados">
+                    <h1>@Resources.Portal.Home_Associados</h1>
+                    <div class="conteudo-home-direita-assossiados-conteudo">
+                        @foreach (DTO.Banner.Banner b in Model.BannerMantenedores)
+                        {
+
+                            var _target = "_self";
+                            if (b.TargetId == 1) { _target = "_parent"; }
+                            if (b.TargetId == 2) { _target = "_blank"; }
+                            var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
+                            <a href="@_link" target="@_target" title="@b.Detalhe.Resumo" class="cms-counter" style="text-decoration: none !important;" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
+                                @if (b.ArquivoId_Secundaria != null && b.ArquivoId_Secundaria != 0)
+                                {
+                                    <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Primaria');" alt="@b.Detalhe.Resumo" class="opacidade" />
+                                }
+                                else
+                                {
+                                    <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="@b.Detalhe.Resumo" class="opacidade" />
+                                }
+                            </a>
+                        }
+                    </div>
+                </div>
+            <!--/Mantenedores-->
+            }
+            else
+            {
+                <!--Sobre Nós-->
+                <div class="conteudo-home-direita-materia">
+                    <div class="ico">
+                        <img src="@Url.Content("~/")Images/Icon_noticias.png" alt="Icone CCBC" />
+                    </div>
+                    <div class="titulo">
+                        <h1>
+                            @Resources.Portal.Home_SobreNos_Titulo
+                        </h1>
+                    </div>
+                    <div class="subtitulo">
+                        <h2>@Resources.Portal.Home_SobreNos_SubTitulo</h2>
+                    </div>
+                    <div class="conteudo-home-direita-materia-conteudo">
+                        @{
+                var Materias = Model.Materias.FindAll(x => x.Destaque == true);
+                if (Materias.Count > 0)
+                {
+                                    <!--esquerda-->
+                            <div class="conteudo-home-direita-materia-conteudo-esquerda">
+                                <div class="conteudo-home-direita-materia-conteudo-esquerda-destaque-texto">
+                                    <div class="titulo" style="margin: 0 0 6px 0 !important; width: 90%; border-bottom: 1px solid #e7e7e7;">
+                                        <h1>@Materias[0].Detalhe.Titulo</h1>
+                                    </div>
+                                    <p style="width: 90%;"><a href="@Url.Content("~")Materia/@Materias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Materias[0].Detalhe.Titulo)">@Materias[0].Detalhe.Resumo</a></p>
+                                    <div style="float: left; width: 16px; height: 45px; margin: 3px 3px 0 0;">
+                                        <img src="@Url.Content("~/")Images/Icon_Saiba_Mais.png" alt="Icone CCBC" />
+                                    </div>
+                                    <div class="titulo">
+                                        <h1 style="font-size: 16px;"><a href="@Url.Content("~")Materia/@Materias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Materias[0].Detalhe.Titulo)" style="color: #d61541; text-decoration: none;">@Resources.Portal.Home_Saiba_Mais</a></h1>
+                                    </div>
+                                </div>
+                            </div>
+                    if (Materias.Count > 1)
+                    {
+                                    <!--centro-->
+                            <div class="conteudo-home-direita-materia-conteudo-centro">
+                                <div class="conteudo-home-direita-materia-conteudo-centro-destaque-texto">
+                                    <div class="titulo" style="margin: 0 0 6px 0 !important; width: 90%; border-bottom: 1px solid #e7e7e7; ">
+                                        <h1>@Materias[1].Detalhe.Titulo</h1>
+                                    </div>
+                                    <p style="width: 90%;"><a href="@Url.Content("~")Materia/@Materias[1].PublicacaoId/@DAL.Util.GerarURLAmigavel(Materias[1].Detalhe.Titulo)">@Materias[1].Detalhe.Resumo</a></p>
+                                    <div style="float: left; width: 16px; height: 45px; margin: 3px 3px 0 0;">
+                                        <img src="@Url.Content("~/")Images/Icon_Saiba_Mais.png" alt="Icone CCBC" />
+                                    </div>
+                                    <div class="titulo">
+                                        <h1 style="font-size: 16px;"><a href="@Url.Content("~")Materia/@Materias[1].PublicacaoId/@DAL.Util.GerarURLAmigavel(Materias[0].Detalhe.Titulo)" style="color: #d61541; text-decoration: none;">@Resources.Portal.Home_Saiba_Mais</a></h1>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+                    if (Materias.Count > 2)
+                    {
+                                    <!--direita-->
+                            <div class="conteudo-home-direita-materia-conteudo-direita">
+                                <div class="conteudo-home-direita-materia-conteudo-direita-destaque-texto">
+                                    <div class="titulo" style="margin: 0 0 6px 0 !important; width: 90%; border-bottom: 1px solid #e7e7e7; ">
+                                        <h1>@Materias[2].Detalhe.Titulo</h1>
+                                    </div>
+                                    <p style="width: 90%;"><a href="@Url.Content("~")Materia/@Materias[2].PublicacaoId/@DAL.Util.GerarURLAmigavel(Materias[2].Detalhe.Titulo)">@Materias[2].Detalhe.Resumo</a></p>
+                                    <div style="float: left; width: 16px; height: 45px; margin: 3px 3px 0 0;">
+                                        <img src="@Url.Content("~/")Images/Icon_Saiba_Mais.png" alt="Icone CCBC" />
+                                    </div>
+                                    <div class="titulo">
+                                        <h1 style="font-size: 16px;"><a href="@Url.Content("~")Materia/@Materias[2].PublicacaoId/@DAL.Util.GerarURLAmigavel(Materias[0].Detalhe.Titulo)" style="color: #d61541; text-decoration: none;">@Resources.Portal.Home_Saiba_Mais</a></h1>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+                }
+                        }
+                    </div>
+
+                </div>
+                <!--/Sobre Nós-->
+            }
+
+
+            <!-- Parceiras -->
+            <div class="conteudo-home-direita-instituicoes">
+                @if (Model.SiteId == 1)
+                {
+                    <h1>@Resources.Portal.Home_Instituicoes</h1>
+                }
+                else
+                {
+                    <div class="ico">
+                        <img src="@Url.Content("~/")Images/Icon_noticias.png" alt="Icone CCBC" />
+                    </div>
+                    <div class="titulo">
+                        <h1 style="color: #d61541 !important;">@Resources.Portal.Home_Instituicoes</h1>
+                    </div>
+                    <div class="subtitulo" style="margin-bottom: 20px;">
+                        <h2>@Resources.Portal.Home_Instituicoes_SubTitulo</h2>
+                    </div>
+                }
+                <div class="conteudo-home-direita-instituicoes-conteudo">
+
+                    @foreach (DTO.Banner.Banner b in Model.BannerParceiras)
+                    {
+
+                        var _target = "_self";
+                        if (b.TargetId == 1) { _target = "_parent"; }
+                        if (b.TargetId == 2) { _target = "_blank"; }
+                        var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
+                        <a href="@_link" target="@_target" title="@b.Detalhe.Resumo" class="cms-counter" style="text-decoration: none !important;" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
+                            @if (b.ArquivoId_Secundaria != null && b.ArquivoId_Secundaria != 0)
+                            {
+                                <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@b.ArquivoId_Primaria');" alt="@b.Detalhe.Resumo" class="opacidade" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="@b.Detalhe.Resumo" class="opacidade" />
+                            }
+                        </a>
+                    }
+
+                </div>
+            </div>
+            <!--/Parceiras -->
+            <!-- Banner Inferior -->
+            @if (Model.BannerInferior != null)
+            {
+                <div class="conteudo-home-direita-publicidade">
+                    @{
+                var _target = "_self";
+                if (Model.BannerInferior.TargetId == 1) { _target = "_parent"; }
+                if (Model.BannerInferior.TargetId == 2) { _target = "_blank"; }
+                var _link = String.IsNullOrEmpty(Model.BannerInferior.LinkURL) ? "" : Model.BannerInferior.LinkURL;
+                    }
+                    <a href="@_link" target="@_target" title="@Model.BannerInferior.Detalhe.Resumo" class="cms-counter" referenciaid="@Model.BannerInferior.BannerId" arquivoid="@Model.BannerInferior.ArquivoId_Primaria">
+                        @if (Model.BannerInferior.ArquivoId_Secundaria != null && Model.BannerInferior.ArquivoId_Secundaria != 0)
+                        {
+                            <img src="@Url.Content("~/")File?id=@Model.BannerInferior.ArquivoId_Primaria" onmouseover="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@Model.BannerInferior.ArquivoId_Secundaria');" onmouseout="javascript: $(this).attr('src', '@Url.Content("~/")File?id=@Model.BannerInferior.ArquivoId_Primaria');" alt="@Model.BannerInferior.Detalhe.Resumo" class="opacidade" />
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/")File?id=@Model.BannerInferior.ArquivoId_Primaria" alt="@Model.BannerInferior.Detalhe.Resumo" class="opacidade" />
+                        }
+                    </a>
+                </div>
+            }
+            <!--/Banner Inferior -->
+
+        </div>
+        <!--conteudo / direta-->
+
+        <!-- Banner Publicidade Rotativo -->
+        @{
+            Html.RenderAction("BannerPublicidadeRotativo", "Conteudo", new { model = Model });
+        }
+        <!--/Banner Publicidade Rotativo -->
+        
+    </div>
+</div>

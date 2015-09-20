@@ -1,0 +1,6 @@
+Conceito de Regras
+
+Uma regra é criada para que conforme um conjunto de condições ordenadas em passos possam garantir a liberação ou não do objeto que está sendo avalido.
+Este objeto pode ser uma publicação do tipo banner, eventos, matérias, notícias e assim por diante.
+
+A regra é composta por passos, e desta forma a regra mais simples possuirá pelo menos um passo e a regra mais complexa possuirá quantos passos forem necessários para que se obtenha o grau de segurança necessário

@@ -1,0 +1,17 @@
+﻿{
+	"sProcessing": "Processando...",
+	"sLengthMenu": "_MENU_ Registros",
+	"sZeroRecords": "Nenhum registro localizado.",
+	"sInfo": "",
+	"sInfoEmpty": "",
+	"sInfoFiltered": "",
+	"sInfoPostFix": "",
+	"sSearch": "Pesquisar:",
+	"sUrl": "",
+	"oPaginate": {
+		"sFirst":    "<<",
+		"sPrevious": "<",
+		"sNext":     ">",
+		"sLast":     ">>"
+	}
+}

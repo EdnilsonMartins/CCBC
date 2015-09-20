@@ -1,0 +1,1 @@
+sqlcmd -Slocalhost\sqlexpress -Q "BACKUP DATABASE [dbCCBC] TO DISK = 'C:\Projetos\CCBC\Banco de Dados\dbCCBC-Full.bak' WITH INIT"

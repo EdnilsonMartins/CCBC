@@ -1,0 +1,22 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using System.Text
+@using System.Web.Helpers
+@using DTO.Menu
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SitePortal.Models.Portal
+
+<div class="geral-1050">
+    <div class="conteudo">
+
+        @{
+            Html.RenderAction("Index", "Conteudo", new { Id = Model.Conteudo.PublicacaoId });
+        }
+
+    </div>
+</div>
+

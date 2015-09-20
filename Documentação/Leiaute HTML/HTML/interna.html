@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>.:: CAM / CCBC ::.</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<!--segmentos-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/show_hide.js"></script>
+<!--segmentos-->
+
+<!--fancybox-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="./fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="./fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript">
+$(document).ready(function() {
+/*
+*   Examples - images
+*/
+
+$("a#example1").fancybox();
+
+$("a#example2").fancybox({
+'overlayShow'	: false,
+'transitionIn'	: 'elastic',
+'transitionOut'	: 'elastic'
+});
+
+$("a#example3").fancybox({
+'transitionIn'	: 'none',
+'transitionOut'	: 'none'	
+});
+
+$("a#example4").fancybox({
+'opacity'		: true,
+'overlayShow'	: false,
+'transitionIn'	: 'elastic',
+'transitionOut'	: 'none'
+});
+
+$("a#example5").fancybox();
+
+$("a#example6").fancybox({
+'titlePosition'		: 'outside',
+'overlayColor'		: '#000',
+'overlayOpacity'	: 0.9
+});
+
+$("a#example7").fancybox({
+'titlePosition'	: 'inside'
+});
+
+$("a#example8").fancybox({
+'titlePosition'	: 'over'
+});
+
+$("a[rel=example_group]").fancybox({
+'transitionIn'		: 'none',
+'transitionOut'		: 'none',
+'titlePosition' 	: 'over',
+'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+}
+});
+
+/*
+*   Examples - various
+*/
+
+$("#various1").fancybox({
+'titlePosition'		: 'inside',
+'transitionIn'		: 'none',
+'transitionOut'		: 'none'
+});
+
+$("#various2").fancybox();
+
+$("#various3").fancybox({
+'width'				: '75%',
+'height'			: '75%',
+'autoScale'			: false,
+'transitionIn'		: 'none',
+'transitionOut'		: 'none',
+'type'				: 'iframe'
+});
+
+$("#various4").fancybox({
+'padding'			: 0,
+'autoScale'			: false,
+'transitionIn'		: 'none',
+'transitionOut'		: 'none'
+});
+});
+</script>
+<!--fancybox-->
+</head>
+
+<body>
+
+
+<div class="cabecalho">
+<!--linha topo-->
+<div class="topo-linha cor-padrao"></div>
+<!--linha topo-->
+
+<div class="topo-conteudo-bg">
+<div class="geral-1100">
+<!--logo / divisoes / acesso-->
+<div class="topo-conteudo">
+<!--logo-->
+<div class="topo-conteudo-logo">
+<a href="#"><img src="imgs/Logo_cam.jpg" alt="CAM / CCBC" /></a>
+</div>
+<!--divisoes-->
+
+<div class="topo-conteudo-divisoes">
+
+<div id="cab_show_proc">
+<div id="cab_show_proc_center">
+<div id="cab_procurar">
+<a href="#"><img src="imgs/divisoes_CCBC.png" alt="Cam - CCBC" /></a>
+<a href="#"><img src="imgs/divisoes_Cam.png" alt="Cam - CCBC"  /></a>
+<a href="#"><img src="imgs/divisoes_instituto.png" alt="Cam - CCBC"  /></a>
+<a href="#"><img src="imgs/divisoes_amigoscanada.png" alt="Cam - CCBC"  /></a>
+</div>
+</div>
+</div>
+<a href="#" id="procurar"><img src="imgs/Bt_divisoes.png" alt="CAM / CCBC" /></a>
+</div>
+
+<!--acesso-->
+<div class="topo-conteudo-acesso">
+<div class="topo-conteudo-acesso-icone">
+<img src="imgs/Img_acesso_cadeado.png" alt="CAM / CCBC" />
+</div>
+<div class="topo-conteudo-acesso-texto">
+<h4>Acesso Restrito</h4>
+<h5>conteúdo exclusivo p/ associados</h5>
+</div>
+<input type="text" name="usuario" value="usuário" class="topo-conteudo-acesso-input" />
+<input type="password" name="usuario" value="senha" class="topo-conteudo-acesso-input" />
+<input type="image" src="imgs/Bt_acesso_enviar.png" alt="Enviar" class="topo-conteudo-acesso-input-enviar" />
+</div>
+</div>
+<!--logo / divisoes / acesso-->
+</div>
+</div>
+
+
+
+
+<div class="topo-menu-bg cor-padrao">
+<div class="geral-1100">
+
+<!--menu-->
+<div class="topo-menu">
+<ul>
+<li><a href="#" class="topo-menu-on">Home</a></li>
+<li><a href="#">Cam</a></li>
+<li><a href="#">Serviços</a></li>
+<li><a href="#">Contato</a></li>
+</ul>
+</div>
+<!--menu-->
+
+<!--linguas-->
+<div class="topo-menu-linguas">
+<a href="#">EN</a>
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#">FR</a>
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#">PT</a>
+</div>
+<!--linguas-->
+
+<!--busca-->
+<div class="topo-menu-busca">
+<input type="text" name="busca" value="faça uma busca..." class="topo-menu-busca-input" />
+<input type="image" src="imgs/Bt_buscar.png" alt="Enviar" class="topo-menu-busca-input-enviar" />
+</div>
+<!--busca-->
+</div>
+</div>
+</div>
+
+
+
+<div class="geral-1050">
+<div class="conteudo">
+
+<div class="internas-banner opacidade">
+<img src="imgs/Img_superbanner_interna.jpg" alt="banner ccbc" />
+</div>
+
+<div class="internas-navegacao">
+<a href="#">Home</a>
+<a href="#">Reserva de Salas</a>
+<a href="#">Terceiro Andar</a>
+</div>
+
+<!--lateral esquerda-->
+<div class="lateral">
+<div class="lateral-conteudo">
+
+
+<!--menu internas-->
+
+<div class="menu-internas">
+<div class="menu-internas-titulo cor-padrao">
+<h1>RESERVA DE SALAS</h1>
+</div>
+
+<ul>
+<li><a href="#">Terceiro Andar</a></li>
+<li><a href="#">Quinto Andar</a></li>
+<li><a href="#">Décimo Segundo Andar</a></li>
+</ul>
+</div>
+
+
+<!--menu internas-->
+
+
+
+<!--publicidade 01-->
+<div class="lateral-conteudo-publicidade opacidade">
+<a href="#"><img src="imgs/Img_banner_scot.jpg" alt="Publicidade CCBC" /></a>
+</div>
+<!--publicidade 01-->
+
+
+</div>
+</div>
+<!--lateral esquerda-->
+
+
+<!--conteudo / direta-->
+
+<div class="internas-conteudo">
+<h1>Terceiro Andar</h1>
+<img src="imgs/Img_banner_interna.jpg" alt="cccbc" />
+<p>O Centro de Arbitragem e Mediação foi fundado em 1979 por um grupo de advogados e professores da Faculdade de Direito do Largo São Francisco com o apoio da Câmara de Comércio Brasil-Canadá.</p>
+
+<p>Muito mudou desde aquela época uma vez que, no início de suas atividades, poucos foram os casos solucionados pelo instituto, que não tinha o suporte de uma lei específica que regesse a matéria no país.</p>
+
+<p>No entanto, com a promulgação da Lei de Arbitragem, lei nº 9.307 em 1996, o método alternativo ganhou fôlego com a recém conquistada segurança jurídica que beneficiou partes, advogados e árbitros, e permitiu a adoção de cláusulas compromissórias eficazes que garantissem os requisitos de celeridade, tecnicidade e segurança exigidos pela prática jurídica internacional mais moderna.</p>
+
+<div class="internas-conteudo-galeria">
+<h3>GALERIA DE IMAGENS</h3>
+<a id="example8" href="imgs/Internas_01.jpg" title="CCBC - Fotos"><img src="imgs/Internas_01.jpg" alt="ccbc"class="last" /></a>
+<a id="example8" href="imgs/Internas_01.jpg" title="CCBC - Fotos"><img src="imgs/Internas_02.jpg" alt="ccbc"class="last" /></a>
+<a id="example8" href="imgs/Internas_01.jpg" title="CCBC - Fotos"><img src="imgs/Internas_03.jpg" alt="ccbc"class="last" /></a>
+<a id="example8" href="imgs/Internas_01.jpg" title="CCBC - Fotos"><img src="imgs/Internas_03.jpg" alt="ccbc"class="last" /></a>
+<a id="example8" href="imgs/Internas_01.jpg" title="CCBC - Fotos"><img src="imgs/Internas_02.jpg" alt="ccbc"class="last" /></a>
+<a id="example8" href="imgs/Internas_01.jpg" title="CCBC - Fotos"><img src="imgs/Internas_01.jpg" alt="ccbc"class="last" /></a>
+</div>
+
+</div>
+
+
+
+<!--lateral direita-->
+<div class="internas-direita">
+
+<div class="conteudo-home-quick">
+<div class="ico"><img src="imgs/Icon_quickmenu.png" alt="Icone CCBC" /></div>
+<div class="titulo"><h1>Quick Menu</h1></div>
+<div class="subtitulo"><h2>Encontre o que procura</h2></div>
+
+<!--botao quick-->
+<div class="conteudo-home-quick-botoes">
+<div class="conteudo-home-quick-botoes-ico">
+<a href="#"><img src="imgs/Ico_quick_01.png" alt="Quick Menu CCBC" /></a></div>
+<div class="conteudo-home-quick-botoes-titulo">
+<h3><a href="#">Leg. de Arbitragem</a></h3>
+</div></div>
+<!--botao quick-->
+
+<!--botao quick-->
+<div class="conteudo-home-quick-botoes">
+<div class="conteudo-home-quick-botoes-ico">
+<a href="#"><img src="imgs/Ico_quick_02.png" alt="Quick Menu CCBC" /></a></div>
+<div class="conteudo-home-quick-botoes-titulo">
+<h3><a href="#">Modelos de Claúsula</a></h3>
+</div></div>
+<!--botao quick-->
+
+<!--botao quick-->
+<div class="conteudo-home-quick-botoes">
+<div class="conteudo-home-quick-botoes-ico">
+<a href="#"><img src="imgs/Ico_quick_03.png" alt="Quick Menu CCBC" /></a></div>
+<div class="conteudo-home-quick-botoes-titulo">
+<h3><a href="#">Corpo de Arbitros</a></h3>
+</div></div>
+<!--botao quick-->
+
+<!--botao quick-->
+<div class="conteudo-home-quick-botoes">
+<div class="conteudo-home-quick-botoes-ico">
+<a href="#"><img src="imgs/Ico_quick_04.png" alt="Quick Menu CCBC" /></a></div>
+<div class="conteudo-home-quick-botoes-titulo">
+<h3><a href="#">Calculadora Tabela despesas</a></h3>
+</div></div>
+<!--botao quick-->
+
+<!--botao quick-->
+<div class="conteudo-home-quick-botoes">
+<div class="conteudo-home-quick-botoes-ico">
+<a href="#"><img src="imgs/Ico_quick_05.png" alt="Quick Menu CCBC" /></a></div>
+<div class="conteudo-home-quick-botoes-titulo">
+<h3><a href="#">FAQ</a></h3>
+</div></div>
+<!--botao quick-->
+
+<!--botao quick-->
+<div class="conteudo-home-quick-botoes">
+<div class="conteudo-home-quick-botoes-ico">
+<a href="#"><img src="imgs/Ico_quick_06.png" alt="Quick Menu CCBC" /></a></div>
+<div class="conteudo-home-quick-botoes-titulo">
+<h3><a href="#">Calendário (eventos)</a></h3>
+</div></div>
+<!--botao quick-->
+
+
+<!--publicidade 01-->
+<div class="lateral-conteudo-publicidade opacidade">
+<a href="#"><img src="imgs/Banner_reserve.png" alt="Publicidade CCBC" /></a>
+</div>
+<!--publicidade 01-->
+
+</div>
+
+
+
+
+
+</div>
+<!--fehca direita-->
+
+
+</div>
+<!--conteudo-->
+
+</div>
+
+
+
+
+<!--rodape-->
+<div class="rodape cor-padrao">
+<div class="geral-1100">
+<div class="rodape-1100 cor-padrao">
+<!--coluna01-->
+<div class="rodape-colunas">
+<h3>CCBC</h3>
+<ul>
+<li><a href="#">O que é a CCBC?</a></li>
+<li><a href="#">Nossa Missão</a></li>
+<li><a href="#">Nossos Objetivos</a></li>
+<li><a href="#">Palavra da CCBC</a></li>
+<li><a href="#">Histórico Presidentes</a></li>
+<li><a href="#">Comitê Executivo</a></li>
+<li><a href="#">Conselho</a></li>
+<li><a href="#">Como Chegar</a></li>
+<li><a href="#">Estatuto</a></li>
+</ul>
+
+<h3>Centro de Arbitragem e Mediação</h3>
+<ul>
+<li><a href="#">Centro de Arbitragem e Mediação</a></li>
+<li><a href="#">Comitê Controvérsias sobre Registro de Domínio</a></li>
+<li><a href="#">Mediação</a></li>
+<li><a href="#">Histórico Presidentes</a></li>
+<li><a href="#">Comitê Executivo</a></li>
+</ul>
+</div>
+<!--coluna01-->
+
+<!--coluna02-->
+<div class="rodape-colunas">
+<h3>Serviços</h3>
+<ul>
+<li><a href="#">Serviços Oferecidos</a></li>
+<li><a href="#">Calendário</a></li>
+<li><a href="#">Instituto Cultural</a></li>
+<li><a href="#">Diretório de Feiras</a></li>
+</ul>
+
+<h3>Comissões Setoriais</h3>
+<ul>
+<li><a href="#">CAE - Comissão de Assuntos Econômicos - SP</a></li>
+<li><a href="#">CAE - Comissão de Assuntos Econômicos - RJ</a></li>
+<li><a href="#">CAJ - Comissão de Assuntos Jurídicos - SP</a></li>
+<li><a href="#">CM - Comissão de Mineração - MG</a></li>
+<li><a href="#">CS - Comissão de Saúde - SP/RJ</a></li>
+<li><a href="#">CCE - Comissão de Comércio Exterior</a></li>
+</ul>
+
+
+<h3>Associados</h3>
+<ul>
+<li><a href="#">Buscar por Sócio</a></li>
+<li><a href="#">Lista de Associados</a></li>
+</ul>
+</div>
+<!--coluna02-->
+
+<!--coluna03-->
+<div class="rodape-colunas">
+<h3>Entre em Contato</h3>
+<ul>
+<li><a href="#">+55 11 4058-0400 / +55 11 985 336 214</a></li>
+<li><a href="#">contato@ccbc.org.br</a></li>
+</ul>
+
+<h3>Localização</h3>
+<ul>
+<li><a href="#">Rua do Rócio, 220 - 12º andar - cj. 121<br />São Paulo - SP - Brasil</a></li>
+</ul>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.2890607735126!2d-46.68602249999999!3d-23.593964!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5746176c79e3%3A0x63c0c9a13f38972c!2sR.+do+Rocio%2C+220+-+Vila+Ol%C3%ADmpia%2C+S%C3%A3o+Paulo+-+SP!5e0!3m2!1spt-BR!2sbr!4v1414078428318" width="90%" height="150" frameborder="0" style="border:0; margin:5px 0;"></iframe>
+
+<a href="#"><img src="imgs/Icon_face.jpg" alt="ccbc - cam - facebook" /></a>
+<a href="#"><img src="imgs/Icon_twitter.jpg" alt="ccbc - cam - facebook" /></a>
+<a href="#"><img src="imgs/Icon_rss.jpg" alt="ccbc - cam - facebook" /></a>
+<a href="#"><img src="imgs/Icon_flickr.jpg" alt="ccbc - cam - facebook" /></a>
+<!--coluna03-->
+</div>
+</div>
+</div>
+</div>
+
+<div class="rodape-assinatura">
+<div class="geral-1100">
+
+<div class="rodape-assinatura-blocos">
+A republicação e divulgação de conteúdos públicos são permitidas, desde que citados fonte, título e autor.
+No caso dos conteúdos restritos, não é permitida a utilização sem autorização do responsável. 
+É totalmente livre a citação da URL do Portal (http//www.ccbc.org.br) em sítios e páginas de terceiros.
+</div>
+
+<div class="rodape-assinatura-blocos alinhar-direita">
+© 2014 / 2015 - CCBC - Todos os direitos reservados. <br />
+by <a href="http://tendenza.com.br" target="_blank">Tendenza Tecnologia</a>
+</div>
+
+</div>
+</div>
+<!--Script Banner Rotativo-->
+<script type="text/javascript">
+$(document).ready(function() {
+$('#coin-slider').coinslider({ width: 810, height: 340, navigation: true, delay: 2000, effect: 'straight' });
+});
+</script>
+<!--Script Banner Rotativo-->
+
+</body>
+</html>

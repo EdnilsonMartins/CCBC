@@ -1,0 +1,26 @@
+bkp-ccbc
+--------
+	Faz Backup da base dbCCBC.
+	Faz Backup da pasta completa do projeto.
+	Gera um ZIP completo.
+
+
+Rotina Backup CCBC Full
+-----------------------
+	Executa o cmd acima passando F:\ como destino de uma cópia extra
+
+
+pub
+---
+	Gera um ZIP dentro da pasta C:\Publish contendo apenas os arquivos que devem ser substituidos no servidor da aplicacao.
+	Parâmetros YYYYMMDD HHMMSS [Admin]
+	
+	Diretórios de Origem: 
+	1) C:\Site\PortalCCBC
+	2) C:\Site\PortalCCBCAdmin *Quando passado Admin como parametro.
+
+Hosts
+-----
+Dica: Configurar o arquivo hosts do windows para facilitar os testes exemplo => CCBC = 128.0.0.1
+Caminho do arquivo:
+C:\Windows\System32\drivers\etc

@@ -1,0 +1,48 @@
+@font-face {font-family: 'BebasNeueRegular';src: url('fonts/BebasNeue-webfont.eot');
+src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/BebasNeue-webfont.woff') format('woff'),url('fonts/BebasNeue-webfont.ttf') format('truetype'),url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');font-weight: normal;font-style: normal;}
+
+/* CSS reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0;padding:0;}
+html,body {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img { border:0;}
+input{border:1px solid #b0b0b0;padding:3px 5px 4px;color:#979797;width:190px;}
+address,caption,cite,code,dfn,th,var {font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;
+font-weight:normal;}
+q:before,q:after {content:'';}
+abbr,acronym { border:0;}
+
+/* General Demo Style */
+body{font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;background: #FFF;font-weight: 400;font-size: 15px;color: #aa3e03;overflow-y: scroll;overflow-x: hidden;}
+.ie7 body{overflow:hidden;}
+a{color: #333;text-decoration: none;}
+.conteudo{position: relative;text-align: center; margin-top:70px;}
+.clr{clear: both;}
+.conteudo > header{padding: 30px 30px 10px 20px;margin: 0px 20px 10px 20px;position: relative;display: block;text-shadow: 1px 1px 1px rgba(0,0,0,0.2);text-align: left;}
+.conteudo > header h1{font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;font-size: 35px;line-height: 35px;position: relative;font-weight: 400;text-align:right;color: #fff;text-shadow: 1px 1px 1px rgba(0,0,0,0.3);padding: 0px 0px 5px 0px;}
+.conteudo > header h1 span{}
+.conteudo > header , p.info{font-size: 16px;h2font-style: italic;text-align:right;color: #f8f8f8;text-shadow: 1px 1px 1px rgba(0,0,0,0.6);}
+
+/* Header Style */
+.topo-black{font-family: Arial, sans-serif;line-height: 24px;font-size: 11px;width: 100%;background: #000;opacity: 0.9;text-transform: uppercase;z-index: 9999;position: relative;-moz-box-shadow: 1px 0px 2px #000;-webkit-box-shadow: 1px 0px 2px #000;box-shadow: 1px 0px 2px #000;}
+.topo-black a{padding: 0px 10px;letter-spacing: 1px;color: #ddd;display: block;float: left;}
+.topo-black a:hover{color: #fff;}
+.topo-black span.right{float: right;}
+.topo-black span.right a{float: none;display: inline;}
+
+p.codrops-demo{display: block;padding: 15px 0px;}
+p.codrops-demos a,
+p.codrops-demos a.current-demo,
+p.codrops-demos a.current-demo:hover{font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;display: inline-block;padding: 4px 10px 3px;font-size:35px;line-height: 18px;margin: 2px 3px;height:40px;font-weight: 800;color:#fff; background:#000;}
+p.codrops-demos a:hover{}
+p.codrops-demos a:active{}
+p.codrops-demos a.current-demo,
+p.codrops-demos a.current-demo:hover{color: #A5727D;}
+/* Media Queries */
+@media screen and (max-width: 767px) {
+.conteudo > header{text-align: center;}
+p.codrops-demos {position: relative;top: auto;left: auto;}
+}
