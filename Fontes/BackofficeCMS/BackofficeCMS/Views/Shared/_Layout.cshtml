@@ -118,8 +118,8 @@
                         @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.CMS_CCBC)))
                         {
                             <li>
-                                <a href="@Url.Content("~/Home/SessionSite?SiteId=1&SiteNome=CCBC")">
-                                    <i class="icon-docs"></i> CCBC
+                                <a href="@Url.Content("~/Home/SessionSite?SiteId=1&SiteNome=Galvani%20Portal")">
+                                    <i class="icon-docs"></i> Galvani Portal
                                 </a>
                             </li>
                         }
@@ -127,8 +127,8 @@
                         @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.CMS_CAM)))
                         {
                             <li>
-                                <a href="@Url.Content("~/Home/SessionSite?SiteId=2&SiteNome=CAM-CCBC")">
-                                    <i class="icon-docs"></i> CAM-CCBC
+                                <a href="@Url.Content("~/Home/SessionSite?SiteId=2&SiteNome=Galvani%20Mobile")">
+                                    <i class="icon-docs"></i> Galvani Mobile
                                 </a>
                             </li>
                         }

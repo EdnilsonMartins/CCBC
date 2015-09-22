@@ -1992,7 +1992,6 @@
     <Content Include="Content\assets\global\plugins\jquery-file-upload\server\gae-python\static\robots.txt" />
     <Content Include="Content\assets\global\plugins\jquery-file-upload\server\node\.gitignore" />
     <Content Include="Content\assets\global\plugins\jquery-file-upload\server\node\public\files\.gitignore" />
-    <Content Include="Content\assets\global\plugins\jquery-file-upload\server\node\public\files\thumbnail\.gitignore" />
     <Content Include="Content\assets\global\plugins\jquery-file-upload\server\node\server.js" />
     <Content Include="Content\assets\global\plugins\jquery-file-upload\server\node\tmp\.gitignore" />
     <Content Include="Content\assets\global\plugins\jquery-idle-timeout\jquery.idletimeout.js" />
@@ -2651,6 +2650,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\global\plugins\ckeditor\plugins\timestamp\icons\" />
+    <Folder Include="Content\assets\global\plugins\jquery-file-upload\server\node\public\files\thumbnail\" />
     <Folder Include="Content\assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />
   </ItemGroup>
   <ItemGroup>
