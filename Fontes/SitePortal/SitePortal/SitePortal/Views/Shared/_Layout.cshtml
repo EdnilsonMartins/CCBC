@@ -167,18 +167,23 @@
     @{
         if (Model.Conteudo != null)
         {
+            var _url = "/Images/Logo_CCBC_122.jpg";
+            if (Model.Conteudo.ArquivoDestaqueId != null && Model.Conteudo.ArquivoDestaqueId != 0)
+            {
+                _url = "/File?Id=" + Model.Conteudo.ArquivoDestaqueId;
+            }
+            
+            <meta property="og:image" content="@_url">
+            <meta itemprop="image" content="@_url" />
+            <link rel="image_src" href="@_url" />
+        
             <meta name="og:title" property="og:title" content="@Model.Conteudo.Detalhe.Titulo" />
             <meta name="og:description" property="og:description" content="@DAL.Util.ScrubHtml(Model.Conteudo.Detalhe.Conteudo)" />
         
-            if (Model.Conteudo.ArquivoDestaqueId != null && Model.Conteudo.ArquivoDestaqueId != 0)
-            {
-                var _url = "http://www.ccbc.org.br/File?Id=" + Model.Conteudo.ArquivoDestaqueId;
-                <meta property="og:image" content='@_url'>
-            }
         }
-        
-        
-    }
+
+
+}
 </head>
 <body>
 

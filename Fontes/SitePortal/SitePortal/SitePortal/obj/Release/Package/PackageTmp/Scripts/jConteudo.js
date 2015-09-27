@@ -89,6 +89,7 @@ function doShareFace() {
             display: 'popup',
             caption: 'ccbc.org.br',
             link: _url,
+            picture: 'http://www.ccbc.org.br/Images/Logo_CCBC_122.jpg',
             next: 'http://www.ccbc.org.br/thanks.html'
         }, function (response) { });
     }

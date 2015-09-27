@@ -281,6 +281,8 @@
     <Content Include="Images\linkedin.png" />
     <Content Include="Images\Logo_amigoscanada.png" />
     <Content Include="Images\Logo_cam.png" />
+    <Content Include="Images\Logo_CCBC - Copy.png" />
+    <Content Include="Images\Logo_CCBC_122.jpg" />
     <Content Include="Images\Logo_CCBC.png" />
     <Content Include="Images\Logo_instituto.png" />
     <Content Include="Images\micro_bandeira_bra.gif" />
@@ -312,6 +314,7 @@
     <Content Include="Scripts\Libs\jquery.maskMoney.min.js" />
     <Content Include="Scripts\Libs\jssor_slider\jssor.js" />
     <Content Include="Scripts\Libs\jssor_slider\jssor.slider.js" />
+    <Content Include="TesteFace.html" />
     <Content Include="thanks.html" />
     <Content Include="WebForm\WebForm1.aspx" />
     <None Include="BundleTransformer.Configuration.xsd">

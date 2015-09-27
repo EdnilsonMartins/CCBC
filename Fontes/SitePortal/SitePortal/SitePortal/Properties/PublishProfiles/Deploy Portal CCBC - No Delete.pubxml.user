@@ -40,7 +40,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>07/26/2015 20:20:02</publishTime>
+      <publishTime>08/23/2015 18:57:01</publishTime>
     </File>
     <File Include="bin/DTO.dll">
       <publishTime>07/26/2015 20:20:02</publishTime>
@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/SitePortal.dll">
-      <publishTime>07/31/2015 21:31:10</publishTime>
+      <publishTime>09/27/2015 01:24:06</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 11:07:38</publishTime>
@@ -441,8 +441,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/Logo_cam.png">
       <publishTime>03/16/2015 10:19:20</publishTime>
     </File>
+    <File Include="Images/Logo_CCBC - Copy.png">
+      <publishTime>09/26/2015 23:02:18</publishTime>
+    </File>
+    <File Include="Images/Logo_CCBC.jpg">
+      <publishTime>09/27/2015 01:16:35</publishTime>
+    </File>
     <File Include="Images/Logo_CCBC.png">
       <publishTime>03/11/2015 20:06:43</publishTime>
+    </File>
+    <File Include="Images/Logo_CCBC_122.jpg">
+      <publishTime>09/27/2015 01:16:35</publishTime>
     </File>
     <File Include="Images/Logo_instituto.png">
       <publishTime>12/28/2014 02:39:18</publishTime>
@@ -517,7 +526,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2015 11:13:38</publishTime>
     </File>
     <File Include="Scripts/jConteudo.js">
-      <publishTime>07/13/2015 00:08:01</publishTime>
+      <publishTime>09/27/2015 01:55:47</publishTime>
     </File>
     <File Include="Scripts/jFace.js">
       <publishTime>07/05/2015 14:40:01</publishTime>
@@ -582,6 +591,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Service References/WCFIntegracaoPortal/SitePortal.WCFIntegracaoPortal.ListaMenuResponse.datasource">
       <publishTime>12/13/2014 16:15:16</publishTime>
     </File>
+    <File Include="TesteFace.html">
+      <publishTime>09/26/2015 23:38:05</publishTime>
+    </File>
     <File Include="thanks.html">
       <publishTime>07/05/2015 21:18:42</publishTime>
     </File>
@@ -610,7 +622,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 20:47:14</publishTime>
     </File>
     <File Include="Views/Conteudo/Index.cshtml">
-      <publishTime>07/13/2015 00:04:30</publishTime>
+      <publishTime>09/27/2015 01:10:59</publishTime>
     </File>
     <File Include="Views/Conteudo/NewsLetter.cshtml">
       <publishTime>04/04/2015 12:39:10</publishTime>
@@ -637,7 +649,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2015 00:35:23</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/13/2015 00:09:51</publishTime>
+      <publishTime>09/27/2015 01:23:56</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPadrao.cshtml">
       <publishTime>12/13/2014 16:21:04</publishTime>
