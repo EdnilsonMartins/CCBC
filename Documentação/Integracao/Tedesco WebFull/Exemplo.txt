@@ -1,0 +1,61 @@
+
+1. Server Side:
+public ActionResult GerarPost(string dados)
+        {
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://ccbchml.tedesco.inf.br/integracao/services/token?login=elacerda&email=eduardo.lacerda@thomsonreuters.com");
+
+            request.MaximumAutomaticRedirections = 4;
+            request.MaximumResponseHeadersLength = 4;
+            request.Credentials = CredentialCache.DefaultCredentials;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            Console.WriteLine("Content length is {0}", response.ContentLength);
+            Console.WriteLine("Content type is {0}", response.ContentType);
+
+            Stream receiveStream = response.GetResponseStream();
+
+            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+
+            string resposta = readStream.ReadToEnd();
+
+            string login = "elacerda";
+            string email = "eduardo.lacerda@thomsonreuters.com";
+            string token = resposta.Substring(74, 32);
+
+            response.Close();
+            readStream.Close();
+
+
+            return Json(new { sucesso = true, mensagem = "Tudo certo!!!", resp = resposta, Login = login, Email = email, Token = token }, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+
+
+
+
+
+
+
+2. Javascript
+
+$("#btnTeste").click(function () {
+        $.get(AppPath + "Vistoria/GerarPost", { dados: "teste" }, function (data) {
+            if (data != null) {
+                console.log(data);
+
+                var form = '';
+                form += '<input type="hidden" name="Login" value="' + data.Login + '">';
+                form += '<input type="hidden" name="Email" value="' + data.Email + '">';
+                form += '<input type="hidden" name="Token" value="' + data.Token + '">';
+
+                console.log(form);
+
+                $('<form target="_blank" action="http://ccbchml.tedesco.inf.br/index.asp" method="POST">' + form + '</form>').appendTo($(document.body)).submit();
+            }
+        });
+
+    });
