@@ -4,9 +4,13 @@ using DTO.Configuracao;
 using DTO.Menu;
 using DTO.Publicacao;
 using DTO.Usuario;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 
 namespace SitePortal.Models
@@ -62,6 +66,13 @@ namespace SitePortal.Models
         public string Titulo { get; set; }
         public string TagsSite { get; set; }
 
+        public string TedescoURL { get; set; }
+        public string TedescoLogin { get; set; }
+        public string TedescoEmail { get; set; }
+        public string TedescoToken { get; set; }
+
+
+
         public Portal()
         {
             Login = new ResponseLogin();
@@ -115,6 +126,56 @@ namespace SitePortal.Models
             model.ListaMenuPrincipal = new MenuDAL().ListarMenu(SiteId, 1, IdiomaId, null, false, Convert.ToInt32(UsuarioId));
             model.ListaMenuQuick = new MenuDAL().ListarMenu(SiteId, 2, IdiomaId, null, false, Convert.ToInt32(UsuarioId));
             model.ListaMenuInferior = new MenuDAL().ListarMenu(SiteId, 3, IdiomaId, null, true, Convert.ToInt32(UsuarioId));
+
+            #region --> Configuração Tedesco
+            UsuarioDAL userDAL = new UsuarioDAL();
+            var usuario = userDAL.Carregar(Convert.ToInt32(UsuarioId));
+            if (usuario != null && usuario.Usuario.TedescoUsuario != null && usuario.Usuario.TedescoEmail != null)
+            {
+                try
+                {
+
+                    string urlTedesco = System.Configuration.ConfigurationManager.AppSettings["TedescoURL"].ToString();
+                    string urlToken = string.Format(urlTedesco + "integracao/services/token?login={0}&email={1}",
+                                                    usuario.Usuario.TedescoUsuario,
+                                                    usuario.Usuario.TedescoEmail);
+                    
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlToken);
+                    
+                    request.MaximumAutomaticRedirections = 4;
+                    request.MaximumResponseHeadersLength = 4;
+                    request.Credentials = CredentialCache.DefaultCredentials;
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    {
+                        using (Stream receiveStream = response.GetResponseStream())
+                        {
+                            using (StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8))
+                            {
+                                string resposta = readStream.ReadToEnd();
+                                
+                                dynamic stuff = JsonConvert.DeserializeObject(resposta);
+                                
+                                model.TedescoURL = urlTedesco;
+                                model.TedescoLogin = stuff.Login;
+                                model.TedescoEmail = stuff.Email;
+                                model.TedescoToken = stuff.Token;
+
+                                response.Close();
+                                readStream.Close();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    model.TedescoURL = null;
+                    model.TedescoLogin = null;
+                    model.TedescoEmail = null;
+                    model.TedescoToken = null;
+                }
+                
+            }
+            #endregion
 
             #region --> BANNERS
             //Banner Principal
