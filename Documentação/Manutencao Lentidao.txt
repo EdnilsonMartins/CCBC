@@ -1,0 +1,33 @@
+
+
+select count(1) from tblBannerEvento
+Select Min(DataEvento) From tblBannerEvento
+
+/******************************************
+ 1. Criação da proc de Banner_Historico
+	- Replicar para demais ambientes.
+	- Implementar em DVL / Azure.
+*******************************************/
+Create Table tblBannerEvento_Antigos(
+	BannerEventoId BigInt,
+	BannerEventoTipoId Int,
+	BannerId Int,
+	ArquivoId BigInt,
+	DataEvento DateTime
+)
+Go
+
+
+/******************************************
+ 2. Rotina de expurgo.
+    - Transformar em Stored Procedure.
+	- Alterar a aplicação para considerar estatísticas da tabela estatíca
+	  tblBannerEvento_Antigos ao invés da tabela online tblBannerEvento.
+*******************************************/
+
+Insert Into tblBannerEvento_Antigos
+Select BannerEventoId, BannerEventoTipoId, BannerId, ArquivoId, DataEvento
+From tblBannerEvento Where DataEvento < '2015-11-15'
+
+Delete From tblBannerEvento Where DataEvento < '2015-11-15'
+
