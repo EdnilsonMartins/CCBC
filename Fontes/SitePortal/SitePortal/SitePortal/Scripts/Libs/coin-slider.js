@@ -272,8 +272,8 @@
 			$('#cs-next-'+el.id).css({
 				'position' 	: 'absolute',
 				'top'		: params[el.id].height/2 - 15,
-				'right'		: 0,
-				'z-index' 	: 1001,
+				'right': 0,
+                'z-index' 	: 1001,
 				'line-height': '30px',
 				'opacity'	: params[el.id].opacity
 			}).click( function(e){

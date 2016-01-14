@@ -25,6 +25,8 @@
         tags += Model.Conteudo.Tags;
     }
     //titulo = "Publicacao";
+
+    
 }
 <html>
 <head>
@@ -511,11 +513,24 @@
     @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Rotator"))
     @**@
     @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/CMSCounter"))
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#coin-slider').coinslider({ width: 810, height: 340, navigation: true, delay: 2000, effect: 'straight' });
-        });
-    </script>
+
+    @if (Model.SiteId == 1){
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#coin-slider').coinslider({ width: 690, height: 340, navigation: true, delay: 2000, effect: 'straight' });
+            });
+        
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#coin-slider').coinslider({ width: 810, height: 340, navigation: true, delay: 2000, effect: 'straight' });
+            });
+        
+        </script>
+    }
     <!--Script Banner Rotativo-->
 
 

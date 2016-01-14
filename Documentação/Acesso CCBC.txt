@@ -36,7 +36,7 @@ C:\web\homolog
 AZURE
 https://manage.windowsazure.com
 ti@tendenza.com.br
-Ten2012za#
+Ten2012za# -> Ju030506 -> Le250574
 
 Banco de Dados
 Server  : xpbzlzw7zk.database.windows.net,  1433
