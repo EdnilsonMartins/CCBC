@@ -245,6 +245,17 @@ namespace BackofficeCMS.Models
                 lista.Add(menu);
             }
 
+            if (funcionalidades.Any(x => x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR_PRECADASTRO_WEBFULL))
+            {
+                menu = new Menu();
+                menu.MenuId = 295;
+                menu.MenuPaiId = 300;
+                menu.LinkURL = "";
+                menu.Rotulo = "E-mail Administrativo";
+                menu.IconClass = "icon-envelope";
+                lista.Add(menu);
+            }
+
             #endregion
 
 

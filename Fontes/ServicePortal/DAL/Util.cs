@@ -90,6 +90,7 @@ namespace DAL
 
             USUARIO_LISTAR = 280,
             USUARIO_ADICIONAR = 290,
+            USUARIO_ADICIONAR_PRECADASTRO_WEBFULL = 295,
             USUARIO_EDITAR = 300,
             USUARIO_EXCLUIR = 310,
 
@@ -105,7 +106,11 @@ namespace DAL
             PESSOA_LISTAR = 380,
             PESSOA_ADICIONAR = 390,
             PESSOA_EDITAR = 400,
-            PESSOA_EXCLUIR = 410
+            PESSOA_EXCLUIR = 410,
+
+            TEMPLATEEMAILADMIN_LISTAR = 420,
+            TEMPLATEEMAILADMIN_EDITAR = 430
+
         }
 
         public static bool GetNonNull(Object obj)

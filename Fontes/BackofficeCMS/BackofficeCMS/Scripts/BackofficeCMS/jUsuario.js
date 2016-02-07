@@ -204,6 +204,8 @@ function ExcluirUsuario(_UsuarioId) {
 $(function () {
 
     $("#btnNovoUsuario").attr("style", "display: block;");
+    $("#btnNovoUsuarioWebFull").attr("style", "display: block;");
+
     $("#mnuAcoes").attr("style", "display: block;");
     $("#btnNovoUsuario").click(function () {
         window.location.href = "../Usuario/MinhaConta?UsuarioId=0";
