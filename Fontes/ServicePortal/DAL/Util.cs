@@ -113,6 +113,11 @@ namespace DAL
 
         }
 
+        public enum EMAIL_TEMPLATE
+        {
+            ADMINISTRATIVO = 1
+        }
+
         public static bool GetNonNull(Object obj)
         {
             bool retorno = false;

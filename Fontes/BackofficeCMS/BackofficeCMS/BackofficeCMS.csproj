@@ -140,6 +140,7 @@
     <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\ConfigController.cs" />
     <Compile Include="Controllers\EditoriaController.cs" />
+    <Compile Include="Controllers\EmailTemplateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MailingController.cs" />
@@ -2618,6 +2619,7 @@
     <Content Include="Scripts\BackofficeCMS\jAssociado.js" />
     <Content Include="Scripts\BackofficeCMS\jBanner.js" />
     <Content Include="Scripts\BackofficeCMS\jEditoria.js" />
+    <Content Include="Scripts\BackofficeCMS\jEmailTemplate.js" />
     <Content Include="Scripts\BackofficeCMS\jHome.js" />
     <Content Include="Scripts\BackofficeCMS\jMailing.js" />
     <Content Include="Scripts\BackofficeCMS\jMediaCenter.js" />
@@ -2908,6 +2910,8 @@
     <Content Include="Views\Site\CadSite.cshtml" />
     <Content Include="Views\Associado\ListaAssociado.cshtml" />
     <Content Include="Views\Associado\CadAssociado.cshtml" />
+    <Content Include="Views\EmailTemplate\ListaEmailTemplate.cshtml" />
+    <Content Include="Views\EmailTemplate\CadEmailTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Login.resx">

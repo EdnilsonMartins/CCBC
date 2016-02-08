@@ -250,7 +250,7 @@ namespace BackofficeCMS.Models
                 menu = new Menu();
                 menu.MenuId = 295;
                 menu.MenuPaiId = 300;
-                menu.LinkURL = "";
+                menu.LinkURL = "EmailTemplate/ListaEmailTemplate";
                 menu.Rotulo = "E-mail Administrativo";
                 menu.IconClass = "icon-envelope";
                 lista.Add(menu);

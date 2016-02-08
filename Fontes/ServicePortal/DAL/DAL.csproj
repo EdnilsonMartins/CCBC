@@ -53,6 +53,7 @@
     <Compile Include="ConteudoDAL.cs" />
     <Compile Include="EditoriaDAL.cs" />
     <Compile Include="Email.cs" />
+    <Compile Include="EmailTemplateDAL.cs" />
     <Compile Include="LoginDAL.cs" />
     <Compile Include="MailingDAL.cs" />
     <Compile Include="MenuDAL.cs" />
