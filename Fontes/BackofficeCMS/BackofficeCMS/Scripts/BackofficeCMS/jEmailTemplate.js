@@ -9,7 +9,20 @@ function PreencherCadastro(data) {
 
     $("#Comentario").val(data.EmailTemplate.Comentario);
     $("#Assunto").val(data.EmailTemplate.Assunto);
-    $("#Corpo").val(data.EmailTemplate.Corpo);
+    //$("#Corpo").val(data.EmailTemplate.Corpo);
+
+    $("#EmailTemplateCorpo").val(data.EmailTemplate.Corpo);
+
+    if (CKEDITOR.instances.Corpo == null) {
+        CKEDITOR.replace('Corpo', {
+            extraPlugins: 'mediacenter',
+            allowedContent: true,
+            extraAllowedContent: 'link section article figure span ul li header nav aside[*]'
+        });
+    }
+    CKEDITOR.instances.Corpo.setData(data.EmailTemplate.Corpo, function () {
+        this.checkDirty();
+    });
 
     $('[checked="checked"]').parent().addClass("checked");
     
@@ -66,6 +79,9 @@ function EditarEmailTemplate(_EmailTemplateId) {
 
 function GravarEmailTemplate() {
     ShowModal(true);
+
+    var x = CKEDITOR.instances.Corpo.getData();
+    $("#EmailTemplateCorpo").val(x);
 
     FormModel = SerializaForm("frmCadEmailTemplate");
     var formdata = JSON.stringify(FormModel);

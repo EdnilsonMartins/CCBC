@@ -82,7 +82,7 @@ namespace BackofficeCMS.Controllers
             _novo.EmailGrupoTemplateId = (int)Util.GetValue<int>(form, "EmailGrupoTemplate");
             _novo.Comentario = (string)Util.GetValue<string>(form, "Comentario");
             _novo.Assunto = (string)Util.GetValue<string>(form, "Assunto");
-            _novo.Corpo = (string)Util.GetValue<string>(form, "Corpo");
+            _novo.Corpo = (string)Util.GetValue<string>(form, "EmailTemplateCorpo");
 
             #region --> Validação
             EmailTemplateResponse resp = new EmailTemplateResponse();
