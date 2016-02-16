@@ -53,6 +53,7 @@
     <Compile Include="Configuracao\ConfiguracaoResponse.cs" />
     <Compile Include="Conteudo\Conteudo.cs" />
     <Compile Include="EmailTemplate\EmailTemplate.cs" />
+    <Compile Include="EmailTemplate\EmailTemplateCampo.cs" />
     <Compile Include="EmailTemplate\EmailTemplateResponse.cs" />
     <Compile Include="Mailing\MailingDTO.cs" />
     <Compile Include="Mailing\MailingResponse.cs" />

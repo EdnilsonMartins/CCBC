@@ -39,7 +39,6 @@ namespace SitePortal.Models
 
         public Publicacao Evento { get; set; }
         
-
         public Publicacao Conteudo { get; set; }
 
         public List<Menu> ListaMenuPrincipal { get; set; }
@@ -71,7 +70,7 @@ namespace SitePortal.Models
         public string TedescoEmail { get; set; }
         public string TedescoToken { get; set; }
 
-
+        public UsuarioDTO Usuario { get; set; }
 
         public Portal()
         {

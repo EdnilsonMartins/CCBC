@@ -9,6 +9,9 @@ namespace DAL
 {
     public class EmailTemplateDAL
     {
+
+        #region --> EmailTemplate
+
         public List<EmailTemplate> ListarEmailTemplate(int SiteId, int? EmailGrupoTemplateId)
         {
             List<EmailTemplate> lista = new List<EmailTemplate>();
@@ -110,5 +113,55 @@ namespace DAL
             if (Util.GetNonNull(dr["Corpo"]))
                 dto.Corpo = dr["Corpo"].ToString();
         }
+
+        #endregion
+
+
+        #region --> EmailTemplateCampo
+
+        public List<EmailTemplateCampo> ListarEmailTemplateCampo(int EmailTemplateId)
+        {
+            List<EmailTemplateCampo> lista = new List<EmailTemplateCampo>();
+            EmailTemplateCampo reg;
+
+            try
+            {
+                using (ConexaoDB objetoConexao = new ConexaoDB())
+                {
+                    objetoConexao.AdicionarParametro("@EmailTemplateId", SqlDbType.Int, EmailTemplateId);
+                    using (DataTable dt = objetoConexao.RetornarTabela("USP_SEL_EmailTemplateCampo"))
+                    {
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            foreach (DataRow r in dt.Rows)
+                            {
+                                reg = new EmailTemplateCampo();
+                                CarregarDTO_EmailTemplateCampo(reg, r);
+                                lista.Add(reg);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return lista;
+        }
+
+        private void CarregarDTO_EmailTemplateCampo(EmailTemplateCampo dto, DataRow dr)
+        {
+            if (Util.GetNonNull(dr["EmailTemplateCampoId"]))
+                dto.EmailTemplateCampoId = (long)dr["EmailTemplateCampoId"];
+            if (Util.GetNonNull(dr["Nome"]))
+                dto.Nome = dr["Nome"].ToString();
+            if (Util.GetNonNull(dr["Tag"]))
+                dto.Tag = dr["Tag"].ToString();
+        }
+
+        #endregion
+
     }
 }

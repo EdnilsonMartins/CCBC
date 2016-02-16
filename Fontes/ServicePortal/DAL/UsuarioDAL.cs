@@ -113,7 +113,7 @@ namespace DAL
             return resposta;
        }
 
-        public UsuarioResponse Gravar(UsuarioDTO Usuario, UsuarioDTO UsuarioOld, string ListaUsuarioGrupo)
+        public UsuarioResponse Gravar(UsuarioDTO Usuario, UsuarioDTO UsuarioOld, string ListaUsuarioGrupo, bool ForcarTrocaSenha = false)
         {
             UsuarioResponse resposta = new UsuarioResponse();
             try
@@ -125,11 +125,15 @@ namespace DAL
                     objetoConexao.AdicionarParametro("@Nome", SqlDbType.VarChar, Usuario.Nome);
                     objetoConexao.AdicionarParametro("@Login", SqlDbType.VarChar, Usuario.Login);
                     objetoConexao.AdicionarParametro("@Email", SqlDbType.VarChar, Usuario.Email);
+                    objetoConexao.AdicionarParametro("@Senha", SqlDbType.VarChar, Usuario.Senha);
                     objetoConexao.AdicionarParametro("@Ativo", SqlDbType.Bit, Usuario.Ativo);
                     objetoConexao.AdicionarParametro("@ListaUsuarioGrupo", SqlDbType.VarChar, ListaUsuarioGrupo);
                     objetoConexao.AdicionarParametro("@SiteId", SqlDbType.Int, Usuario.SiteId);
                     objetoConexao.AdicionarParametro("@TedescoUsuario", SqlDbType.VarChar, Usuario.TedescoUsuario);
                     objetoConexao.AdicionarParametro("@TedescoEmail", SqlDbType.VarChar, Usuario.TedescoEmail);
+                    objetoConexao.AdicionarParametro("@TedescoStatusId", SqlDbType.VarChar, Usuario.TedescoStatusId);
+                    objetoConexao.AdicionarParametro("@TedescoDataConfirmacao", SqlDbType.VarChar, Usuario.TedescoDataConfirmacao);
+                    objetoConexao.AdicionarParametro("@ForcarTrocaSenha", SqlDbType.Bit, ForcarTrocaSenha);
                     if (Usuario.UsuarioId == 0)
                     {
                         string Senha = Usuario.Senha;
@@ -220,6 +224,37 @@ namespace DAL
             return resposta;
         }
 
+        public UsuarioResponse NotificarUsuario(int UsuarioId)
+        {
+            UsuarioResponse resposta = new UsuarioResponse();
+            try
+            {
+                using (ConexaoDB objetoConexao = new ConexaoDB())
+                {
+                    objetoConexao.AdicionarParametro("@UsuarioId", SqlDbType.Int, UsuarioId);
+                    using (DataTable dt = objetoConexao.RetornarTabela("USP_INS_Login_Notificar"))
+                    {
+                        if (dt != null && dt.Rows.Count > 0)
+                        {
+                            resposta.Resposta.Erro = (bool)dt.Rows[0]["indErro"];
+                            resposta.Resposta.Mensagem = (string)dt.Rows[0]["msgErro"];
+                            resposta.Usuario = null;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                resposta.Resposta.Erro = true;
+                resposta.Resposta.Mensagem = ex.Message;
+
+                //logBLL.Error(ex);
+            }
+            return resposta;
+        }
+
+        
+
         private void CarregarRegistro(UsuarioDTO dto, DataRow dr)
         {
             try
@@ -241,6 +276,15 @@ namespace DAL
                     dto.TedescoUsuario = (string)dr["TedescoUsuario"];
                 if (Util.GetNonNull(dr["TedescoEmail"]))
                     dto.TedescoEmail = (string)dr["TedescoEmail"];
+
+                if (Util.GetNonNull(dr["TedescoUltimaNotificacao"]))
+                    dto.TedescoUltimaNotificacao = new DateTime(((DateTime)dr["TedescoUltimaNotificacao"]).Year, ((DateTime)dr["TedescoUltimaNotificacao"]).Month, ((DateTime)dr["TedescoUltimaNotificacao"]).Day, ((DateTime)dr["TedescoUltimaNotificacao"]).Hour, ((DateTime)dr["TedescoUltimaNotificacao"]).Minute, ((DateTime)dr["TedescoUltimaNotificacao"]).Second);
+                if (Util.GetNonNull(dr["TedescoStatusId"]))
+                    dto.TedescoStatusId = (int)dr["TedescoStatusId"];
+                if (Util.GetNonNull(dr["TedescoStatus"]))
+                    dto.Complemento.TedescoStatus = dr["TedescoStatus"].ToString();
+                if (Util.GetNonNull(dr["TedescoDataConfirmacao"]))
+                    dto.TedescoDataConfirmacao = new DateTime(((DateTime)dr["TedescoDataConfirmacao"]).Year, ((DateTime)dr["TedescoDataConfirmacao"]).Month, ((DateTime)dr["TedescoDataConfirmacao"]).Day, ((DateTime)dr["TedescoDataConfirmacao"]).Hour, ((DateTime)dr["TedescoDataConfirmacao"]).Minute, ((DateTime)dr["TedescoDataConfirmacao"]).Second);
 
             }
             catch (Exception ex)

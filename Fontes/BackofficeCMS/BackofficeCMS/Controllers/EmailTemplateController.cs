@@ -51,7 +51,7 @@ namespace BackofficeCMS.Controllers
             int SiteId = GetCurrentSite();
 
             EmailTemplateDAL emailTemplateDAL = new EmailTemplateDAL();
-            List<EmailTemplate> listaAssociado = emailTemplateDAL.ListarEmailTemplate(SiteId, (int)Util.EMAIL_TEMPLATE.ADMINISTRATIVO);
+            List<EmailTemplate> listaAssociado = emailTemplateDAL.ListarEmailTemplate(SiteId, (int)Util.EMAIL_GRUPO_TEMPLATE.ADMINISTRATIVO);
 
             return Json(listaAssociado, JsonRequestBehavior.AllowGet);
         }

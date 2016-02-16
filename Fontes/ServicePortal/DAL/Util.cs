@@ -113,10 +113,19 @@ namespace DAL
 
         }
 
-        public enum EMAIL_TEMPLATE
+        public enum EMAIL_GRUPO_TEMPLATE
         {
             ADMINISTRATIVO = 1
         }
+
+
+        public enum TEDESCO_STATUS
+        {
+            PRE_CADASTRO = 1,
+            CONFIRMADO = 2
+        }
+
+
 
         public static bool GetNonNull(Object obj)
         {

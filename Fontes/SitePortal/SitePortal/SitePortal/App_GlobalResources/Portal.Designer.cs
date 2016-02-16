@@ -457,6 +457,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cadastro.
+        /// </summary>
+        internal static string MinhaConta_Cadastro {
+            get {
+                return ResourceManager.GetString("MinhaConta_Cadastro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ENVIAR.
         /// </summary>
         internal static string NewsLetter_Botao {

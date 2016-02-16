@@ -1,5 +1,6 @@
 ﻿using BackofficeCMS.Models;
 using DAL;
+using DTO;
 using DTO.Usuario;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -44,7 +45,7 @@ namespace BackofficeCMS.Controllers
             return View(model);
         }
 
-        public ActionResult MinhaConta(int UsuarioId)
+        public ActionResult MinhaConta(int UsuarioId, int Fluxo = 0)
         {
             CMS model = new CMS().CarregarModel();
 
@@ -57,6 +58,7 @@ namespace BackofficeCMS.Controllers
             model.NavegacaoBarra.ListaNavegacao.Add(new CMS.Navegacao.NavegacaoItem() { URL = "/Usuario/MinhaConta", Rotulo = "Minha Conta" });
 
             ViewBag.UsuarioId = UsuarioId;
+            ViewBag.Fluxo = Fluxo; //Fluxo de Pré-Cadastro Tedesco WebFull.
             return View(model);
         }
 
@@ -77,6 +79,8 @@ namespace BackofficeCMS.Controllers
         {
             var form = (JObject)JsonConvert.DeserializeObject(Usuario);
 
+            int fluxo = 0;
+
             UsuarioDTO _anterior = new UsuarioDTO();
             UsuarioDTO _novo = new UsuarioDTO();
 
@@ -89,6 +93,8 @@ namespace BackofficeCMS.Controllers
             _novo.SiteId = GetCurrentSite();
             _novo.TedescoUsuario = (string)Util.GetValue<string>(form, "TedescoUsuario");
             _novo.TedescoEmail = (string)Util.GetValue<string>(form, "TedescoEmail");
+
+            fluxo = (int)Util.GetValue<int>(form, "Fluxo");
 
             if (UsuarioOld != null && UsuarioOld != "null")
             {
@@ -110,7 +116,21 @@ namespace BackofficeCMS.Controllers
                 ValidarFuncionalidade(form, f.FuncionalidadeId, ref _novo);
             });
 
-            return Json(new UsuarioDAL().Gravar(_novo, _anterior, ListaUsuarioGrupo), JsonRequestBehavior.AllowGet);
+            if (fluxo == 1)
+            {
+                _novo.TedescoStatusId = (int)Util.TEDESCO_STATUS.PRE_CADASTRO;
+            }
+
+            UsuarioResponse usuarioResponse = new UsuarioDAL().Gravar(_novo, _anterior, ListaUsuarioGrupo);
+
+            if (fluxo == 1)
+            {
+                Resposta resposta = ExecutaNotificarUsuario(usuarioResponse.Usuario.UsuarioId);
+                usuarioResponse.Resposta = resposta;
+            }
+
+
+            return Json(usuarioResponse, JsonRequestBehavior.AllowGet);
         }
 
         private void ValidarFuncionalidade(JObject form, int FuncId, ref UsuarioDTO _novo)
@@ -124,6 +144,28 @@ namespace BackofficeCMS.Controllers
             return Json(new UsuarioDAL().ExcluirUsuario(UsuarioId), JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult NotificarUsuario(int UsuarioId)
+        {
+            Resposta resposta = ExecutaNotificarUsuario(UsuarioId);
+
+            return Json(resposta, JsonRequestBehavior.AllowGet);
+        }
+
+        private Resposta ExecutaNotificarUsuario(int UsuarioId)
+        {
+            Email email = new Email();
+
+            Resposta resposta = new Resposta();
+
+            bool enviado = email.Enviar_NotificacaoPreCadastro_WebFull(UsuarioId, GetCurrentSite(), 1);
+            if (enviado)
+            {
+                new UsuarioDAL().NotificarUsuario(UsuarioId);
+            }
+            resposta.Erro = !enviado;
+
+            return resposta;
+        }
 
         #region --> Grupo de Usuário
 

@@ -276,4 +276,7 @@
   <data name="Contato_Financeiro" xml:space="preserve">
     <value>Financeiro</value>
   </data>
+  <data name="MinhaConta_Cadastro" xml:space="preserve">
+    <value>Cadastro</value>
+  </data>
 </root>

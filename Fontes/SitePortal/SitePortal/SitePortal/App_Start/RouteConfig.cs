@@ -55,6 +55,18 @@ namespace SitePortal
                 defaults: new { controller = "Interna", action = "Index", internaid = string.Empty }
             );
 
+            routes.MapRoute(
+                name: "ID",
+                url: "MinhaConta/{ID}",
+                defaults: new { controller = "MinhaConta", action = "Index", ID = string.Empty }
+            );
+
+            routes.MapRoute(
+                name: "IDnone",
+                url: "MinhaConta/Atualizar",
+                defaults: new { controller = "MinhaConta", action = "Atualizar", ID = string.Empty }
+            );
+
             //ToDo: NAO FUNCIONOU: Até funciona pra Index, mas p/ Listar dá pau!
             //routes.MapRoute(
             //    name: "Index5",

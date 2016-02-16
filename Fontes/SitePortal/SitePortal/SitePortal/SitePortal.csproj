@@ -178,6 +178,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternaController.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
+    <Compile Include="Controllers\MinhaContaController.cs" />
     <Compile Include="Controllers\NoticiasController.cs" />
     <Compile Include="Controllers\PortalController.cs" />
     <Compile Include="Controllers\PublicacaoController.cs" />
@@ -430,6 +431,7 @@
     <Content Include="Views\Conteudo\Calendario.cshtml" />
     <Content Include="Views\Conteudo\BannerPublicidadeRotativo.cshtml" />
     <Content Include="Views\Conteudo\Calculadora2015.cshtml" />
+    <Content Include="Views\MinhaConta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
