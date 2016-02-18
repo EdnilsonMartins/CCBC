@@ -1,5 +1,6 @@
 ﻿
 var FormModel, FormModelOld;
+var fluxo;
 
 function PreencherCadastro(data) {
 
@@ -38,6 +39,7 @@ function PreencherCadastro(data) {
 
 function ListarUsuario() {
 
+    var optFunc_295 = $("#optFunc_295").val();
     var optFunc_300 = $("#optFunc_300").val();
     var optFunc_310 = $("#optFunc_310").val();
 
@@ -50,16 +52,43 @@ function ListarUsuario() {
             reg.push(item.Nome);
             reg.push(item.Login);
 
+            var status = "";
+            if (item.Ativo == true) status = "Ativo";
+            else if (item.Ativo == false) status = "Inativo";
+            reg.push(status); //Status: Ativo | Inativo.
+
+            var dTedescoUltimaNotificacao = FormatarDataJson(item.TedescoUltimaNotificacao);
+            if (dTedescoUltimaNotificacao == null) {
+                reg.push(null);
+            } else {
+
+                reg.push(moment(dTedescoUltimaNotificacao).format('DD/MM/YYYY HH:mm'));
+            }
+
+            var dTedescoDataConfirmacao = FormatarDataJson(item.TedescoDataConfirmacao);
+            if (dTedescoDataConfirmacao == null) {
+                reg.push(null);
+            } else {
+                reg.push(moment(dTedescoDataConfirmacao).format('DD/MM/YYYY HH:mm'));
+            }
+
+            reg.push(item.Complemento.TedescoStatus);
+
             var editar = "";
             var excluir = "";
             if (optFunc_300 != null) {
-                editar = "<span class=\"icon-editar glyphicon glyphicon-wrench\" onclick=\"javascript:EditarUsuario(" + item.UsuarioId + ")\"></span>";
+                editar = "<span title='Editar' class=\"icon-editar glyphicon glyphicon-wrench\" style=\"margin-right: 4px;\" onclick=\"javascript:EditarUsuario(" + item.UsuarioId + ")\"></span>";
             }
             if (optFunc_310 != null) {
-                excluir = "<span class=\"glyphicon glyphicon-trash icon-excluir\" style=\"margin-right: 10px;\" onclick=\"javascript:ExcluirUsuario(" + item.UsuarioId + ")\"></span>";
+                excluir = "<span title='Excluir' class=\"glyphicon glyphicon-trash icon-excluir\" style=\"margin-right: 4px;\" onclick=\"javascript:ExcluirUsuario(" + item.UsuarioId + ")\"></span>";
             }
 
-            reg.push(editar + " " + excluir);
+            var notificar = "";
+            if (optFunc_295 != null && (item.TedescoStatusId == null || item.TedescoStatusId != 2)) {
+                notificar = "<span title='Enviar Notificação' class=\"glyphicon glyphicon-envelope icon-excluir\" style=\"margin-right: 0px;\" onclick=\"javascript:NotificarUsuario(" + item.UsuarioId + ")\"></span>";
+            }
+
+            reg.push(editar + " " + excluir + " " + notificar);
             regs.push(reg);
         });
 
@@ -76,10 +105,14 @@ function ListarUsuario() {
             "aaData": regs
                 ,
             "aoColumns": [
-                { "sTitle": "ID" },
+                { "sTitle": "ID", "width": "40px" },
                 { "sTitle": "Nome" },
                 { "sTitle": "Login" },
-                { "sTitle": "" }
+                { "sTitle": "Ativo", "width": "40px" },
+                { "sTitle": "Notificação", "width": "94px" },
+                { "sTitle": "Cadastro", "width": "94px" },
+                { "sTitle": "Situação", "width": "94px" },
+                { "sTitle": "", "width": "60px", "orderable": false }
             ]
         });
     });
@@ -91,7 +124,10 @@ function EditarUsuario(_UsuarioId) {
 
 function GravarUsuario() {
     ShowModal(true);
-    var listaUsuarioGrupo = $('#tvUsuarioGrupo').jstree(true).get_selected();//$('#UsuarioGrupo').val();
+    var listaUsuarioGrupo = "";
+    if (fluxo != 1) {
+        listaUsuarioGrupo = $('#tvUsuarioGrupo').jstree(true).get_selected();//$('#UsuarioGrupo').val();
+    }
     var indexGrupo = 0;
     var saidaGrupo = "";
     if (listaUsuarioGrupo != null) {
@@ -152,8 +188,10 @@ function ListarUsuarioGrupo() {
             registros.push(regi);
         });
 
-        $('#tvUsuarioGrupo').jstree(true).settings.core.data = registros;
-        $('#tvUsuarioGrupo').jstree(true).refresh();
+        if (fluxo != 1) {
+            $('#tvUsuarioGrupo').jstree(true).settings.core.data = registros;
+            $('#tvUsuarioGrupo').jstree(true).refresh();
+        }
     });
 }
 
@@ -201,12 +239,50 @@ function ExcluirUsuario(_UsuarioId) {
     });
 }
 
+function NotificarUsuario(_UsuarioId) {
+    bootbox.dialog({
+        message: "Deseja enviar uma notificação para o usuário realizar a atualização/conclusão do cadastro?",
+        title: "Confirmação",
+        buttons: {
+            sim: {
+                label: "Sim",
+                className: "btn-success",
+                callback: function () {
+                    $.get("../Usuario/NotificarUsuario", { UsuarioId: _UsuarioId }, function (data) {
+                        if (data.Erro == false) {
+                            MensagemSucesso("E-mail encaminhado para o usuário!");
+                            ListarUsuario();
+                        } else if (data.Mensagem != "") {
+                            MensagemErro(data.Resposta.Mensagem);
+                        }
+                        else {
+                            MensagemErro("Erro ao tentar enviar o e-mail para o usuário.");
+                        }
+                    });
+                }
+            },
+            nao: {
+                label: "Não",
+                className: "btn-danger",
+                callback: function () {
+                    //Example.show("uh oh, look out!");
+                }
+            }
+        }
+    });
+}
+
 $(function () {
 
     $("#btnNovoUsuario").attr("style", "display: block;");
+    $("#btnNovoUsuarioWebFull").attr("style", "display: block;");
+
     $("#mnuAcoes").attr("style", "display: block;");
     $("#btnNovoUsuario").click(function () {
         window.location.href = "../Usuario/MinhaConta?UsuarioId=0";
+    });
+    $("#btnNovoUsuarioWebFull").click(function () {
+        window.location.href = "../Usuario/MinhaConta?UsuarioId=0&Fluxo=1";
     });
 
     $("#btnSalvarUsuario").click(function () {
@@ -241,5 +317,9 @@ $(function () {
         });
     } 
 
+    fluxo = $("#Fluxo").val();
+    if (fluxo != null && fluxo == 1) {
+        Mensagem("Um e-mail será enviado ao usuário após o preenchimento deste formulário.<br /><br />Os campos obrigatórios são:<br /><br />1) Aba <b>Geral</b><br />- Nome<br />- Email<br /><br />2) Aba <b>Externo</b><br/>- Login (WebFull)<br />- Email (WebFull)<br /><br />As instruções serão encaminhadas para o e-mail do futuro usuário com base no endereço registrado no campo <b>E-mail (WebFull)</b>.", "Intruções para Pré-Cadastro de Usuários");
+    }
 
 });

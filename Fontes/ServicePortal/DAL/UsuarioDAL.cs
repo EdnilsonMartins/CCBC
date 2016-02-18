@@ -125,21 +125,29 @@ namespace DAL
                     objetoConexao.AdicionarParametro("@Nome", SqlDbType.VarChar, Usuario.Nome);
                     objetoConexao.AdicionarParametro("@Login", SqlDbType.VarChar, Usuario.Login);
                     objetoConexao.AdicionarParametro("@Email", SqlDbType.VarChar, Usuario.Email);
-                    objetoConexao.AdicionarParametro("@Senha", SqlDbType.VarChar, Usuario.Senha);
                     objetoConexao.AdicionarParametro("@Ativo", SqlDbType.Bit, Usuario.Ativo);
                     objetoConexao.AdicionarParametro("@ListaUsuarioGrupo", SqlDbType.VarChar, ListaUsuarioGrupo);
                     objetoConexao.AdicionarParametro("@SiteId", SqlDbType.Int, Usuario.SiteId);
                     objetoConexao.AdicionarParametro("@TedescoUsuario", SqlDbType.VarChar, Usuario.TedescoUsuario);
                     objetoConexao.AdicionarParametro("@TedescoEmail", SqlDbType.VarChar, Usuario.TedescoEmail);
                     objetoConexao.AdicionarParametro("@TedescoStatusId", SqlDbType.VarChar, Usuario.TedescoStatusId);
-                    objetoConexao.AdicionarParametro("@TedescoDataConfirmacao", SqlDbType.VarChar, Usuario.TedescoDataConfirmacao);
-                    objetoConexao.AdicionarParametro("@ForcarTrocaSenha", SqlDbType.Bit, ForcarTrocaSenha);
-                    if (Usuario.UsuarioId == 0)
+                    if (Usuario.TedescoDataConfirmacao != null)
                     {
-                        string Senha = Usuario.Senha;
-                        Senha = Util.MixMD5(Senha);
-                        objetoConexao.AdicionarParametro("@Senha", SqlDbType.VarChar, Senha);
-                    } 
+                        objetoConexao.AdicionarParametro("@TedescoDataConfirmacao", SqlDbType.DateTime, Usuario.TedescoDataConfirmacao);
+                    }
+                    objetoConexao.AdicionarParametro("@ForcarTrocaSenha", SqlDbType.Bit, ForcarTrocaSenha);
+
+                    string Senha = "";
+                    if (Usuario.UsuarioId == 0 || ForcarTrocaSenha)
+                    {
+                        Senha = Util.MixMD5(Usuario.Senha);
+                    }
+                    else
+                    {
+                        Senha = Usuario.Senha;
+                    }
+                    objetoConexao.AdicionarParametro("@Senha", SqlDbType.VarChar, Senha);
+                    
                     using (DataTable dt = objetoConexao.RetornarTabela("USP_INS_Login"))
                     {
                         if (dt != null && dt.Rows.Count > 0)

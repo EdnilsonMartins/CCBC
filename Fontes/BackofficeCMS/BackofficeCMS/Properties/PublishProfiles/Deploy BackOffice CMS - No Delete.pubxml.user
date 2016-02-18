@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>08/23/2015 18:57:06</publishTime>
+      <publishTime>02/18/2016 02:12:15</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>08/23/2015 18:57:01</publishTime>
+      <publishTime>02/18/2016 02:06:14</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>07/26/2015 20:20:02</publishTime>
+      <publishTime>02/17/2016 08:32:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -8085,6 +8085,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/BackofficeCMS/jEditoria.js">
       <publishTime>04/21/2015 10:58:27</publishTime>
     </File>
+    <File Include="Scripts/BackofficeCMS/jEmailTemplate.js">
+      <publishTime>02/17/2016 08:23:11</publishTime>
+    </File>
     <File Include="Scripts/BackofficeCMS/jHome.js">
       <publishTime>05/09/2015 18:02:09</publishTime>
     </File>
@@ -8107,7 +8110,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2015 11:05:36</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuario.js">
-      <publishTime>07/26/2015 20:15:56</publishTime>
+      <publishTime>02/17/2016 08:23:11</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuarioGrupo.js">
       <publishTime>05/31/2015 20:44:03</publishTime>
@@ -8172,6 +8175,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Editoria/CadEditoria.cshtml">
       <publishTime>04/19/2015 12:27:51</publishTime>
     </File>
+    <File Include="Views/EmailTemplate/CadEmailTemplate.cshtml">
+      <publishTime>02/17/2016 08:23:11</publishTime>
+    </File>
+    <File Include="Views/EmailTemplate/ListaEmailTemplate.cshtml">
+      <publishTime>02/17/2016 08:23:11</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>05/10/2015 18:18:39</publishTime>
     </File>
@@ -8215,7 +8224,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2015 19:37:27</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/26/2015 18:05:30</publishTime>
+      <publishTime>02/17/2016 08:23:11</publishTime>
     </File>
     <File Include="Views/Site/CadSite.cshtml">
       <publishTime>06/07/2015 11:00:54</publishTime>
@@ -8233,16 +8242,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2015 20:33:04</publishTime>
     </File>
     <File Include="Views/Usuario/ListaUsuario.cshtml">
-      <publishTime>05/10/2015 20:27:35</publishTime>
+      <publishTime>02/17/2016 08:23:11</publishTime>
     </File>
     <File Include="Views/Usuario/MinhaConta.cshtml">
-      <publishTime>07/26/2015 20:12:43</publishTime>
+      <publishTime>02/17/2016 08:23:11</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/05/2015 21:42:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/22/2015 03:52:43</publishTime>
+      <publishTime>02/17/2016 08:32:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

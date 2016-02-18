@@ -35,9 +35,3 @@ C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\ru-ru\BundleTransfo
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Release\SitePortal.csprojResolveAssemblyReference.cache
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Release\SitePortal.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Release\SitePortal.pdb
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.dll
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.dll
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.dll
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.xml
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.xml
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.xml

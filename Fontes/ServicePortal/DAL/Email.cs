@@ -108,11 +108,24 @@ namespace DAL
 
                 string corpo = emailTemplate.Corpo;
                 corpo = corpo.Replace("&lt;%Nome%&gt;", usuario.Nome);
-                corpo = corpo.Replace("&lt;%Link%&gt;", string.Format("http://ccbc.org.br/{0}", ID));
+                corpo = corpo.Replace("<%Nome%>", usuario.Nome);
+
+                corpo = corpo.Replace("&lt;%Link_MinhaConta%&gt;", string.Format("http://ccbc.org.br/MinhaConta/{0}", ID));
+                corpo = corpo.Replace("<%Link_MinhaConta%>", string.Format("http://ccbc.org.br/MinhaConta/{0}", ID));
+
+                corpo = corpo.Replace("&lt;%Link_LembrarSenha%&gt;", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
+                corpo = corpo.Replace("<%Link_LembrarSenha%>", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
 
                 string assunto = emailTemplate.Assunto;
                 assunto = assunto.Replace("&lt;%Nome%&gt;", usuario.Nome);
-                assunto = assunto.Replace("&lt;%Link%&gt;", string.Format("http://ccbc.org.br/{0}", ID));
+                assunto = assunto.Replace("<%Nome%>", usuario.Nome);
+
+                assunto = assunto.Replace("&lt;%Link_MinhaConta%&gt;", string.Format("http://ccbc.org.br/MinhaConta/{0}", ID));
+                assunto = assunto.Replace("<%Link_MinhaConta%>", string.Format("http://ccbc.org.br/MinhaConta/{0}", ID));
+
+                assunto = assunto.Replace("&lt;%Link_LembrarSenha%&gt;", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
+                assunto = assunto.Replace("<%Link_LembrarSenha%>", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
+
 
                 string destinatario = usuario.TedescoEmail;
 

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternaController.cs" />
+    <Compile Include="Controllers\LembrarSenhaController.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
     <Compile Include="Controllers\MinhaContaController.cs" />
     <Compile Include="Controllers\NoticiasController.cs" />
@@ -432,6 +433,8 @@
     <Content Include="Views\Conteudo\BannerPublicidadeRotativo.cshtml" />
     <Content Include="Views\Conteudo\Calculadora2015.cshtml" />
     <Content Include="Views\MinhaConta\Index.cshtml" />
+    <Content Include="Views\MinhaConta\RecuperarSenha.cshtml" />
+    <Content Include="Views\LembrarSenha\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

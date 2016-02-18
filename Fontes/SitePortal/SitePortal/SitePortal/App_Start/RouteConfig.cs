@@ -62,11 +62,18 @@ namespace SitePortal
             );
 
             routes.MapRoute(
-                name: "IDnone",
-                url: "MinhaConta/Atualizar",
-                defaults: new { controller = "MinhaConta", action = "Atualizar", ID = string.Empty }
+                name: "ID2",
+                url: "MinhaConta/{ID}/{Fluxo}",
+                defaults: new { controller = "MinhaConta", action = "Index", ID = string.Empty, Fluxo = string.Empty }
             );
 
+            routes.MapRoute(
+                name: "Email",
+                url: "LembrarSenha/{Email}",
+                defaults: new { controller = "LembrarSenha", action = "Index", Email = string.Empty }
+            );
+
+            
             //ToDo: NAO FUNCIONOU: Até funciona pra Index, mas p/ Listar dá pau!
             //routes.MapRoute(
             //    name: "Index5",

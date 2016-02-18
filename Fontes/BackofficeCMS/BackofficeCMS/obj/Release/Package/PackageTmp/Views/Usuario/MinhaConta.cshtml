@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "MinhaConta";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Fluxo = ViewBag.Fluxo;
 }
 
 @section Scripts
@@ -26,6 +28,8 @@
             <form id="frmCadUsuario" action="#" class="horizontal-form">
 
                 <input type="hidden" id="UsuarioId" name="UsuarioId" value="@ViewBag.UsuarioId" />
+                <input type="hidden" id="Fluxo" name="Fluxo" value="@ViewBag.Fluxo" />
+
                 <div class="form-body tabbable tabbable-custom tabbable-noborder">
 
                     <!-- Abas -->
@@ -35,11 +39,13 @@
                                 Geral
                             </a>
                         </li>
+                        @if (Fluxo != 1) { 
                         <li>
                             <a href="#tabControleAcesso" data-toggle="tab">
                                 Nível de Acesso
                             </a>
                         </li>
+                        }
                         <li>
                             <a href="#tabExterno" data-toggle="tab">
                                 Externo
@@ -74,57 +80,62 @@
                             <!--/row-->
                             <!--/row-->
                             <!--/row-->
-                            <h3 class="form-section">Dados de Acesso</h3>
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="form-group">
-                                        <label>Login</label>
-                                        <input type="text" id="Login" name="Login" class="form-control">
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-4 ">
-                                    <div class="form-group">
-                                        <label>Senha</label>
-                                        <input type="password" id="Password" name="Password" class="form-control" value="">
-                                    </div>
-                                </div>
 
-                            </div>
-                            <!--/row-->
-                            <div class="row">
+                            @if (Fluxo != 1) { 
+                                <h3 class="form-section">Dados de Acesso</h3>
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <div class="form-group">
+                                            <label>Login</label>
+                                            <input type="text" id="Login" name="Login" class="form-control">
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-4 ">
+                                        <div class="form-group">
+                                            <label>Senha</label>
+                                            <input type="password" id="Password" name="Password" class="form-control" value="">
+                                        </div>
+                                    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Situação</label>
-                                        <div class="radio-list">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="Ativo" id="Ativo" value="1"> Ativo
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="Ativo" id="Ativo" value="0"> Inativo
-                                            </label>
+                                </div>
+                                <!--/row-->
+                            
+                            
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Situação</label>
+                                            <div class="radio-list">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="Ativo" id="Ativo" value="1"> Ativo
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="Ativo" id="Ativo" value="0"> Inativo
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                </div>
+                                <!--/row-->
+                            
+
+                                <h3 class="form-section">Grupo / Departamento</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label></label>
+                                        
+                                            <div id="tvUsuarioGrupo"></div>
+
                                         </div>
                                     </div>
                                 </div>
-                                <!--/span-->
-
-
-                            </div>
-                            <!--/row-->
-
-
-                            <h3 class="form-section">Grupo / Departamento</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label></label>
-                                        
-                                        <div id="tvUsuarioGrupo"></div>
-
-                                    </div>
-                                </div>
-                            </div>
+                                
+                            }
                         </div>
 
                         <div class="tab-pane fade" id="tabControleAcesso">
@@ -284,6 +295,8 @@
                                             <label><input type="checkbox" id="optFunc_290" name="optFunc_290"> Adicionar </label>
                                             <label><input type="checkbox" id="optFunc_300" name="optFunc_300"> Editar </label>
                                             <label><input type="checkbox" id="optFunc_310" name="optFunc_310"> Excluir </label>
+                                            <label><input type="checkbox" id="optFunc_295" name="optFunc_295"> Pré-Cadastro Tedesco WebFull </label>
+
                                         </div>
                                     </div>
                                 </div>
@@ -297,6 +310,17 @@
                                             <label><input type="checkbox" id="optFunc_330" name="optFunc_330"> Adicionar </label>
                                             <label><input type="checkbox" id="optFunc_340" name="optFunc_340"> Editar </label>
                                             <label><input type="checkbox" id="optFunc_350" name="optFunc_350"> Excluir </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div>
+                                        <label class="col-md-12 control-label" style="background-color: gray; color: white; border-radius: 4px !important;">Template de E-mail Administrativo</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkbox-list">
+                                            <label><input type="checkbox" id="optFunc_420" name="optFunc_420"> Listar </label>
+                                            <label><input type="checkbox" id="optFunc_430" name="optFunc_430"> Editar </label>
                                         </div>
                                     </div>
                                 </div>

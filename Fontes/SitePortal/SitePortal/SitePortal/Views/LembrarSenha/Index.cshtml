@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SitePortal.Models.Portal
+
+
+<div class="geral-1050">
+    <div class="conteudo">
+        <!-- nav internas -->
+        <div class="internas-navegacao">
+            <a href="/">Home</a>
+            <a href="#">-</a>
+            <a href="Contato">Lembrar Senha</a>
+        </div>
+        <!-- nav internas -->
+        <!-- contato -->
+        <div class="contato-titulo">
+            <h1>Solicitação de Troca de Senha<span class="cor-padrao-texto"></span></h1>
+        </div>
+        <div class="contato-form" style="width: 680px;">
+            @if (String.IsNullOrEmpty(Model.NrProtocoloContato))
+            {
+                using (Html.BeginForm("Index", "LembrarSenha", new { }, FormMethod.Post))
+                {
+                    <input type="hidden" name="ID" value="@ViewBag.ID" />
+                    <input type="hidden" name="Fluxo" value="@ViewBag.Fluxo" />
+
+                
+                
+                    <span style="font-family: arial; font-size: 12px;">Informe o endereço de e-mail cadastrado.</span>
+                    <br /><br /><br /><br /><span style="font-family: arial; font-size: 12px;">@Resources.Portal.Contato_Email</span><input type="text" name="email" placeholder="" value="" />
+                    
+                    <br />
+                    <input class="cor-padrao opacidade" type="submit" value="@Resources.Portal.Contato_Enviar" style="cursor: pointer;" />
+                }
+            }
+            else
+            {
+                using (Html.BeginForm("Index", "Home", new { }, FormMethod.Post))
+                {
+                    <div style="float: left; display: block;">
+                        <span class="mensagem-enviada-sucesso">@Model.NrProtocoloContato</span>
+                        <br /><br />
+                        <input class="cor-padrao opacidade" type="submit" value="Ok" style="float: left; cursor: pointer;" />
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</div>

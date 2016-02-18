@@ -12,6 +12,10 @@
 
 @model BackofficeCMS.Models.CMS
 
+@if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR_PRECADASTRO_WEBFULL)))
+{
+    <input id="optFunc_295" type="hidden" />
+}
 @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_EDITAR)))
 {
     <input id="optFunc_300" type="hidden" />
@@ -44,6 +48,18 @@ else
             </th>
             <th>
                 Login
+            </th>
+            <th>
+                Ativo
+            </th>
+            <th>
+                Notificação Pré-Cadastro
+            </th>
+            <th>
+                Situação WebFull
+            </th>
+            <th>
+                Cadastro
             </th>
             <th style="width: 80px;">
                 Actions

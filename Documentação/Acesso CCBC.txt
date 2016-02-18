@@ -98,3 +98,11 @@ view-source:http://noticias.uol.com.br/politica/ultimas-noticias/2015/08/05/mpf-
 Foi criado o logo padrao para publicacao em midias sociais:
 Logo_CCBC_122.jpg.
 
+------
+
+- Regra de validação de senha segura (fraca / forte).
+- Não está enviando o e-mail para o Admin da TI - pois precisa ser configurado a conta no sistema, pode ser a mesma conta configurada no portal, mas precisa confirmar.
+- Colocar o ícone definitivo do Procedimento Online, usei o ícone do contato.
+- No Administrador de templates colocar um label para dar a dica das tags especiais que são utilizadas para o envio do e-mail (processo de mesclar com dados do usuário. São 2 tags: 
+<%Nome%>
+e pra finalizar.... junto com a tarefa de senha forte/fraca, precisa ser validado a existência do e-mail que está sendo inserido no sistema

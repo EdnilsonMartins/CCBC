@@ -279,4 +279,7 @@
   <data name="Contato_Financeiro" xml:space="preserve">
     <value>Financial</value>
   </data>
+  <data name="MinhaConta_Cadastro" xml:space="preserve">
+    <value>Account</value>
+  </data>
 </root>

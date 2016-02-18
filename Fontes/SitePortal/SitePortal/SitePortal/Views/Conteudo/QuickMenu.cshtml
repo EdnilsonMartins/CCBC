@@ -20,9 +20,67 @@
         <h2>@Resources.Portal.QuickMenu_Subtitulo</h2>
     </div>
     @{var AppPath = Url.Content("~/");
-      var par = 1;
+      var par = 0;
     }
-    @foreach (var m in Model.ListaMenuQuick)
+
+    @if (!String.IsNullOrEmpty(Model.TedescoLogin) || 1==1)
+    {
+        if (Model.SiteId != null && Model.SiteId == 2)
+        {
+            <script>
+                $(document).ready(function () {
+                    $('[data-toggle="popover"]').popover({
+                        placement: 'top'
+                    });
+                });
+            </script>
+        
+            string color = "rgba(214, 21, 21, 0.08)"; //"#d61541";
+            if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0) { color = "rgba(95, 214, 21, 0.25)";
+                //"#8ec63f"; 
+            }
+
+            string rotulo = "";
+            rotulo += String.Format("<li style='width: 222px; margin: 0; padding: 0;'><a href='{0}' title=' '>{1}</a></li>", "#", "Acesso Restrito");
+            rotulo = string.Format("<ul style='margin: 10px; padding: 0; line-height: 18px; font-weight: normal;'>{0}</ul>", "Necessário efetuar o login para acessar esta área!");
+            rotulo = String.Format("<div class='menu-internas' style='width: 222px; opacity: 1 !important;' title=' '>{0}</div>", rotulo);
+            
+            @*<li><a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_blank">Procedimento Online</a></li>*@
+        
+            <!--botao quick-->
+    <div class="conteudo-home-quick-botoes" style="opacity: 1 !important; background-color: @color" data-toggle="popover" data-trigger="focus" title="ACESSO RESTRITO" data-html="true" data-content="@rotulo" title=' '>
+        <div class="conteudo-home-quick-botoes-ico">
+            @if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
+            {
+                <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self">
+                    <img src="@Url.Content("~/")Images/Ico_contato.png" alt="Quick Menu CCBC" />
+                </a>
+            }
+            else
+            {
+                <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self" data-toggle="popover" data-trigger="focus" title="ACESSO RESTRITO" data-html="true" data-content="@rotulo" title=' '>
+                    <img src="@Url.Content("~/")Images/Ico_contato.png" alt="Quick Menu CCBC" />
+                </a>
+            }
+        </div>
+        <div class="conteudo-home-quick-botoes-titulo">
+                <h3 style=""><a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self" style="padding: 0;">Procedimento Online</a></h3>
+        </div>
+    </div>
+            <!--botao quick-->
+        
+            <!-- Tedesco WebFull-->
+            if (!String.IsNullOrEmpty(Model.TedescoURL)) { 
+            <form id="frmTedesco" action="@Model.TedescoURL/index.asp" method="post">
+                <input type="hidden" name="Login" value="@Model.TedescoLogin" />
+                <input type="hidden" name="Email" value="@Model.TedescoEmail" />
+                <input type="hidden" name="Token" value="@Model.TedescoToken" />
+            </form>
+            }
+        }
+    }
+    
+    @foreach (var m in Model.ListaMenuQuick.FindAll(x=>x.PublicacaoId!=1095))
     {
         if (par == 1) { par = 0; } else { par = 1; }
         string url = "";

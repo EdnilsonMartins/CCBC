@@ -782,10 +782,16 @@
                                             </li>
                                         }
 
-                                        @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR)))
+                                        @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR)
+                                                                                || (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR_PRECADASTRO_WEBFULL)))
                                         {
                                         <li>
-                                            <a href="#" id="btnNovoUsuario" style="display: none;">Adicionar Usuário</a>
+                                            @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR))){
+                                                <a href="#" id="btnNovoUsuario" style="display: none;">Adicionar Usuário</a>
+                                            }
+                                            @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR_PRECADASTRO_WEBFULL))){
+                                                <a href="#" id="btnNovoUsuarioWebFull" style="display: none;">Adicionar Usuário WebFull (Pré-Cadastro)</a>
+                                            }
                                         </li>
                                         }
 
@@ -796,21 +802,21 @@
                                             <a href="#" id="btnNovoPublicacaoTipoRegra" style="display: none;">Associar Regra no Tipo de Publicação</a>
                                         </li>
                                         }
-                                        
+
                                         @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.SITE_ADICIONAR)))
                                         {
                                         <li>
                                             <a href="#" id="btnNovoSite" style="display: none;">Adicionar Site</a>
                                         </li>
                                         }
-                                        
+
                                         @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.EMARKETING_MAILING)))
                                         {
                                         <li>
                                             <a href="#" id="btnMailingExportarExcel" style="display: none;">Exportar Lista para Excel</a>
                                         </li>
                                         }
-                                        
+
                                         @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.PESSOA_ADICIONAR)))
                                         {
                                             <li>
