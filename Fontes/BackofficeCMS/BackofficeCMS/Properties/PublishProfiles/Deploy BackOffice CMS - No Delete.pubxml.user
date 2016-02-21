@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>02/21/2016 14:07:52</publishTime>
+      <publishTime>02/21/2016 20:38:10</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>02/19/2016 03:07:39</publishTime>
+      <publishTime>02/21/2016 20:38:09</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>02/19/2016 03:07:38</publishTime>
+      <publishTime>02/21/2016 20:38:08</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -8110,7 +8110,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/18/2016 23:24:39</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuario.js">
-      <publishTime>02/21/2016 11:28:26</publishTime>
+      <publishTime>02/21/2016 20:29:47</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuarioGrupo.js">
       <publishTime>05/31/2015 20:44:03</publishTime>
