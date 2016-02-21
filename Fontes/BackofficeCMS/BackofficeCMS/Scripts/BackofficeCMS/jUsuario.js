@@ -14,8 +14,7 @@ function PreencherCadastro(data) {
     $("#TedescoEmail").val(data.Usuario.TedescoEmail);
 
     var values = data.Usuario.ListaUsuarioGrupo;
-    console.log(">>" + values);
-    SelecionarUsuarioGrupo(values);
+    ListarUsuarioGrupo(values);
 
     $("[name='Ativo']").filter("[value='1']").attr("checked", false);
     $("[name='Ativo']").filter("[value='0']").attr("checked", false);
@@ -167,10 +166,8 @@ function GravarUsuario() {
     });
 }
 
-function ListarUsuarioGrupo() {
-
+function ListarUsuarioGrupo(values) {
     var registros = [];
-    //document.getElementById("tvUsuarioGrupo").innerHTML = "";
     $('#tvUsuarioGrupo').jstree({
         "core": { "check_callback": true, "cache": false },
         "plugins": ["search", "state", "checkbox"],
@@ -199,39 +196,24 @@ function ListarUsuarioGrupo() {
             registros.push(regi);
         });
 
-        //if (fluxo != 1) {
-        //$('#tvUsuarioGrupo').jstree().deselect_all(true);
-        //$('#tvUsuarioGrupo').jstree("deselect_all");
-        console.log(11111);
-       // $('#tvUsuarioGrupo').jstree().uncheck_all();
-        
-            $('#tvUsuarioGrupo').jstree(true).settings.core.data = registros;
-            $('#tvUsuarioGrupo').jstree(true).refresh();
-        //}
+        $('#tvUsuarioGrupo').jstree().deselect_all(true);
+        $('#tvUsuarioGrupo').jstree(true).settings.core.data = registros;
+        $('#tvUsuarioGrupo').jstree(true).refresh();
 
+        SelecionarUsuarioGrupo(values);
     });
 
-   // $.jstree.reference('#tvUsuarioGrupo').uncheck_all();
-
-    
 }
 
-
 function SelecionarUsuarioGrupo(values) {
-    
     var nodes = [];
-    //$('#tvUsuarioGrupo').jstree(true).deselect_all();
-    //$('#tvUsuarioGrupo').jstree(true).deselect_all(true);
-    //$('#tvUsuarioGrupo').jstree("uncheck_all");
     if (values != null) {
         $.each(values.split(","), function (i, e) {
             nodes.push(e);
         });
-        console.log(nodes);
+        console.log("Nodes selecionados: " + nodes);
         $('#tvUsuarioGrupo').jstree(true).select_node(nodes);
-    } else {
-        
-    }
+    } 
 }
 
 
@@ -330,7 +312,6 @@ $(function () {
 
     if (usuarioId != null) {
         ShowModal(true);
-        ListarUsuarioGrupo();
         $.get("../Usuario/CarregarUsuario", { UsuarioId: usuarioId }, function (data) {
             if (data.Usuario.UsuarioId != null) {
                 $('[checked="checked"]').parent().addClass("checked");

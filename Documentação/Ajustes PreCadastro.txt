@@ -18,7 +18,7 @@ Alto (recomendado): quantidade de caracteres escolhida + alfanumérico + caracter
 5) EN   Tradução (Tradução do formulário no site, não temos será enviada)
 
 
-6)      No cadastro de usuários (Pré cadastro) precisa ter o grupo para seleção e tem que ser obrigatório e múltipla escolha. (pode deixar obrigatório no cadastro básico também). Aproveite para checar a rotina pois tem horas que não grava ou não recupera.
+6) OK   No cadastro de usuários (Pré cadastro) precisa ter o grupo para seleção e tem que ser obrigatório e múltipla escolha. (pode deixar obrigatório no cadastro básico também). Aproveite para checar a rotina pois tem horas que não grava ou não recupera.
 
 
 7) OK   Nível de acesso: quando enviao o pre cadastro por padrão o usuário tem apenas acesso ao “Login Portal”.
