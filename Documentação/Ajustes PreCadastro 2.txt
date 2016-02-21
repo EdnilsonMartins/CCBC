@@ -1,0 +1,22 @@
+Itens Atualizados:
+- Alterado o ícone do "Procedimento Online" [Ok]
+- Clique pegando também a imagem [Ok]
+- Foi implementado o uso do frame, melhorou. Porém o iframe abre uma nova window após autenticar via integração. Este daí não tem como remover e nem mesmo "ocultar" o endereço. [Ok]
+- Implementado novo campo na configuração do site (Email Administrativo TI) [Ok]
+- Permite o envio de mais de um destinatário usando ponto-e-vírgula. [Ok]
+- Tags especiais que podem ser utilizadas nos templates de E-mail. Estas tags podem ser utilizadas tanto para mesclar informação no Corpo quanto no Assunto do e-mail.
+          <%Nome%>
+	  <%Link_MinhaConta%>
+	  <%Link_LembrarSenha%>
+	  <%Login_WebFull%>
+	  <%Email_WebFull%>
+- Cores modificadas [Ok]
+- Segue link com uma relação de ícones: https://fortawesome.github.io/Font-Awesome/icons/
+
+Próximos Passos:
+Tendenza:
+- Regra para definição do login.
+- Regra para nível de segurança da senha.
+Definição (CAM)
+- Tradução do formulário do site.
+- Definição do ícone a ser utilizado no quick menu.

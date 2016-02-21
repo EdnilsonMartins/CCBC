@@ -1,0 +1,47 @@
+1)OK    Alterar imagem do ícone ( Não temos será enviado por eles), ajustar o click pois só está pegando na imagem.
+	- Alterado o ícone do "Procedimento Online" [Ok]
+	- Clique pegando também a imagem [Ok]
+
+2)OK    Tentar esconder o endereço(url) do webfull, acredito que como vc falou solucione, fazer rodar dentro de um frame.
+	- Foi implementado o uso do frame, melhorou. Porém o iframe abre uma nova window após autenticar via integração. Este daí não tem como remover e nem mesmo "ocultar" o endereço. [Ok]
+
+
+3)      No formulário o campo Login sera preenchido da seguinte forma, pegar o email e eliminar do @ para frente e se caso já exista no banco esse usuário juntar o domínio, ex:  leandro@tendenza.com.br caso não tenha o usuário leandro ficaria “leandro” se tiver ficaria assim “leandrotendenza” e se tiver mesmo assim deixa o e-mail completo.
+
+
+4)      Nível de senha, em configurações do CMS colocar a seguinte regra para configuração “quantidade mínima de caracteres” Ex: 6, 8., e 3 niveis sendo;
+Baixo: quantidade de caracteres escolhida + critério livre (pode ser so numérica ou alpha ou so letras)
+Médio: quantidade de caracteres escolhida + alfanumérica (no mínimo 1 letra e um numero)
+Alto (recomendado): quantidade de caracteres escolhida + alfanumérico + caracteres especiais ($,@,%)
+
+
+5) EN   Tradução (Tradução do formulário no site, não temos será enviada)
+
+
+6)      No cadastro de usuários (Pré cadastro) precisa ter o grupo para seleção e tem que ser obrigatório e múltipla escolha. (pode deixar obrigatório no cadastro básico também). Aproveite para checar a rotina pois tem horas que não grava ou não recupera.
+
+
+7) OK   Nível de acesso: quando enviao o pre cadastro por padrão o usuário tem apenas acesso ao “Login Portal”.
+	- Item já aplicado. 
+
+
+8)OK    No CMS em configurações colocar um campo para e-mail administrativo (ti@ccbc.org.br) esse email sera padrão para qualquer comunicação do CMS com o administrador. Se possível liberar para colocar mais de uma e-mail separado por ;
+	- Implementado novo campo na configuração do site (Email Administrativo TI) [Ok]
+	- Permite o envio de mais de um destinatário usando ponto-e-vírgula. [Ok]
+	- Tags especiais que podem ser utilizadas nos templates de E-mail. Estas tags podem ser utilizadas tanto para mesclar informação no Corpo quanto no Assunto do e-mail.
+          <%Nome%>
+	  <%Link_MinhaConta%>
+	  <%Link_LembrarSenha%>
+	  <%Login_WebFull%>
+	  <%Email_WebFull%>
+	
+
+9)      Logs: Na primeira oportunidade criar uma tabela de logs, a princípio em login, usuários e publicações.
+
+
+1 – OK - Verificamos que dependendo do tipo de tela do usuário a discriminação do botão por cores é quase imperceptível. Solicitamos que você escureça um pouco mais para melhorar o destaque.
+	- Cores modificadas [Ok]
+
+2 – OK - Será necessário alterar o ícone do botão. Você poderia nos encaminhar uma relação de ícones para que possamos escolher?
+	- Segue link com uma relação de ícones:
+	  https://fortawesome.github.io/Font-Awesome/icons/

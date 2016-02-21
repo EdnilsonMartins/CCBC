@@ -385,7 +385,7 @@ function SelecionarUsuario(values) {
 function ListarUsuarioGrupo() {
 
     var registros = [];
-
+    
     $('#tvUsuarioGrupo').jstree({
         "core": { "check_callback": true },
         "plugins": ["search", "state", "checkbox"]

@@ -30,6 +30,7 @@ namespace DAL
                     objetoConexao.AdicionarParametro("@HostBase", SqlDbType.VarChar, Configuracao.HostBase);
                     objetoConexao.AdicionarParametro("@EmailDestino", SqlDbType.VarChar, Configuracao.EmailDestino);
                     objetoConexao.AdicionarParametro("@EmailPorta", SqlDbType.VarChar, Configuracao.EmailPorta);
+                    objetoConexao.AdicionarParametro("@EmailDestinoAdministrativoTI", SqlDbType.VarChar, Configuracao.EmailDestinoAdministrativoTI);
                     using (DataTable dt = objetoConexao.RetornarTabela("USP_INS_Configuracao"))
                     {
                         if (dt != null && dt.Rows.Count > 0)
@@ -99,6 +100,8 @@ namespace DAL
                 dto.EmailDestino = dr["EmailDestino"].ToString();
             if (Util.GetNonNull(dr["EmailPorta"]))
                 dto.EmailPorta = (int)dr["EmailPorta"];
+            if (Util.GetNonNull(dr["EmailDestinoAdministrativoTI"]))
+                dto.EmailDestinoAdministrativoTI = dr["EmailDestinoAdministrativoTI"].ToString();
 
             if (Util.GetNonNull(dr["LinkMapa"]))
                 dto.LinkMapa = dr["LinkMapa"].ToString();

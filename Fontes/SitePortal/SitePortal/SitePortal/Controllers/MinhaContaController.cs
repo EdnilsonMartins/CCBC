@@ -57,7 +57,7 @@ namespace SitePortal.Controllers
                         ExecutaNotificarUsuario(usuario.UsuarioId, 2, 2);
 
                         // envio do e-mail ID = 4 (Notificação ao Administrador de Usuário ok!)
-                        //ExecutaNotificarAdministrador(usuario.UsuarioId, 2, 4);
+                        ExecutaNotificarAdministrador(usuario.UsuarioId, 2, 4);
 
                         model.NrProtocoloContato = "Seu cadastro foi atualizado com sucesso!";
                     }
@@ -133,7 +133,7 @@ namespace SitePortal.Controllers
                     ExecutaNotificarUsuario(usuario.UsuarioId, 2, 2);
 
                     // envio do e-mail ID = 4 (Notificação ao Administrador de Usuário ok!)
-                    //ExecutaNotificarAdministrador(usuario.UsuarioId, 2, 4);
+                    ExecutaNotificarAdministrador(usuario.UsuarioId, 2, 4);
                 }
                 
                 usuario = resp.Usuario;
@@ -163,7 +163,7 @@ namespace SitePortal.Controllers
 
             Resposta resposta = new Resposta();
 
-            bool enviado = email.Enviar_NotificacaoPreCadastro_WebFull(UsuarioId, SiteId, EmailTemplateId);
+            bool enviado = email.Enviar_NotificacaoPreCadastro_WebFull(UsuarioId, SiteId, EmailTemplateId, true);
             resposta.Erro = !enviado;
 
             return resposta;

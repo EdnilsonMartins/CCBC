@@ -88,6 +88,7 @@ namespace BackofficeCMS.Controllers
             _novo.Configuracao.HostBase = (string)Util.GetValue<string>(form, "HostBase");
             _novo.Configuracao.EmailDestino = (string)Util.GetValue<string>(form, "EmailDestino");
             _novo.Configuracao.EmailPorta = (int)Util.GetValue<int>(form, "EmailPorta");
+            _novo.Configuracao.EmailDestinoAdministrativoTI = (string)Util.GetValue<string>(form, "EmailDestinoAdministrativoTI");
 
 
             #region --> Validação

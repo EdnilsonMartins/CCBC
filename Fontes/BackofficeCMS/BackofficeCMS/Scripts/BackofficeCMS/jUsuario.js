@@ -14,6 +14,7 @@ function PreencherCadastro(data) {
     $("#TedescoEmail").val(data.Usuario.TedescoEmail);
 
     var values = data.Usuario.ListaUsuarioGrupo;
+    console.log(">>" + values);
     SelecionarUsuarioGrupo(values);
 
     $("[name='Ativo']").filter("[value='1']").attr("checked", false);
@@ -125,9 +126,9 @@ function EditarUsuario(_UsuarioId) {
 function GravarUsuario() {
     ShowModal(true);
     var listaUsuarioGrupo = "";
-    if (fluxo != 1) {
+    //if (fluxo != 1) {
         listaUsuarioGrupo = $('#tvUsuarioGrupo').jstree(true).get_selected();//$('#UsuarioGrupo').val();
-    }
+    //}
     var indexGrupo = 0;
     var saidaGrupo = "";
     if (listaUsuarioGrupo != null) {
@@ -137,6 +138,7 @@ function GravarUsuario() {
             indexGrupo++;
         }
     }
+    console.log(saidaGrupo);
 
     FormModel = SerializaForm("frmCadUsuario");
     var formdata = JSON.stringify(FormModel);
@@ -168,11 +170,20 @@ function GravarUsuario() {
 function ListarUsuarioGrupo() {
 
     var registros = [];
-
+    //document.getElementById("tvUsuarioGrupo").innerHTML = "";
     $('#tvUsuarioGrupo').jstree({
-        "core": { "check_callback": true },
-        "plugins": ["search", "state", "checkbox"]
-    });
+        "core": { "check_callback": true, "cache": false },
+        "plugins": ["search", "state", "checkbox"],
+        "checkbox": {
+            "keep_selected_style" : false
+        },
+        "types": {
+            "default": {
+                "check_node": false,
+                "uncheck_node": true
+            }
+        }
+      });
 
     $.get("../Usuario/ListarUsuarioGrupo", {}, function (data) {
         $.each(data, function (i, item) {
@@ -188,20 +199,38 @@ function ListarUsuarioGrupo() {
             registros.push(regi);
         });
 
-        if (fluxo != 1) {
+        //if (fluxo != 1) {
+        //$('#tvUsuarioGrupo').jstree().deselect_all(true);
+        //$('#tvUsuarioGrupo').jstree("deselect_all");
+        console.log(11111);
+       // $('#tvUsuarioGrupo').jstree().uncheck_all();
+        
             $('#tvUsuarioGrupo').jstree(true).settings.core.data = registros;
             $('#tvUsuarioGrupo').jstree(true).refresh();
-        }
+        //}
+
     });
+
+   // $.jstree.reference('#tvUsuarioGrupo').uncheck_all();
+
+    
 }
 
+
 function SelecionarUsuarioGrupo(values) {
+    
     var nodes = [];
+    //$('#tvUsuarioGrupo').jstree(true).deselect_all();
+    //$('#tvUsuarioGrupo').jstree(true).deselect_all(true);
+    //$('#tvUsuarioGrupo').jstree("uncheck_all");
     if (values != null) {
         $.each(values.split(","), function (i, e) {
             nodes.push(e);
         });
+        console.log(nodes);
         $('#tvUsuarioGrupo').jstree(true).select_node(nodes);
+    } else {
+        
     }
 }
 
@@ -297,11 +326,14 @@ $(function () {
 
     var usuarioId = $("#UsuarioId").val();
 
+    
+
     if (usuarioId != null) {
         ShowModal(true);
         ListarUsuarioGrupo();
         $.get("../Usuario/CarregarUsuario", { UsuarioId: usuarioId }, function (data) {
             if (data.Usuario.UsuarioId != null) {
+                $('[checked="checked"]').parent().addClass("checked");
                 if (data.Usuario.UsuarioId != 0) {
                     $("#Password").attr("disabled", true);
                 } else {
@@ -315,11 +347,15 @@ $(function () {
                 MensagemErro("Erro ao carregar dados do usuário.");
             }
         });
+        
     } 
+
 
     fluxo = $("#Fluxo").val();
     if (fluxo != null && fluxo == 1) {
         Mensagem("Um e-mail será enviado ao usuário após o preenchimento deste formulário.<br /><br />Os campos obrigatórios são:<br /><br />1) Aba <b>Geral</b><br />- Nome<br />- Email<br /><br />2) Aba <b>Externo</b><br/>- Login (WebFull)<br />- Email (WebFull)<br /><br />As instruções serão encaminhadas para o e-mail do futuro usuário com base no endereço registrado no campo <b>E-mail (WebFull)</b>.", "Intruções para Pré-Cadastro de Usuários");
     }
+
+    
 
 });

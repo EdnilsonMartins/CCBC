@@ -96,6 +96,20 @@ namespace BackofficeCMS.Controllers
 
             fluxo = (int)Util.GetValue<int>(form, "Fluxo");
 
+            #region --> Validação
+            UsuarioResponse resp = new UsuarioResponse();
+            if (String.IsNullOrEmpty(ListaUsuarioGrupo))
+            {
+                resp.Resposta.Erro = true;
+                if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
+                resp.Resposta.Mensagem += "- Selecionar o Grupo.";
+            }
+            if (resp.Resposta.Erro)
+            {
+                return Json(resp, JsonRequestBehavior.AllowGet);
+            }
+            #endregion
+
             if (UsuarioOld != null && UsuarioOld != "null")
             {
                 var formOld = (JObject)JsonConvert.DeserializeObject(UsuarioOld);

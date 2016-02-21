@@ -40,10 +40,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>02/18/2016 02:06:14</publishTime>
+      <publishTime>02/19/2016 03:07:39</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>02/17/2016 08:32:23</publishTime>
+      <publishTime>02/19/2016 03:07:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/SitePortal.dll">
-      <publishTime>02/18/2016 02:06:16</publishTime>
+      <publishTime>02/19/2016 03:14:32</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 11:07:38</publishTime>
@@ -628,7 +628,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/04/2015 12:39:10</publishTime>
     </File>
     <File Include="Views/Conteudo/QuickMenu.cshtml">
-      <publishTime>02/18/2016 01:54:38</publishTime>
+      <publishTime>02/18/2016 22:45:11</publishTime>
     </File>
     <File Include="Views/Eventos/Index.cshtml">
       <publishTime>05/30/2015 19:47:01</publishTime>
@@ -658,7 +658,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2015 00:35:23</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/18/2016 00:45:39</publishTime>
+      <publishTime>02/18/2016 22:07:40</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPadrao.cshtml">
       <publishTime>12/13/2014 16:21:04</publishTime>

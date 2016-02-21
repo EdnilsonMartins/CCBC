@@ -21,5 +21,6 @@ namespace DTO.Configuracao
         public string HostBase { get; set; }
         public string EmailDestino { get; set; }
         public int EmailPorta { get; set; }
+        public string EmailDestinoAdministrativoTI { get; set; }
     }
 }

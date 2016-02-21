@@ -24,6 +24,8 @@ function PreencherCadastro(data, IdiomaId) {
     $("#Password").val(data.Site.Configuracao.EmailPassword);
     $("#EmailDestino").val(data.Site.Configuracao.EmailDestino);
     $("#EmailPorta").val(data.Site.Configuracao.EmailPorta);
+    $("#EmailDestinoAdministrativoTI").val(data.Site.Configuracao.EmailDestinoAdministrativoTI);
+
 
 
 }

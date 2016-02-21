@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Email
     {
-        public bool EnviarMensagem(string Assunto, string Corpo, int SiteId, string EmailDestinatario)
+        public bool EnviarMensagem(string Assunto, string Corpo, int SiteId, string EmailDestinatario, bool EnviarParaAdministrativoTI = false)
         {
             bool retorno = false;
 
@@ -32,7 +32,31 @@ namespace DAL
                 MailMessage mail = new MailMessage();
                 mail.Sender = new System.Net.Mail.MailAddress(c.EmailUsername, c.EmailDisplayName);
                 mail.From = new MailAddress("no-reply@ccbc.org.br", c.EmailDisplayName);
-                mail.To.Add(new MailAddress(EmailDestinatario));
+                
+                if (EnviarParaAdministrativoTI)
+                {
+                    EmailDestinatario = c.EmailDestinoAdministrativoTI;
+                }
+
+                if (!string.IsNullOrEmpty(EmailDestinatario))
+                {
+                    if (EmailDestinatario.IndexOf(";") < 0)
+                    {
+                        mail.To.Add(new MailAddress(EmailDestinatario));
+                    }
+                    else
+                    {
+                        string[] EmailDestinatarios = EmailDestinatario.Split(';');
+                        foreach (string dest in EmailDestinatarios)
+                        {
+                            if (!string.IsNullOrEmpty(dest))
+                            {
+                                mail.To.Add(new MailAddress(dest));
+                            }
+                        }
+                    }
+                }
+                
                 mail.Subject = enviaAssunto;
                 mail.Body = enviaMensagem;
                 mail.IsBodyHtml = true;
@@ -91,7 +115,7 @@ namespace DAL
 
         #region --> Fluxo: Notificação para Atualizar/Completar cadastro de Usuário
 
-        public bool Enviar_NotificacaoPreCadastro_WebFull(int UsuarioId, int SiteId, int EmailTemplateId)
+        public bool Enviar_NotificacaoPreCadastro_WebFull(int UsuarioId, int SiteId, int EmailTemplateId, bool EnviarParaAdministrativoTI = false)
         {
             bool retorno = false;
 
@@ -106,6 +130,7 @@ namespace DAL
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(usuario.UsuarioId.ToString());
                 string ID = System.Convert.ToBase64String(plainTextBytes);
 
+                #region --> CORPO DO EMAIL
                 string corpo = emailTemplate.Corpo;
                 corpo = corpo.Replace("&lt;%Nome%&gt;", usuario.Nome);
                 corpo = corpo.Replace("<%Nome%>", usuario.Nome);
@@ -116,6 +141,14 @@ namespace DAL
                 corpo = corpo.Replace("&lt;%Link_LembrarSenha%&gt;", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
                 corpo = corpo.Replace("<%Link_LembrarSenha%>", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
 
+                corpo = corpo.Replace("&lt;%Login_WebFull%&gt;", usuario.TedescoUsuario);
+                corpo = corpo.Replace("<%Login_WebFull%>", usuario.TedescoUsuario);
+
+                corpo = corpo.Replace("&lt;%Email_WebFull%&gt;", usuario.TedescoEmail);
+                corpo = corpo.Replace("<%Email_WebFull%>", usuario.TedescoEmail);
+                #endregion
+
+                #region --> ASSUNTO DO EMAIL
                 string assunto = emailTemplate.Assunto;
                 assunto = assunto.Replace("&lt;%Nome%&gt;", usuario.Nome);
                 assunto = assunto.Replace("<%Nome%>", usuario.Nome);
@@ -126,6 +159,12 @@ namespace DAL
                 assunto = assunto.Replace("&lt;%Link_LembrarSenha%&gt;", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
                 assunto = assunto.Replace("<%Link_LembrarSenha%>", string.Format("http://ccbc.org.br/MinhaConta/{0}/2", ID));
 
+                assunto = assunto.Replace("&lt;%Login_WebFull%&gt;", usuario.TedescoUsuario);
+                assunto = assunto.Replace("<%Login_WebFull%>", usuario.TedescoUsuario);
+
+                assunto = assunto.Replace("&lt;%Email_WebFull%&gt;", usuario.TedescoEmail);
+                assunto = assunto.Replace("<%Email_WebFull%>", usuario.TedescoEmail);
+                #endregion
 
                 string destinatario = usuario.TedescoEmail;
 
@@ -134,7 +173,7 @@ namespace DAL
                 {
                     if (Email.ValidaEnderecoEmail(destinatario))
                     {
-                        retorno = EnviarMensagem(assunto, corpo, SiteId, destinatario);
+                        retorno = EnviarMensagem(assunto, corpo, SiteId, destinatario, EnviarParaAdministrativoTI);
                     }
                     else
                     {
