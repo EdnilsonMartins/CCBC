@@ -71,6 +71,7 @@ namespace SitePortal.Models
         public string TedescoToken { get; set; }
 
         public UsuarioDTO Usuario { get; set; }
+        public UsuarioResponse CadastroUsuarioResponse { get; set; }
 
         public Portal()
         {

@@ -102,6 +102,9 @@ namespace DAL
                 dto.EmailPorta = (int)dr["EmailPorta"];
             if (Util.GetNonNull(dr["EmailDestinoAdministrativoTI"]))
                 dto.EmailDestinoAdministrativoTI = dr["EmailDestinoAdministrativoTI"].ToString();
+            if(dr["TamanhoMinimoSenha"] != null)
+                if (Util.GetNonNull(dr["TamanhoMinimoSenha"]))
+                    dto.TamanhoMinimoSenha = (int)dr["TamanhoMinimoSenha"];
 
             if (Util.GetNonNull(dr["LinkMapa"]))
                 dto.LinkMapa = dr["LinkMapa"].ToString();

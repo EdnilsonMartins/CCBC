@@ -285,6 +285,15 @@ function NotificarUsuario(_UsuarioId) {
 
 $(function () {
 
+    $("#Email").change(function () {
+        if (fluxo == 1) {
+            var tedescoEmail = $("#TedescoEmail").val();
+            if (tedescoEmail == null || tedescoEmail == "") {
+                $("#TedescoEmail").val($("#Email").val());
+            }
+        }
+    });
+
     $("#btnNovoUsuario").attr("style", "display: block;");
     $("#btnNovoUsuarioWebFull").attr("style", "display: block;");
 

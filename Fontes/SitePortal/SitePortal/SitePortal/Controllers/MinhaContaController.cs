@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO;
+using DTO.Configuracao;
 using DTO.Usuario;
 using SitePortal.Models;
 using System;
@@ -33,13 +34,51 @@ namespace SitePortal.Controllers
                 string ID2 = Encoding.UTF8.GetString(data);
 
                 UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
+                usuario.Nome = nome;
+                usuario.Login = login;
+                usuario.Email = email;
+                usuario.Senha = senha;
 
-                if (FluxoID == "1")
+                #region --> Validação
+                Util.PASSWORD_LEVEL nivelSenha = new UsuarioDAL().ValidarSenha(usuario);
+
+                model.CadastroUsuarioResponse = new UsuarioResponse();
+                model.CadastroUsuarioResponse.Resposta = new Resposta();
+                string msgValidacao = "";
+
+                if (nivelSenha == Util.PASSWORD_LEVEL.REJECTED)
                 {
-                    usuario.Nome = nome;
-                    usuario.Login = login;
-                    usuario.Email = email;
-                    usuario.Senha = senha;
+                    Configuracao c = new ConfiguracaoDAL().CarregarConfiguracao(2);
+                    msgValidacao = string.Format("- Digite uma senha válida, com no mínimo {0} caracteres.", c.TamanhoMinimoSenha);
+                }
+
+                if (string.IsNullOrEmpty(nome))
+                {
+                    if (msgValidacao.Length > 0) msgValidacao += "<br />";
+                    msgValidacao += "- Informe o nome do usuário.";
+                }
+                if (string.IsNullOrEmpty(login))
+                {
+                    if (msgValidacao.Length > 0 )  msgValidacao += "<br />";
+                    msgValidacao += "- Informe um login.";
+                }
+                if (string.IsNullOrEmpty(email))
+                {
+                    if (msgValidacao.Length > 0) msgValidacao += "<br />";
+                    msgValidacao += "- Informe um endereço de e-mail.";
+                }
+
+                if (!string.IsNullOrEmpty(msgValidacao))
+                {
+                    model.CadastroUsuarioResponse.Resposta.Erro = true;
+                    model.CadastroUsuarioResponse.Resposta.Mensagem = msgValidacao;
+                }
+
+                #endregion
+
+                if (FluxoID == "1" && !model.CadastroUsuarioResponse.Resposta.Erro)
+                {
+                    
                     usuario.Ativo = true;
 
                     var func = new List<Funcionalidade>();
@@ -62,13 +101,9 @@ namespace SitePortal.Controllers
                         model.NrProtocoloContato = "Seu cadastro foi atualizado com sucesso!";
                     }
                 }
-                else if (FluxoID == "2")
+                else if (FluxoID == "2" && model.CadastroUsuarioResponse.Resposta.Erro)
                 {
-                    usuario.Nome = nome;
-                    usuario.Login = login;
-                    usuario.Email = email;
-                    usuario.Senha = senha;
-
+                    
                     UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, "", true);
 
                     model.NrProtocoloContato = "Seu cadastro foi atualizado com sucesso!";
@@ -78,16 +113,15 @@ namespace SitePortal.Controllers
             }
             else
             {
-
                 byte[] data = Convert.FromBase64String(ID);
                 string ID2 = Encoding.UTF8.GetString(data);
 
                 UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
                 model.Usuario = usuario;
-
-                @ViewBag.ID = ID;
-                @ViewBag.Fluxo = Fluxo; //Deixar como parâmetro e mexer na rota.
             }
+
+            @ViewBag.ID = ID;
+            @ViewBag.Fluxo = Fluxo; //Deixar como parâmetro e mexer na rota.
 
             return View(model);
         }
@@ -144,6 +178,33 @@ namespace SitePortal.Controllers
             return View(model);
         }
 
+        public ActionResult ValidarSenha(string ID, string senha)
+        {
+            UsuarioResponse resp = new UsuarioResponse();
+
+            if (ID != null)
+            {
+                byte[] data = Convert.FromBase64String(ID);
+                string ID2 = Encoding.UTF8.GetString(data);
+
+                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
+                usuario.Senha = senha;
+
+                Util.PASSWORD_LEVEL nivelSenha = new UsuarioDAL().ValidarSenha(usuario);
+
+                if (nivelSenha == Util.PASSWORD_LEVEL.REJECTED)
+                {
+                    Configuracao c = new ConfiguracaoDAL().CarregarConfiguracao(2);
+                    resp = new UsuarioResponse() { Resposta = new Resposta() { Erro = true, Mensagem = string.Format("Digite uma senha válida, com no mínimo {0} caractere(s).", c.TamanhoMinimoSenha) } };
+                }
+                else
+                {
+                    resp.Resposta.Mensagem = ((int)nivelSenha).ToString();
+                }
+            }
+
+            return Json(resp, JsonRequestBehavior.AllowGet);
+        }
 
         private Resposta ExecutaNotificarUsuario(int UsuarioId, int SiteId, int EmailTemplateId)
         {

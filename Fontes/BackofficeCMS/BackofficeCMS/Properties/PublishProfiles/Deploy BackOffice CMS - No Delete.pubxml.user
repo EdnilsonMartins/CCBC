@@ -22,7 +22,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>02/19/2016 03:07:41</publishTime>
+      <publishTime>02/21/2016 14:07:52</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
@@ -8110,7 +8110,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/18/2016 23:24:39</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuario.js">
-      <publishTime>02/19/2016 03:07:07</publishTime>
+      <publishTime>02/21/2016 11:28:26</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuarioGrupo.js">
       <publishTime>05/31/2015 20:44:03</publishTime>
@@ -8176,7 +8176,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2015 12:27:51</publishTime>
     </File>
     <File Include="Views/EmailTemplate/CadEmailTemplate.cshtml">
-      <publishTime>02/17/2016 08:23:11</publishTime>
+      <publishTime>02/21/2016 13:52:31</publishTime>
     </File>
     <File Include="Views/EmailTemplate/ListaEmailTemplate.cshtml">
       <publishTime>02/17/2016 08:23:11</publishTime>
@@ -8245,7 +8245,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/17/2016 08:23:11</publishTime>
     </File>
     <File Include="Views/Usuario/MinhaConta.cshtml">
-      <publishTime>02/19/2016 00:20:45</publishTime>
+      <publishTime>02/21/2016 11:28:35</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/05/2015 21:42:18</publishTime>

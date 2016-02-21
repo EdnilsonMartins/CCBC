@@ -21,21 +21,45 @@
             <h1>@Resources.Portal.MinhaConta_Cadastro<span class="cor-padrao-texto"></span></h1>
         </div>
         <div class="contato-form">
-            @if (String.IsNullOrEmpty(Model.NrProtocoloContato))
+            @if (String.IsNullOrEmpty(Model.NrProtocoloContato) || (Model.CadastroUsuarioResponse != null && Model.CadastroUsuarioResponse.Resposta.Erro))
             {
                 using (Html.BeginForm("Index", "MinhaConta", new { }, FormMethod.Post))
                 {
-                    <input type="hidden" name="ID" value="@ViewBag.ID" />
+                    <input type="hidden" id="txtMinhaContaID" name="ID" value="@ViewBag.ID" />
                     <input type="hidden" name="Fluxo"  value="@ViewBag.Fluxo" />
                     
                     <br /><span style="font-family: arial; font-size: 12px;">@Resources.Portal.Contato_Nome</span><input type="text" name="nome" placeholder="" value="@Model.Usuario.Nome" />
                     <br /><br /><span style="font-family: arial; font-size: 12px;">Login</span><input type="text" name="login" placeholder="" value="@Model.Usuario.Login" />
                     <br /><br /><span style="font-family: arial; font-size: 12px;">@Resources.Portal.Contato_Email</span><input type="text" name="email" placeholder="" value="@Model.Usuario.Email" />
-                    <br /><br /><span style="font-family: arial; font-size: 12px;">Senha</span>
-                        <input type="password" name="senha" placeholder="" style="width: 100%;height: 40px;border: 1px solid #e2e2e2;margin: 10px 0 0 0;color: #999;padding-left: 15px;" />
+                    <br /><br /><span style="font-family: arial; font-size: 12px;">Senha</span><br />
+                    <input id="txtMinhaContaSenha" type="password" name="senha" placeholder="" style="float: left; width: 160px;height: 40px;border: 1px solid #e2e2e2;margin: 10px 0 0 0;color: #999;padding-left: 15px;" />
+                    
+                
+                    <div id="dvMinhaSenhaValidacao" style="min-width:250px; float: left; display: none; border: 0px solid red; border-radius: 2px; padding: 12px 10px 0 10px; margin: 10px 0 0 10px; color: black; height: 32px;">
+                        <span id="msgMinhaContaSenha" style="font-size: 14px;"></span>
+                        <br /><br />
+                    </div>
+                    if (Model.CadastroUsuarioResponse != null && Model.CadastroUsuarioResponse.Resposta.Erro)
+                    {
+                        @*<div id="dvMinhaSenhaValidacaoDefault" style="float: left; display: inline-block; border: 2px solid red; border-radius: 2px; padding: 12px 10px 0 10px; margin: 10px 0 0 10px; background-color: lightsalmon; color: black; height: 28px;"><span id="msgMinhaContaSenha" style="font-size: 14px;">@Model.CadastroUsuarioResponse.Resposta.Mensagem</span>
+                        <br /><br />
+                        </div>*@
+                
+                        <div id="dvMinhaSenhaValidacaoDefault" style="float: left; width: 100%; display: inline-block; border: 0px solid red; border-radius: 2px; padding: 12px 10px 0 0px; margin: 10px 0 0 0px; color: red; font-weight: bold; min-height: 28px;">
+                            <span id="msgMinhaContaSenha" style="font-size: 14px; width: 100%;">
+                            @Html.Raw(Model.CadastroUsuarioResponse.Resposta.Mensagem)</span>
+                            <br /><br />
+                        </div>
+                    }
+                    else
+                    {
+                        
+                    }
 
                     <br />
-                    <input class="cor-padrao opacidade" type="submit" value="@Resources.Portal.Contato_Enviar" style="cursor: pointer;" />
+                    <div style="float: left; width: 100%;">
+                        <input class="cor-padrao opacidade" type="submit" value="@Resources.Portal.Contato_Enviar" style="cursor: pointer; float: left;" />
+                    </div>
                 }
             }
             else

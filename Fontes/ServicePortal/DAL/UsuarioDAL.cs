@@ -269,6 +269,9 @@ namespace DAL
             {
                 if (Util.GetNonNull(dr["UsuarioId"]))
                     dto.UsuarioId = (int)dr["UsuarioId"];
+                if (dr.Table.Columns["SiteId"] != null)
+                    if (Util.GetNonNull(dr["SiteId"]))
+                        dto.SiteId = (int)dr["SiteId"];
                 if (Util.GetNonNull(dr["Nome"]))
                     dto.Nome = (string)dr["Nome"];
                 if (Util.GetNonNull(dr["Login"]))
@@ -300,6 +303,40 @@ namespace DAL
                 //logBLL.Error(ex);
                 throw;
             }
+        }
+
+        public Util.PASSWORD_LEVEL ValidarSenha(UsuarioDTO dto)
+        {
+            ConfiguracaoDAL config = new ConfiguracaoDAL();
+            var c = config.CarregarConfiguracao(dto.SiteId);
+            
+            Util.PASSWORD_LEVEL nivel = Util.PASSWORD_LEVEL.REJECTED;
+
+            bool hasAlphabetic = false;
+            bool hasNumeric = false;
+            bool hasSpecial = false;
+
+            string Alphabetic = "abcdefghijklmnopqrstuvxwyz";
+            string Numeric = "1234567890";
+            string Special = @"!@#$%¨&*()_+`´^~{[}]<>:,.;|\?/°ºª-§";
+
+            string login = dto.Senha.ToLower();
+
+            if (login.Length >= c.TamanhoMinimoSenha)
+            {
+                for (int i = 0; i < login.Length; i++)
+                {
+                    string value = login.Substring(i, 1);
+                    if (Alphabetic.IndexOf(value) > -1) hasAlphabetic = true;
+                    if (Numeric.IndexOf(value) > -1) hasNumeric = true;
+                    if (Special.IndexOf(value) > -1) hasSpecial = true;
+                }
+                if (hasAlphabetic || hasNumeric) nivel = Util.PASSWORD_LEVEL.LOW;
+                if (hasAlphabetic && hasNumeric && !hasSpecial) nivel = Util.PASSWORD_LEVEL.MEDIUM;
+                if (hasAlphabetic && hasNumeric && hasSpecial) nivel = Util.PASSWORD_LEVEL.HIGH;
+            }
+
+            return nivel;
         }
 
         #endregion

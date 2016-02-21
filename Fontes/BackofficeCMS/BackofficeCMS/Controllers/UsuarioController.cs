@@ -98,12 +98,55 @@ namespace BackofficeCMS.Controllers
 
             #region --> Validação
             UsuarioResponse resp = new UsuarioResponse();
+
+            //if (String.IsNullOrEmpty(_novo.Nome))
+            //{
+            //    resp.Resposta.Erro = true;
+            //    if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
+            //    resp.Resposta.Mensagem += "- Informar o campo Nome";
+            //}
+
+            if (String.IsNullOrEmpty(_novo.Email))
+            {
+                resp.Resposta.Erro = true;
+                if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
+                resp.Resposta.Mensagem += "- Informar o campo E-mail";
+            }
+            else
+            {
+                UsuarioDAL dalValidaEmail = new UsuarioDAL();
+                UsuarioDTO userValidaEmail = dalValidaEmail.Carregar(_novo.Email).Usuario;
+                if (userValidaEmail.UsuarioId != _novo.UsuarioId)
+                {
+                    resp.Resposta.Erro = true;
+                    if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
+                    resp.Resposta.Mensagem += "- O endereço de e-mail informado já está em uso";
+                }
+            }
+
             if (String.IsNullOrEmpty(ListaUsuarioGrupo))
             {
                 resp.Resposta.Erro = true;
                 if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
                 resp.Resposta.Mensagem += "- Selecionar o Grupo.";
             }
+
+            if (fluxo == 1)
+            {
+                if (String.IsNullOrEmpty(_novo.TedescoUsuario))
+                {
+                    resp.Resposta.Erro = true;
+                    if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
+                    resp.Resposta.Mensagem += "- Informar o campo Login de acesso ao WebFull";
+                }
+                if (String.IsNullOrEmpty(_novo.TedescoEmail))
+                {
+                    resp.Resposta.Erro = true;
+                    if (resp.Resposta.Mensagem.Length > 0) resp.Resposta.Mensagem += "<br />";
+                    resp.Resposta.Mensagem += "- Informar o campo E-mail de acesso ao WebFull";
+                }
+            }
+
             if (resp.Resposta.Erro)
             {
                 return Json(resp, JsonRequestBehavior.AllowGet);

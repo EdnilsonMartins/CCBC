@@ -56,6 +56,12 @@ namespace SitePortal
             );
 
             routes.MapRoute(
+                name: "ValidarSenha1",
+                url: "MinhaConta/ValidarSenha/{ID}/{senha}",
+                defaults: new { controller = "MinhaConta", action = "ValidarSenha", ID = string.Empty, senha = string.Empty }
+            );
+
+            routes.MapRoute(
                 name: "ID",
                 url: "MinhaConta/{ID}",
                 defaults: new { controller = "MinhaConta", action = "Index", ID = string.Empty }
@@ -66,6 +72,7 @@ namespace SitePortal
                 url: "MinhaConta/{ID}/{Fluxo}",
                 defaults: new { controller = "MinhaConta", action = "Index", ID = string.Empty, Fluxo = string.Empty }
             );
+
 
             routes.MapRoute(
                 name: "Email",

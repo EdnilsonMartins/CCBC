@@ -125,7 +125,13 @@ namespace DAL
             CONFIRMADO = 2
         }
 
-
+        public enum PASSWORD_LEVEL
+        {
+            REJECTED = -1,
+            LOW = 1,
+            MEDIUM = 2,
+            HIGH = 3
+        }
 
         public static bool GetNonNull(Object obj)
         {
@@ -247,5 +253,7 @@ namespace DAL
             var step2 = Regex.Replace(step1, @"\s{2,}", " ");
             return step2;
         }
+
+        
     }
 }

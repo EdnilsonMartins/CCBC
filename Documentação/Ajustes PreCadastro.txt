@@ -9,7 +9,7 @@
 3)      No formulário o campo Login sera preenchido da seguinte forma, pegar o email e eliminar do @ para frente e se caso já exista no banco esse usuário juntar o domínio, ex:  leandro@tendenza.com.br caso não tenha o usuário leandro ficaria “leandro” se tiver ficaria assim “leandrotendenza” e se tiver mesmo assim deixa o e-mail completo.
 
 
-4)      Nível de senha, em configurações do CMS colocar a seguinte regra para configuração “quantidade mínima de caracteres” Ex: 6, 8., e 3 niveis sendo;
+4) OK  Nível de senha, em configurações do CMS colocar a seguinte regra para configuração “quantidade mínima de caracteres” Ex: 6, 8., e 3 niveis sendo;
 Baixo: quantidade de caracteres escolhida + critério livre (pode ser so numérica ou alpha ou so letras)
 Médio: quantidade de caracteres escolhida + alfanumérica (no mínimo 1 letra e um numero)
 Alto (recomendado): quantidade de caracteres escolhida + alfanumérico + caracteres especiais ($,@,%)

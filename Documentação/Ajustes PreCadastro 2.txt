@@ -26,10 +26,10 @@ Definição (CAM)
 
 Next Release:
 - Fixed the user group bug.
-
+- Updated the e-mail template management screen where was included the list of possible tags that user can use in Body field.
+- Implemented the security level used on password validation.
+- Implemented the auto-suggest login when the field is kept in blank.
 
 Next Steps:
-- Login's rule used to suggest the login.
-- Security level used on password validation.
 - Translate the forms to others language.
-- Choose the icon for quick menu.
+- Confirm the choose the icon for quick menu.
