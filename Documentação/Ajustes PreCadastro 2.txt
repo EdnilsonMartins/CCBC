@@ -13,6 +13,7 @@ Itens Atualizados:
 - Cores modificadas [Ok]
 - Segue link com uma relação de ícones: https://fortawesome.github.io/Font-Awesome/icons/
 
+
 Próximos Passos:
 Tendenza:
 - Regra para definição do login.
@@ -29,7 +30,11 @@ Next Release:
 - Updated the e-mail template management screen where was included the list of possible tags that user can use in Body field.
 - Implemented the security level used on password validation.
 - Implemented the auto-suggest login when the field is kept in blank.
+- Se o usuário possuir Funcionalidades,não sobreescrever. 
+- Após ativação da conta não perder os grupos do usuario.
 
 Next Steps:
 - Translate the forms to others language.
 - Confirm the choose the icon for quick menu.
+- Validação de e-mail via cadastro no portal.
+- Caso o ID informado no link de ativação for inválido, exibir mensagem p/ usuário.

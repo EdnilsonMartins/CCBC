@@ -1,6 +1,31 @@
 ﻿$(function () {
 
-    
+    $("#txtMinhaContaSenha").keyup(function (event) {
+        var id = $("#txtMinhaContaID").val();
+        var _senha = $("#txtMinhaContaSenha").val();
+        console.log(_senha);
+        $.post(AppPath + "MinhaConta/ValidarSenha", { ID: id, senha: _senha }, function (data) {
+            console.log(data.Resposta);
+            $("#dvMinhaSenhaValidacaoDefault").attr("style", "display: none;");
+            if (data.Resposta.Erro == true) {
+                $("#dvMinhaSenhaValidacao").attr("style", "display: inline-block; border: 2px solid red; border-radius: 2px; padding: 12px 10px 0 10px; margin: 10px 0 0 10px; background-color: lightsalmon; color: black; height: 28px;");
+                $("#msgMinhaContaSenha").html(data.Resposta.Mensagem);
+            } else {
+                var codeValid = data.Resposta.Mensagem;
+                console.log(codeValid);
+                if (codeValid == "1") {
+                    $("#dvMinhaSenhaValidacao").attr("style", "display: inline-block; border: 2px solid orange; border-radius: 2px; padding: 12px 10px 0 10px; margin: 10px 0 0 10px; background-color: #FFE17A; color: darkorange; height: 28px;");
+                    $("#msgMinhaContaSenha").html("Nível de Segurança da Senha: <b>FRACO</b>");
+                } else if (codeValid == "2") {
+                    $("#dvMinhaSenhaValidacao").attr("style", "display: inline-block; border: 2px solid green; border-radius: 2px; padding: 12px 10px 0 10px; margin: 10px 0 0 10px; background-color: lightgreen; color: green; height: 28px;");
+                    $("#msgMinhaContaSenha").html("Nível de Segurança da Senha: <b>MÉDIO</b>");
+                } else if (codeValid == "3") {
+                    $("#dvMinhaSenhaValidacao").attr("style", "display: inline-block; border: 2px solid blue; border-radius: 2px; padding: 12px 10px 0 10px; margin: 10px 0 0 10px; background-color: lightblue; color: blue; height: 28px;");
+                    $("#msgMinhaContaSenha").html("Nível de Segurança da Senha: <b>ALTO</b>");
+                }
+            }
+        });
+    });
 
     $('#btnEntrar').click(function () {
         EfetuarLogin();

@@ -81,15 +81,18 @@ namespace SitePortal.Controllers
                     
                     usuario.Ativo = true;
 
-                    var func = new List<Funcionalidade>();
-                    func.Add(new Funcionalidade() { Ativo = true, FuncionalidadeId = 1 });
-                    usuario.Funcionalidades = func;
+                    if (usuario.Funcionalidades == null || usuario.Funcionalidades.Count == 0)
+                    {
+                        var func = new List<Funcionalidade>();
+                        func.Add(new Funcionalidade() { Ativo = true, FuncionalidadeId = 1 });
+                        usuario.Funcionalidades = func;
+                    }
 
                     usuario.TedescoStatusId = (int)Util.TEDESCO_STATUS.CONFIRMADO;
                     usuario.TedescoDataConfirmacao = DateTime.Now;
 
 
-                    UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, "", true);
+                    UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, usuario.ListaUsuarioGrupo, true);
                     if (resp.Resposta.Erro == false)
                     {
                         // envio do e-mail ID = 2 (Instruções de Uso)
@@ -104,7 +107,7 @@ namespace SitePortal.Controllers
                 else if (FluxoID == "2" && model.CadastroUsuarioResponse.Resposta.Erro)
                 {
                     
-                    UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, "", true);
+                    UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, usuario.ListaUsuarioGrupo, true);
 
                     model.NrProtocoloContato = "Seu cadastro foi atualizado com sucesso!";
                 }
