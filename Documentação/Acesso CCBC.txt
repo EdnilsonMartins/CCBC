@@ -106,3 +106,5 @@ Logo_CCBC_122.jpg.
 - No Administrador de templates colocar um label para dar a dica das tags especiais que são utilizadas para o envio do e-mail (processo de mesclar com dados do usuário. São 2 tags: 
 <%Nome%>
 e pra finalizar.... junto com a tarefa de senha forte/fraca, precisa ser validado a existência do e-mail que está sendo inserido no sistema
+------
+aline.santos 1906

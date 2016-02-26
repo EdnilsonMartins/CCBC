@@ -33,6 +33,13 @@
                         placement: 'top'
                     });
                 });
+
+                function GerarNovoToken() {
+                    $.post(AppPath + "Portal/GetToken", {}, function (data) {
+                        $("#Token", "#frmTedesco").val(data);
+                        $('#frmTedesco').submit();
+                    });
+                }
             </script>
         
             string color = "rgba(255, 0, 0, 0.30)"; //"#d61541";
@@ -42,7 +49,7 @@
 
             string rotulo = "";
             rotulo += String.Format("<li style='float: left; width: 222px; margin: 0; padding: 0;'><a href='{0}' title=' '>{1}</a></li>", "#", "Acesso Restrito");
-            rotulo = string.Format("<ul style='margin: 10px; padding: 0; line-height: 18px; font-weight: normal;'>{0}</ul>", "Necessário efetuar o login para acessar esta área!");
+            rotulo = string.Format("<ul style='margin: 10px; padding: 0; line-height: 18px; font-weight: normal;'>{0}</ul>", "Necessário efetuar o login na área de acesso restrito acima.");
             rotulo = String.Format("<div class='menu-internas' style='width: 222px; opacity: 1 !important;' title=' '>{0}</div>", rotulo);
             
             @*<li><a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_blank">Procedimento Online</a></li>*@
@@ -54,19 +61,19 @@
                         @if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
                         {
                             <div class="conteudo-home-quick-botoes-ico">
-                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self">
-                                    <i class="fa fa-file-text" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px; "></i>
+                                <a href="#" onclick="javascript: GerarNovoToken();" target="_self">
+                                    <i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px; "></i>
                                 </a>
                             </div>
                             <div>
-                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" style="padding: 0; text-decoration: none;" ><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">Procedimento Online</h3></div></a>
+                                <a href="#" onclick="javascript: GerarNovoToken();" style="padding: 0; text-decoration: none;" ><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">Procedimento Online</h3></div></a>
                             </div>
                         }
                         else
                         {
                             <div class="conteudo-home-quick-botoes-ico">
                                 <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self" data-toggle="popover" data-trigger="focus" title="ACESSO RESTRITO" data-html="true" data-content="@rotulo" title=' '>
-                                    <i class="fa fa-file-text" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px;"></i>
+                                    <i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px;"></i>
                                 </a>
                             </div>
                             <div>
@@ -84,7 +91,7 @@
             <form id="frmTedesco" action="@Model.TedescoURL/index.asp" method="post" target="w2">
                 <input type="hidden" name="Login" value="@Model.TedescoLogin" />
                 <input type="hidden" name="Email" value="@Model.TedescoEmail" />
-                <input type="hidden" name="Token" value="@Model.TedescoToken" />
+                <input type="hidden" name="Token" id="Token" value="@Model.TedescoToken" />
                 
             </form>
             <iframe name="w2" style="display: none;"></iframe>

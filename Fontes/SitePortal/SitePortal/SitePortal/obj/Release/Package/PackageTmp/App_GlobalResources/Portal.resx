@@ -229,7 +229,7 @@
     <value>conteúdo exclusivo p/ associados</value>
   </data>
   <data name="Login_Titulo" xml:space="preserve">
-    <value>Acesso Restrito</value>
+    <value>Login para acesso restrito</value>
   </data>
   <data name="NewsLetter_Botao" xml:space="preserve">
     <value>ENVIAR</value>
