@@ -91,20 +91,31 @@ namespace SitePortal.Controllers
                     usuario.TedescoStatusId = (int)Util.TEDESCO_STATUS.CONFIRMADO;
                     usuario.TedescoDataConfirmacao = DateTime.Now;
 
-
+                    
                     UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, usuario.ListaUsuarioGrupo, true);
                     if (resp.Resposta.Erro == false)
                     {
-                        // envio do e-mail ID = 2 (Instruções de Uso)
-                        ExecutaNotificarUsuario(usuario.UsuarioId, 2, 2);
+                        if (usuario.SiteId == 2)
+                        {
+                            // envio do e-mail ID = 2 (Instruções de Uso)
+                            ExecutaNotificarUsuario(usuario.UsuarioId, usuario.SiteId, 2);
 
-                        // envio do e-mail ID = 4 (Notificação ao Administrador de Usuário ok!)
-                        ExecutaNotificarAdministrador(usuario.UsuarioId, 2, 4);
+                            // envio do e-mail ID = 4 (Notificação ao Administrador de Usuário ok!)
+                            ExecutaNotificarAdministrador(usuario.UsuarioId, usuario.SiteId, 4);
+                        }
 
+                        if (usuario.SiteId == 1)
+                        {
+                            // envio do e-mail ID = 6 (Instruções de Uso)
+                            ExecutaNotificarUsuario(usuario.UsuarioId, usuario.SiteId, 6);
+
+                            // envio do e-mail ID = 8 (Notificação ao Administrador de Usuário ok!)
+                            ExecutaNotificarAdministrador(usuario.UsuarioId, usuario.SiteId, 8);
+                        }
                         model.NrProtocoloContato = "Seu cadastro foi atualizado com sucesso!";
                     }
                 }
-                else if (FluxoID == "2" && model.CadastroUsuarioResponse.Resposta.Erro)
+                else if (FluxoID == "2" && !model.CadastroUsuarioResponse.Resposta.Erro)
                 {
                     
                     UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, usuario.ListaUsuarioGrupo, true);
@@ -166,11 +177,23 @@ namespace SitePortal.Controllers
                 UsuarioResponse resp = new UsuarioDAL().Gravar(usuario, null, "");
                 if (resp.Resposta.Erro == false)
                 {
-                    // envio do e-mail ID = 2 (Instruções de Uso)
-                    ExecutaNotificarUsuario(usuario.UsuarioId, 2, 2);
+                    if (usuario.SiteId == 2)
+                    {
+                        // envio do e-mail ID = 2 (Instruções de Uso)
+                        ExecutaNotificarUsuario(usuario.UsuarioId, usuario.SiteId, 2);
 
-                    // envio do e-mail ID = 4 (Notificação ao Administrador de Usuário ok!)
-                    ExecutaNotificarAdministrador(usuario.UsuarioId, 2, 4);
+                        // envio do e-mail ID = 4 (Notificação ao Administrador de Usuário ok!)
+                        ExecutaNotificarAdministrador(usuario.UsuarioId, usuario.SiteId, 4);
+                    }
+
+                    if (usuario.SiteId == 1)
+                    {
+                        // envio do e-mail ID = 6 (Instruções de Uso)
+                        ExecutaNotificarUsuario(usuario.UsuarioId, usuario.SiteId, 6);
+
+                        // envio do e-mail ID = 8 (Notificação ao Administrador de Usuário ok!)
+                        ExecutaNotificarAdministrador(usuario.UsuarioId, usuario.SiteId, 8);
+                    }
                 }
                 
                 usuario = resp.Usuario;

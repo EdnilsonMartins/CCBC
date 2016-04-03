@@ -78,6 +78,7 @@ namespace BackofficeCMS.Controllers
         public ActionResult GravarUsuario(string Usuario, string UsuarioOld, string ListaUsuarioGrupo)
         {
             var form = (JObject)JsonConvert.DeserializeObject(Usuario);
+            int SiteId = GetCurrentSite();
 
             int fluxo = 0;
 
@@ -131,7 +132,7 @@ namespace BackofficeCMS.Controllers
                 resp.Resposta.Mensagem += "- Selecionar o Grupo.";
             }
 
-            if (fluxo == 1)
+            if (fluxo == 1 && SiteId == 2)
             {
                 if (String.IsNullOrEmpty(_novo.TedescoUsuario))
                 {
@@ -180,7 +181,7 @@ namespace BackofficeCMS.Controllers
 
             UsuarioResponse usuarioResponse = new UsuarioDAL().Gravar(_novo, _anterior, ListaUsuarioGrupo);
 
-            if (fluxo == 1)
+            if (fluxo == 1 || SiteId == 1)
             {
                 Resposta resposta = ExecutaNotificarUsuario(usuarioResponse.Usuario.UsuarioId);
                 usuarioResponse.Resposta = resposta;
@@ -214,7 +215,11 @@ namespace BackofficeCMS.Controllers
 
             Resposta resposta = new Resposta();
 
-            bool enviado = email.Enviar_NotificacaoPreCadastro_WebFull(UsuarioId, GetCurrentSite(), 1);
+            int SiteId = GetCurrentSite();
+            int EmailTemplateId = 1;
+            if (SiteId == 1) EmailTemplateId = 5;
+
+            bool enviado = email.Enviar_NotificacaoPreCadastro_WebFull(UsuarioId, GetCurrentSite(), EmailTemplateId);
             if (enviado)
             {
                 new UsuarioDAL().NotificarUsuario(UsuarioId);

@@ -26,7 +26,7 @@ namespace DAL
 
                 System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
                 client.Host = c.EmailHost;// "smtp.tendenza.com.br";
-                //client.EnableSsl = true;
+                client.EnableSsl = true;
                 client.Port = c.EmailPorta;
                 client.Credentials = new System.Net.NetworkCredential(c.EmailUsername, c.EmailPassword);
                 MailMessage mail = new MailMessage();
@@ -146,6 +146,9 @@ namespace DAL
 
                 corpo = corpo.Replace("&lt;%Email_WebFull%&gt;", usuario.TedescoEmail);
                 corpo = corpo.Replace("<%Email_WebFull%>", usuario.TedescoEmail);
+
+                corpo = corpo.Replace("&lt;%Login_Portal%&gt;", usuario.Login);
+                corpo = corpo.Replace("<%Login_Portal%>", usuario.Login);
                 #endregion
 
                 #region --> ASSUNTO DO EMAIL
@@ -164,9 +167,14 @@ namespace DAL
 
                 assunto = assunto.Replace("&lt;%Email_WebFull%&gt;", usuario.TedescoEmail);
                 assunto = assunto.Replace("<%Email_WebFull%>", usuario.TedescoEmail);
+
+                assunto = assunto.Replace("&lt;%Login_Portal%&gt;", usuario.Login);
+                assunto = assunto.Replace("<%Login_Portal%>", usuario.Login);
                 #endregion
 
                 string destinatario = usuario.TedescoEmail;
+
+                if (usuario.TedescoEmail == null) destinatario = usuario.Email;
 
                 #region --> Envio do E-mail
                 try

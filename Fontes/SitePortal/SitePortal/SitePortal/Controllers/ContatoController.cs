@@ -77,7 +77,7 @@ namespace SitePortal.Controllers
 
                     System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
                     client.Host = c.EmailHost;// "smtp.tendenza.com.br";
-                    //client.EnableSsl = true;
+                    client.EnableSsl = true;
                     client.Port = c.EmailPorta;
                     client.Credentials = new System.Net.NetworkCredential(c.EmailUsername, c.EmailPassword); //"ed.martins@tendenza.com.br", "123Mudar#");
                     MailMessage mail = new MailMessage();

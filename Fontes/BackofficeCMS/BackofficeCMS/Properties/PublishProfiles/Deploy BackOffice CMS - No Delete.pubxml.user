@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>02/21/2016 21:10:40</publishTime>
+      <publishTime>04/01/2016 09:15:30</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>02/21/2016 21:10:39</publishTime>
+      <publishTime>04/01/2016 09:15:29</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:46</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -8086,7 +8086,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/21/2015 10:58:27</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jEmailTemplate.js">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:44</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jHome.js">
       <publishTime>05/09/2015 18:02:09</publishTime>
@@ -8098,7 +8098,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/10/2015 21:01:55</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jMenu.js">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:45</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jPublicacao.js">
       <publishTime>08/22/2015 18:46:17</publishTime>
@@ -8107,10 +8107,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2015 15:35:41</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jSite.js">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:45</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuario.js">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:46</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jUsuarioGrupo.js">
       <publishTime>05/31/2015 20:44:03</publishTime>
@@ -8176,10 +8176,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2015 12:27:51</publishTime>
     </File>
     <File Include="Views/EmailTemplate/CadEmailTemplate.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/26/2016 11:09:03</publishTime>
     </File>
     <File Include="Views/EmailTemplate/ListaEmailTemplate.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:44</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>05/10/2015 18:18:39</publishTime>
@@ -8224,10 +8224,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2015 19:37:27</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:46</publishTime>
     </File>
     <File Include="Views/Site/CadSite.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:46</publishTime>
     </File>
     <File Include="Views/Site/ListaSite.cshtml">
       <publishTime>06/05/2015 15:14:34</publishTime>
@@ -8242,16 +8242,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2015 20:33:04</publishTime>
     </File>
     <File Include="Views/Usuario/ListaUsuario.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:46</publishTime>
     </File>
     <File Include="Views/Usuario/MinhaConta.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>02/25/2016 15:29:46</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/05/2015 21:42:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>04/01/2016 09:15:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

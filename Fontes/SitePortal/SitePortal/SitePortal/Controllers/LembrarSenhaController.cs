@@ -33,8 +33,14 @@ namespace SitePortal.Controllers
                     }
                     else
                     {
-                        ExecutaNotificarUsuario(resp.Usuario.UsuarioId, 2, 3);
-
+                        if (resp.Usuario.SiteId == 2)
+                        {
+                            ExecutaNotificarUsuario(resp.Usuario.UsuarioId, resp.Usuario.SiteId, 3);
+                        }
+                        if (resp.Usuario.SiteId == 1)
+                        {
+                            ExecutaNotificarUsuario(resp.Usuario.UsuarioId, resp.Usuario.SiteId, 7);
+                        }
                         model.NrProtocoloContato = "Foi enviado um e-mail com as instruções de resgate de senha!";
 
                     }
