@@ -23,6 +23,14 @@ namespace SitePortal.Controllers
 
         public ActionResult Index()
         {
+            //var UsuarioId = "";
+            //var UsuarioNome = "";
+            //if (Session["UsuarioId"] != null)
+            //    UsuarioId = Session["UsuarioId"].ToString();
+            //if (Session["UsuarioNome"] != null)
+            //    UsuarioNome = Session["UsuarioNome"].ToString();
+            //Portal model = new Portal().CarregarModel(true, UsuarioId, UsuarioNome);
+
             Portal model = new Portal().CarregarModel(true);
 
             model.isHome = true;
@@ -167,6 +175,9 @@ namespace SitePortal.Controllers
                     Response.AppendCookie(usuarioCookie);
                     var usuarioNomeCookie = new HttpCookie("UsuarioNome", resp.Nome.ToString()) { HttpOnly = true };
                     Response.AppendCookie(usuarioNomeCookie);
+
+                    //Session["UsuarioId"] = resp.UsuarioId;
+                    //Session["UsuarioNome"] = resp.Nome;
                 }
                 else
                 {
@@ -184,6 +195,11 @@ namespace SitePortal.Controllers
             Response.AppendCookie(usuarioCookie);
             var usuarioNomeCookie = new HttpCookie("UsuarioNome", null) { HttpOnly = true };
             Response.AppendCookie(usuarioNomeCookie);
+
+            //Session["UsuarioId"] = null;
+            //Session["UsuarioNome"] = null;
+            //Session.Clear();
+            //Session.Abandon();
 
             return Json("", JsonRequestBehavior.DenyGet);
         }

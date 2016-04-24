@@ -51,7 +51,7 @@ namespace SitePortal
 
             routes.MapRoute(
                 name: "Index4",
-                url: "Interna/{internaid}",
+                url: "Interna/{internaid}/{titulo}",
                 defaults: new { controller = "Interna", action = "Index", internaid = string.Empty }
             );
 

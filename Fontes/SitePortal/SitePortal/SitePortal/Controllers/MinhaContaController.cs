@@ -18,7 +18,18 @@ namespace SitePortal.Controllers
         
         public ActionResult Index(string ID, string Fluxo = "1")
         {
-            Portal model = new Portal().CarregarModel();
+
+            Portal model = new Portal();
+
+            byte[] data = Convert.FromBase64String(ID);
+            string ID2 = Encoding.UTF8.GetString(data);
+            UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
+
+            var usuarioCookie = new HttpCookie("site", usuario.SiteId.ToString()) { HttpOnly = true };
+            Response.AppendCookie(usuarioCookie);
+            HttpContext.Request.Cookies.Set(usuarioCookie);
+
+            model = model.CarregarModel();
 
             string FluxoID = Request.Form["Fluxo"];
 
@@ -30,10 +41,6 @@ namespace SitePortal.Controllers
                 string email = Request.Form["email"];
                 string senha = Request.Form["senha"];
 
-                byte[] data = Convert.FromBase64String(ID);
-                string ID2 = Encoding.UTF8.GetString(data);
-
-                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
                 usuario.Nome = nome;
                 usuario.Login = login;
                 usuario.Email = email;
@@ -127,10 +134,6 @@ namespace SitePortal.Controllers
             }
             else
             {
-                byte[] data = Convert.FromBase64String(ID);
-                string ID2 = Encoding.UTF8.GetString(data);
-
-                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
                 model.Usuario = usuario;
             }
 

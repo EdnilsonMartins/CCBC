@@ -10,39 +10,47 @@ namespace SitePortal.Controllers
 {
     public class EventosController : Controller
     {
-        
         public ActionResult Index(string eventoid = "", string titulo = "")
         {
+            var UsuarioId = "";
+            var UsuarioNome = "";
+            if (Session["UsuarioId"] != null)
+                UsuarioId = Session["UsuarioId"].ToString();
+            if (Session["UsuarioNome"] != null)
+                UsuarioNome = Session["UsuarioNome"].ToString();
+
             int _eventoId;
             Int32.TryParse(eventoid, out _eventoId);
 
-            Portal model = new Portal().CarregarModel();
-
+            Portal model = new Portal().CarregarModel(false);
             model.Conteudo = new DTO.Publicacao.Publicacao();
             model.Conteudo = model.Eventos.Find(x => x.PublicacaoId == _eventoId);
 
-            if (model.Conteudo == null && _eventoId != 0)
+            var siteId_Entrada = model.SiteId;
+            if (model.SiteId == 0) model.SiteId = 2;
+
+            if (model.Conteudo == null && _eventoId != 0 && model.SiteId == 2)
             {
                 string site = "1";
                 var siteCookie = new HttpCookie("site", site) { HttpOnly = true };
                 Response.AppendCookie(siteCookie);
                 HttpContext.Request.Cookies.Set(siteCookie);
 
-                model = new Portal().CarregarModel();
+                model = new Portal().CarregarModel(false);
                 model.Conteudo = new DTO.Publicacao.Publicacao();
                 model.Conteudo = model.Eventos.Find(x => x.PublicacaoId == _eventoId);
             }
-            if (model.Conteudo == null && _eventoId != 0)
-            {
+            if (model.Conteudo == null && _eventoId != 0 && model.SiteId == 1) {
                 string site = "2";
                 var siteCookie = new HttpCookie("site", site) { HttpOnly = true };
                 Response.AppendCookie(siteCookie);
                 HttpContext.Request.Cookies.Set(siteCookie);
 
-                model = new Portal().CarregarModel();
+                model = new Portal().CarregarModel(false);
                 model.Conteudo = new DTO.Publicacao.Publicacao();
                 model.Conteudo = model.Eventos.Find(x => x.PublicacaoId == _eventoId);
             }
+
 
             if (model.Conteudo == null)
             {
@@ -58,7 +66,33 @@ namespace SitePortal.Controllers
                     MenuTipoAcaoId = 1,
                     LinkURL = "Home",
                     Rotulo = "Home"
-                }); 
+                });
+
+
+                //Default
+                if (_eventoId != 0)
+                {
+                    string site = siteId_Entrada.ToString();
+                    var siteCookie = new HttpCookie("site", site) { HttpOnly = true };
+                    Response.AppendCookie(siteCookie);
+                    HttpContext.Request.Cookies.Set(siteCookie);
+
+                    model = new Portal().CarregarModel(false);
+
+                    if (model.SiteId == 1)
+                    {
+                        int paginaPadrao = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["ConteudoRestritoIDCCBC"].ToString());
+                        model.Conteudo = new DTO.Publicacao.Publicacao();
+                        model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == paginaPadrao);
+                    }
+
+                    if (model.SiteId == 2)
+                    {
+                        int paginaPadrao = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["ConteudoRestritoIDCAM"].ToString());
+                        model.Conteudo = new DTO.Publicacao.Publicacao();
+                        model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == paginaPadrao);
+                    }
+                }
             }
 
             #region -->> Callback
@@ -75,6 +109,7 @@ namespace SitePortal.Controllers
 
                     Response.RedirectPermanent(Url.Content("~/Home/SessionSite?_site=" + siteId));
                     return null;
+
                 }
             }
             else
@@ -84,6 +119,17 @@ namespace SitePortal.Controllers
                 HttpContext.Request.Cookies.Set(_callbackPortal);
             }
             #endregion
+
+
+            if (_eventoId != null && model.Conteudo != null)
+            {
+                if (_eventoId == model.Conteudo.PublicacaoId)
+                {
+                    model.CarregarMenuInterna((int)_eventoId);
+                }
+                if (model.Conteudo != null) model.CarregarMenuTree(_eventoId);
+                model.CarregarBannerInterna((int)_eventoId);
+            }
 
             return View(model);
         }

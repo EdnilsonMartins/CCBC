@@ -24,7 +24,10 @@ namespace SitePortal.Controllers
         {
 
             var UsuarioId = HttpContext.Request.Cookies["UsuarioId"] != null ? HttpContext.Request.Cookies["UsuarioId"].Value : "0";
-
+            //var UsuarioId = "";
+            //if (Session["UsuarioId"] != null)
+            //    UsuarioId = Session["UsuarioId"].ToString();
+            
             Portal model = new Portal();
             model.GetTedescoToken(ref model, UsuarioId);
 

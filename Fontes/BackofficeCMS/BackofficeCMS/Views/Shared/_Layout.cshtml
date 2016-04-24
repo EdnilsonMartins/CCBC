@@ -790,7 +790,13 @@
                                                 <a href="#" id="btnNovoUsuario" style="display: none;">Adicionar Usuário</a>
                                             }
                                             @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.USUARIO_ADICIONAR_PRECADASTRO_WEBFULL))){
-                                                <a href="#" id="btnNovoUsuarioWebFull" style="display: none;">Adicionar Usuário WebFull (Pré-Cadastro)</a>
+                                                if (Model.SiteId == 2) { 
+                                                    <a href="#" id="btnNovoUsuarioWebFull" style="display: none;">Adicionar Usuário WebFull (Pré-Cadastro)</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="#" id="btnNovoUsuarioWebFull" style="display: none;">Adicionar Usuário Conteúdo Exclusivo (Pré-Cadastro)</a>
+                                                }
                                             }
                                         </li>
                                         }

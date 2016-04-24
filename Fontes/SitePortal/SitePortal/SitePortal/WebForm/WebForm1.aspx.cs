@@ -73,8 +73,14 @@ namespace SitePortal.WebForm
             if (string.IsNullOrEmpty(currentSite)) currentSite = "0";
             int SiteId = Convert.ToInt32(currentSite);
 
-            var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
-            var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
+            //var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
+            //var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
+            var UsuarioId = "";
+            var UsuarioNome = "";
+            if (HttpContext.Current.Session["UsuarioId"] != null)
+                UsuarioId = HttpContext.Current.Session["UsuarioId"].ToString();
+            if (HttpContext.Current.Session["UsuarioNome"] != null)
+                UsuarioNome = HttpContext.Current.Session["UsuarioNome"].ToString();
 
             PublicacaoDAL publicacaoDAL = new PublicacaoDAL();
             if (UsuarioId == "") UsuarioId = "0";

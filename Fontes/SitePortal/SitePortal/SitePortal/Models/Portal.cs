@@ -97,6 +97,7 @@ namespace SitePortal.Models
         }
 
         
+        //public Portal CarregarModel(bool CarregarTodosBanner = false, string UsuarioId = "0", string UsuarioNome = "")
         public Portal CarregarModel(bool CarregarTodosBanner = false)
         {
             Portal model = new Portal();
@@ -112,10 +113,17 @@ namespace SitePortal.Models
 
             var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
             var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
+            //var UsuarioId = "";
+            //var UsuarioNome = "";
+            //if (HttpContext.Current.Session["UsuarioId"] != null)
+            //    UsuarioId = HttpContext.Current.Session["UsuarioId"].ToString();
+            //if (HttpContext.Current.Session["UsuarioNome"] != null)
+            //    UsuarioNome = HttpContext.Current.Session["UsuarioNome"].ToString();
 
-            int _usuarioId;
-            int.TryParse(UsuarioId, out _usuarioId);
-            this.UsuarioId = _usuarioId;
+
+            //int _usuarioId;
+            //int.TryParse(UsuarioId, out _usuarioId);
+            //this.UsuarioId = _usuarioId;
 
             //Login
             if (UsuarioId == "") UsuarioId = "0";
@@ -129,7 +137,9 @@ namespace SitePortal.Models
             model.ListaMenuInferior = new MenuDAL().ListarMenu(SiteId, 3, IdiomaId, null, true, Convert.ToInt32(UsuarioId));
 
             #region --> Configuração Tedesco
-            GetTedescoToken(ref model, UsuarioId);
+            //if (SiteId != null && (SiteId == 2 || SiteId == 2))
+                //if (_usuarioId > 0 )
+                    //GetTedescoToken(ref model, UsuarioId);
             #endregion
 
             #region --> BANNERS
@@ -289,6 +299,7 @@ namespace SitePortal.Models
                     request.MaximumAutomaticRedirections = 4;
                     request.MaximumResponseHeadersLength = 4;
                     request.Credentials = CredentialCache.DefaultCredentials;
+
                     using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
                         using (Stream receiveStream = response.GetResponseStream())
@@ -321,6 +332,7 @@ namespace SitePortal.Models
             }
         }
 
+        //public void CarregarBannerInterna(int PublicacaoId, string UsuarioId = "0", string UsuarioNome = "")
         public void CarregarBannerInterna(int PublicacaoId)
         {
             var currentCulture = HttpContext.Current.Request.Cookies["lang"] != null ? HttpContext.Current.Request.Cookies["lang"].Value : "pt-BR";
@@ -333,6 +345,9 @@ namespace SitePortal.Models
 
             var UsuarioId = ((HttpContext.Current.Request.Cookies["UsuarioId"] != null) && (!String.IsNullOrEmpty(HttpContext.Current.Request.Cookies["UsuarioId"].Value))) ? Convert.ToInt32(HttpContext.Current.Request.Cookies["UsuarioId"].Value) : new Nullable<int>();
             var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
+           
+            //int _usuarioId;
+            //int.TryParse(UsuarioId, out _usuarioId);
 
             //Banner Superior Interna
             List<Banner> listaSuperiorInterna = new BannerDAL().ListarBanner(SiteId, null, 7, null, UsuarioId, IdiomaId, Apenas1: true, PublicacaoId: PublicacaoId);
@@ -362,9 +377,9 @@ namespace SitePortal.Models
             if (string.IsNullOrEmpty(currentSite)) currentSite = "0";
             int SiteId = Convert.ToInt32(currentSite);
 
-            var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
-            var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
-
+            //var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
+            //var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
+            
             MenuDAL dal = new MenuDAL();
 
             ListaMenuInterna = dal.ListarMenu(SiteId, 1, IdiomaId, PublicacaoId);
@@ -380,9 +395,9 @@ namespace SitePortal.Models
             if (string.IsNullOrEmpty(currentSite)) currentSite = "0";
             int SiteId = Convert.ToInt32(currentSite);
 
-            var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
-            var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
-
+            //var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";
+            //var UsuarioNome = HttpContext.Current.Request.Cookies["UsuarioNome"] != null ? HttpContext.Current.Request.Cookies["UsuarioNome"].Value : "";
+            
             MenuDAL dal = new MenuDAL();
             ListaMenuTree = new List<Menu>();
 

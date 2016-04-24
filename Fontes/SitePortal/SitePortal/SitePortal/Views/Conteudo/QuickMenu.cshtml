@@ -20,13 +20,15 @@
         <h2>@Resources.Portal.QuickMenu_Subtitulo</h2>
     </div>
     @{var AppPath = Url.Content("~/");
-      var par = 0;
+      var par = 1;
     }
 
     @if (!String.IsNullOrEmpty(Model.TedescoLogin) || 1==1)
     {
         if (Model.SiteId != null && Model.SiteId == 2)
         {
+            par = 0;
+            
             <script>
                 $(document).ready(function () {
                     $('[data-toggle="popover"]').popover({
@@ -99,8 +101,12 @@
         }
     }
     
-    @foreach (var m in Model.ListaMenuQuick.FindAll(x=>x.PublicacaoId!=1095))
+    @{
+          foreach (var m in Model.ListaMenuQuick.FindAll(x=>x.PublicacaoId!=1095))
     {
+        
+        var extraCSS = "";
+        
         if (par == 1) { par = 0; } else { par = 1; }
         string url = "";
         if (m.MenuTipoAcaoId == 1)
@@ -115,8 +121,21 @@
         if (m.TargetId == 1) { _target = "_parent"; }
         if (m.TargetId == 2) { _target = "_blank"; }
         var rotulo = @m.Rotulo;
+
+        string color = "rgba(238, 238, 238, 1)"; //"#eee";
+        if (m.MenuId == 717)
+            color = "rgba(215, 20, 64, 1)"; //"#D71440";
+              
+        if (m.MenuId == 717)
+            if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
+                color = "rgba(141, 198, 63, 1)";
+
+        if (m.MenuId == 717)
+            extraCSS = "border: 1px solid " + color + "!important ;";
+        
+        
         <!--botao quick-->
-        <div class="conteudo-home-quick-botoes">
+        <div class="conteudo-home-quick-botoes" style="@extraCSS">
             <div class="conteudo-home-quick-botoes-ico">
                 @if (!String.IsNullOrEmpty(m.ImageURL))
                 {
@@ -130,7 +149,12 @@
             </div>
         </div>
         <!--botao quick-->
+        
     }
+        }
+        
+    
+    
 
     @if (par == 0 && !Model.isHome)
     {
