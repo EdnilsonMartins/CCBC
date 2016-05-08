@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/04/2015 22:25:56</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.en-US.resx">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.es-ES.resx">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.fr-CA.resx">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.resx">
-      <publishTime>02/25/2016 22:11:58</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
@@ -40,10 +40,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>04/01/2016 09:15:29</publishTime>
+      <publishTime>05/05/2016 23:42:43</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>02/25/2016 15:29:48</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/SitePortal.dll">
-      <publishTime>04/04/2016 00:17:12</publishTime>
+      <publishTime>05/05/2016 23:42:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 11:07:38</publishTime>
@@ -136,7 +136,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 16:53:30</publishTime>
     </File>
     <File Include="Content/coin-slider-styles.css">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Content/demo.css">
       <publishTime>12/28/2014 02:13:24</publishTime>
@@ -226,7 +226,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2015 13:58:29</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>07/13/2015 01:42:51</publishTime>
+      <publishTime>05/06/2016 00:42:55</publishTime>
     </File>
     <File Include="Content/style1.css">
       <publishTime>04/03/2015 00:14:15</publishTime>
@@ -442,7 +442,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/16/2015 10:19:20</publishTime>
     </File>
     <File Include="Images/Logo_CCBC - Copy.png">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Images/Logo_CCBC.jpg">
       <publishTime>09/27/2015 01:16:35</publishTime>
@@ -451,7 +451,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/11/2015 20:06:43</publishTime>
     </File>
     <File Include="Images/Logo_CCBC_122.jpg">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Images/Logo_instituto.png">
       <publishTime>12/28/2014 02:39:18</publishTime>
@@ -526,13 +526,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2015 11:13:38</publishTime>
     </File>
     <File Include="Scripts/jConteudo.js">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Scripts/jFace.js">
       <publishTime>07/05/2015 14:40:01</publishTime>
     </File>
     <File Include="Scripts/jHome.js">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Scripts/jPortal.js">
       <publishTime>12/24/2014 16:24:26</publishTime>
@@ -541,7 +541,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/04/2015 20:25:39</publishTime>
     </File>
     <File Include="Scripts/Libs/coin-slider.js">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Scripts/Libs/coin-slider.min.js">
       <publishTime>12/07/2014 22:13:12</publishTime>
@@ -592,7 +592,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/13/2014 16:15:16</publishTime>
     </File>
     <File Include="TesteFace.html">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="thanks.html">
       <publishTime>07/05/2015 21:18:42</publishTime>
@@ -622,43 +622,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 20:47:14</publishTime>
     </File>
     <File Include="Views/Conteudo/Index.cshtml">
-      <publishTime>02/21/2016 20:53:55</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/Conteudo/NewsLetter.cshtml">
       <publishTime>04/04/2015 12:39:10</publishTime>
     </File>
     <File Include="Views/Conteudo/QuickMenu.cshtml">
-      <publishTime>04/03/2016 20:45:17</publishTime>
+      <publishTime>05/06/2016 00:44:23</publishTime>
     </File>
     <File Include="Views/Eventos/Index.cshtml">
-      <publishTime>04/03/2016 20:31:15</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/13/2015 01:34:45</publishTime>
+      <publishTime>05/08/2016 17:43:22</publishTime>
     </File>
     <File Include="Views/Interna/Index.cshtml">
-      <publishTime>04/03/2016 21:11:49</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/LembrarSenha/Index.cshtml">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/Materia/Index.cshtml">
-      <publishTime>04/03/2016 20:31:58</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/MinhaConta/Index.cshtml">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>05/05/2016 10:29:02</publishTime>
     </File>
     <File Include="Views/MinhaConta/RecuperarSenha.cshtml">
-      <publishTime>02/25/2016 15:29:47</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/Noticias/Index.cshtml">
-      <publishTime>04/03/2016 19:55:35</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/Portal/Index.cshtml">
       <publishTime>04/29/2015 00:35:23</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/03/2016 23:37:10</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPadrao.cshtml">
       <publishTime>12/13/2014 16:21:04</publishTime>
@@ -667,7 +667,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 13:23:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/03/2016 15:51:50</publishTime>
+      <publishTime>04/24/2016 16:02:39</publishTime>
     </File>
     <File Include="WebForm/Calendario.aspx">
       <publishTime>12/27/2014 01:59:12</publishTime>

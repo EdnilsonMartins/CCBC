@@ -308,6 +308,10 @@
                                                 <p class="data-noticias">
                                                     @*<i>@Convert.ToDateTime(Noticias[0].Data).ToString("dd - MMMMM - yyyy")</i>*@
                                                     <i>@Noticias[0].Complemento.Editoria</i>
+                                                    @if (Noticias[0].Data != null)
+                                                    {
+                                                        <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[0].Data).ToString("dd-MMM-yyyy")</i>
+                                                    }
                                                 </p>
                                             </div>
                                         }
@@ -325,6 +329,10 @@
                                         <p class="data-noticias">
                                             @*<i>@Convert.ToDateTime(Noticias[1].Data).ToString("dd - MMMMM - yyyy")</i>*@
                                             <i>@Noticias[1].Complemento.Editoria</i>
+                                            @if (Noticias[1].Data != null)
+                                            {
+                                                <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[1].Data).ToString("dd-MMM-yyyy")</i>
+                                            }
                                         </p>
                                     </div>
                                 }
@@ -346,6 +354,10 @@
                                     <p class="data-noticias">
                                         @*<i>@Convert.ToDateTime(Noticias[2].Data).ToString("dd - MMMMM - yyyy")</i>*@
                                         <i>@Noticias[2].Complemento.Editoria</i>
+                                        @if (Noticias[2].Data != null)
+                                        {
+                                            <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[2].Data).ToString("dd-MMM-yyyy")</i>
+                                        }
                                     </p>
                                 </div>
 
@@ -365,6 +377,10 @@
                                         <p class="data-noticias">
                                             @*<i>@Convert.ToDateTime(Noticias[3].Data).ToString("dd - MMMMM - yyyy")</i>*@
                                             <i>@Noticias[3].Complemento.Editoria</i>
+                                            @if (Noticias[3].Data != null)
+                                            {
+                                                <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[3].Data).ToString("dd-MMM-yyyy")</i>
+                                            }
                                         </p>
                                     </div>
                                 @*</div>*@
@@ -384,6 +400,10 @@
                                         <p class="data-noticias">
                                             @*<i>@Convert.ToDateTime(Noticias[4].Data).ToString("dd - MMMMM - yyyy")</i>*@
                                             <i>@Noticias[4].Complemento.Editoria</i>
+                                            @if (Noticias[4].Data != null)
+                                            {
+                                                <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[4].Data).ToString("dd-MMM-yyyy")</i>
+                                            }
                                         </p>
                                     </div>
                                 @*</div>*@

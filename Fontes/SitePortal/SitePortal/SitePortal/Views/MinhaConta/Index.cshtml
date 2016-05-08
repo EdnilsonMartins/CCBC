@@ -66,9 +66,11 @@
             {
                 using (Html.BeginForm("Index", "Home", new { }, FormMethod.Post))
                 {
-                    <div style="float: left; display: block;">
+                    <div style="float: left; width: 100%;">
                         <span class="mensagem-enviada-sucesso">@Model.NrProtocoloContato</span>
-                        <br /><br />
+                    </div>
+                    <br/>
+                    <div style="float: left; width: 100%;">
                         <input class="cor-padrao opacidade" type="submit" value="Ok" style="float: left; cursor: pointer;" />
                     </div>
                 }

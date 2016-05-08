@@ -343,7 +343,10 @@ $(function () {
 
     fluxo = $("#Fluxo").val();
     if (fluxo != null && fluxo == 1) {
-        Mensagem("Um e-mail será enviado ao usuário após o preenchimento deste formulário.<br /><br />Os campos obrigatórios são:<br /><br />1) Aba <b>Geral</b><br />- Nome<br />- Email<br /><br />2) Aba <b>Externo</b><br/>- Login (WebFull)<br />- Email (WebFull)<br /><br />As instruções serão encaminhadas para o e-mail do futuro usuário com base no endereço registrado no campo <b>E-mail (WebFull)</b>.", "Intruções para Pré-Cadastro de Usuários");
+        var siteId = $("#SiteId").val();
+        if (siteId != undefined && siteId != null && siteId == "2") {
+            Mensagem("Um e-mail será enviado ao usuário após o preenchimento deste formulário.<br /><br />Os campos obrigatórios são:<br /><br />1) Aba <b>Geral</b><br />- Nome<br />- Email<br /><br />2) Aba <b>Externo</b><br/>- Login (WebFull)<br />- Email (WebFull)<br /><br />As instruções serão encaminhadas para o e-mail do futuro usuário com base no endereço registrado no campo <b>E-mail (WebFull)</b>.", "Intruções para Pré-Cadastro de Usuários");
+        }
     }
 
     

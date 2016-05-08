@@ -46,11 +46,14 @@
                             </a>
                         </li>
                         }
+                        @if(Model.SiteId == 2){
                         <li>
+                            <input type="hidden" id="SiteId" value="@Model.SiteId" />
                             <a href="#tabExterno" data-toggle="tab">
                                 Externo
                             </a>
                         </li>
+                        }
                     </ul>
                     <!--/Abas -->
                     <!-- Conteúdo -->
