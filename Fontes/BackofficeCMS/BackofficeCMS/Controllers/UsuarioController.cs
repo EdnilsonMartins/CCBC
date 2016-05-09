@@ -81,7 +81,7 @@ namespace BackofficeCMS.Controllers
             int SiteId = GetCurrentSite();
 
             int fluxo = 0;
-
+            bool forcarTrocaSenha = false;
             UsuarioDTO _anterior = new UsuarioDTO();
             UsuarioDTO _novo = new UsuarioDTO();
 
@@ -94,6 +94,8 @@ namespace BackofficeCMS.Controllers
             _novo.SiteId = GetCurrentSite();
             _novo.TedescoUsuario = (string)Util.GetValue<string>(form, "TedescoUsuario");
             _novo.TedescoEmail = (string)Util.GetValue<string>(form, "TedescoEmail");
+
+            forcarTrocaSenha = (!String.IsNullOrEmpty((string)Util.GetValue<string>(form, "btnTrocarSenha")) && (string)Util.GetValue<string>(form, "btnTrocarSenha") == "Troca") ? true : false;
 
             fluxo = (int)Util.GetValue<int>(form, "Fluxo");
 
@@ -179,7 +181,7 @@ namespace BackofficeCMS.Controllers
                 _novo.TedescoStatusId = (int)Util.TEDESCO_STATUS.PRE_CADASTRO;
             }
 
-            UsuarioResponse usuarioResponse = new UsuarioDAL().Gravar(_novo, _anterior, ListaUsuarioGrupo);
+            UsuarioResponse usuarioResponse = new UsuarioDAL().Gravar(_novo, _anterior, ListaUsuarioGrupo, forcarTrocaSenha);
 
             if (fluxo == 1 || SiteId == 1)
             {

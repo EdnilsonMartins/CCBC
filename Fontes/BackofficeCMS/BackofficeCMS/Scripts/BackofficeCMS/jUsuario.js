@@ -283,6 +283,22 @@ function NotificarUsuario(_UsuarioId) {
     });
 }
 
+function TrocarSenha() {
+    $("#btnTrocarSenha").attr("style", "display: none;");
+    $("#btnTrocarSenhaCancelar").attr("style", "display: block;");
+    $("#btnTrocarSenha").val("Troca");
+    $("#Password").attr("disabled", false);
+    $("#Password").focus();
+}
+
+function TrocarSenhaCancelar() {
+    $("#btnTrocarSenhaCancelar").attr("style", "display: none;");
+    $("#btnTrocarSenha").attr("style", "display: block;");
+    $("#btnTrocarSenha").val("");
+    $("#Password").val("");
+    $("#Password").attr("disabled", true);
+}
+
 $(function () {
 
     $("#Email").change(function () {
@@ -313,6 +329,14 @@ $(function () {
         ListarUsuario();
     });
 
+    $("#btnTrocarSenha").click(function () {
+        TrocarSenha();
+    });
+
+    $("#btnTrocarSenhaCancelar").click(function () {
+        TrocarSenhaCancelar();
+    });
+
     ListarUsuario();
 
     var usuarioId = $("#UsuarioId").val();
@@ -326,6 +350,7 @@ $(function () {
                 $('[checked="checked"]').parent().addClass("checked");
                 if (data.Usuario.UsuarioId != 0) {
                     $("#Password").attr("disabled", true);
+                    $("#btnTrocarSenha").attr("style", "display: block;");
                 } else {
                     $("[name='Ativo']").filter("[value='1']").attr("checked", true);
                     $('[checked="checked"]').parent().addClass("checked");

@@ -18,7 +18,7 @@ function SerializaForm(nomeForm) {
     if (nomeForm == null)
         nomeForm = "form";
 
-    var form = $("#" + nomeForm).find("input[type='text'],input[type='hidden'],input[type='password'],input[type='text']:disabled,input[type='checkbox'],input[type='radio']:checked,select,textarea");
+    var form = $("#" + nomeForm).find("button,input[type='text'],input[type='hidden'],input[type='password'],input[type='text']:disabled,input[type='checkbox'],input[type='radio']:checked,select,textarea");
 
     //console.log("Rotina de Serialização do Formulário: " + nomeForm);
 

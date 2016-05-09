@@ -373,6 +373,11 @@ $(function () {
     });
 
     var bannerId = $("#BannerId").val();
+
+    if (bannerId == null || bannerId == 0) {
+        $("#btnNovoArquivo").attr("disabled", true);
+    }
+
     if (bannerId != null) {
         ShowModal(true);
         //PT
