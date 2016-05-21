@@ -137,9 +137,9 @@ namespace SitePortal.Models
             model.ListaMenuInferior = new MenuDAL().ListarMenu(SiteId, 3, IdiomaId, null, true, Convert.ToInt32(UsuarioId));
 
             #region --> Configuração Tedesco
-            //if (SiteId != null && (SiteId == 2 || SiteId == 2))
-                //if (_usuarioId > 0 )
-                    //GetTedescoToken(ref model, UsuarioId);
+            if (SiteId != null && (SiteId == 2 || SiteId == 2))
+                if (!string.IsNullOrEmpty(UsuarioId) && UsuarioId != "0")
+                    GetTedescoToken(ref model, UsuarioId);
             #endregion
 
             #region --> BANNERS
