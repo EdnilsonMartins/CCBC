@@ -295,7 +295,7 @@
 
                 <!-- Tedesco WebFull-->
                 @if (!String.IsNullOrEmpty(Model.TedescoURL) && (Model.SiteId != null && Model.SiteId == 1)) { 
-                <form id="frmTedesco" action="@Model.TedescoURL/index.asp" method="post">
+                <form id="frmTedesco" action="@Model.TedescoURL/index.asp" method="post" >
                     <input type="hidden" name="Login" value="@Model.TedescoLogin" />
                     <input type="hidden" name="Email" value="@Model.TedescoEmail" />
                     <input type="hidden" name="Token" value="@Model.TedescoToken" />
