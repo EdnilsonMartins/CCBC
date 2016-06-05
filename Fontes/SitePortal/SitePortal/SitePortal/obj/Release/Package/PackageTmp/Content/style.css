@@ -169,17 +169,17 @@ float: none;
 .conteudo-home-direita-materia-conteudo {float:left;margin:15px 0 0 0;min-height: 300px;}
 .conteudo-home-direita-materia-conteudo-texto {float:left;width:100%;height:auto;margin:0;}
 .conteudo-home-direita-materia-conteudo-esquerda {float:left;width:230px;height:auto;margin:0;border-right:0px solid #eee;text-align:justify;}
-.conteudo-home-direita-materia-conteudo-esquerda-destaque-texto p {margin:0;line-height:15px;min-height: 220px;}
+.conteudo-home-direita-materia-conteudo-esquerda-destaque-texto p {margin:0;line-height:15px; min-height: 270px;}
 .conteudo-home-direita-materia-conteudo-esquerda-destaque-texto h2 {margin:0;line-height:20px; letter-spacing:0.3px;}
 .conteudo-home-direita-materia-conteudo-esquerda-destaque-texto h2 a {font-size:13px;text-decoration:none; color:#666;}
 .conteudo-home-direita-materia-conteudo-esquerda-destaque-texto p a {font-size:13px;text-decoration:none; color:#666;}
 .conteudo-home-direita-materia-conteudo-centro {float:left;width:230px;height:auto;margin:0 0 0 15px;border-right:0px solid #eee;text-align:justify;}
-.conteudo-home-direita-materia-conteudo-centro-destaque-texto p {margin:0;line-height:15px; /*min-height: 220px;*/}
+.conteudo-home-direita-materia-conteudo-centro-destaque-texto p {margin:0;line-height:15px; min-height: 270px;}
 .conteudo-home-direita-materia-conteudo-centro-destaque-texto h2 {margin:0;line-height:20px; letter-spacing:0.3px;}
 .conteudo-home-direita-materia-conteudo-centro-destaque-texto h2 a {font-size:13px;text-decoration:none; color:#666;}
 .conteudo-home-direita-materia-conteudo-centro-destaque-texto p a {font-size:13px;text-decoration:none; color:#666;}
 .conteudo-home-direita-materia-conteudo-direita {float:left;width:230px;height:auto;margin:0 0 0 15px;text-align:justify;}
-.conteudo-home-direita-materia-conteudo-direita-destaque-texto p {margin:0;line-height:15px;min-height: 220px;}
+.conteudo-home-direita-materia-conteudo-direita-destaque-texto p {margin:0;line-height:15px;min-height: 270px;}
 .conteudo-home-direita-materia-conteudo-direita-destaque-texto h2 {margin:0;line-height:20px; letter-spacing:0.3px;}
 .conteudo-home-direita-materia-conteudo-direita-destaque-texto h2 a {font-size:13px;text-decoration:none; color:#666;}
 .conteudo-home-direita-materia-conteudo-direita-destaque-texto p a {font-size:13px;text-decoration:none; color:#666;}
