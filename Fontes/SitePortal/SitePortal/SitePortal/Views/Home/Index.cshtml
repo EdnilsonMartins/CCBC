@@ -303,14 +303,15 @@
                                                 </div>
                                             }
                                             <div class="conteudo-home-direita-noticias-conteudo-esquerda-destaque-texto">
+                                                <p class="data-noticias"><i>@Noticias[0].Complemento.Editoria</i></p>
                                                 <h2 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[0].Detalhe.Titulo)">@Noticias[0].Detalhe.Titulo</a></h2>
                                                 <p><a href="@Url.Content("~/")Noticias/@Noticias[0].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[0].Detalhe.Titulo)" style="text-decoration: none;">@Noticias[0].Detalhe.Resumo</a></p>
                                                 <p class="data-noticias">
                                                     @*<i>@Convert.ToDateTime(Noticias[0].Data).ToString("dd - MMMMM - yyyy")</i>*@
-                                                    <i>@Noticias[0].Complemento.Editoria</i>
+                                                    @*<i>@Noticias[0].Complemento.Editoria</i>*@
                                                     @if (Noticias[0].Data != null)
                                                     {
-                                                        <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[0].Data).ToString("dd-MMM-yyyy")</i>
+                                                        <i style="float: right; color: silver; font-weight: normal;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[0].Data).ToString("dd-MMM-yyyy")</i>
                                                     }
                                                 </p>
                                             </div>
@@ -324,14 +325,15 @@
                                     </div>
 
                                     <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                        <p class="data-noticias"><i>@Noticias[1].Complemento.Editoria</i></p>
                                         <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[1].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[1].Detalhe.Titulo)">@Noticias[1].Detalhe.Titulo</a></h3>
                                         <p><a href="@Url.Content("~/")Noticias/@Noticias[1].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[1].Detalhe.Titulo)">@Noticias[1].Detalhe.Resumo</a></p>
                                         <p class="data-noticias">
                                             @*<i>@Convert.ToDateTime(Noticias[1].Data).ToString("dd - MMMMM - yyyy")</i>*@
-                                            <i>@Noticias[1].Complemento.Editoria</i>
+                                            @*<i>@Noticias[1].Complemento.Editoria</i>*@
                                             @if (Noticias[1].Data != null)
                                             {
-                                                <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[1].Data).ToString("dd-MMM-yyyy")</i>
+                                                <i style="float: right; color: silver; font-weight: normal;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[1].Data).ToString("dd-MMM-yyyy")</i>
                                             }
                                         </p>
                                     </div>
@@ -349,14 +351,15 @@
                             {
 
                                 <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                    <p class="data-noticias"><i>@Noticias[2].Complemento.Editoria</i></p>
                                     <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[2].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[2].Detalhe.Titulo)">@Noticias[2].Detalhe.Titulo</a></h3>
                                     <p><a href="@Url.Content("~/")Noticias/@Noticias[2].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[2].Detalhe.Titulo)">@Noticias[2].Detalhe.Resumo</a></p>
                                     <p class="data-noticias">
                                         @*<i>@Convert.ToDateTime(Noticias[2].Data).ToString("dd - MMMMM - yyyy")</i>*@
-                                        <i>@Noticias[2].Complemento.Editoria</i>
+                                        @*<i>@Noticias[2].Complemento.Editoria</i>*@
                                         @if (Noticias[2].Data != null)
                                         {
-                                            <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[2].Data).ToString("dd-MMM-yyyy")</i>
+                                            <i style="float: right; color: silver; font-weight: normal;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[2].Data).ToString("dd-MMM-yyyy")</i>
                                         }
                                     </p>
                                 </div>
@@ -372,14 +375,15 @@
                                 @*<div class="conteudo-home-direita-noticias-conteudo-direita">*@
                                     <hr size="1" style="float: left; border: none; border-bottom: 1px solid #eee; width: 100%; margin: 0 0 10px 0; " />
                                     <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                        <p class="data-noticias"><i>@Noticias[3].Complemento.Editoria</i></p>
                                         <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[3].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[3].Detalhe.Titulo)">@Noticias[3].Detalhe.Titulo</a></h3>
                                         <p><a href="@Url.Content("~/")Noticias/@Noticias[3].PublicacaoId/@DAL.Util.GerarURLAmigavel(@Noticias[3].Detalhe.Titulo)">@Noticias[3].Detalhe.Resumo</a></p>
                                         <p class="data-noticias">
                                             @*<i>@Convert.ToDateTime(Noticias[3].Data).ToString("dd - MMMMM - yyyy")</i>*@
-                                            <i>@Noticias[3].Complemento.Editoria</i>
+                                            @*<i>@Noticias[3].Complemento.Editoria</i>*@
                                             @if (Noticias[3].Data != null)
                                             {
-                                                <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[3].Data).ToString("dd-MMM-yyyy")</i>
+                                                <i style="float: right; color: silver; font-weight: normal;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[3].Data).ToString("dd-MMM-yyyy")</i>
                                             }
                                         </p>
                                     </div>
@@ -395,14 +399,15 @@
                                 @*<div class="conteudo-home-direita-noticias-conteudo-direita">*@
                                     <hr size="1" style="float: left; border: none; border-bottom: 1px solid #eee; width: 100%; margin: 0 0 10px 0; " />
                                     <div class="conteudo-home-direita-noticias-conteudo-texto">
+                                        <p class="data-noticias"><i>@Noticias[4].Complemento.Editoria</i></p>
                                         <h3 class="opacidade"><a href="@Url.Content("~/")Noticias/@Noticias[4].PublicacaoId/@DAL.Util.GerarURLAmigavel(Noticias[4].Detalhe.Titulo)">@Noticias[4].Detalhe.Titulo</a></h3>
                                         <p><a href="@Url.Content("~/")Noticias/@Noticias[4].PublicacaoId/@DAL.Util.GerarURLAmigavel(@Noticias[4].Detalhe.Titulo)">@Noticias[4].Detalhe.Resumo</a></p>
                                         <p class="data-noticias">
                                             @*<i>@Convert.ToDateTime(Noticias[4].Data).ToString("dd - MMMMM - yyyy")</i>*@
-                                            <i>@Noticias[4].Complemento.Editoria</i>
+                                            @*<i>@Noticias[4].Complemento.Editoria</i>*@
                                             @if (Noticias[4].Data != null)
                                             {
-                                                <i style="float: right;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[4].Data).ToString("dd-MMM-yyyy")</i>
+                                                <i style="float: right; color: silver; font-weight: normal;">&nbsp;&nbsp;@Convert.ToDateTime(Noticias[4].Data).ToString("dd-MMM-yyyy")</i>
                                             }
                                         </p>
                                     </div>

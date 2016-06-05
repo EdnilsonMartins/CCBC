@@ -108,3 +108,10 @@ Logo_CCBC_122.jpg.
 e pra finalizar.... junto com a tarefa de senha forte/fraca, precisa ser validado a existência do e-mail que está sendo inserido no sistema
 ------
 aline.santos 1906
+
+
+Teste de requisição do Token:
+http://201.47.140.202:8080/integracao/services/token?login=guilherme.pereira&email=guilherme.pereira@ccbc.org.br
+
+Guilherme.pereira
+gui2016
