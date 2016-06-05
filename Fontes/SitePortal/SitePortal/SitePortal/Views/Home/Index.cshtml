@@ -523,6 +523,66 @@
 
                 </div>
                 <!--/Sobre Nós-->
+                
+                <!-- Eventos -->
+                <div class="conteudo-home-direita-eventos">
+                    <div class="ico">
+                        <img src="@Url.Content("~/")Images/Icon_eventos.png" alt="Icone CCBC" />
+                    </div>
+                    <div class="titulo">
+                        <h1>@Resources.Portal.Home_Evento_Titulo</h1>
+                    </div>
+                    <div class="subtitulo">
+                        <h2>@Resources.Portal.Home_Evento_SubTitulo</h2>
+                    </div>
+                    <div class="conteudo-home-direita-eventos-conteudo">
+                        <div class="container" id="ControlePaiRotator">
+                            <div class="l-rotator">
+                                <div class="screen">
+                                    <noscript>
+
+                                    </noscript>
+                                </div>
+                                <div class="thumbnails">
+                                    <ul>
+
+                                        @foreach (DTO.Publicacao.Publicacao p in Model.Eventos.FindAll(x => x.Destaque == true).OrderBy(x => x.Data))
+                                        {
+                                            if (((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1) {
+                                            <!--evento-->
+                                                <li>
+                                                    <div class="thumb" style="cursor: pointer;" onclick='javascript: document.location.href = "@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)";'>
+                                                        <p style="width: 80%; float: left;">
+                                                            <!--TITULO-->
+                                                            <span class="title">@p.Detalhe.Titulo</span>
+                                                            <br />
+                                                            <!--DESCRICAO-->
+                                                            @p.Detalhe.Resumo
+                                                        </p>
+                                                        <!--DIA / MES-->
+                                                        <span class="data">
+                                                            @if (p.Data != null)
+                                                            {
+                                                                <h1>@Convert.ToDateTime(p.Data).ToString("dd")</h1>
+                                                                <h3>@Convert.ToDateTime(p.Data).ToString("MMMMM")</h3>
+                                                            }
+                                                        </span>
+                                                    </div>
+                                                    <a href="@Url.Content("~/")File?id=@p.ArquivoDestaqueId"></a>   
+                                                    <a href="@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)"></a>
+                                                </li>
+                                            <!--evento-->
+                                            }
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vertodos"><a href="~/Eventos"><i>@Resources.Portal.Home_Ver_Todos</i></a></div>
+            <!--/Eventos -->
             }
 
 
