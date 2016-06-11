@@ -81,7 +81,7 @@ namespace BackofficeCMS.Controllers
             _novo.AssociadoId = (int)Util.GetValue<int>(form, "AssociadoId");
             _novo.AssociadoCategoriaId = (int)Util.GetValue<int>(form, "AssociadoCategoria");
             _novo.Nome = (string)Util.GetValue<string>(form, "Nome");
-            _novo.Resumo = (string)Util.GetValue<string>(form, "Resumo");
+            _novo.Resumo = (string)Util.GetValue<string>(form, "AssociadoResumo");
             _novo.PaisId = (int)Util.GetValue<int>(form, "Pais");
             _novo.TipoPessoaId = (int)Util.GetValue<int>(form, "TipoPessoa");
 
@@ -125,7 +125,7 @@ namespace BackofficeCMS.Controllers
                 _anterior.SiteId = GetCurrentSite();
                 _anterior.AssociadoCategoriaId = (int)Util.GetValue<int>(formOld, "AssociadoCategoria");
                 _anterior.Nome = (string)Util.GetValue<string>(formOld, "Nome");
-                _anterior.Resumo = (string)Util.GetValue<string>(formOld, "Resumo");
+                _anterior.Resumo = (string)Util.GetValue<string>(formOld, "AssociadoResumo");
                 _anterior.PaisId = (int)Util.GetValue<int>(formOld, "Pais");
                 _anterior.TipoPessoaId = (int)Util.GetValue<int>(formOld, "TipoPessoa");
 

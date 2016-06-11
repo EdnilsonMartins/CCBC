@@ -14,6 +14,18 @@ function PreencherCadastro(data) {
 
     $('[checked="checked"]').parent().addClass("checked");
 
+    $("#AssociadoResumo").val(data.Associado.Resumo);
+    //Instanciar caso ainda nao esteja.
+    if (CKEDITOR.instances.Conteudo == null) {
+        CKEDITOR.replace('Resumo', {
+            extraPlugins: 'mediacenter',
+            allowedContent: true,
+            extraAllowedContent: 'link section article figure span ul li header nav aside[*]'
+        });
+    }
+    CKEDITOR.instances.Resumo.setData(data.Associado.Resumo, function () {
+        this.checkDirty();
+    });
 }
 
 function ListarAssociado() {
@@ -81,6 +93,9 @@ function EditarAssociado(_AssociadoId) {
 function GravarAssociado() {
     ShowModal(true);
     
+    var x = CKEDITOR.instances.Resumo.getData();
+    $("#AssociadoResumo").val(x);
+
     FormModel = SerializaForm("frmCadAssociado");
     var formdata = JSON.stringify(FormModel);
     var formDataOld = JSON.stringify(FormModelOld);

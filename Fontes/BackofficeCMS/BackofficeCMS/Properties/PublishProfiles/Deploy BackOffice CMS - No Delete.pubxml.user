@@ -22,7 +22,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>05/08/2016 19:35:52</publishTime>
+      <publishTime>06/08/2016 21:52:44</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
@@ -8074,7 +8074,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/10/2015 20:59:29</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jAssociado.js">
-      <publishTime>07/26/2015 19:04:53</publishTime>
+      <publishTime>06/08/2016 21:08:10</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jBanner.js">
       <publishTime>05/08/2016 21:15:55</publishTime>
@@ -8137,7 +8137,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2015 20:31:02</publishTime>
     </File>
     <File Include="Views/Associado/CadAssociado.cshtml">
-      <publishTime>05/09/2016 00:34:16</publishTime>
+      <publishTime>06/08/2016 21:11:18</publishTime>
     </File>
     <File Include="Views/Associado/ListaAssociado.cshtml">
       <publishTime>07/26/2015 18:04:37</publishTime>
@@ -8215,7 +8215,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/26/2015 15:22:31</publishTime>
     </File>
     <File Include="Views/Publicacao/CadPublicacao.cshtml">
-      <publishTime>08/23/2015 18:35:28</publishTime>
+      <publishTime>06/08/2016 22:22:38</publishTime>
     </File>
     <File Include="Views/Publicacao/ListaPublicacao.cshtml">
       <publishTime>05/10/2015 20:37:05</publishTime>
