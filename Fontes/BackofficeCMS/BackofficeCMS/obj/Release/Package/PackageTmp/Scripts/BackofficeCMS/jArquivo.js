@@ -143,6 +143,12 @@ function PreencherCadastroArquivo(data) {
     $("#Categoria").selectpicker('val', categoriaId);
     $('#Categoria').selectpicker('refresh');
 
+    //Selecionar o Idioma:
+    var idiomaId = "" + data.IdiomaId;
+    console.log("IdiomaId:" + idiomaId);
+    //if (idiomaId != null) {
+        $('select[name=Idioma]').selectpicker('val', data.IdiomaId);
+    //}
 }
 
 function MostrarCadastroArquivo() {
@@ -223,7 +229,10 @@ function GravarArquivo() {
     var arquivoId = $("#ArquivoId").val();
     var legenda = $("#Legenda").val();
     var listaCategoria = "" + $("#Categoria").val() + "";
-    
+    var idiomaId = $("#Idioma").val();
+
+    if (idiomaId == "") idiomaId = null;
+
     if (fileInput != null) {
        
         var selectedFile = fileInput.val();
@@ -234,7 +243,7 @@ function GravarArquivo() {
     } else {
         console.log("Categorias selecionadas para gravação: " + listaCategoria);
         //listaCategoria = "2,3";
-        $.post("../Arquivo/GravarArquivo", { _OwnerId: _ownerId, _ArquivoId: arquivoId, _Legenda: legenda, _ListaCategoria: listaCategoria, _ArquivoCategoriaTipoId: _arquivocategoriatipoid }, function (data) {
+        $.post("../Arquivo/GravarArquivo", { _OwnerId: _ownerId, _ArquivoId: arquivoId, _Legenda: legenda, _ListaCategoria: listaCategoria, _ArquivoCategoriaTipoId: _arquivocategoriatipoid, _IdiomaId: idiomaId }, function (data) {
             if (data == true) {
                 $("#CadArquivo").modal("hide");
                 

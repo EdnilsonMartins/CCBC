@@ -254,8 +254,19 @@ namespace SitePortal.Controllers
         {
             var langCookie = new HttpCookie("lang", lang) { HttpOnly = true };
             Response.AppendCookie(langCookie);
-
+            HttpContext.Request.Cookies.Set(langCookie);
             ConfigurarDadosDeCultura(lang);
+
+            //novo====
+            var CallbackPortal = HttpContext.Request.Cookies["CallbackPortal_Anterior"] != null ? HttpContext.Request.Cookies["CallbackPortal_Anterior"].Value : "";
+            if (!String.IsNullOrEmpty(CallbackPortal))
+            {
+                var _callbackPortal = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
+                Response.AppendCookie(_callbackPortal);
+                HttpContext.Request.Cookies.Set(_callbackPortal);
+                Response.RedirectPermanent(CallbackPortal);
+            }
+            //=========
 
             //RedirectToAction("Index", "Home", new { culture = lang });
             return RedirectToAction("Index", "Home", new { culture = lang });

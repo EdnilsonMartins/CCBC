@@ -10,8 +10,17 @@ namespace SitePortal.Controllers
 {
     public class NoticiasController : Controller
     {
-        public ActionResult Index(string noticiaid = "", string titulo = "")
+        public ActionResult Index(string noticiaid = "", string titulo = "", string lang = "")
         {
+            if (!String.IsNullOrEmpty(lang))
+            {
+                var langCookie = new HttpCookie("lang", lang) { HttpOnly = true };
+                Response.AppendCookie(langCookie);
+                HttpContext.Request.Cookies.Set(langCookie);
+
+                ConfigurarDadosDeCultura(lang);
+            }
+
             //var UsuarioId = "";
             //var UsuarioNome = "";
             //if (Session["UsuarioId"] != null)
@@ -121,6 +130,14 @@ namespace SitePortal.Controllers
                 var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
                 Response.AppendCookie(_callbackPortal);
                 HttpContext.Request.Cookies.Set(_callbackPortal);
+
+                //Novo callback usado para marcar a página anterior: Será utilizado qdo usuario trocar idioma.
+                if (model.Conteudo != null)
+                {
+                    var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/Noticias/" + _noticiaid + "/" + titulo)) { HttpOnly = true };
+                    Response.AppendCookie(_callbackPortal_Anterior);
+                    HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
+                }
             }
             #endregion
 
@@ -139,5 +156,16 @@ namespace SitePortal.Controllers
             return View(model);
         }
 
+        private void ConfigurarDadosDeCultura(string lang)
+        {
+            var currentCulture = HttpContext.Request.Cookies["lang"] != null
+                ? HttpContext.Request.Cookies["lang"].Value
+                : "en-US";
+
+            //if (currentCulture != lang)
+            //{
+            //    ConfigurarUrlDeConsulta();
+            //}
+        }
     }
 }

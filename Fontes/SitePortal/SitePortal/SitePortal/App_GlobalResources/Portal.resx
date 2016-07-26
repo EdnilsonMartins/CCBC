@@ -279,4 +279,37 @@
   <data name="MinhaConta_Cadastro" xml:space="preserve">
     <value>Cadastro</value>
   </data>
+  <data name="BuscaSocio_BuscaPor" xml:space="preserve">
+    <value>BUSCA POR</value>
+  </data>
+  <data name="BuscaSocio_CategoriaArbitros" xml:space="preserve">
+    <value>Árbitros</value>
+  </data>
+  <data name="BuscaSocio_CategoriaAssociados" xml:space="preserve">
+    <value>Associados</value>
+  </data>
+  <data name="BuscaSocio_CategoriaMediadores" xml:space="preserve">
+    <value>Mediadores</value>
+  </data>
+  <data name="BuscaSocio_Letra" xml:space="preserve">
+    <value>Escolha uma letra</value>
+  </data>
+  <data name="BuscaSocio_NenhumResultado" xml:space="preserve">
+    <value>Nenhum resultado encontrado!</value>
+  </data>
+  <data name="BuscaSocio_ResultadoMenu" xml:space="preserve">
+    <value>Resultados da Busca por</value>
+  </data>
+  <data name="BuscaSocio_Todos" xml:space="preserve">
+    <value>TODOS</value>
+  </data>
+  <data name="QuickMenu_AcessoRestrito" xml:space="preserve">
+    <value>ACESSO RESTRITO</value>
+  </data>
+  <data name="QuickMenu_NecessarioLogin" xml:space="preserve">
+    <value>Necessário efetuar o login na área de acesso restrito acima.</value>
+  </data>
+  <data name="QuickMenu_ProcedimentoOnline" xml:space="preserve">
+    <value>Procedimento Online</value>
+  </data>
 </root>

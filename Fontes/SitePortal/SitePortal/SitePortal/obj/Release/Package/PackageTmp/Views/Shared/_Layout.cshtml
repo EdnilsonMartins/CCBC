@@ -257,7 +257,7 @@
                                     <input type="image" id="btnEntrar" class="topo-conteudo-acesso-input-enviar" src="~/Images/Bt_acesso_enviar.png" />
                                 </div>
                                 <div style="float: right; padding: 3px 3px 0 6px;">
-                                    <a style="color: gray;text-decoration: none;" href="@Url.Content("~/")LembrarSenha">Lembrar Senha</a>
+                                    <a style="color: gray;text-decoration: none;" href="@Url.Content("~/")LembrarSenha">@Resources.Login.LembrarSenha</a>
                                 </div>
                                 <div id="dvLoginFail" class="topo-conteudo-acesso-fail" style="display: none; ">
                                     <span id="lblLoginFail" style="color: white; border-radius: 8px; background-color: red; font-weight: bolder; padding: 1px 6px;  "></span>
@@ -336,17 +336,17 @@
                 <!--/menu -->
                 <!--linguas-->
                 <div class="topo-menu-linguas">
-                    <a id="lang_pt-BR" href="@Url.Action("SessionCulture", "Home", new { lang = "pt-BR" })">PT</a>
+                    <a id="lang_pt-BR" href="@Url.Action("SessionCulture", "Home", new { lang = "pt-BR", _d = DateTime.Now.Millisecond.ToString() })">PT</a>
                     &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a id="lang_en-US" href="@Url.Action("SessionCulture", "Home", new { lang = "en-US" })">EN</a>
+                    <a id="lang_en-US" href="@Url.Action("SessionCulture", "Home", new { lang = "en-US", _d = DateTime.Now.Millisecond.ToString() })">EN</a>
                     &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     @if (Model.SiteId == 1)
                     {
-                        <a id="lang_fr-CA" href="@Url.Action("SessionCulture", "Home", new { lang = "fr-CA" })">FR</a>
+                        <a id="lang_fr-CA" href="@Url.Action("SessionCulture", "Home", new { lang = "fr-CA", _d = DateTime.Now.Millisecond.ToString() })">FR</a>
                     }
                     else
                     {
-                        <a id="lang_es-ES" href="@Url.Action("SessionCulture", "Home", new { lang = "es-ES" })">ES</a>
+                        <a id="lang_es-ES" href="@Url.Action("SessionCulture", "Home", new { lang = "es-ES", _d = DateTime.Now.Millisecond.ToString() })">ES</a>
                     }
                 </div>
                 <!--linguas-->

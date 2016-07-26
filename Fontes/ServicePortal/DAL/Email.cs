@@ -127,8 +127,9 @@ namespace DAL
             } else {
                 List<EmailTemplateCampo> campos = new EmailTemplateDAL().ListarEmailTemplateCampo(EmailTemplateId);
 
-                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(usuario.UsuarioId.ToString());
-                string ID = System.Convert.ToBase64String(plainTextBytes);
+                //var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(usuario.UsuarioId.ToString());
+                //string ID = System.Convert.ToBase64String(plainTextBytes);
+                string ID = (usuario.UsuarioId + 708090).ToString();
 
                 #region --> CORPO DO EMAIL
                 string corpo = emailTemplate.Corpo;

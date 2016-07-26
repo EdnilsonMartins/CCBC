@@ -10,6 +10,7 @@ namespace DTO.Arquivo
         public long ArquivoId { get; set; }
         public byte[] Content { get; set; }
         public string Legenda { get; set; }
+        public int? IdiomaId { get; set; }
         public string Base64 { get; set; }
         public string ListaCategoria { get; set; }
 
@@ -18,5 +19,6 @@ namespace DTO.Arquivo
         public int Tamanho { get; set; }
 
         public int? PastaId { get; set; }
+
     }
 }

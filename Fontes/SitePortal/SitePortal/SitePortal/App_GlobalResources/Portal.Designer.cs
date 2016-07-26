@@ -61,6 +61,78 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BUSCA POR.
+        /// </summary>
+        internal static string BuscaSocio_BuscaPor {
+            get {
+                return ResourceManager.GetString("BuscaSocio_BuscaPor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Árbitros.
+        /// </summary>
+        internal static string BuscaSocio_CategoriaArbitros {
+            get {
+                return ResourceManager.GetString("BuscaSocio_CategoriaArbitros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Associados.
+        /// </summary>
+        internal static string BuscaSocio_CategoriaAssociados {
+            get {
+                return ResourceManager.GetString("BuscaSocio_CategoriaAssociados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mediadores.
+        /// </summary>
+        internal static string BuscaSocio_CategoriaMediadores {
+            get {
+                return ResourceManager.GetString("BuscaSocio_CategoriaMediadores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Escolha uma letra.
+        /// </summary>
+        internal static string BuscaSocio_Letra {
+            get {
+                return ResourceManager.GetString("BuscaSocio_Letra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nenhum resultado encontrado!.
+        /// </summary>
+        internal static string BuscaSocio_NenhumResultado {
+            get {
+                return ResourceManager.GetString("BuscaSocio_NenhumResultado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resultados da Busca por.
+        /// </summary>
+        internal static string BuscaSocio_ResultadoMenu {
+            get {
+                return ResourceManager.GetString("BuscaSocio_ResultadoMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODOS.
+        /// </summary>
+        internal static string BuscaSocio_Todos {
+            get {
+                return ResourceManager.GetString("BuscaSocio_Todos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to faça uma busca.
         /// </summary>
         internal static string Busca_PlaceHolder {
@@ -502,11 +574,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ACESSO RESTRITO.
+        /// </summary>
+        internal static string QuickMenu_AcessoRestrito {
+            get {
+                return ResourceManager.GetString("QuickMenu_AcessoRestrito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contato.
         /// </summary>
         internal static string QuickMenu_Icon_Contato {
             get {
                 return ResourceManager.GetString("QuickMenu_Icon_Contato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Necessário efetuar o login na área de acesso restrito acima..
+        /// </summary>
+        internal static string QuickMenu_NecessarioLogin {
+            get {
+                return ResourceManager.GetString("QuickMenu_NecessarioLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Procedimento Online.
+        /// </summary>
+        internal static string QuickMenu_ProcedimentoOnline {
+            get {
+                return ResourceManager.GetString("QuickMenu_ProcedimentoOnline", resourceCulture);
             }
         }
         

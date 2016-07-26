@@ -21,9 +21,10 @@ namespace SitePortal.Controllers
 
             Portal model = new Portal();
 
-            byte[] data = Convert.FromBase64String(ID);
-            string ID2 = Encoding.UTF8.GetString(data);
-            UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
+            //byte[] data = Convert.FromBase64String(ID);
+            //string ID2 = Encoding.UTF8.GetString(data);
+            string ID2 = ID;
+            UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2) - 708090).Usuario;
 
             var usuarioCookie = new HttpCookie("site", usuario.SiteId.ToString()) { HttpOnly = true };
             Response.AppendCookie(usuarioCookie);
@@ -159,10 +160,10 @@ namespace SitePortal.Controllers
                 string email = Request.Form["email"];
                 string senha = Request.Form["senha"];
 
-                byte[] data = Convert.FromBase64String(ID);
-                string ID2 = Encoding.UTF8.GetString(data);
+                //byte[] data = Convert.FromBase64String(ID);
+                //string ID2 = Encoding.UTF8.GetString(data);
 
-                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
+                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID) - 708090).Usuario;
 
                 usuario.Nome = nome;
                 usuario.Login = login;
@@ -213,10 +214,10 @@ namespace SitePortal.Controllers
 
             if (ID != null)
             {
-                byte[] data = Convert.FromBase64String(ID);
-                string ID2 = Encoding.UTF8.GetString(data);
+                //byte[] data = Convert.FromBase64String(ID);
+                //string ID2 = Encoding.UTF8.GetString(data);
 
-                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID2)).Usuario;
+                UsuarioDTO usuario = new UsuarioDAL().Carregar(Convert.ToInt32(ID) - 708090).Usuario;
                 usuario.Senha = senha;
 
                 Util.PASSWORD_LEVEL nivelSenha = new UsuarioDAL().ValidarSenha(usuario);

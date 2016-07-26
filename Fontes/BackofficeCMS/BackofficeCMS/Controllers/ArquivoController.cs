@@ -19,6 +19,7 @@ namespace BackofficeCMS.Controllers
             int _ArquivoCategoriaTipoId = Request.Form["ArquivoCategoriaTipoId"] == null ? 0 : Convert.ToInt32(Request.Form["ArquivoCategoriaTipoId"]);
             long _ArquivoId = String.IsNullOrEmpty(Request.Form["ArquivoId"]) ? 0 : Convert.ToInt64(Request.Form["ArquivoId"]);
             string _Legenda = Request.Form["Legenda"];
+            int? _IdiomaId = Request.Form["Idioma"] != "" ? Convert.ToInt32(Request.Form["Idioma"]) : new Nullable<int>();
             string _ListaCategoria = Request.Form["Categoria"] == null ? "" : Request.Form["Categoria"].ToString();
             bool _NovoContent = false;
             int? _pastaId = Request.Form["PastaId"] == null ? new Nullable<int>() : Convert.ToInt32(Request.Form["PastaId"]);
@@ -47,7 +48,8 @@ namespace BackofficeCMS.Controllers
                         Content = image,
                         Legenda = _Legenda,
                         ListaCategoria = _ListaCategoria,
-                        PastaId = _pastaId
+                        PastaId = _pastaId,
+                        IdiomaId = _IdiomaId
                     });
 
                     //Possui arquivo selecionado -> atualiza campo no banco.
@@ -60,7 +62,8 @@ namespace BackofficeCMS.Controllers
                 {
                     ArquivoId = _ArquivoId,
                     Legenda = _Legenda,
-                    ListaCategoria = _ListaCategoria
+                    ListaCategoria = _ListaCategoria,
+                    IdiomaId = _IdiomaId
                 });
 
                 //Não possui arquivo -> não atualiza o campo no banco.
@@ -80,13 +83,14 @@ namespace BackofficeCMS.Controllers
             return Content("{\"name\":\"" + r[0].FileName + "\",\"type\":\"" + r[0].Tipo + "\",\"size\":\"" + string.Format("{0} bytes", r[0].Tamanho) + "\",\"ArquivoId\":\"" + ArquivoId + "\"}", "application/json");
         }
 
-        public ActionResult GravarArquivo(int _OwnerId, long _ArquivoId, string _Legenda, string _ListaCategoria, int _ArquivoCategoriaTipoId)
+        public ActionResult GravarArquivo(int _OwnerId, long _ArquivoId, string _Legenda, string _ListaCategoria, int _ArquivoCategoriaTipoId, int? _IdiomaId)
         {
             Arquivo a = new Arquivo();
             ArquivoDAL dal = new ArquivoDAL();
 
             a.ArquivoId = _ArquivoId;
             a.Legenda = _Legenda;
+            a.IdiomaId = _IdiomaId;
             a.ListaCategoria = _ListaCategoria;
 
             var arquivo = dal.GravarArquivo(a, false);

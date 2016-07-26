@@ -282,4 +282,37 @@
   <data name="MinhaConta_Cadastro" xml:space="preserve">
     <value>Account</value>
   </data>
+  <data name="BuscaSocio_BuscaPor" xml:space="preserve">
+    <value>SEARCH BY</value>
+  </data>
+  <data name="BuscaSocio_CategoriaArbitros" xml:space="preserve">
+    <value>Arbitrators</value>
+  </data>
+  <data name="BuscaSocio_CategoriaAssociados" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="BuscaSocio_CategoriaMediadores" xml:space="preserve">
+    <value>Mediators</value>
+  </data>
+  <data name="BuscaSocio_Letra" xml:space="preserve">
+    <value>Choose a letter</value>
+  </data>
+  <data name="BuscaSocio_NenhumResultado" xml:space="preserve">
+    <value>No results found!</value>
+  </data>
+  <data name="BuscaSocio_ResultadoMenu" xml:space="preserve">
+    <value>Search Result by</value>
+  </data>
+  <data name="BuscaSocio_Todos" xml:space="preserve">
+    <value>ALL</value>
+  </data>
+  <data name="QuickMenu_AcessoRestrito" xml:space="preserve">
+    <value>ACCESS DENIED</value>
+  </data>
+  <data name="QuickMenu_NecessarioLogin" xml:space="preserve">
+    <value>You need to log in restricted area above.</value>
+  </data>
+  <data name="QuickMenu_ProcedimentoOnline" xml:space="preserve">
+    <value>Online Procedure</value>
+  </data>
 </root>

@@ -215,13 +215,13 @@
             <!-- Eventos -->
                 <div class="conteudo-home-direita-eventos">
                     <div class="ico">
-                        <img src="@Url.Content("~/")Images/Icon_eventos.png" alt="Icone CCBC" />
+                        <a href="~/Eventos" style="text-decoration: none;"><img src="@Url.Content("~/")Images/Icon_eventos.png" alt="Icone CCBC" /></a>
                     </div>
                     <div class="titulo">
-                        <h1>@Resources.Portal.Home_Evento_Titulo</h1>
+                        <a href="~/Eventos" style="text-decoration: none;"><h1>@Resources.Portal.Home_Evento_Titulo</h1></a>
                     </div>
                     <div class="subtitulo">
-                        <h2>@Resources.Portal.Home_Evento_SubTitulo</h2>
+                        <a href="~/Eventos" style="text-decoration: none;"><h2>@Resources.Portal.Home_Evento_SubTitulo</h2></a>
                     </div>
                     <div class="conteudo-home-direita-eventos-conteudo">
                         <div class="container" id="ControlePaiRotator">
@@ -236,7 +236,8 @@
 
                                         @foreach (DTO.Publicacao.Publicacao p in Model.Eventos.FindAll(x => x.Destaque == true).OrderBy(x => x.Data))
                                         {
-                                            if (((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1) {
+                                            if (p.DataValidade == null || ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1)
+                                            {
                                             <!--evento-->
                                                 <li>
                                                     <div class="thumb" style="cursor: pointer;" onclick='javascript: document.location.href = "@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)";'>
@@ -275,13 +276,13 @@
             <!-- Notícias -->
                 <div class="conteudo-home-direita-noticias">
                     <div class="ico">
-                        <img src="@Url.Content("~/")Images/Icon_noticias.png" alt="Icone CCBC" />
+                        <a href="~/Noticias" style="text-decoration: none;"><img src="@Url.Content("~/")Images/Icon_noticias.png" alt="Icone CCBC" /></a>
                     </div>
                     <div class="titulo">
-                        <h1>@Resources.Portal.Home_Noticias_Titulo</h1>
+                        <a href="~/Noticias" style="text-decoration: none;"><h1>@Resources.Portal.Home_Noticias_Titulo</h1></a>
                     </div>
                     <div class="subtitulo">
-                        <h2>@Resources.Portal.Home_Noticias_SubTitulo</h2>
+                        <a href="~/Noticias" style="text-decoration: none;"><h2>@Resources.Portal.Home_Noticias_SubTitulo</h2></a>
                     </div>
                     <div class="conteudo-home-direita-noticias-conteudo">
                         <!--esquerda-->
@@ -527,13 +528,13 @@
                 <!-- Eventos -->
                 <div class="conteudo-home-direita-eventos">
                     <div class="ico">
-                        <img src="@Url.Content("~/")Images/Icon_eventos.png" alt="Icone CCBC" />
+                        <a href="~/Eventos" style="text-decoration: none;"><img src="@Url.Content("~/")Images/Icon_eventos.png" alt="Icone CCBC" /></a>
                     </div>
                     <div class="titulo">
-                        <h1>@Resources.Portal.Home_Evento_Titulo</h1>
+                        <a href="~/Eventos" style="text-decoration: none;"><h1>@Resources.Portal.Home_Evento_Titulo</h1></a>
                     </div>
                     <div class="subtitulo">
-                        <h2>@Resources.Portal.Home_Evento_SubTitulo</h2>
+                        <a href="~/Eventos" style="text-decoration: none;"><h2>@Resources.Portal.Home_Evento_SubTitulo</h2></a>
                     </div>
                     <div class="conteudo-home-direita-eventos-conteudo">
                         <div class="container" id="ControlePaiRotator">
@@ -548,7 +549,8 @@
 
                                         @foreach (DTO.Publicacao.Publicacao p in Model.Eventos.FindAll(x => x.Destaque == true).OrderBy(x => x.Data))
                                         {
-                                            if (((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1) {
+                                            if (p.DataValidade == null || ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1)
+                                            {
                                             <!--evento-->
                                                 <li>
                                                     <div class="thumb" style="cursor: pointer;" onclick='javascript: document.location.href = "@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)";'>

@@ -17,7 +17,7 @@ namespace DAL
             DataTable tabela = new DataTable();
 
             if (arquivo.ListaCategoria == "null") arquivo.ListaCategoria = "";
-            tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_INS_Arquivo", arquivo.ArquivoId, arquivo.Content, arquivo.Legenda, arquivo.ListaCategoria, NovoContent, arquivo.Tipo, arquivo.PastaId, arquivo.FileName);
+            tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_INS_Arquivo", arquivo.ArquivoId, arquivo.Content, arquivo.Legenda, arquivo.ListaCategoria, NovoContent, arquivo.Tipo, arquivo.PastaId, arquivo.FileName, arquivo.IdiomaId);
 
             if (tabela.Rows.Count > 0)
             {
@@ -205,6 +205,9 @@ namespace DAL
                 dto.Tipo = dr["Tipo"].ToString();
             if (Util.GetNonNull(dr["Legenda"]))
                 dto.Legenda = dr["Legenda"].ToString();
+            if(dr.Table.Columns["IdiomaId"] != null)
+                if (Util.GetNonNull(dr["IdiomaId"]))
+                    dto.IdiomaId = Convert.ToInt32(dr["IdiomaId"]);
             if (Util.GetNonNull(dr["ListaCategoria"]))
                 dto.ListaCategoria = dr["ListaCategoria"].ToString();
 

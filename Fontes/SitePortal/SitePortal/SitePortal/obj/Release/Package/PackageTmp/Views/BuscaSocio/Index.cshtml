@@ -12,6 +12,23 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jBuscaSocio.js")"></script>
 }
 
+@{
+    var rotuloCategoria = "";
+
+    if (Model.AssociadoCategoriaId != null) { 
+        if (Model.AssociadoCategoriaId == 1){
+            rotuloCategoria = @Resources.Portal.BuscaSocio_CategoriaAssociados;
+        }
+        else if (Model.AssociadoCategoriaId == 2){
+            rotuloCategoria = @Resources.Portal.BuscaSocio_CategoriaArbitros;
+        }
+        else if (Model.AssociadoCategoriaId == 3) { 
+            rotuloCategoria = @Resources.Portal.BuscaSocio_CategoriaMediadores;
+        }
+    }
+    
+}
+
 <div class="geral-1050">
     <div class="conteudo">
 
@@ -19,17 +36,17 @@
         <div class="internas-navegacao">
             <a href="@Url.Content("~")">Home</a>
             <a href="#">-</a>
-            <a href="#">Resultados da Busca por @Model.AssociadoCategoria</a>
+            <a href="#">@Resources.Portal.BuscaSocio_ResultadoMenu @rotuloCategoria</a>
         </div>
         <!-- nav internas -->
         <!-- contato -->
         <div class="resultados-titulo">
-            <h1>BUSCA POR&nbsp;@Model.AssociadoCategoria.ToUpper()<span class="cor-padrao-texto"></span></h1>
+            <h1>@Resources.Portal.BuscaSocio_BuscaPor&nbsp;@rotuloCategoria.ToUpper()<span class="cor-padrao-texto"></span></h1>
         </div>
 
         <div class="busca-associados-filtro">
             <div class="busca-associados-filtro-cabecalho">
-                <h1>Escolha uma letra</h1>
+                <h1>@Resources.Portal.BuscaSocio_Letra</h1>
             </div>
             <div class="busca-associados-filtro-linha">
                 @for (int i = 0; i < 26; i++)
@@ -43,7 +60,7 @@
         <div class="busca-associados-filtro">
             <div class="busca-associados-filtro-linha">
                 <div class="busca-associados-filtro-linha-letra" letra="" style="width: 74px !important; margin-top: 4px; ">
-                    <span class="itemLetra">TODOS</span>
+                    <span class="itemLetra">@Resources.Portal.BuscaSocio_Todos</span>
                 </div>
             </div>
         </div>
@@ -53,7 +70,7 @@
             <div class="resultados">
                 <h3></h3>
                 <h1></h1>
-                <h2>Nenhum resultado localizado!</h2>
+                <h2>@Resources.Portal.BuscaSocio_NenhumResultado</h2>
             </div>
 
             <input type="hidden" id="SiteId" value="@Model.SiteId" />

@@ -32,15 +32,33 @@ namespace SitePortal
             );
 
             routes.MapRoute(
+                name: "Index22222",
+                url: "Evento/{eventoid}/{titulo}/{lang}",
+                defaults: new { controller = "Eventos", action = "Index", eventoid = string.Empty }
+            );
+
+            routes.MapRoute(
                 name: "Indexsss",
                 url: "Eventos/{eventoid}/{titulo}",
                 defaults: new { controller = "Eventos", action = "Index", eventoid = string.Empty }
             );
 
             routes.MapRoute(
-                name: "Index2",
+                name: "Indexsss2",
+                url: "Eventos/{eventoid}/{titulo}",
+                defaults: new { controller = "Eventos", action = "Index", eventoid = string.Empty }
+            );
+
+            routes.MapRoute(
+                name: "IndexsssN2",
                 url: "Noticias/{noticiaid}/{titulo}",
                 defaults: new { controller = "Noticias", action = "Index", noticiaid = string.Empty } 
+            );
+
+            routes.MapRoute(
+                name: "IndexN22",
+                url: "Noticias/{noticiaid}/{titulo}/{lang}",
+                defaults: new { controller = "Noticias", action = "Index", noticiaid = string.Empty }
             );
 
             routes.MapRoute(
@@ -50,8 +68,20 @@ namespace SitePortal
             );
 
             routes.MapRoute(
+                name: "Index32",
+                url: "Materia/{materiaid}/{titulo}/{lang}",
+                defaults: new { controller = "Materia", action = "Index", materiaid = string.Empty }
+            );
+
+            routes.MapRoute(
                 name: "Index4",
                 url: "Interna/{internaid}/{titulo}",
+                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty }
+            );
+
+            routes.MapRoute(
+                name: "Index42",
+                url: "Interna/{internaid}/{titulo}/{lang}",
                 defaults: new { controller = "Interna", action = "Index", internaid = string.Empty }
             );
 

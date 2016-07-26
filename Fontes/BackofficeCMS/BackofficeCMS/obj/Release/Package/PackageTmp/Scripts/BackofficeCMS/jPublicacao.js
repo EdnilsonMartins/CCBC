@@ -793,6 +793,9 @@ function GerarURLAmigavel() {
     $.post("../Publicacao/GerarURLAmigavel", { PublicacaoTipoId: _publicacaoTipoId, PublicacaoId: _publicacaoId, Titulo: _titulo }, function (data) {
         if (data != null) {
             $("#LinkURL").val(data);
+            $("#LinkURLEN").val(data + "/en-US");
+            $("#LinkURLES").val(data + "/es-ES");
+            $("#LinkURLFR").val(data + "/fr-CA");
         }
     });
 }

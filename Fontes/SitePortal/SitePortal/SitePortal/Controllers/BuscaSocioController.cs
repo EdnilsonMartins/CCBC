@@ -13,6 +13,12 @@ namespace SitePortal.Controllers
         
         public ActionResult Index(int AssociadoCategoriaId)
         {
+            //Limpa callback da página anterior!
+            var _callbackPortal = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
+            Response.AppendCookie(_callbackPortal);
+            HttpContext.Request.Cookies.Set(_callbackPortal);
+            //=======
+
             Portal model = new Portal().CarregarModel();
 
             model.AssociadoCategoriaId = AssociadoCategoriaId;

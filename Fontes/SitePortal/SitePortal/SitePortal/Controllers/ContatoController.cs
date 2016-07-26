@@ -17,6 +17,12 @@ namespace SitePortal.Controllers
         
         public ActionResult Index(FormCollection form)
         {
+            //Limpa callback da página anterior!
+            var _callbackPortal = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
+            Response.AppendCookie(_callbackPortal);
+            HttpContext.Request.Cookies.Set(_callbackPortal);
+            //=======
+
             //WCFIntegracaoPortal.IntegracaoPortalClient wcf = new WCFIntegracaoPortal.IntegracaoPortalClient();
             //List<SitePortal.WCFIntegracaoPortal.Menu> listaMenuPrincipal = wcf.ListarMenu(1, null).Menus.ToList();
             //List<SitePortal.WCFIntegracaoPortal.Menu> listaMenuQuick = wcf.ListarMenu(2, null).Menus.ToList();

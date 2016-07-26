@@ -279,4 +279,37 @@
   <data name="MinhaConta_Cadastro" xml:space="preserve">
     <value>Cadastro</value>
   </data>
+  <data name="BuscaSocio_BuscaPor" xml:space="preserve">
+    <value>RECHERCHE PAR</value>
+  </data>
+  <data name="BuscaSocio_CategoriaArbitros" xml:space="preserve">
+    <value>Arbitres</value>
+  </data>
+  <data name="BuscaSocio_CategoriaAssociados" xml:space="preserve">
+    <value>Membres</value>
+  </data>
+  <data name="BuscaSocio_CategoriaMediadores" xml:space="preserve">
+    <value>Médiateurs</value>
+  </data>
+  <data name="BuscaSocio_Letra" xml:space="preserve">
+    <value>Choisissez une lettre</value>
+  </data>
+  <data name="BuscaSocio_NenhumResultado" xml:space="preserve">
+    <value>Aucun résultat!</value>
+  </data>
+  <data name="BuscaSocio_ResultadoMenu" xml:space="preserve">
+    <value>Résultat de recherche par les</value>
+  </data>
+  <data name="BuscaSocio_Todos" xml:space="preserve">
+    <value>TOUS</value>
+  </data>
+  <data name="QuickMenu_AcessoRestrito" xml:space="preserve">
+    <value>ACCÈS REFUSÉ</value>
+  </data>
+  <data name="QuickMenu_NecessarioLogin" xml:space="preserve">
+    <value>Besoin de se connecter dans la zone restreinte ci-dessus.</value>
+  </data>
+  <data name="QuickMenu_ProcedimentoOnline" xml:space="preserve">
+    <value>Procédure en ligne</value>
+  </data>
 </root>

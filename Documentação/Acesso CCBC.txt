@@ -10,6 +10,12 @@ banco: cdbc_homolog
 usuario: user_hmg
 senha: HM15MGcd$
 ---------------------------------------------------------------------
+
+104.41.44.29
+pub
+Pub2016
+
+
 FTP
  
 Principal

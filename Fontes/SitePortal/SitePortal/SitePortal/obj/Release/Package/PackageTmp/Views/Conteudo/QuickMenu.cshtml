@@ -50,15 +50,15 @@
             }
 
             string rotulo = "";
-            rotulo += String.Format("<li style='float: left; width: 222px; margin: 0; padding: 0;'><a href='{0}' title=' '>{1}</a></li>", "#", "Acesso Restrito");
-            rotulo = string.Format("<ul style='margin: 10px; padding: 0; line-height: 18px; font-weight: normal;'>{0}</ul>", "Necessário efetuar o login na área de acesso restrito acima.");
+            rotulo += String.Format("<li style='float: left; width: 222px; margin: 0; padding: 0;'><a href='{0}' title=' '>{1}</a></li>", "#", "" + Resources.Portal.QuickMenu_AcessoRestrito + "");
+            rotulo = string.Format("<ul style='margin: 10px; padding: 0; line-height: 18px; font-weight: normal;'>{0}</ul>", "" + Resources.Portal.QuickMenu_NecessarioLogin + "");
             rotulo = String.Format("<div class='menu-internas' style='width: 222px; opacity: 1 !important;' title=' '>{0}</div>", rotulo);
             
             @*<li><a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_blank">Procedimento Online</a></li>*@
         
             <!--botao quick-->
             <div>
-                <div class="conteudo-home-quick-botoes" style="opacity: 1 !important; background-color: @color" data-toggle="popover" data-trigger="focus" title="ACESSO RESTRITO" data-html="true" data-content="@rotulo" title=' '>
+                <div class="conteudo-home-quick-botoes" style="opacity: 1 !important; background-color: @color" data-toggle="popover" data-trigger="focus" title="@Resources.Portal.QuickMenu_AcessoRestrito" data-html="true" data-content="@rotulo" title=' '>
                     <div class="conteudo-home-quick-botoes-ico">
                         @if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
                         {
@@ -68,18 +68,18 @@
                                 </a>
                             </div>
                             <div>
-                                <a href="#" onclick="javascript: GerarNovoToken();" style="padding: 0; text-decoration: none;" ><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">Procedimento Online</h3></div></a>
+                                <a href="#" onclick="javascript: GerarNovoToken();" style="padding: 0; text-decoration: none;" ><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">@Resources.Portal.QuickMenu_ProcedimentoOnline</h3></div></a>
                             </div>
                         }
                         else
                         {
                             <div class="conteudo-home-quick-botoes-ico">
-                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self" data-toggle="popover" data-trigger="focus" title="ACESSO RESTRITO" data-html="true" data-content="@rotulo" title=' '>
+                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self" data-toggle="popover" data-trigger="focus" title="@Resources.Portal.QuickMenu_AcessoRestrito" data-html="true" data-content="@rotulo" title=' '>
                                     <i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px;"></i>
                                 </a>
                             </div>
                             <div>
-                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" style="padding: 0; text-decoration: none;" data-toggle="popover" data-trigger="focus" title="ACESSO RESTRITO" data-html="true" data-content="@rotulo" title=' '><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">Procedimento Online</h3></div></a>
+                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" style="padding: 0; text-decoration: none;" data-toggle="popover" data-trigger="focus" title="@Resources.Portal.QuickMenu_AcessoRestrito" data-html="true" data-content="@rotulo" title=' '><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">@Resources.Portal.QuickMenu_ProcedimentoOnline</h3></div></a>
                             </div>
                         }
                     </div>

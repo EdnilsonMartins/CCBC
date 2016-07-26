@@ -34,3 +34,9 @@ C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\ru-ru\BundleTransformer.
 C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\obj\Release\BackofficeCMS.csprojResolveAssemblyReference.cache
 C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\obj\Release\BackofficeCMS.dll
 C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\obj\Release\BackofficeCMS.pdb
+C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\System.Net.Http.Formatting.dll
+C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\System.Web.Http.dll
+C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\System.Web.Http.WebHost.dll
+C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\System.Net.Http.Formatting.xml
+C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\System.Web.Http.xml
+C:\Projetos\CCBC\Fontes\BackofficeCMS\BackofficeCMS\bin\System.Web.Http.WebHost.xml
