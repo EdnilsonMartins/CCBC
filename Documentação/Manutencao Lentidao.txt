@@ -7,8 +7,9 @@ Select Min(DataEvento) From tblBannerEvento
  1. Criação da proc de Banner_Historico
 	- Replicar para demais ambientes.
 	- Implementar em DVL / Azure.
+    Ednilson Martins [04/08 - Criou tabela]
 *******************************************/
-Create Table tblBannerEvento_Antigos(
+Create Table dbo.tblBannerEvento_Antigos(
 	BannerEventoId BigInt,
 	BannerEventoTipoId Int,
 	BannerId Int,
@@ -27,7 +28,7 @@ Go
 
 Insert Into tblBannerEvento_Antigos
 Select BannerEventoId, BannerEventoTipoId, BannerId, ArquivoId, DataEvento
-From tblBannerEvento Where DataEvento < '2015-11-15'
+From tblBannerEvento Where DataEvento < '2016-08-01'
 
-Delete From tblBannerEvento Where DataEvento < '2015-11-15'
+Delete From tblBannerEvento Where DataEvento < '2016-08-01'
 

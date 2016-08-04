@@ -50,8 +50,8 @@
                 <div class="form-body tabbable tabbable-custom tabbable-noborder">
 
                     <!-- Abas -->
-                    <ul class="nav nav-tabs">
-                        <li class="active">
+                    <ul id="ulAbas" class="nav nav-tabs">
+                        <li id="liGeral" class="active">
                             <a href="#tabGeral" data-toggle="tab">
                                 Geral
                             </a>
@@ -797,6 +797,7 @@
 
                 <div style="width: 100%; text-align: right; margin-top: 0px; border-top: 1px solid lightgray; padding-top: 5px; ">
                     <button type="button" id="btnSalvarPublicacao" class="btn green" title="Salvar dados da publicação"><i class="fa fa-check"></i> Salvar</button>
+                    <button type="button" id="btnSalvarPublicacaoFechar" class="btn green" title="Salvar dados da publicação"><i class="fa fa-check"></i> Salvar e Fechar</button>
                     <button type="button" id="btnFecharPublicacao" onclick="javascript: history.go(-1);" class="btn default">Voltar</button>
                 </div>
 

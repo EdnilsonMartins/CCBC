@@ -91,8 +91,13 @@ namespace DAL
             {
                 //define a expressão regulara para validar o email
                 string texto_Validar = enderecoEmail;
-                Regex expressaoRegex = new Regex(@"\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}");
+                
+                //Ednilson Martins: 03/08/2016 - Antigo.
+                //Regex expressaoRegex = new Regex(@"\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}");
 
+                //Ednilson Martins: 03/08/2016 - Novo.
+                Regex expressaoRegex = new Regex(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z");
+                
                 // testa o email com a expressão
                 if (expressaoRegex.IsMatch(texto_Validar))
                 {

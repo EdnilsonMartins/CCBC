@@ -517,7 +517,7 @@ function EditarPublicacao(_PublicacaoId) {
 
 }
 
-function GravarPublicacao() {
+function GravarPublicacao(fechar) {
     ShowModal(true);
     var listaUsuarioGrupo = $('#tvUsuarioGrupo').jstree(true).get_selected();//$('#UsuarioGrupo').val();
     var indexGrupo = 0;
@@ -559,6 +559,7 @@ function GravarPublicacao() {
 
     $.post("../Publicacao/GravarPublicacao", { Publicacao: formdata, PublicacaoOld: formDataOld, ListaUsuarioGrupo: saidaGrupo, ListaUsuario: saidaUsuario }, function (data) {
         if (data.Resposta.Erro == false) {
+            //console.log(data.Resposta);
             ShowModal(false);
             bootbox.dialog({
                 message: "Dados gravados com sucesso!",
@@ -568,7 +569,12 @@ function GravarPublicacao() {
                         label: "OK",
                         className: "btn-success",
                         callback: function () {
-                            window.location.href = "../Publicacao/ListaPublicacao";
+                            if (fechar == true) {
+                                window.location.href = "../Publicacao/ListaPublicacao";
+                            } else {
+                                window.location.href = "../Publicacao/CadPublicacao?PublicacaoId=" + data.Publicacao.PublicacaoId;
+                                
+                            }
                         }
                     }
                 }
@@ -835,6 +841,10 @@ $(function () {
         GravarPublicacao();
     });
 
+    $("#btnSalvarPublicacaoFechar").click(function () {
+        GravarPublicacao(true);
+    });
+
     $("#btnLiberar").click(function () {
         var _publicacaoId = $("#PublicacaoId").val();
         LiberarPublicacao(_publicacaoId);
@@ -882,6 +892,9 @@ $(function () {
             $("[name='Privado']").filter("[value='0']").attr("checked", true);
             $('[checked="checked"]').parent().addClass("checked");
             VerificaExibicao();
+
+            $("#ulAbas li").attr("style", "display: none;");
+            $("#liGeral").attr("style", "display: important!;");
         }
     } 
     ListarUsuarioGrupo();
