@@ -1,5 +1,6 @@
 ﻿function Calcular() {
-    var valor = $("#txtValor").maskMoney('unmasked')[0]
+    var valor = $("#txtValor").maskMoney('unmasked')[0];
+    console.log(valor);
     $.post(AppPath + "Conteudo/Calcular2015", { Valor: valor }, function (data) {
         if (data.Resposta.Erro == false) {
             

@@ -63,7 +63,7 @@ namespace SitePortal.Controllers
             return View();
         }
 
-        public ActionResult Calcular2015(double Valor = 0)
+        public ActionResult Calcular2015(string Valor = "0")
         {
             var calculo = new CalculadoraDAL().Calcular(Valor);
             return Json(calculo, JsonRequestBehavior.DenyGet);

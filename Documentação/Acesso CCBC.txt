@@ -121,3 +121,6 @@ http://201.47.140.202:8080/integracao/services/token?login=guilherme.pereira&ema
 
 Guilherme.pereira
 gui2016
+
+http://ccbc.org.br/Materia/1096/heargin-center
+http://ccbc.org.br/Materia/1396/alto-nivel-marca--congresso-do-cbar-
