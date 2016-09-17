@@ -3,10 +3,13 @@ using DAL;
 using DTO.Mailing;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace BackofficeCMS.Controllers
 {
@@ -41,6 +44,7 @@ namespace BackofficeCMS.Controllers
 
         public ActionResult ExportarExcel()
         {
+            
             int? SiteId = GetCurrentSite();
 
             HttpContext.Response.Clear();
@@ -68,6 +72,7 @@ namespace BackofficeCMS.Controllers
             HttpContext.Response.End();
 
             return null;
+            
         }
 
         private static void CriarTagDeEstilo(StringBuilder sb)
