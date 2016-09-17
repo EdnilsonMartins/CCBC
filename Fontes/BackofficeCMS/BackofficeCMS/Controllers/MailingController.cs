@@ -69,7 +69,9 @@ namespace BackofficeCMS.Controllers
 
             HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
             HttpContext.Response.Write(tabela.ToString());
+            System.Threading.Thread.Sleep(2000);
             HttpContext.Response.End();
+            System.Threading.Thread.Sleep(2000);
 
             return null;
             

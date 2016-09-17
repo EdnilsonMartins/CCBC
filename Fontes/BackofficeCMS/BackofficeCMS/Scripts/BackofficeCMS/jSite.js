@@ -17,6 +17,7 @@ function PreencherCadastro(data, IdiomaId) {
     $("#Localizacao").val(data.Site.Configuracao.Localizacao);
     $("#LocalizacaoComplemento").val(data.Site.Configuracao.LocalizacaoComplemento);
     $("#LinkMapa").val(data.Site.Configuracao.LinkMapa);
+    $("#InformacoesAdicionais").val(data.Site.Configuracao.InformacoesAdicionais);
 
     $("#Host").val(data.Site.Configuracao.EmailHost);
     $("#DisplayName").val(data.Site.Configuracao.EmailDisplayName);

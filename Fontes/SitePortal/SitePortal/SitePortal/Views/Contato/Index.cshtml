@@ -51,9 +51,10 @@
             </div>
             <div class="contato-mapa-texto">
                 <p>
-                    Rua do Rócio, 220 12º andar - cj.121<br />
+                    @*Rua do Rócio, 220 12º andar - cj.121<br />
                     CEP. 04552-000 - Vila Olímpia São Paulo - SP - Brasil<br />
-                    +55-11-4058-0400  |  ccbc@ccbc.org.br
+                    +55-11-4058-0400  |  ccbc@ccbc.org.br*@
+                    @Html.Raw(Model.Configuracao.InformacoesAdicionais.Replace("\n", "<br />"))
                 </p>
             </div>
         </div>

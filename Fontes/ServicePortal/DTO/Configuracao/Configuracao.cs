@@ -23,5 +23,6 @@ namespace DTO.Configuracao
         public int EmailPorta { get; set; }
         public string EmailDestinoAdministrativoTI { get; set; }
         public int TamanhoMinimoSenha { get; set; }
+        public string InformacoesAdicionais { get; set; }
     }
 }
