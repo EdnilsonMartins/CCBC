@@ -258,6 +258,7 @@
     <Content Include="Content\fancybox\jquery.mousewheel-3.0.4.pack.js" />
     <Content Include="Content\fancybox\style.css" />
     <Content Include="Images\Bg_GERAL.jpg" />
+    <Content Include="Images\evento-default.png" />
     <Content Include="Images\facebook.svg" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\Icon_Saiba_Mais.png" />

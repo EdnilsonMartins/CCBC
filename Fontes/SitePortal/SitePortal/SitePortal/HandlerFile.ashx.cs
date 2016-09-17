@@ -79,13 +79,17 @@ namespace SitePortal.WebForm
 
                         }
 
-                        context.Response.AddHeader("Content-Disposition", "attachment; filename=" + arquivo.FileName);
-
-                        
-                        //--
-                        MemoryStream ms = new MemoryStream(arquivo.Content);
-                        ms.WriteTo(context.Response.OutputStream);
-
+                        if (arquivo.Tipo.IndexOf("webp") > -1 && !String.IsNullOrEmpty(context.Request.Browser.Browser)
+                            && (context.Request.Browser.Browser.Contains("Firefox") || context.Request.Browser.Browser.Contains("Safari") || context.Request.Browser.Browser.Contains("Opera") || context.Request.Browser.Browser.Contains("Explorer") || context.Request.Browser.Browser.Contains("IE") || context.Request.Browser.Browser.Contains("Internet")))
+                        {
+                            context.Response.ContentType = "image/png";
+                            context.Response.WriteFile(context.Server.MapPath("~/Images/evento-default.png"));
+                        }
+                        else { 
+                            context.Response.AddHeader("Content-Disposition", "attachment; filename=" + arquivo.FileName);
+                            MemoryStream ms = new MemoryStream(arquivo.Content);
+                            ms.WriteTo(context.Response.OutputStream);
+                        }
                     }
                 }
                 //context.Response.ContentType = "image/jpg";

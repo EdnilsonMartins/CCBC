@@ -257,7 +257,14 @@
                                                             }
                                                         </span>
                                                     </div>
-                                                    <a href="@Url.Content("~/")File?id=@p.ArquivoDestaqueId"></a>   
+                                                    @if (p.ArquivoDestaqueId == 0)
+                                                    {
+                                                        <a href="@Url.Content("~/")Images/evento-default.png"></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="@Url.Content("~/")File?id=@p.ArquivoDestaqueId"></a>
+                                                    }
                                                     <a href="@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)"></a>
                                                 </li>
                                             <!--evento-->
@@ -570,7 +577,14 @@
                                                             }
                                                         </span>
                                                     </div>
-                                                    <a href="@Url.Content("~/")File?id=@p.ArquivoDestaqueId"></a>   
+                                                    @if (p.ArquivoDestaqueId == 0)
+                                                    {
+                                                        <a href="@Url.Content("~/")Images/evento-default.png"></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="@Url.Content("~/")File?id=@p.ArquivoDestaqueId"></a>
+                                                    }
                                                     <a href="@Url.Content("~/")Eventos/@p.PublicacaoId/@DAL.Util.GerarURLAmigavel(p.Detalhe.Titulo)"></a>
                                                 </li>
                                             <!--evento-->

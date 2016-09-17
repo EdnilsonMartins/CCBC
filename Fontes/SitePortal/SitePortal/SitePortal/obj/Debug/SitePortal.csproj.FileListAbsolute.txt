@@ -82,8 +82,11 @@ C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Infra
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.dll
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Optimization.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.dll
@@ -97,8 +100,11 @@ C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Antlr3.Runtime.pdb
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Newtonsoft.Json.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Optimization.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.WebRequest.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Helpers.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.xml
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Mvc.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Razor.xml
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.WebPages.xml
@@ -108,9 +114,3 @@ C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\ru-ru\BundleTransfo
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.csprojResolveAssemblyReference.cache
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.pdb
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.dll
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.dll
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.dll
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Net.Http.Formatting.xml
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.xml
-C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\System.Web.Http.WebHost.xml

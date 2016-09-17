@@ -13,11 +13,11 @@ namespace SitePortal.Controllers
         
         public ActionResult Index(int AssociadoCategoriaId)
         {
-            //Limpa callback da página anterior!
-            var _callbackPortal = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
-            Response.AppendCookie(_callbackPortal);
-            HttpContext.Request.Cookies.Set(_callbackPortal);
-            //=======
+            
+            //Novo callback usado para marcar a página anterior: Será utilizado qdo usuario trocar idioma.
+            var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/BuscaSocio?AssociadoCategoriaId=" + AssociadoCategoriaId)) { HttpOnly = true };
+            Response.AppendCookie(_callbackPortal_Anterior);
+            HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
 
             Portal model = new Portal().CarregarModel();
 
