@@ -400,3 +400,9 @@ tfoot tr td
     display: block;
     margin-top: -225px;
 }
+
+#galeriaImagem a:not([href]) {
+    padding-top: 225px;
+    display: block;
+    margin-top: -225px;
+}

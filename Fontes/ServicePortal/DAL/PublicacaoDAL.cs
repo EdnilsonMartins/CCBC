@@ -329,6 +329,8 @@ namespace DAL
                 dto.Detalhe.Tags = dr["Tags"].ToString();
             if (Util.GetNonNull(dr["ArquivoDestaqueId"]))
                 dto.ArquivoDestaqueId = (long)dr["ArquivoDestaqueId"];
+            if (Util.GetNonNull(dr["ArquivoGaleriaId"]))
+                dto.ArquivoGaleriaId = (long)dr["ArquivoGaleriaId"];
 
             if (Util.GetNonNull(dr["Privado"]))
                 dto.Complemento.Privado = (bool)dr["Privado"];

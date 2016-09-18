@@ -98,7 +98,7 @@ namespace SitePortal.Models
 
         
         //public Portal CarregarModel(bool CarregarTodosBanner = false, string UsuarioId = "0", string UsuarioNome = "")
-        public Portal CarregarModel(bool CarregarTodosBanner = false)
+        public Portal CarregarModel(bool CarregarTodosBanner = false, int? _SiteId = null)
         {
             Portal model = new Portal();
 
@@ -109,6 +109,10 @@ namespace SitePortal.Models
             var currentSite = HttpContext.Current.Request.Cookies["site"] != null ? HttpContext.Current.Request.Cookies["site"].Value : "0";
             if (string.IsNullOrEmpty(currentSite)) currentSite = "0";
             int SiteId = Convert.ToInt32(currentSite);
+            if (_SiteId != null)
+            {
+                SiteId = (int)_SiteId;
+            }
             model.SiteId = SiteId;
 
             var UsuarioId = HttpContext.Current.Request.Cookies["UsuarioId"] != null ? HttpContext.Current.Request.Cookies["UsuarioId"].Value : "0";

@@ -1,0 +1,166 @@
+﻿@using System
+@using System.Collections.Generic
+@using System.Linq
+@using System.Text
+@using System.Web.Helpers
+@using DTO.Menu
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var separador = "";
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jConteudo.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.pack.js")"></script>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.css")" media="screen" />
+
+}
+
+@model SitePortal.Models.Portal
+
+@{
+    var AppPath = Url.Content("~/");
+    var columns = new List<WebGridColumn>();
+    var grid = new WebGrid(Model.ResultaBusca.OrderByDescending(p => p.PublicacaoId) , canPage: true, rowsPerPage: 10);
+
+    var colResult = "<div class=\"resultados\">{6} <div style=\"float: left; width: 920px; padding-left: 12px;\"><h3><a href=\"" + AppPath + "{4}{5}#Galeria\" class=\"opacidade\" style=\"text-decoration: none; color: #666;\">{0}</a>&nbsp;&nbsp;{3}</h3><h1><a href=\"" + AppPath + "{4}{5}#Galeria\" class=\"opacidade\">{1}</a></h1><h2><a href=\"" + AppPath + "{4}{5}#Galeria\" class=\"opacidade\" style=\"text-decoration: none; color: #666;\">{2}</a></h2></div></div>";
+
+    columns.Add(grid.Column("Detalhe.Titulo", "Título",
+        (item) => Html.Raw(
+            string.Format(
+                colResult,
+
+                //{0} = Data
+                ((item.Data != null) ? ((DateTime)item.Data).ToShortDateString().ToString() + " - " : "") + " " +
+                ((item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.EVENTO) ? "Evento" :
+                    (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.MATERIA) ? "Matéria" :
+                        (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.NOTICIA) ? "Notícia" :
+                            (item.PublicacaoTipoId == 99) ? "Associado" :
+                                (item.PublicacaoTipoId == 98) ? "Arbitragem" :
+                                    (item.PublicacaoTipoId == 97) ? "Mediação" :
+                                    ""),
+
+                //{1} = Titulo
+                item.Detalhe.Titulo,
+            //{2} = Resumo
+                item.Detalhe.Resumo,
+            //{3} = Privado
+                (item.Complemento.Privado == true) ? @"<img src=""" + AppPath + @"Images/Img_cadeado.png"" alt=""cadeado ccbc"" />" : "",
+            //{4} = Controler
+                (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.EVENTO) ? "Eventos" :
+                    (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.MATERIA) ? "Materia" :
+                        (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.NOTICIA) ? "Noticias" :
+                            (item.PublicacaoTipoId == 99 || item.PublicacaoTipoId == 98 || item.PublicacaoTipoId == 97) ? "BuscaSocio" : "",
+            //{5} = Complemento do Request, pode ser uma QueryString ou Parâmetros da Action
+                string.Format
+                    (
+            //String a ser formatada
+                    ((item.PublicacaoTipoId == 99 || item.PublicacaoTipoId == 98 || item.PublicacaoTipoId == 97) ? "?AssociadoCategoriaId={0}{1}" : "/{0}/{1}"),
+            //{0}
+                        ((item.PublicacaoTipoId == 99) ? "1" :
+                            (item.PublicacaoTipoId == 98) ? "2" :
+                                (item.PublicacaoTipoId == 97) ? "3" :
+                                    item.PublicacaoId
+                        ),
+            //{1} Vazio ou UrlAmigável
+                        (item.PublicacaoTipoId == 99 || item.PublicacaoTipoId == 98 || item.PublicacaoTipoId == 97 ?
+            //Associado
+                            "" :
+            //PublicacaoId
+                            @DAL.Util.GerarURLAmigavel(item.Detalhe.Titulo)
+                        )
+                    ),
+                    
+                    
+            //{6} = Imagem destaque
+                (item.ArquivoGaleriaId != null && item.ArquivoGaleriaId != 0) ? 
+                    string.Format("<a href=\"" + AppPath + "{1}{2}#Galeria\" class=\"opacidade\" style=\"text-decoration: none; color: #666;\">{0}</a>",
+                            //{0}
+                            string.Format(@"<div style=""float: left; width: 100px; padding-left: 12px;""><img src=""" + AppPath + @"File?id={0}"" style=""width: 100px;"" /></div>", item.ArquivoGaleriaId),
+                            
+                            //{1} = Controler
+                            (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.EVENTO) ? "Eventos" :
+                                (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.MATERIA) ? "Materia" :
+                                    (item.PublicacaoTipoId == (int)DAL.Util.TIPOPUBLICACAO.NOTICIA) ? "Noticias" :
+                                        (item.PublicacaoTipoId == 99 || item.PublicacaoTipoId == 98 || item.PublicacaoTipoId == 97) ? "BuscaSocio" : "",
+                            
+                            //{2} = Complemento do Request, pode ser uma QueryString ou Parâmetros da Action
+                            string.Format
+                                (
+                                //String a ser formatada
+                                ((item.PublicacaoTipoId == 99 || item.PublicacaoTipoId == 98 || item.PublicacaoTipoId == 97) ? "?AssociadoCategoriaId={0}{1}" : "/{0}/{1}"),
+                                //{0}
+                                ((item.PublicacaoTipoId == 99) ? "1" :
+                                    (item.PublicacaoTipoId == 98) ? "2" :
+                                        (item.PublicacaoTipoId == 97) ? "3" :
+                                            item.PublicacaoId
+                                ),
+                                //{1} Vazio ou UrlAmigável
+                                ((item.PublicacaoTipoId == 99 || item.PublicacaoTipoId == 98 || item.PublicacaoTipoId == 97) ?
+                                //Associado
+                                    "" :
+                                //PublicacaoId
+                                    @DAL.Util.GerarURLAmigavel(item.Detalhe.Titulo)
+                                )
+                            )
+                    )
+                    : ""
+                
+                ))));
+
+}
+
+<div class="geral-1050">
+    <div class="conteudo">
+
+        <!--internas navegacao-->
+        <div class="internas-navegacao">
+
+            <!-- BARRA DE NAVEGAÇÃO -->
+            @for (int i = Model.ListaMenuTree.Count; i > 0; i--)
+            {
+                Menu m = Model.ListaMenuTree[i - 1];
+                if (@separador == "1")
+                {
+                    <span style="margin-left: 10px;">-</span>
+                }
+                if (m.MenuTipoAcaoId == 1)
+                {
+                    <a href="@m.LinkURL">@m.Rotulo</a>
+                }
+                else if (m.MenuTipoAcaoId == 2)
+                {
+                    <a href="~/Eventos/@m.PublicacaoId/@DAL.Util.GerarURLAmigavel(@m.Rotulo)">@m.Rotulo</a>
+                }
+                separador = "1";
+            }
+        </div>
+
+
+        <!--internas navegacao-->
+        <div class="resultados-titulo">
+            <h1>RESULTADOS DA BUSCA<span class="cor-padrao-texto"></span></h1>
+            <span></span>
+        </div>
+
+        <div class="busca-geral-resultados">
+
+            <div class="resultados">
+                <h3></h3>
+                <h1></h1>
+                @if (Model.ResultaBusca.Any())
+                {
+                    <h2>Foram localizados <b>@Model.ResultaBusca.Count</b> itens... em <b>@Model.TempoPesquisa</b> segundos!</h2>
+                }
+                else
+                {
+                    <h2>Nenhum resultado localizado!</h2>
+                }
+            </div>
+
+            @grid.GetHtml(columns: columns, displayHeader: false)
+        </div>
+    </div>
+</div>

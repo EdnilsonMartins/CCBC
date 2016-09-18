@@ -28,6 +28,7 @@ namespace DTO.Publicacao
         public string Fonte { get; set; }
         public string Tags { get; set; }
         public long ArquivoDestaqueId { get; set; }
+        public long ArquivoGaleriaId { get; set; }
 
         public bool? UsuarioElegivel { get; set; }
         public DateTime? DataAprovacao { get; set; }
