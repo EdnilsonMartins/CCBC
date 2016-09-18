@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/SitePortal.dll">
-      <publishTime>09/17/2016 18:12:29</publishTime>
+      <publishTime>09/18/2016 00:10:12</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/09/2013 11:04:48</publishTime>
@@ -208,10 +208,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2014 16:25:54</publishTime>
     </File>
     <File Include="Content/fancybox/jquery.fancybox-1.3.4.css">
-      <publishTime>12/26/2014 16:25:54</publishTime>
+      <publishTime>09/17/2016 23:56:24</publishTime>
     </File>
     <File Include="Content/fancybox/jquery.fancybox-1.3.4.js">
-      <publishTime>12/26/2014 16:25:54</publishTime>
+      <publishTime>09/17/2016 21:28:17</publishTime>
     </File>
     <File Include="Content/fancybox/jquery.fancybox-1.3.4.pack.js">
       <publishTime>12/26/2014 16:25:54</publishTime>
@@ -529,7 +529,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2015 11:13:38</publishTime>
     </File>
     <File Include="Scripts/jConteudo.js">
-      <publishTime>05/08/2016 18:25:17</publishTime>
+      <publishTime>09/18/2016 00:04:28</publishTime>
     </File>
     <File Include="Scripts/jFace.js">
       <publishTime>07/05/2015 14:40:01</publishTime>
@@ -625,7 +625,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 20:47:14</publishTime>
     </File>
     <File Include="Views/Conteudo/Index.cshtml">
-      <publishTime>05/08/2016 18:25:17</publishTime>
+      <publishTime>09/17/2016 20:31:44</publishTime>
     </File>
     <File Include="Views/Conteudo/NewsLetter.cshtml">
       <publishTime>04/04/2015 12:39:10</publishTime>
@@ -655,7 +655,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2016 18:25:17</publishTime>
     </File>
     <File Include="Views/Noticias/Index.cshtml">
-      <publishTime>05/08/2016 18:25:17</publishTime>
+      <publishTime>09/18/2016 00:04:56</publishTime>
     </File>
     <File Include="Views/Portal/Index.cshtml">
       <publishTime>04/29/2015 00:35:23</publishTime>

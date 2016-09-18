@@ -17,6 +17,7 @@
         doShareTwitter();
     });
     
+
 });
 
 function doShareTwitter() {
@@ -119,6 +120,7 @@ function doShareFace() {
                 //$("#ex" + i).attr("src", "data:image/jpeg;base64," + item.Base64);
                 //$("#ex" + i).attr("alt", item.Legenda);
 
+                //Antigo - ate 2016-09-17
                 $("#galeriaImagem").append("<a id=\"a" + i + "\" href=\"\" rel=\"example_group\"><img id=\"ex" + i + "\" class=\"last\" /></a>");
                 $("#a" + i).attr("href", AppPath + "File?id=" + item.ArquivoId);
                 $("#a" + i).attr("title", item.Legenda);
