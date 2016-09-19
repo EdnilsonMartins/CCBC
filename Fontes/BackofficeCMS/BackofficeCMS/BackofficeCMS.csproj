@@ -724,6 +724,7 @@
     <Content Include="Content\assets\global\img\loading-spinner-default.gif" />
     <Content Include="Content\assets\global\img\loading-spinner-grey.gif" />
     <Content Include="Content\assets\global\img\loading.gif" />
+    <Content Include="Content\assets\global\img\no-image-drag-and-drop.gif" />
     <Content Include="Content\assets\global\img\no-image.gif" />
     <Content Include="Content\assets\global\img\overlay-icon.png" />
     <Content Include="Content\assets\global\img\portlet-collapse-icon-white.png" />

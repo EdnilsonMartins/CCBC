@@ -3,6 +3,8 @@
 var inputF;
 var datinha;
 var ArquivoEditadoId, ArquivoEditadoIndex;
+var filesToUpload = [];
+
 
 //Teste: Capturar instancia do editor para seleção do arquivo no Media Center.
 //var editt;
@@ -124,6 +126,8 @@ function PreencherCadastroArquivo(data) {
     $("#dvPrev").append("<img id=\"thumbArquivo\" src=\"\" alt=\"\" />");
     $("#thumbArquivo").prop("src", AppPath + "File?Id=" + data.ArquivoId + "&s=" + (new Date).getTime());
 
+    $("#infoDiversos").attr("style", "float: right; width: 200px; display: none;");
+
     var categoriaId;
     var vals = data.ListaCategoria.split(",");
     var svals = '[';
@@ -152,6 +156,8 @@ function PreencherCadastroArquivo(data) {
 }
 
 function MostrarCadastroArquivo() {
+
+    
 
     if (inputF != null) {
         var fileInput = inputF;
@@ -320,6 +326,70 @@ function ExcluirArquivo(_ArquivoId, i) {
     });
 }
 
+function addDropFilesCapabilities() {
+    var dropArea = document.getElementById("dvPrev");
+
+    dropArea.addEventListener("dragenter", function (event) {
+        event.preventDefault();
+    }, true);
+
+    dropArea.addEventListener("dragover", function (event) {
+        event.preventDefault();
+
+        //Class da drop area ao entrar na regiao.
+        //dropArea.className = "dropAreaOver";
+
+    }, true);
+
+    dropArea.addEventListener("dragleave", function (event) {
+        event.preventDefault();
+
+        //Class da dropArea ao sair da regiao
+        //dropArea.className = "";
+
+        //$("#Progresso").show();
+
+    }, true);
+
+    dropArea.addEventListener("drop", function (event) {
+
+        event.preventDefault();
+
+        //Class da dropArea após o drop.
+        //dropArea.className = "";
+
+        var allFiles = event.dataTransfer.files;
+
+        //$("#Total").val(allFiles.length);
+
+        if (filesToUpload.length == 0) {
+            $("#thumbArquivo").attr("style", "display: none;");
+        }
+
+        for (var i = 0; i < allFiles.length; i++) {
+            //console.log('File ' + i);
+
+            //var file = allFiles[i];
+            //if (VerificaDuplicados(file.name)) {
+                //filesToUpload.push(file);
+
+            //    if (file.type != "image/jpeg") {
+            //        return;
+            //    }
+            //    criaImg(file);
+            //}
+        }
+
+        console.log('Arquivos selecionados ' + filesToUpload.length);
+        
+        $("#uploadInfo").html(filesToUpload.length + ' Arquivo(s)');
+
+        //$("#Progresso").hide();
+
+    }, true);
+
+}
+
 $(function () {
 
     $("#btnNovoArquivo").click(function () {
@@ -356,7 +426,10 @@ $(function () {
         $("#ArquivoId").val("");
         $("#Legenda").val("");
         $("#dvPrev").html("");
-        $("#dvPrev").append("<img id=\"thumbArquivo\" src=\"" + AppPath + "Content/assets/global/img/no-image.gif" + "\" alt=\"\" />");
+        $("#dvPrev").append("<img id=\"thumbArquivo\" src=\"" + AppPath + "Content/assets/global/img/no-image-drag-and-drop.gif" + "\" alt=\"\" />");
+
+        filesToUpload = [];
+        $("#infoDiversos").attr("style", "float: right; width: 200px; display: none;");
 
         //$('select[name=ArquivoCategoriaTipoId]').selectpicker('val', 0);
 
@@ -386,14 +459,13 @@ $(function () {
     //});
 
     $(document).ready(function () {
-        
-    });
 
-    $(document).ready(function () {
+        $("#infoDiversos").attr("style", "float: right; width: 200px; display: none;");
 
         $('.mix-grid').mixitup();
 
         $('#fileupload').fileupload({
+            dropZone: $('#dvPrev'),
             dataType: 'json',
             url: '../Arquivo/UploadFiles',
             autoUpload: false,
@@ -412,6 +484,19 @@ $(function () {
                     data = null;
                     //alert('somente aqui');
                 });
+                
+                //Ocultar a imagem default e criar a <span> de Info
+                if (filesToUpload.length == 0) {
+                    $("#thumbArquivo").attr("style", "display: none;");
+                }
+
+                //Adicionar o arquivo no contador "filesToUpload"
+                filesToUpload.push(data.files[0]);
+                console.log(filesToUpload.length + ' Arquivo(s)');
+
+                //Atualizando a <span> de Info
+                $("#uploadInfo").html(filesToUpload.length + ' Arquivo(s)');
+                $("#infoDiversos").attr("style", "float: right; width: 200px; display: block;");
             },
             done: function (e, data) {
 
@@ -457,7 +542,11 @@ $(function () {
             inputF = $(this);
         });
 
+        //$('#fileupload').enableDragDropUploads('#frmArquivo')
+
+        addDropFilesCapabilities();
+
     });
 
-    
+   
 });
