@@ -31,13 +31,18 @@ namespace SitePortal.Controllers
             int _eventoId;
             Int32.TryParse(eventoid, out _eventoId);
 
-            var currentSite = HttpContext.Request.Cookies["site"] != null ? HttpContext.Request.Cookies["site"].Value : "0";
-            if (string.IsNullOrEmpty(currentSite)) currentSite = "0";
-            int SiteId = Convert.ToInt32(currentSite);
-            int SiteId_Outro = SiteId == 1 ? 2 : 1;
+            //var currentSite = HttpContext.Request.Cookies["site"] != null ? HttpContext.Request.Cookies["site"].Value : "0";
+            //if (string.IsNullOrEmpty(currentSite)) currentSite = "0";
+            //int SiteId = Convert.ToInt32(currentSite);
+            //int SiteId_Outro = SiteId == 1 ? 2 : 1;
 
             #region --> Galerias de Foto do Site Ativo
-            Portal model = new Portal().CarregarModel(false, SiteId);
+
+            // Foi desativado a linha abaixo para nao forçar o site.
+            // Ou seja, exibir apenas a galeria do site que o usuário estiver navegando.
+            //Portal model = new Portal().CarregarModel(false, SiteId);
+            
+            Portal model = new Portal().CarregarModel(false);
 
             model.Noticias.ForEach(delegate(Publicacao item){
                 if(item.ArquivoGaleriaId != 0){
@@ -78,49 +83,53 @@ namespace SitePortal.Controllers
             });
             #endregion
 
-            #region --> Galerias de Foto do Outro Site
-            Portal model2 = new Portal().CarregarModel(false, SiteId_Outro);
-            model2.Noticias.ForEach(delegate(Publicacao item)
+            if (0 == 1) //If para desativar a solução que exibia a galeria de fotos considerando o outro site junto com o site que o usuário estava navegando.
             {
-                if (item.ArquivoGaleriaId != 0)
-                {
-                    model.ResultaBusca.Add(item);
-                }
-            });
 
-            model2.Eventos.ForEach(delegate(Publicacao item)
-            {
-                if (item.ArquivoGaleriaId != 0)
-                {
-                    model.ResultaBusca.Add(item);
-                }
-            });
+                //#region --> Galerias de Foto do Outro Site
+                //Portal model2 = new Portal().CarregarModel(false, SiteId_Outro);
+                //model2.Noticias.ForEach(delegate(Publicacao item)
+                //{
+                //    if (item.ArquivoGaleriaId != 0)
+                //    {
+                //        model.ResultaBusca.Add(item);
+                //    }
+                //});
 
-            model2.Materias.ForEach(delegate(Publicacao item)
-            {
-                if (item.ArquivoGaleriaId != 0)
-                {
-                    model.ResultaBusca.Add(item);
-                }
-            });
+                //model2.Eventos.ForEach(delegate(Publicacao item)
+                //{
+                //    if (item.ArquivoGaleriaId != 0)
+                //    {
+                //        model.ResultaBusca.Add(item);
+                //    }
+                //});
 
-            model2.Artigos.ForEach(delegate(Publicacao item)
-            {
-                if (item.ArquivoGaleriaId != 0)
-                {
-                    model.ResultaBusca.Add(item);
-                }
-            });
+                //model2.Materias.ForEach(delegate(Publicacao item)
+                //{
+                //    if (item.ArquivoGaleriaId != 0)
+                //    {
+                //        model.ResultaBusca.Add(item);
+                //    }
+                //});
 
-            model2.Paginas.ForEach(delegate(Publicacao item)
-            {
-                if (item.ArquivoGaleriaId != 0)
-                {
-                    model.ResultaBusca.Add(item);
-                }
-            });
-            #endregion
+                //model2.Artigos.ForEach(delegate(Publicacao item)
+                //{
+                //    if (item.ArquivoGaleriaId != 0)
+                //    {
+                //        model.ResultaBusca.Add(item);
+                //    }
+                //});
 
+                //model2.Paginas.ForEach(delegate(Publicacao item)
+                //{
+                //    if (item.ArquivoGaleriaId != 0)
+                //    {
+                //        model.ResultaBusca.Add(item);
+                //    }
+                //});
+                //#endregion
+
+            }
 
             if (model.Conteudo == null)
             {
