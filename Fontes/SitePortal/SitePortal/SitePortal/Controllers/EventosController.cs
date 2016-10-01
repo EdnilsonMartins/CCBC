@@ -35,6 +35,16 @@ namespace SitePortal.Controllers
             model.Conteudo = new DTO.Publicacao.Publicacao();
             model.Conteudo = model.Eventos.Find(x => x.PublicacaoId == _eventoId);
 
+            model.EventosTitulo = "EVENTOS";
+            if (eventoid == "proximos")
+            {
+                model.EventosTitulo = "PRÓXIMOS EVENTOS";
+                if (model.Eventos.Any())
+                {
+                    model.Eventos = model.Eventos.FindAll(p => (p.DataValidade != null && ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1));
+                }
+            }
+
             var siteId_Entrada = model.SiteId;
             if (model.SiteId == 0) model.SiteId = 2;
 

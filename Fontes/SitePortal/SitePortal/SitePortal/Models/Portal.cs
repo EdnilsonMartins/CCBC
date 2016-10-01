@@ -73,6 +73,8 @@ namespace SitePortal.Models
         public UsuarioDTO Usuario { get; set; }
         public UsuarioResponse CadastroUsuarioResponse { get; set; }
 
+        public string EventosTitulo { get; set; }
+
         public Portal()
         {
             Login = new ResponseLogin();
