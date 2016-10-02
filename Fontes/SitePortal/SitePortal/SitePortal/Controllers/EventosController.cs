@@ -44,6 +44,17 @@ namespace SitePortal.Controllers
                     model.Eventos = model.Eventos.FindAll(p => (p.DataValidade != null && ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1));
                 }
             }
+            else
+            {
+                if (eventoid == "realizados")
+                {
+                    model.EventosTitulo = "EVENTOS REALIZADOS";
+                    if (model.Eventos.Any())
+                    {
+                        model.Eventos = model.Eventos.FindAll(p => (p.DataValidade == null || ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) <= -1));
+                    }
+                }
+            }
 
             var siteId_Entrada = model.SiteId;
             if (model.SiteId == 0) model.SiteId = 2;
