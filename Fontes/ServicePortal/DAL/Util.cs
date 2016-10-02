@@ -26,7 +26,9 @@ namespace DAL
             MATERIA = 3,
             ARTIGO = 4,
             PAGINA = 5,
-            HOME = 6
+            HOME = 6,
+            REVISTA = 7,
+            NEWSLETTER = 8
         }
 
         public enum ARQUIVO_CATEGORIA_TIPO

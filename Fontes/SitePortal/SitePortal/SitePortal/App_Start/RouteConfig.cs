@@ -110,6 +110,24 @@ namespace SitePortal
                 defaults: new { controller = "LembrarSenha", action = "Index", Email = string.Empty }
             );
 
+            //RevistasNewsletter
+            routes.MapRoute(
+                name: "RevistasNewsletter_1",
+                url: "Revistas",
+                defaults: new { controller = "Conteudo", action = "RevistasNewsletter", Id = 1 }
+            );
+
+            routes.MapRoute(
+                name: "RevistasNewsletter_2",
+                url: "Newsletter",
+                defaults: new { controller = "Conteudo", action = "RevistasNewsletter", Id = 2 }
+            );
+
+            routes.MapRoute(
+                name: "RevistasNewsletter_3",
+                url: "Publicacoes",
+                defaults: new { controller = "Conteudo", action = "RevistasNewsletter", Id = 3 }
+            );
             
             //ToDo: NAO FUNCIONOU: Até funciona pra Index, mas p/ Listar dá pau!
             //routes.MapRoute(

@@ -88,6 +88,8 @@ namespace DAL
                     objetoConexao.AdicionarParametro("@Ativo", SqlDbType.Bit, Publicacao.Ativo);
                     objetoConexao.AdicionarParametro("@EditoriaId", SqlDbType.Int, Publicacao.EditoriaId);
                     objetoConexao.AdicionarParametro("@Tags", SqlDbType.VarChar, Publicacao.Tags);
+                    objetoConexao.AdicionarParametro("@LinkURL", SqlDbType.VarChar, Publicacao.LinkURL);
+                    objetoConexao.AdicionarParametro("@TargetId", SqlDbType.Int, Publicacao.TargetId);
                     using (DataTable dt = objetoConexao.RetornarTabela("USP_INS_Publicacao"))
                     {
                         if (dt != null && dt.Rows.Count > 0)
@@ -359,6 +361,14 @@ namespace DAL
 
             if (Util.GetNonNull(dr["Tags"]))
                 dto.Tags = dr["Tags"].ToString();
+
+            if (dr.Table.Columns["TargetId"] != null)
+                if (Util.GetNonNull(dr["TargetId"]))
+                    dto.TargetId = (int)dr["TargetId"];
+
+            if (dr.Table.Columns["LinkURL"] != null)
+                if (Util.GetNonNull(dr["LinkURL"]))
+                    dto.LinkURL = dr["LinkURL"].ToString();
         }
     }
 }

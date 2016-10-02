@@ -406,3 +406,11 @@ tfoot tr td
     display: block;
     margin-top: -225px;
 }
+
+
+/*******************************************
+* REVISTA E NEWSLETTER                     *
+********************************************/
+.revista-capa { float: left; height: 250px; width: 150px; margin: 5px;}
+.revista-capa-img { height: 200px; width: 120px; padding-left: 15px;}
+.revista-capa-legenda { width: 100%; text-align: center;}

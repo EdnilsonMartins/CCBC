@@ -33,6 +33,9 @@ namespace DTO.Publicacao
         public bool? UsuarioElegivel { get; set; }
         public DateTime? DataAprovacao { get; set; }
 
+        public string LinkURL { get; set; }
+        public int? TargetId { get; set; }
+
         public class PublicacaoComplemento
         {
             public bool? Privado { get; set; }

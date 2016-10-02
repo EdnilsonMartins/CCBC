@@ -35,6 +35,9 @@ namespace SitePortal.Models
         public List<Publicacao> Materias { get; set; }
         public List<Publicacao> Artigos { get; set; }
         public List<Publicacao> Paginas { get; set; }
+        public List<Publicacao> RevistasNewsletter { get; set; }
+        public List<Publicacao> Revistas { get; set; }
+        public List<Publicacao> Newsletter { get; set; }
         public List<Publicacao> ResultaBusca { get; set; }
 
         public Publicacao Evento { get; set; }
@@ -74,6 +77,7 @@ namespace SitePortal.Models
         public UsuarioResponse CadastroUsuarioResponse { get; set; }
 
         public string EventosTitulo { get; set; }
+        public int? RevistaNewsletterTipo { get; set; }
 
         public Portal()
         {
@@ -89,6 +93,9 @@ namespace SitePortal.Models
             Materias = new List<Publicacao>();
             Artigos = new List<Publicacao>();
             Paginas = new List<Publicacao>();
+            RevistasNewsletter = new List<Publicacao>();
+            Revistas = new List<Publicacao>();
+            Newsletter = new List<Publicacao>();
             ResultaBusca = new List<Publicacao>();
 
             ListaMenuPrincipal = new List<Menu>();
@@ -274,6 +281,15 @@ namespace SitePortal.Models
             List<Publicacao> listaPaginas = publicacaoDAL.ListarPublicacao(SiteId, null, (int)Util.TIPOPUBLICACAO.PAGINA, null, null, Convert.ToInt32(UsuarioId), IdiomaId);
             model.Paginas = listaPaginas;
 
+            //Revistas
+            List<Publicacao> listaRevistas = publicacaoDAL.ListarPublicacao(SiteId, null, (int)Util.TIPOPUBLICACAO.REVISTA, null, null, Convert.ToInt32(UsuarioId), IdiomaId);
+            model.Revistas = listaRevistas;
+
+            //Newsletter
+            List<Publicacao> listaNewsletter = publicacaoDAL.ListarPublicacao(SiteId, null, (int)Util.TIPOPUBLICACAO.NEWSLETTER, null, null, Convert.ToInt32(UsuarioId), IdiomaId);
+            model.Newsletter.AddRange(listaNewsletter);
+            
+
             #region --> Configuracao
             ConfiguracaoDAL configDAL = new ConfiguracaoDAL();
             model.Configuracao = configDAL.CarregarConfiguracao(SiteId);
@@ -373,7 +389,7 @@ namespace SitePortal.Models
             }
         }
 
-        public void CarregarMenuInterna(int PublicacaoId)
+        public void CarregarMenuInterna(int PublicacaoId, string LinkURL = null)
         {
             var currentCulture = HttpContext.Current.Request.Cookies["lang"] != null ? HttpContext.Current.Request.Cookies["lang"].Value : "pt-BR";
             if (string.IsNullOrEmpty(currentCulture)) currentCulture = "pt-BR";
@@ -388,7 +404,7 @@ namespace SitePortal.Models
             
             MenuDAL dal = new MenuDAL();
 
-            ListaMenuInterna = dal.ListarMenu(SiteId, 1, IdiomaId, PublicacaoId);
+            ListaMenuInterna = dal.ListarMenu(SiteId, 1, IdiomaId, PublicacaoId,false,null,true,LinkURL);
         }
 
         public void CarregarMenuTree(int PublicacaoId)

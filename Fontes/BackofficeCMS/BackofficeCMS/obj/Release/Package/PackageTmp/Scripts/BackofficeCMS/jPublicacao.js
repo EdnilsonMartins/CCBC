@@ -20,6 +20,32 @@ function VerificaExibicao() {
     //$('#tvUsuarioGrupo').multiSelect("refresh");
 }
 
+function VerificaExibicaoPublicacaoTipo() {
+    var publicacaoTipo = $('[name=PublicacaoTipo]').val();
+    console.log(publicacaoTipo);
+    if (publicacaoTipo == "7" || publicacaoTipo == "8") {
+        $("#dvLinkTarget").slideDown();
+
+        $("#dvFonteEditoria").slideUp();
+        $("#dvLinkAuto").slideUp();
+        $("#dvResumo").slideUp();
+        $("#dvConteudo").slideUp();
+        $("#hConteudo").slideUp();
+        $("#hDestaque").slideUp();
+        $("#dvDestaque").slideUp();
+    } else {
+        $("#dvLinkTarget").slideUp();
+
+        $("#dvFonteEditoria").slideDown();
+        $("#dvLinkAuto").slideDown();
+        $("#dvResumo").slideDown();
+        $("#dvConteudo").slideDown();
+        $("#hConteudo").slideDown();
+        $("#hDestaque").slideDown();
+        $("#dvDestaque").slideDown();
+    }
+}
+
 function LimparCadastro() {
     LimparForm();
 }
@@ -33,6 +59,7 @@ function PreencherCadastro(data, IdiomaId) {
     $("#PublicacaoId").val(data.Publicacao.PublicacaoId);
 
     $('select[name=PublicacaoTipo]').selectpicker('val', data.Publicacao.PublicacaoTipoId);
+    $('select[name=Target]').selectpicker('val', data.Publicacao.TargetId);
 
     var status = "";
     if (data.Publicacao.Ativo == true) status = "1";
@@ -69,6 +96,7 @@ function PreencherCadastro(data, IdiomaId) {
     }
 
     $("#Posicao").val(data.Publicacao.Posicao);
+    $("#LinkURLRevista").val(data.Publicacao.LinkURL);
 
     if (data.Publicacao.Destaque != null && data.Publicacao.Destaque) {
         $("[name='ExibirHome']").filter("[value='1']").attr("checked", true);
@@ -85,6 +113,7 @@ function PreencherCadastro(data, IdiomaId) {
         $("[name='Privado']").filter("[value='0']").attr("checked", false);
     }
     VerificaExibicao();
+    VerificaExibicaoPublicacaoTipo();
 
     $('[checked="checked"]').parent().addClass("checked");
 
@@ -881,6 +910,10 @@ $(function () {
 
     $("[name=Privado]").click(function () {
         VerificaExibicao();
+    });
+
+    $("[name=PublicacaoTipo]").change(function () {
+        VerificaExibicaoPublicacaoTipo();
     });
     
 

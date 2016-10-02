@@ -134,5 +134,105 @@ namespace SitePortal.Controllers
             ViewBag.inc = inc;
             return PartialView("Calendario");
         }
+
+        public ActionResult RevistasNewsletter(int Id)
+        {
+            int _id = 0;
+            string _LinkURL = "";
+            
+            Portal model = new Portal().CarregarModel(false);
+            model.Conteudo = new DTO.Publicacao.Publicacao();
+
+
+            model.RevistaNewsletterTipo = Id;
+            if (Id == 1){
+                model.RevistasNewsletter = model.Revistas;
+                _id = 1182; // 1182;
+
+                model.Conteudo = model.Materias.Find(x => x.PublicacaoId == _id);
+                _LinkURL = "/Revistas";
+            }
+            else if (Id == 2)
+            {
+                model.RevistasNewsletter = model.Newsletter;
+                _id = 1678;
+
+                model.Conteudo = model.Noticias.Find(x => x.PublicacaoId == _id);//model.RevistasNewsletter[0].PublicacaoId
+                _LinkURL = "/Newsletter";
+            }
+            else
+            {
+                model.RevistasNewsletter.AddRange(model.Revistas.OrderByDescending(d => d.Data).ToList().GetRange(0,3));
+                model.RevistasNewsletter.AddRange(model.Newsletter.OrderByDescending(d => d.Data).ToList().GetRange(0, 3));
+                _id = 1649;
+
+                model.Conteudo = model.Materias.Find(x => x.PublicacaoId == _id);
+                _LinkURL = "/Publicacoes";
+            }
+
+
+            
+
+            
+            
+
+            var siteId_Entrada = model.SiteId;
+            if (model.SiteId == 0) model.SiteId = 2;
+
+            if (model.Conteudo == null && _id != 0 && model.SiteId == 2)
+            {
+                string site = "1";
+                var siteCookie = new HttpCookie("site", site) { HttpOnly = true };
+                Response.AppendCookie(siteCookie);
+                HttpContext.Request.Cookies.Set(siteCookie);
+
+                model = new Portal().CarregarModel(false);
+                model.Conteudo = new DTO.Publicacao.Publicacao();
+                model.Conteudo = model.Noticias.Find(x => x.PublicacaoId == _id);
+            }
+            if (model.Conteudo == null && _id != 0 && model.SiteId == 1)
+            {
+                string site = "2";
+                var siteCookie = new HttpCookie("site", site) { HttpOnly = true };
+                Response.AppendCookie(siteCookie);
+                HttpContext.Request.Cookies.Set(siteCookie);
+
+                model = new Portal().CarregarModel(false);
+                model.Conteudo = new DTO.Publicacao.Publicacao();
+                model.Conteudo = model.Noticias.Find(x => x.PublicacaoId == _id);
+            }
+
+
+            if (_id != null && model.Conteudo != null)
+            {
+                if (_id == model.Conteudo.PublicacaoId)
+                {
+                    model.CarregarMenuInterna((int)_id, _LinkURL);
+                }
+                //if (model.Conteudo != null) model.CarregarMenuTree(_id);
+                //model.CarregarBannerInterna((int)_id);
+            }
+
+            model.ListaMenuTree = new List<Menu>();
+
+            model.ListaMenuTree.Add(new Menu()
+            {
+                MenuTipoAcaoId = 1,
+                LinkURL = "Publicacoes",
+                Rotulo = "Publicações"
+            });
+
+            model.ListaMenuTree.Add(new Menu()
+            {
+                MenuTipoAcaoId = 1,
+                LinkURL = "Home",
+                Rotulo = "Home"
+            });
+
+
+            return View(model);
+        }
+    
+    
     }
 }

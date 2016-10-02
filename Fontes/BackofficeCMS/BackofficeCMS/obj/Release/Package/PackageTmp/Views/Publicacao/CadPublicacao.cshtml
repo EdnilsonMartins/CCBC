@@ -122,6 +122,8 @@
                                             <option value="4">Artigo</option>
                                             <option value="5">Página</option>
                                             <option value="6">Home</option>
+                                            <option value="7">Revista</option>
+                                            <option value="8">Newsletter</option>
                                         </select>
                                     </div>
                                 </div>
@@ -176,8 +178,35 @@
                                 <!--/span-->
                             </div>
                             <!--/row-->
+
+                            <div class="row" id="dvLinkTarget">
+                                <!-- span -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Link</label>
+                                        <input type="text" id="LinkURLRevista" name="LinkURLRevista" class="form-control">
+                                        <span class="help-block">
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                                <!-- span -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Target</label>
+                                        <select id="Target" name="Target" class="bs-select form-control">
+                                            <option value=""></option>
+                                            <option value="1">Mesma Aba</option>
+                                            <option value="2">Nova Aba</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                            </div>
+                            <!--/row-->
+
                             <!-- row -->
-                            <div class="row">
+                            <div class="row" id="dvFonteEditoria">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Fonte</label>
@@ -219,7 +248,7 @@
                             </div>
 
                             <!-- row -->
-                            <div class="row">
+                            <div class="row" id="dvLinkAuto">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">
@@ -233,8 +262,8 @@
                             </div>
                             <!--/row -->
 
-                            <h3 class="form-section">Destaque</h3>
-                            <div class="row">
+                            <h3 class="form-section" id="hDestaque">Destaque</h3>
+                            <div class="row" id="dvDestaque">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Exibir na Home</label>
@@ -265,9 +294,9 @@
                             </div>
                             <!--/row-->
 
-                            <h3 class="form-section">Conteúdo</h3>
+                            <h3 class="form-section" id="hConteudo">Conteúdo</h3>
 
-                            <div class="row">
+                            <div class="row" id="dvResumo">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Resumo</label>
@@ -283,7 +312,7 @@
                             @*** CKEditor customizado para testes do media center.***@
                             @*<textarea id="editor1" class="form-control"  cols="10" rows="10"></textarea>*@
 
-                            <div class="row">
+                            <div class="row" id="dvConteudo">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Conteúdo</label>

@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>09/18/2016 19:46:18</publishTime>
+      <publishTime>10/01/2016 10:48:14</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>09/18/2016 10:44:20</publishTime>
+      <publishTime>10/01/2016 10:48:13</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>09/18/2016 10:44:19</publishTime>
+      <publishTime>10/01/2016 10:48:09</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -8104,7 +8104,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2016 18:25:17</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jPublicacao.js">
-      <publishTime>08/03/2016 23:24:15</publishTime>
+      <publishTime>10/01/2016 10:46:04</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jRegra.js">
       <publishTime>05/31/2015 15:35:41</publishTime>
@@ -8218,7 +8218,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/26/2015 15:22:31</publishTime>
     </File>
     <File Include="Views/Publicacao/CadPublicacao.cshtml">
-      <publishTime>08/03/2016 23:15:57</publishTime>
+      <publishTime>10/01/2016 10:45:01</publishTime>
     </File>
     <File Include="Views/Publicacao/ListaPublicacao.cshtml">
       <publishTime>05/10/2015 20:37:05</publishTime>

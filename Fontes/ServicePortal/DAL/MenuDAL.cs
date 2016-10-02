@@ -9,7 +9,7 @@ namespace DAL
 {
     public class MenuDAL
     {
-        public List<Menu> ListarMenu(int SiteId, int MenuTipoId, int IdiomaId, int? PublicacaoId, bool? ExibirTodos = false, int? UsuarioId = null, bool FiltrarPrivacidade = true)
+        public List<Menu> ListarMenu(int SiteId, int MenuTipoId, int IdiomaId, int? PublicacaoId, bool? ExibirTodos = false, int? UsuarioId = null, bool FiltrarPrivacidade = true, string LinkURL = null)
         {
             List<Menu> lista = new List<Menu>();
 
@@ -19,7 +19,7 @@ namespace DAL
 
             if (ExibirTodos != null)
             {
-                tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_SEL_Menu", SiteId, MenuTipoId, IdiomaId, PublicacaoId, null, ExibirTodos, UsuarioId, FiltrarPrivacidade);
+                tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_SEL_Menu", SiteId, MenuTipoId, IdiomaId, PublicacaoId, null, ExibirTodos, UsuarioId, FiltrarPrivacidade, LinkURL);
             }
             else
             {

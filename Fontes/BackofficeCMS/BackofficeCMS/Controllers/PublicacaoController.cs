@@ -155,6 +155,8 @@ namespace BackofficeCMS.Controllers
             _novo.EditoriaId = (int)Util.GetValue<int>(form, "Editoria", 0);
             _novo.Detalhe.Fonte = (string)Util.GetValue<string>(form, "Fonte");
             _novo.Tags = (string)Util.GetValue<string>(form, "tags_1");
+            _novo.LinkURL = (string)Util.GetValue<string>(form, "LinkURLRevista");
+            _novo.TargetId = (int?)Util.GetValue<int?>(form, "Target");
 
             _novo.Complemento.Privado = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "Privado"));
 
