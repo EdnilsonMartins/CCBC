@@ -827,10 +827,10 @@ function GerarURLAmigavel() {
     var _publicacaoTipoId = $("#PublicacaoTipo").val();
     $.post("../Publicacao/GerarURLAmigavel", { PublicacaoTipoId: _publicacaoTipoId, PublicacaoId: _publicacaoId, Titulo: _titulo }, function (data) {
         if (data != null) {
-            $("#LinkURL").val(data);
-            $("#LinkURLEN").val(data + "/en-US");
-            $("#LinkURLES").val(data + "/es-ES");
-            $("#LinkURLFR").val(data + "/fr-CA");
+            $("#LinkURL").text(data);
+            $("#LinkURLEN").text(data + "/en-US");
+            $("#LinkURLES").text(data + "/es-ES");
+            $("#LinkURLFR").text(data + "/fr-CA");
         }
     });
 }

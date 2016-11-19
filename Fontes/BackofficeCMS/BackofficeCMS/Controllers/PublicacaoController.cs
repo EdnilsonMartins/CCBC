@@ -55,6 +55,8 @@ namespace BackofficeCMS.Controllers
             return View();
         }
 
+        
+        [HttpGet]
         public ActionResult ListarPublicacao()
         {
 
@@ -66,8 +68,17 @@ namespace BackofficeCMS.Controllers
             PublicacaoDAL publicacaoDAL = new PublicacaoDAL();
             List<Publicacao> listaEventos = publicacaoDAL.ListarPublicacao(SiteId, null, null, null, null, Convert.ToInt32(UsuarioId), IdiomaId, false, false);
 
+            //foreach (var a in listaEventos)
+            //{
+            //    a.Resumo = "";
+            //   // a.Complemento = "";
+            //}
+            
+            //var jsonResult = Json(listaEventos.FindAll(x=>x.PublicacaoId<1400), JsonRequestBehavior.AllowGet);
+            //jsonResult.MaxJsonLength = int.MaxValue;
 
-            return Json(listaEventos, JsonRequestBehavior.AllowGet);
+
+            return Json(listaEventos.FindAll(x=>x.PublicacaoId!=2976), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult CarregarPublicacao(int PublicacaoId, int IdiomaId)

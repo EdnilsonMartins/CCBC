@@ -14,7 +14,7 @@ select count(1) from tblBannerevento_antigos order by dataevento desc
 
 -- Insere os eventos na tabela de Backup
 Insert Into tblBannerEvento_Antigos(BannerEventoId, BannerEventoTipoId,BannerId,ArquivoId,DataEvento)
-Select BannerEventoId, BannerEventoTipoId,BannerId,ArquivoId,DataEvento From tblBannerevento Where DataEvento < '2016-09-19'
+Select BannerEventoId, BannerEventoTipoId,BannerId,ArquivoId,DataEvento From tblBannerevento Where DataEvento < '2016-11-20'
 
 -- Exclui os eventos da tabela de Producao
-Delete From tblBannerevento Where DataEvento < '2016-09-19' 
+Delete From tblBannerevento Where DataEvento < '2016-11-20' 

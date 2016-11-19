@@ -41,7 +41,7 @@ function ListarAssociado() {
             reg = new Array();
             reg.push(item.AssociadoId);
             reg.push(item.Nome);
-            reg.push(item.Resumo);
+            //reg.push(item.Resumo);
             reg.push(item.Detalhe.TipoPessoa);
             reg.push(item.Detalhe.AssociadoCategoria);
             reg.push(item.Detalhe.Pais);
@@ -74,7 +74,7 @@ function ListarAssociado() {
             "aoColumns": [
                 { "sTitle": "ID", "width": "80px" },
                 { "sTitle": "Nome" },
-                { "sTitle": "Resumo" },
+                //{ "sTitle": "Resumo" },
                 { "sTitle": "Tipo" },
                 { "sTitle": "Categoria" },
                 { "sTitle": "País" },
