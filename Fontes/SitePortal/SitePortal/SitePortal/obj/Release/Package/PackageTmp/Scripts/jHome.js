@@ -235,15 +235,19 @@ function AtualizarTemperatura(item) {
 }
 
 function CarregarTemperaturaTaxaCambio() {
+
+    /*
     $.post(AppPath + "Home/GetWeatherExchangeFee", { CidadeId: 1 }, function (data) {
         if (data != null) {
             $("#lblTemperatura").html(data.Temperatura);
         }
     });
+    */
+
 
     var moedas = "%28%22USDBRL%22%2C%22CADBRL%22%2C%22AUDBRL%22%2C%22EURBRL%22%29";
     var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20" + moedas + "%20&format=json&diagnostics=false&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-
+    
     
     // Obtem e trata os dados em JSON
     $.getJSON(url, function (data) {
@@ -258,7 +262,7 @@ function CarregarTemperaturaTaxaCambio() {
         }
 
         // Mostra a cotação do dolar na tag <div id="info"></div>
-        $('#lblTaxaCAN').html(indices);
+        //$('#lblTaxaCAN').html(indices);
     });
 
 

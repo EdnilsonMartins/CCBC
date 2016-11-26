@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/20/2016 23:37:15</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.en-US.resx">
-      <publishTime>06/22/2016 20:07:54</publishTime>
+      <publishTime>11/24/2016 23:58:54</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.es-ES.resx">
-      <publishTime>06/22/2016 20:08:04</publishTime>
+      <publishTime>11/24/2016 23:59:44</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.fr-CA.resx">
-      <publishTime>06/22/2016 20:08:14</publishTime>
+      <publishTime>11/25/2016 00:00:15</publishTime>
     </File>
     <File Include="App_GlobalResources/Portal.resx">
-      <publishTime>06/22/2016 20:07:13</publishTime>
+      <publishTime>11/24/2016 23:58:15</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/SitePortal.dll">
-      <publishTime>10/01/2016 21:56:47</publishTime>
+      <publishTime>11/25/2016 00:01:24</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/09/2013 11:04:48</publishTime>
@@ -535,7 +535,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/05/2015 14:40:01</publishTime>
     </File>
     <File Include="Scripts/jHome.js">
-      <publishTime>05/08/2016 18:25:17</publishTime>
+      <publishTime>11/25/2016 00:13:49</publishTime>
     </File>
     <File Include="Scripts/jPortal.js">
       <publishTime>12/24/2014 16:24:26</publishTime>
@@ -625,7 +625,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 20:47:14</publishTime>
     </File>
     <File Include="Views/Conteudo/Index.cshtml">
-      <publishTime>09/18/2016 10:28:16</publishTime>
+      <publishTime>11/25/2016 00:36:27</publishTime>
     </File>
     <File Include="Views/Conteudo/NewsLetter.cshtml">
       <publishTime>04/04/2015 12:39:10</publishTime>
@@ -637,22 +637,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/01/2016 19:39:57</publishTime>
     </File>
     <File Include="Views/Eventos/Index.cshtml">
-      <publishTime>09/30/2016 23:15:09</publishTime>
+      <publishTime>11/25/2016 00:35:26</publishTime>
     </File>
     <File Include="Views/Galeria/Index.cshtml">
       <publishTime>09/18/2016 12:13:43</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/30/2016 23:18:14</publishTime>
+      <publishTime>11/25/2016 00:15:31</publishTime>
     </File>
     <File Include="Views/Interna/Index.cshtml">
-      <publishTime>09/18/2016 10:29:10</publishTime>
+      <publishTime>11/25/2016 00:34:53</publishTime>
     </File>
     <File Include="Views/LembrarSenha/Index.cshtml">
       <publishTime>05/08/2016 18:25:17</publishTime>
     </File>
     <File Include="Views/Materia/Index.cshtml">
-      <publishTime>09/18/2016 10:29:28</publishTime>
+      <publishTime>11/25/2016 00:33:46</publishTime>
     </File>
     <File Include="Views/MinhaConta/Index.cshtml">
       <publishTime>05/08/2016 18:25:17</publishTime>
@@ -661,7 +661,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2016 18:25:17</publishTime>
     </File>
     <File Include="Views/Noticias/Index.cshtml">
-      <publishTime>09/18/2016 09:08:26</publishTime>
+      <publishTime>11/25/2016 00:34:13</publishTime>
     </File>
     <File Include="Views/Portal/Index.cshtml">
       <publishTime>04/29/2015 00:35:23</publishTime>

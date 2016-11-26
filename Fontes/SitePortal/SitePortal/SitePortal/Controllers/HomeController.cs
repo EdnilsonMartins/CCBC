@@ -36,19 +36,34 @@ namespace SitePortal.Controllers
             model.isHome = true;
 
             //Implementando Callback na Home:
+            //var CallbackPortal = HttpContext.Request.Cookies["CallbackPortal"] != null ? HttpContext.Request.Cookies["CallbackPortal"].Value : "";
+            //if (!String.IsNullOrEmpty(CallbackPortal))
+            //{
+            //    var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
+            //    Response.AppendCookie(_callbackPortal);
+            //    HttpContext.Request.Cookies.Set(_callbackPortal);
+            //    Response.RedirectPermanent(CallbackPortal);
+            //}
+            //else if (model.SiteId == 0)
+            //{
+            //    Response.RedirectPermanent(Url.Content("~/Portal/Index"));
+            //}
             var CallbackPortal = HttpContext.Request.Cookies["CallbackPortal"] != null ? HttpContext.Request.Cookies["CallbackPortal"].Value : "";
-            if (!String.IsNullOrEmpty(CallbackPortal))
-            {
-                var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
-                Response.AppendCookie(_callbackPortal);
-                HttpContext.Request.Cookies.Set(_callbackPortal);
-                Response.RedirectPermanent(CallbackPortal);
-            }
-            else if (model.SiteId == 0)
+            if (model.SiteId == 0)
             {
                 Response.RedirectPermanent(Url.Content("~/Portal/Index"));
             }
+            else
+            {
+                
+                var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
+                Response.AppendCookie(_callbackPortal);
+                HttpContext.Request.Cookies.Set(_callbackPortal);
 
+                _callbackPortal = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
+                Response.AppendCookie(_callbackPortal);
+                HttpContext.Request.Cookies.Set(_callbackPortal);
+            }
 
             return View(model);
         }
