@@ -45,7 +45,7 @@ namespace SitePortal
 
             routes.MapRoute(
                 name: "Indexsss2",
-                url: "Eventos/{eventoid}/{titulo}",
+                url: "Eventos/{eventoid}/{titulo}/{lang}",
                 defaults: new { controller = "Eventos", action = "Index", eventoid = string.Empty }
             );
 

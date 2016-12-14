@@ -312,4 +312,19 @@
   <data name="QuickMenu_ProcedimentoOnline" xml:space="preserve">
     <value>Procedimiento en línea</value>
   </data>
+  <data name="Eventos_Titulo" xml:space="preserve">
+    <value>Eventos</value>
+  </data>
+  <data name="Eventos_Titulo_Proximos" xml:space="preserve">
+    <value>Próximos Eventos</value>
+  </data>
+  <data name="Eventos_Titulo_Realizados" xml:space="preserve">
+    <value>Eventos Pasados</value>
+  </data>
+  <data name="Noticias_Titulo" xml:space="preserve">
+    <value>Noticias</value>
+  </data>
+  <data name="Selecione_Divisao" xml:space="preserve">
+    <value>Bt_divisoesES.png</value>
+  </data>
 </root>

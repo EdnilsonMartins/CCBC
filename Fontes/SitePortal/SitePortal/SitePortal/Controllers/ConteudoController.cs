@@ -137,6 +137,9 @@ namespace SitePortal.Controllers
 
         public ActionResult RevistasNewsletter(int Id)
         {
+
+
+
             int _id = 0;
             string _LinkURL = "";
             
@@ -147,31 +150,41 @@ namespace SitePortal.Controllers
             model.RevistaNewsletterTipo = Id;
             if (Id == 1){
                 model.RevistasNewsletter = model.Revistas;
-                _id = 1182; // 1182;
+                //_id = 1182; // 1182;
+                _id = model.Materias[0].PublicacaoId;
 
                 model.Conteudo = model.Materias.Find(x => x.PublicacaoId == _id);
                 _LinkURL = "/Revistas";
+
+
             }
             else if (Id == 2)
             {
                 model.RevistasNewsletter = model.Newsletter;
-                _id = 1678;
+                //_id = 1678;
+                _id = model.Materias[0].PublicacaoId;
 
-                model.Conteudo = model.Noticias.Find(x => x.PublicacaoId == _id);//model.RevistasNewsletter[0].PublicacaoId
-                _LinkURL = "/Newsletter";
+                //model.Conteudo = model.Noticias.Find(x => x.PublicacaoId == _id);//model.RevistasNewsletter[0].PublicacaoId
+                model.Conteudo = model.Materias.Find(x => x.PublicacaoId == _id);
+                _LinkURL = "/NewsLetter";
             }
             else
             {
-                model.RevistasNewsletter.AddRange(model.Revistas.OrderByDescending(d => d.Data).ToList().GetRange(0,3));
-                model.RevistasNewsletter.AddRange(model.Newsletter.OrderByDescending(d => d.Data).ToList().GetRange(0, 3));
-                _id = 1649;
+                if (model.Revistas.Any())
+                    model.RevistasNewsletter.AddRange(model.Revistas.OrderByDescending(d => d.Data).ToList().GetRange(0,3));
+                if (model.Newsletter.Any())
+                    model.RevistasNewsletter.AddRange(model.Newsletter.OrderByDescending(d => d.Data).ToList().GetRange(0, 3));
+                //_id = 1649;
+                _id = model.Materias[0].PublicacaoId;
 
                 model.Conteudo = model.Materias.Find(x => x.PublicacaoId == _id);
                 _LinkURL = "/Publicacoes";
             }
 
-
-            
+            //Novo callback usado para marcar a página anterior: Será utilizado qdo usuario trocar idioma.
+            var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~" + _LinkURL)) { HttpOnly = true };
+            Response.AppendCookie(_callbackPortal_Anterior);
+            HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
 
             
             

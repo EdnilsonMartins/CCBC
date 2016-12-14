@@ -8104,7 +8104,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/08/2016 18:25:17</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jPublicacao.js">
-      <publishTime>11/19/2016 17:34:56</publishTime>
+      <publishTime>12/12/2016 22:05:05</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jRegra.js">
       <publishTime>05/31/2015 15:35:41</publishTime>
@@ -8218,7 +8218,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/26/2015 15:22:31</publishTime>
     </File>
     <File Include="Views/Publicacao/CadPublicacao.cshtml">
-      <publishTime>11/19/2016 17:36:16</publishTime>
+      <publishTime>12/12/2016 22:08:18</publishTime>
     </File>
     <File Include="Views/Publicacao/ListaPublicacao.cshtml">
       <publishTime>05/10/2015 20:37:05</publishTime>

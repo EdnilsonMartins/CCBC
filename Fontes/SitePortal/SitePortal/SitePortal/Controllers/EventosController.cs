@@ -35,10 +35,10 @@ namespace SitePortal.Controllers
             model.Conteudo = new DTO.Publicacao.Publicacao();
             model.Conteudo = model.Eventos.Find(x => x.PublicacaoId == _eventoId);
 
-            model.EventosTitulo = "EVENTOS";
+            model.EventosTitulo = Resources.Portal.Eventos_Titulo.ToUpper();
             if (eventoid == "proximos")
             {
-                model.EventosTitulo = "PRÓXIMOS EVENTOS";
+                model.EventosTitulo = Resources.Portal.Eventos_Titulo_Proximos.ToUpper();
                 if (model.Eventos.Any())
                 {
                     model.Eventos = model.Eventos.FindAll(p => (p.DataValidade != null && ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1));
@@ -48,7 +48,7 @@ namespace SitePortal.Controllers
             {
                 if (eventoid == "realizados")
                 {
-                    model.EventosTitulo = "EVENTOS REALIZADOS";
+                    model.EventosTitulo = Resources.Portal.Eventos_Titulo_Realizados.ToUpper();
                     if (model.Eventos.Any())
                     {
                         model.Eventos = model.Eventos.FindAll(p => (p.DataValidade == null || ((DateTime)p.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) <= -1));
@@ -88,7 +88,7 @@ namespace SitePortal.Controllers
                 {
                     MenuTipoAcaoId = 1,
                     LinkURL = "Eventos",
-                    Rotulo = "Eventos"
+                    Rotulo = Resources.Portal.Eventos_Titulo
                 });
 
                 model.ListaMenuTree.Add(new Menu()
@@ -152,6 +152,12 @@ namespace SitePortal.Controllers
                 if (model.Conteudo != null)
                 {
                     var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/Eventos/" + _eventoId + "/" + titulo)) { HttpOnly = true };
+                    Response.AppendCookie(_callbackPortal_Anterior);
+                    HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
+                }
+                else
+                {
+                    var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/Eventos")) { HttpOnly = true };
                     Response.AppendCookie(_callbackPortal_Anterior);
                     HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
                 }

@@ -225,40 +225,41 @@ else
                     @{
                         var publicacaoTipoAnterior = 0;
                     }
-                    @foreach (var item in Model.RevistasNewsletter.OrderByDescending(d => d.Data).OrderBy(o => o.PublicacaoTipoId))
-                    {
-                        if (Model.RevistaNewsletterTipo == 3 && publicacaoTipoAnterior != item.PublicacaoTipoId)
+                    @if (Model.RevistasNewsletter.Any()) { 
+                        foreach (var item in Model.RevistasNewsletter.OrderByDescending(d => d.Data).OrderBy(o => o.PublicacaoTipoId))
                         {
-                            if (item.PublicacaoTipoId == 7) { 
-                                <p style="float: left; width: 100%;">
-                                <span style="font-size: 18px;"><strong>Revistas</strong></span>
-                                </p>
-                            }
-                            else if (item.PublicacaoTipoId == 8)
+                            if (Model.RevistaNewsletterTipo == 3 && publicacaoTipoAnterior != item.PublicacaoTipoId)
                             {
-                                <p style="float: left; width: 100%;">
-                                    <span style="font-size: 18px;"><strong>Newsletter</strong></span>
-                                </p>
+                                if (item.PublicacaoTipoId == 7) { 
+                                    <p style="float: left; width: 100%;">
+                                    <span style="font-size: 18px;"><strong>Revistas</strong></span>
+                                    </p>
+                                }
+                                else if (item.PublicacaoTipoId == 8)
+                                {
+                                    <p style="float: left; width: 100%;">
+                                        <span style="font-size: 18px;"><strong>Newsletter</strong></span>
+                                    </p>
+                                }
                             }
-                        }
-                        publicacaoTipoAnterior = item.PublicacaoTipoId;
-                        var _target = "_self";
-                        if (item.TargetId == 1) { _target = "_parent"; }
-                        if (item.TargetId == 2) { _target = "_blank"; }
-                        var _link = String.IsNullOrEmpty(item.LinkURL) ? "" : item.LinkURL;
+                            publicacaoTipoAnterior = item.PublicacaoTipoId;
+                            var _target = "_self";
+                            if (item.TargetId == 1) { _target = "_parent"; }
+                            if (item.TargetId == 2) { _target = "_blank"; }
+                            var _link = String.IsNullOrEmpty(item.LinkURL) ? "" : item.LinkURL;
 
-                        <div class="revista-capa">
-                            <div class="revista-capa-img">
-                                <a href="@_link" target="@_target" title="@item.Detalhe.Titulo">
-                                    <img src="@Url.Content("~/")File?id=@item.ArquivoDestaqueId" alt="@item.Detalhe.Titulo" class="opacidade" />
-                                </a>
+                            <div class="revista-capa">
+                                <div class="revista-capa-img">
+                                    <a href="@_link" target="@_target" title="@item.Detalhe.Titulo">
+                                        <img src="@Url.Content("~/")File?id=@item.ArquivoDestaqueId" alt="@item.Detalhe.Titulo" class="opacidade" />
+                                    </a>
+                                </div>
+                                <div class="revista-capa-legenda">
+                                    <span>@item.Detalhe.Titulo</span>
+                                </div>
                             </div>
-                            <div class="revista-capa-legenda">
-                                <span>@item.Detalhe.Titulo</span>
-                            </div>
-                        </div>
+                        }
                     }
-                
                 </div>
 
                 

@@ -114,3 +114,5 @@ C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\ru-ru\BundleTransfo
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.csprojResolveAssemblyReference.cache
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.dll
 C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\obj\Debug\SitePortal.pdb
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Content\fancybox\jquery.fancybox-1.3.4.css
+C:\Projetos\CCBC\Fontes\SitePortal\SitePortal\SitePortal\bin\Images\e2.png

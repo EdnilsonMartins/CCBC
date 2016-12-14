@@ -60,9 +60,9 @@ namespace SitePortal.Controllers
                 Response.AppendCookie(_callbackPortal);
                 HttpContext.Request.Cookies.Set(_callbackPortal);
 
-                _callbackPortal = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
-                Response.AppendCookie(_callbackPortal);
-                HttpContext.Request.Cookies.Set(_callbackPortal);
+                var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
+                Response.AppendCookie(_callbackPortal_Anterior);
+                HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
             }
 
             return View(model);
@@ -233,32 +233,37 @@ namespace SitePortal.Controllers
             string site = _site.ToString();
             var siteCookie = new HttpCookie("site", site) { HttpOnly = true };
             Response.AppendCookie(siteCookie);
-
             HttpContext.Request.Cookies.Set(siteCookie);
 
-            //return Index();
-            // return RedirectToActionPermanent("Index", "Home");
-             //return RedirectPermanent(Url.Content("~/Home/Index"));
-
-
-            Portal model = new Portal().CarregarModel(true);
+            Portal model = new Portal().CarregarModel(true,int.Parse(site));
 
             model.isHome = true;
 
             //Implementando Callback na Home:
-            var CallbackPortal = HttpContext.Request.Cookies["CallbackPortal"] != null ? HttpContext.Request.Cookies["CallbackPortal"].Value : "";
-            if (!String.IsNullOrEmpty(CallbackPortal))
-            {
-                var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
-                Response.AppendCookie(_callbackPortal);
-                 Response.RedirectPermanent(CallbackPortal);
-                 return null;
-                 // return RedirectToAction(CallbackPortal);
-            }
-            else if (model.SiteId == 0)
+            //var CallbackPortal = HttpContext.Request.Cookies["CallbackPortal"] != null ? HttpContext.Request.Cookies["CallbackPortal"].Value : "";
+            //if (!String.IsNullOrEmpty(CallbackPortal))
+            //{
+            //    var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
+            //    Response.AppendCookie(_callbackPortal);
+            //     Response.RedirectPermanent(CallbackPortal);
+            //     return null;
+            //     // return RedirectToAction(CallbackPortal);
+            //}
+            //else 
+            if (_site == "0")
             {
                 Response.RedirectPermanent(Url.Content("~/Portal/Index"));
                 return null;
+            }
+            else
+            {
+                var _callbackPortal = new HttpCookie("CallbackPortal", null) { HttpOnly = true };
+                Response.AppendCookie(_callbackPortal);
+                HttpContext.Request.Cookies.Set(_callbackPortal);
+
+                                var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", null) { HttpOnly = true };
+                Response.AppendCookie(_callbackPortal_Anterior);
+                HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
             }
 
             return View("Index", model);
@@ -272,7 +277,6 @@ namespace SitePortal.Controllers
             HttpContext.Request.Cookies.Set(langCookie);
             ConfigurarDadosDeCultura(lang);
 
-            //novo====
             var CallbackPortal = HttpContext.Request.Cookies["CallbackPortal_Anterior"] != null ? HttpContext.Request.Cookies["CallbackPortal_Anterior"].Value : "";
             if (!String.IsNullOrEmpty(CallbackPortal))
             {
@@ -281,9 +285,7 @@ namespace SitePortal.Controllers
                 HttpContext.Request.Cookies.Set(_callbackPortal);
                 Response.RedirectPermanent(CallbackPortal);
             }
-            //=========
-
-            //RedirectToAction("Index", "Home", new { culture = lang });
+            
             return RedirectToAction("Index", "Home", new { culture = lang });
         }
 
@@ -292,11 +294,6 @@ namespace SitePortal.Controllers
             var currentCulture = HttpContext.Request.Cookies["lang"] != null
                 ? HttpContext.Request.Cookies["lang"].Value
                 : "en-US";
-
-            //if (currentCulture != lang)
-            //{
-            //    ConfigurarUrlDeConsulta();
-            //}
         }
 
 

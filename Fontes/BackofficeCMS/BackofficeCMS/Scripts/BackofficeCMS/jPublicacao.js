@@ -33,6 +33,23 @@ function VerificaExibicaoPublicacaoTipo() {
         $("#hConteudo").slideUp();
         $("#hDestaque").slideUp();
         $("#dvDestaque").slideUp();
+
+
+        $("#dvLinkAutoEN").slideUp();
+        $("#dvFonteEditoriaEN").slideUp();
+        $("#dvResumoEN").slideUp();
+        $("#dvConteudoEN").slideUp();
+
+        $("#dvLinkAutoES").slideUp();
+        $("#dvFonteEditoriaES").slideUp();
+        $("#dvResumoES").slideUp();
+        $("#dvConteudoES").slideUp();
+
+        $("#dvLinkAutoFR").slideUp();
+        $("#dvFonteEditoriaFR").slideUp();
+        $("#dvResumoFR").slideUp();
+        $("#dvConteudoFR").slideUp();
+
     } else {
         $("#dvLinkTarget").slideUp();
 
@@ -43,6 +60,23 @@ function VerificaExibicaoPublicacaoTipo() {
         $("#hConteudo").slideDown();
         $("#hDestaque").slideDown();
         $("#dvDestaque").slideDown();
+
+
+        $("#dvLinkAutoEN").slideDown();
+        $("#dvFonteEditoriaEN").slideDown();
+        $("#dvResumoEN").slideDown();
+        $("#dvConteudoEN").slideDown();
+
+        $("#dvLinkAutoES").slideDown();
+        $("#dvFonteEditoriaES").slideDown();
+        $("#dvResumoES").slideDown();
+        $("#dvConteudoES").slideDown();
+
+        $("#dvLinkAutoFR").slideDown();
+        $("#dvFonteEditoriaFR").slideDown();
+        $("#dvResumoFR").slideDown();
+        $("#dvConteudoFR").slideDown();
+
     }
 }
 

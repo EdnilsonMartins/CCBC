@@ -44,8 +44,10 @@
                 }
             </script>
         
-            string color = "rgba(255, 0, 0, 0.30)"; //"#d61541";
-            if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0) { color = "rgba(0, 255, 0, 0.50)";
+            string color = "#d71440";//"rgba(255, 0, 0, 0.30)"; //"#d61541";
+            if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
+            {
+                color = "#8dc63f";
                 //"#8ec63f"; 
             }
 
@@ -64,22 +66,24 @@
                         {
                             <div class="conteudo-home-quick-botoes-ico">
                                 <a href="#" onclick="javascript: GerarNovoToken();" target="_self">
-                                    <i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px; "></i>
+                                    @*<i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px; "></i>*@
+                                    <img src="@Url.Content("~/")Images/e2.png" alt="Quick Menu CCBC" />
                                 </a>
                             </div>
                             <div>
-                                <a href="#" onclick="javascript: GerarNovoToken();" style="padding: 0; text-decoration: none;" ><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">@Resources.Portal.QuickMenu_ProcedimentoOnline</h3></div></a>
+                                <a href="#" onclick="javascript: GerarNovoToken();" style="padding: 0; text-decoration: none;" ><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: white; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">e-CAM.CCBC</h3></div></a>
                             </div>
                         }
                         else
                         {
                             <div class="conteudo-home-quick-botoes-ico">
                                 <a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self" data-toggle="popover" data-trigger="focus" title="@Resources.Portal.QuickMenu_AcessoRestrito" data-html="true" data-content="@rotulo" title=' '>
-                                    <i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px;"></i>
+                                    @*<i class="fa fa-cloud" style="color: rgb(0, 82, 145); font-size: 20px; margin: 18px 0 0 39px;"></i>*@
+                                    <img src="@Url.Content("~/")Images/e2.png" alt="Quick Menu CCBC" />
                                 </a>
                             </div>
                             <div>
-                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" style="padding: 0; text-decoration: none;" data-toggle="popover" data-trigger="focus" title="@Resources.Portal.QuickMenu_AcessoRestrito" data-html="true" data-content="@rotulo" title=' '><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: #666; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">@Resources.Portal.QuickMenu_ProcedimentoOnline</h3></div></a>
+                                <a href="#" onclick="javascript: $('#frmTedesco').submit();" style="padding: 0; text-decoration: none;" data-toggle="popover" data-trigger="focus" title="@Resources.Portal.QuickMenu_AcessoRestrito" data-html="true" data-content="@rotulo" title=' '><div style=" width: 98px; height: 35px;"><h3 style="font-size: 11px; font-weight: bold; color: white; margin: 0 auto; text-align: center; width: 80%; line-height: 10px;">e-CAM.CCBC</h3></div></a>
                             </div>
                         }
                     </div>
@@ -101,38 +105,53 @@
         }
     }
     
-    @{
-          foreach (var m in Model.ListaMenuQuick.FindAll(x=>x.PublicacaoId!=1095))
-    {
-        
-        var extraCSS = "";
-        
-        if (par == 1) { par = 0; } else { par = 1; }
-        string url = "";
-        if (m.MenuTipoAcaoId == 1)
-        {
-            url = Url.Content("~/") + m.LinkURL;
-        }
-        else if (m.MenuTipoAcaoId == 2)
-        {
-            url = m.LinkURL;
-        }
-        var _target = "_self";
-        if (m.TargetId == 1) { _target = "_parent"; }
-        if (m.TargetId == 2) { _target = "_blank"; }
-        var rotulo = @m.Rotulo;
+    @foreach (var m in Model.ListaMenuQuick.FindAll(x => x.PublicacaoId != 1095)) {
 
-        string color = "rgba(238, 238, 238, 1)"; //"#eee";
-        if (m.MenuId == 717)
-            color = "rgba(215, 20, 64, 1)"; //"#D71440";
-              
-        if (m.MenuId == 717)
-            if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
-                color = "rgba(141, 198, 63, 1)";
 
-        if (m.MenuId == 717)
-            extraCSS = "border: 2px solid " + color + "!important; width: 95px !important; height: 82px !important;";
+            var extraCSS = "";
+
+            if (par == 1) { par = 0; } else { par = 1; }
+            string url = "";
+            if (m.MenuTipoAcaoId == 1)
+            {
+                url = Url.Content("~/") + m.LinkURL;
+            }
+            else if (m.MenuTipoAcaoId == 2)
+            {
+                url = m.LinkURL;
+            }
+            var _target = "_self";
+            if (m.TargetId == 1) { _target = "_parent"; }
+            if (m.TargetId == 2) { _target = "_blank"; }
+            var rotulo = @m.Rotulo;
+
+            string color = "rgba(238, 238, 238, 1)"; //"#eee";
+            string backgroundColor = "";
+            string colorFont = "";
         
+            if (m.MenuId == 717)
+                backgroundColor = "background-color: #d71440;";
+
+            if (m.MenuId == 717)
+                color = "#d71440";
+
+            if (m.MenuId == 717)
+                colorFont = "color: white !important;";
+            
+
+            if (m.MenuId == 717)
+                if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
+                    //color = "rgba(141, 198, 63, 1)";
+                    color = "#8dc63f";
+
+            if (m.MenuId == 717)
+                if (Model.Login != null && Model.Login.UsuarioId != null && Model.Login.UsuarioId != 0)
+                    backgroundColor = "background-color: #8dc63f;";
+             
+
+            if (m.MenuId == 717)
+                extraCSS = "border: 2px solid " + color + "!important; " + backgroundColor + " width: 95px !important; height: 82px !important;";
+            
         
         <!--botao quick-->
         <div class="conteudo-home-quick-botoes" style="@extraCSS">
@@ -145,13 +164,14 @@
                 }
             </div>
             <div class="conteudo-home-quick-botoes-titulo">
-                <h3><a href="@url" target="@_target">@Html.Raw(@rotulo)</a></h3>
+                <h3><a href="@url" target="@_target" style="@colorFont">@Html.Raw(@rotulo)</a></h3>
             </div>
         </div>
         <!--botao quick-->
-        
     }
-        }
+    
+    
+        
         
     
     

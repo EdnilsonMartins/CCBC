@@ -268,6 +268,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eventos.
+        /// </summary>
+        internal static string Eventos_Titulo {
+            get {
+                return ResourceManager.GetString("Eventos_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Próximos Eventos.
+        /// </summary>
+        internal static string Eventos_Titulo_Proximos {
+            get {
+                return ResourceManager.GetString("Eventos_Titulo_Proximos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eventos Realizados.
+        /// </summary>
+        internal static string Eventos_Titulo_Realizados {
+            get {
+                return ResourceManager.GetString("Eventos_Titulo_Realizados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eventos e Programações.
         /// </summary>
         internal static string Home_Agenda_SubTitulo {
@@ -574,6 +601,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notícias.
+        /// </summary>
+        internal static string Noticias_Titulo {
+            get {
+                return ResourceManager.GetString("Noticias_Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ACESSO RESTRITO.
         /// </summary>
         internal static string QuickMenu_AcessoRestrito {
@@ -642,6 +678,15 @@ namespace Resources {
         internal static string Rodape_Localizacao {
             get {
                 return ResourceManager.GetString("Rodape_Localizacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bt_divisoes.png.
+        /// </summary>
+        internal static string Selecione_Divisao {
+            get {
+                return ResourceManager.GetString("Selecione_Divisao", resourceCulture);
             }
         }
     }

@@ -36,7 +36,7 @@ namespace SitePortal.Controllers
 
             model.Conteudo = new DTO.Publicacao.Publicacao();
             model.Conteudo = model.Noticias.Find(x => x.PublicacaoId == _noticiaid);
-            
+
             var siteId_Entrada = model.SiteId;
             if (model.SiteId == 0) model.SiteId = 2;
 
@@ -69,7 +69,7 @@ namespace SitePortal.Controllers
                 {
                     MenuTipoAcaoId = 1,
                     LinkURL = "Noticias",
-                    Rotulo = "Noticias"
+                    Rotulo = Resources.Portal.Noticias_Titulo
                 });
 
                 model.ListaMenuTree.Add(new Menu()
@@ -135,6 +135,12 @@ namespace SitePortal.Controllers
                 if (model.Conteudo != null)
                 {
                     var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/Noticias/" + _noticiaid + "/" + titulo)) { HttpOnly = true };
+                    Response.AppendCookie(_callbackPortal_Anterior);
+                    HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
+                }
+                else
+                {
+                    var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/Noticias")) { HttpOnly = true };
                     Response.AppendCookie(_callbackPortal_Anterior);
                     HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
                 }
