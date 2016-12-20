@@ -76,13 +76,25 @@ namespace SitePortal
             routes.MapRoute(
                 name: "Index4",
                 url: "Interna/{internaid}/{titulo}",
-                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty }
+                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty, PublicacaoTipoId = 5 }
             );
 
             routes.MapRoute(
                 name: "Index42",
                 url: "Interna/{internaid}/{titulo}/{lang}",
-                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty }
+                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty, PublicacaoTipoId = 5 }
+            );
+
+            routes.MapRoute(
+                name: "Index42HotSite",
+                url: "Hotsite/{internaid}/{titulo}",
+                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty, PublicacaoTipoId = 9 }
+            );
+
+            routes.MapRoute(
+                name: "Index42HotSiteLang",
+                url: "Hotsite/{internaid}/{titulo}/{lang}",
+                defaults: new { controller = "Interna", action = "Index", internaid = string.Empty, PublicacaoTipoId = 9 }
             );
 
             routes.MapRoute(

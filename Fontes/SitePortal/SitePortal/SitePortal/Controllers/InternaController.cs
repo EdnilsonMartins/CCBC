@@ -1,4 +1,5 @@
-﻿using DTO.Menu;
+﻿using DAL;
+using DTO.Menu;
 using SitePortal.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace SitePortal.Controllers
     public class InternaController : Controller
     {
 
-        public ActionResult Index(string internaid = "", string titulo = "", string lang = "")
+        public ActionResult Index(string internaid = "", string titulo = "", string lang = "", int PublicacaoTipoId = 5)
         {
             if (!String.IsNullOrEmpty(lang))
             {
@@ -35,7 +36,17 @@ namespace SitePortal.Controllers
 
             Portal model = new Portal().CarregarModel(false);
             model.Conteudo = new DTO.Publicacao.Publicacao();
-            model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == _internaid);
+
+
+            if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.PAGINA)
+            {
+                model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == _internaid);
+            }
+            else if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.HOTSITE)
+            {
+                model.Conteudo = model.HotSite.Find(x => x.PublicacaoId == _internaid);
+            }
+
 
             var siteId_Entrada = model.SiteId;
             if (model.SiteId == 0) model.SiteId = 2;
@@ -49,7 +60,14 @@ namespace SitePortal.Controllers
 
                 model = new Portal().CarregarModel(false);
                 model.Conteudo = new DTO.Publicacao.Publicacao();
-                model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == _internaid);
+                if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.PAGINA)
+                {
+                    model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == _internaid);
+                }
+                else if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.HOTSITE)
+                {
+                    model.Conteudo = model.HotSite.Find(x => x.PublicacaoId == _internaid);
+                }
             }
             if (model.Conteudo == null && _internaid != 0 && model.SiteId == 1){
                 string site = "2";
@@ -59,7 +77,14 @@ namespace SitePortal.Controllers
 
                 model = new Portal().CarregarModel(false);
                 model.Conteudo = new DTO.Publicacao.Publicacao();
-                model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == _internaid);
+                if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.PAGINA)
+                {
+                    model.Conteudo = model.Paginas.Find(x => x.PublicacaoId == _internaid);
+                }
+                else if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.HOTSITE)
+                {
+                    model.Conteudo = model.HotSite.Find(x => x.PublicacaoId == _internaid);
+                }
             }
 
 

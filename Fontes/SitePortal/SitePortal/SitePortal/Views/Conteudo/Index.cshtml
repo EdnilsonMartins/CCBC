@@ -13,14 +13,28 @@
 
 @section Scripts
 {
-
-
-
     <script type="text/javascript" src="@Url.Content("~/Scripts/jConteudo.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.js")"></script>
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.css")" media="screen" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/fancybox/jquery.fancybox-1.3.4.css")" media="screen" />    
+}
 
-    
+@{
+    bool? ExibirLateralEsquerda = null;
+    bool? ExibirLateralDireita = null;
+
+    ExibirLateralEsquerda = @Model.Conteudo != null ? @Model.Conteudo.ExibirLateralEsquerda : false;
+    ExibirLateralDireita = @Model.Conteudo != null ? @Model.Conteudo.ExibirLateralDireita : false;
+
+    var LarguraConteudo = "width: 480px !important;";
+    if (ExibirLateralEsquerda != null && !(bool)ExibirLateralEsquerda)
+        if (ExibirLateralDireita != null && !(bool)ExibirLateralDireita)
+            LarguraConteudo = "width: 998px !important;";
+        else
+            LarguraConteudo = "width: 732px !important;";
+    else
+        if (ExibirLateralDireita != null && !(bool)ExibirLateralDireita)
+            LarguraConteudo = "width: 732px !important;";
+
 }
 
 @section Metatags{
@@ -88,7 +102,7 @@
 
 <!--lateral esquerda-->
 <div class="lateral">
-    <div class="lateral-conteudo">
+    <div class="lateral-conteudo" style="@((ExibirLateralEsquerda != null && !(bool)ExibirLateralEsquerda) ? Html.Raw("display: none;") : Html.Raw(""))">
 
         <!--menu internas-->
         @*if ((Model.ListaMenuInterna.Count > 0) && (!Model.ListaMenuInterna.Any(x=>x.PublicacaoId == Model.Conteudo.PublicacaoId)))*@
@@ -104,65 +118,63 @@
                )
 
             )
-            {
-                <div class="menu-internas" style="margin-bottom: 50px;">
-                    <div class="menu-internas-titulo cor-padrao">
-                        <h1>
-                            @if (Model.ListaMenuTree[0].MenuPaiId != null) {
-                                if (!Model.ListaMenuInterna.Any(x=>x.MenuPaiId == Model.ListaMenuTree[0].MenuPaiId))
-                                {
-                                    @Model.ListaMenuTree[0].Rotulo
-                                }
-                                else
-                                {
-                                    @Model.ListaMenuTree[1].Rotulo
-                                }
-                            }
-                            else
+        {
+            <div class="menu-internas" style="margin-bottom: 50px;">
+                <div class="menu-internas-titulo cor-padrao">
+                    <h1>
+                        @if (Model.ListaMenuTree[0].MenuPaiId != null)
+                        {
+                            if (!Model.ListaMenuInterna.Any(x => x.MenuPaiId == Model.ListaMenuTree[0].MenuPaiId))
                             {
                                 @Model.ListaMenuTree[0].Rotulo
                             }
-
-                        </h1>
-                    </div>
-
-                    <ul>
-
-                        @foreach (Menu m in Model.ListaMenuInterna)
-                        {
-                            var _target = "_self";
-                            if (m.TargetId == 1) { _target = "_parent"; }
-                            if (m.TargetId == 2) { _target = "_blank"; }
-                            var xx = "";
-                            if (m.PublicacaoId == Model.Conteudo.PublicacaoId)
+                            else
                             {
-                                xx = "menu-internas-on";
-                            }
-
-                            if (m.MenuTipoAcaoId == 1)
-                            {
-                                @*class="topo-menu-off"*@
-                                <li><a href="@Url.Content("~/")@m.LinkURL" class="@xx" target="@_target">@m.Rotulo</a></li>
-                            }
-                            else if (m.MenuTipoAcaoId == 2)
-                            {
-                                <li><a href="@m.LinkURL" class="@xx" target="@_target">@m.Rotulo</a></li>
+                                @Model.ListaMenuTree[1].Rotulo
                             }
                         }
+                        else
+                        {
+                            @Model.ListaMenuTree[0].Rotulo
+                        }
 
-                    </ul>
+                    </h1>
                 </div>
-            }
-        <!--menu internas-->
 
+                <ul>
+
+                    @foreach (Menu m in Model.ListaMenuInterna)
+                    {
+                        var _target = "_self";
+                        if (m.TargetId == 1) { _target = "_parent"; }
+                        if (m.TargetId == 2) { _target = "_blank"; }
+                        var xx = "";
+                        if (m.PublicacaoId == Model.Conteudo.PublicacaoId)
+                        {
+                            xx = "menu-internas-on";
+                        }
+
+                        if (m.MenuTipoAcaoId == 1)
+                        {
+                            @*class="topo-menu-off"*@
+                            <li><a href="@Url.Content("~/")@m.LinkURL" class="@xx" target="@_target">@m.Rotulo</a></li>
+                        }
+                        else if (m.MenuTipoAcaoId == 2)
+                        {
+                            <li><a href="@m.LinkURL" class="@xx" target="@_target">@m.Rotulo</a></li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        }
+        <!--menu internas-->
         <!-- Agenda -->
         @{Html.RenderAction("Agenda", "Conteudo", new { model = Model });}
         <!--/Agenda -->
-
         <!-- Newsletter -->
         @{Html.RenderAction("NewsLetter", "Conteudo", new { model = Model });}
         <!--/Newsletter -->
-
         <!-- Banner Lateral -->
         @if (Model.BannerLateral != null)
         {
@@ -187,13 +199,14 @@
         }
         <!--/Banner Lateral -->
     </div>
+
 </div>
 <!--lateral esquerda-->
 <!--conteudo / direta-->
 
 
 
-<div class="internas-conteudo">
+<div class="internas-conteudo" style="@LarguraConteudo">
 
     @if (Model.Conteudo != null)
     {
@@ -201,60 +214,60 @@
         <input type="hidden" id="ConteudoCorpoMini" value="@DAL.Util.ScrubHtml(Model.Conteudo.Detalhe.Conteudo)" />
         <input type="hidden" id="ArquivoDestaqueId" value="@Model.Conteudo.ArquivoDestaqueId" />
         <input type="hidden" id="UrlAtual" value="@Request.Url" />
-        
+
         <h1 id="ConteudoTitulo">@Model.Conteudo.Detalhe.Titulo</h1>
 
         <span id="ConteudoCorpo" style="font-size: 14px; color: #666; font-weight:normal; margin: 15px 0 0 0;">@Html.Raw(Model.Conteudo.Detalhe.Conteudo)</span>
 
-        if(!String.IsNullOrEmpty( Model.Conteudo.Detalhe.Fonte) )
+        if (!String.IsNullOrEmpty(Model.Conteudo.Detalhe.Fonte))
         {
             var data = "";
             if (@Model.Conteudo.Data != null)
             {
                 data = " - " + ((DateTime)Model.Conteudo.Data).ToString("dd/MM/yyyy");
             }
-            
-           <span id="Fonte" style="width: 100%; float: left; text-align: right; font-size: 13px; color: gray; font-weight: normal; font-style: normal; margin: 15px 0 -10px 0; ">Fonte: @Model.Conteudo.Detalhe.Fonte @data</span> 
-            
+
+            <span id="Fonte" style="width: 100%; float: left; text-align: right; font-size: 13px; color: gray; font-weight: normal; font-style: normal; margin: 15px 0 -10px 0; ">Fonte: @Model.Conteudo.Detalhe.Fonte @data</span>
+
         }
-        
-        
+
+
         @*<div class="pw-widget pw-size-small" style="float: left; margin: 25px 0 0 0;">
-            <a class="pw-button-facebook"></a>
-            <a class="pw-button-twitter"></a>
-            <a class="pw-button-linkedin"></a>
-            <a class="pw-button-email"></a>
-        </div>*@
+                <a class="pw-button-facebook"></a>
+                <a class="pw-button-twitter"></a>
+                <a class="pw-button-linkedin"></a>
+                <a class="pw-button-email"></a>
+            </div>*@
 
         @*<div style="float: left;">
-            <a href="Print/CAM-CCBC.aspx" target="_blank">
-                <img src="Images/Bt_print.png" width="16" />
-            </a>
-        </div>*@
+                <a href="Print/CAM-CCBC.aspx" target="_blank">
+                    <img src="Images/Bt_print.png" width="16" />
+                </a>
+            </div>*@
 
         @*<script src="http://i.po.st/static/v3/post-widget.js#publisherKey=mtnnocp28jgch1fbpjfs&retina=true" type="text/javascript"></script>*@
 
         <br /><br />
 
-        
-        
+
+
         <div style="display: block; position: relative;">
-            
+
             <img src="@Url.Content("~/Images/facebook.svg")" id="btnFace" title="Facebook" style=" height: 20px; border-radius: 4px; float: left; display: inline-block; cursor: pointer; margin: 0 0 0 0px;" />
-            
+
             <img src="@Url.Content("~/Images/linkedin.png")" id="btnLinkedIn" title="LinkedIn" style=" height: 20px; border-radius: 4px; float: left; display: inline-block; cursor: pointer; margin: 0 0 0 4px;" />
 
             <img src="@Url.Content("~/Images/twitter.png")" id="btnTwitter" title="Twitter" style=" height: 20px; border-radius: 4px; float: left; display: inline-block; cursor: pointer; margin: 0 0 0 4px;" />
 
 
-                @*<br />
+            @*<br />
 
                 <div class="fb-like"
                      data-share="true"
                      data-width="450"
                      data-show-faces="true">
                 </div>*@
-</div>
+        </div>
 
 
         <div id="galeriaImagem" class="internas-conteudo-galeria" style="display: none;">
@@ -288,7 +301,7 @@
     else
     {
         <h1>Conteúdo não encontrado!</h1>
-    <span onclick="javascript:history.back();" style="cursor: pointer;">Voltar</span>
+        <span onclick="javascript:history.back();" style="cursor: pointer;">Voltar</span>
     }
 </div>
 
@@ -296,12 +309,13 @@
 
 
 
+
 <!--lateral direita-->
-<div class="internas-direita" style="float: right !important;">
+<div class="internas-direita" style="float: right !important; @((ExibirLateralDireita != null && !(bool)ExibirLateralDireita) ? Html.Raw("display: none;") : Html.Raw("")) ">
 
 
     @{
-    Html.RenderPartial("QuickMenu");
+        Html.RenderPartial("QuickMenu");
     }
 
 

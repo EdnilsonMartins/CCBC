@@ -38,6 +38,7 @@ namespace SitePortal.Models
         public List<Publicacao> RevistasNewsletter { get; set; }
         public List<Publicacao> Revistas { get; set; }
         public List<Publicacao> Newsletter { get; set; }
+        public List<Publicacao> HotSite { get; set; }
         public List<Publicacao> ResultaBusca { get; set; }
 
         public Publicacao Evento { get; set; }
@@ -96,6 +97,7 @@ namespace SitePortal.Models
             RevistasNewsletter = new List<Publicacao>();
             Revistas = new List<Publicacao>();
             Newsletter = new List<Publicacao>();
+            HotSite = new List<Publicacao>();
             ResultaBusca = new List<Publicacao>();
 
             ListaMenuPrincipal = new List<Menu>();
@@ -288,7 +290,10 @@ namespace SitePortal.Models
             //Newsletter
             List<Publicacao> listaNewsletter = publicacaoDAL.ListarPublicacao(SiteId, null, (int)Util.TIPOPUBLICACAO.NEWSLETTER, null, null, Convert.ToInt32(UsuarioId), IdiomaId);
             model.Newsletter.AddRange(listaNewsletter);
-            
+
+            //HotSite
+            List<Publicacao> listaHotSite = publicacaoDAL.ListarPublicacao(SiteId, null, (int)Util.TIPOPUBLICACAO.HOTSITE, null, null, Convert.ToInt32(UsuarioId), IdiomaId);
+            model.HotSite.AddRange(listaHotSite);
 
             #region --> Configuracao
             ConfiguracaoDAL configDAL = new ConfiguracaoDAL();

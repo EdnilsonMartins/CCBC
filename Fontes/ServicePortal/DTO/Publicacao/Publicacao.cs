@@ -36,6 +36,9 @@ namespace DTO.Publicacao
         public string LinkURL { get; set; }
         public int? TargetId { get; set; }
 
+        public bool? ExibirLateralEsquerda { get; set; }
+        public bool? ExibirLateralDireita { get; set; }
+        
         public class PublicacaoComplemento
         {
             public bool? Privado { get; set; }

@@ -162,6 +162,8 @@ namespace BackofficeCMS.Controllers
             _novo.Ativo = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "Status"));
 
             _novo.Destaque = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirHome"));
+            _novo.ExibirLateralEsquerda = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirLateralEsquerda"));
+            _novo.ExibirLateralDireita = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirLateralDireita"));
             _novo.Posicao = (int?)Util.GetValue<int?>(form, "Posicao");
             _novo.EditoriaId = (int)Util.GetValue<int>(form, "Editoria", 0);
             _novo.Detalhe.Fonte = (string)Util.GetValue<string>(form, "Fonte");
@@ -302,9 +304,14 @@ namespace BackofficeCMS.Controllers
             else if (_publicacaoTipoId == (int)Util.TIPOPUBLICACAO.NOTICIA)
             {
                 rota = "Noticias/";
-            } else if (_publicacaoTipoId == (int)Util.TIPOPUBLICACAO.PAGINA)
+            } 
+            else if (_publicacaoTipoId == (int)Util.TIPOPUBLICACAO.PAGINA)
             {
                 rota = "Interna/";
+            }
+            else if (_publicacaoTipoId == (int)Util.TIPOPUBLICACAO.HOTSITE)
+            {
+                rota = "Hotsite/";
             }
 
             ConfiguracaoDAL configDAL = new ConfiguracaoDAL();

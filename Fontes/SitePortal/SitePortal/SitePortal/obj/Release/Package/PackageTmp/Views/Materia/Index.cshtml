@@ -23,6 +23,25 @@
 
 @model SitePortal.Models.Portal
 
+@{
+    bool? ExibirLateralEsquerda = null;
+    bool? ExibirLateralDireita = null;
+
+    ExibirLateralEsquerda = @Model.Conteudo != null ? @Model.Conteudo.ExibirLateralEsquerda : false;
+    ExibirLateralDireita = @Model.Conteudo != null ? @Model.Conteudo.ExibirLateralDireita : false;
+
+    var LarguraConteudo = "width: 480px !important;";
+    if (ExibirLateralEsquerda != null && !(bool)ExibirLateralEsquerda)
+        if (ExibirLateralDireita != null && !(bool)ExibirLateralDireita)
+            LarguraConteudo = "width: 998px !important;";
+        else
+            LarguraConteudo = "width: 732px !important;";
+    else
+        if (ExibirLateralDireita != null && !(bool)ExibirLateralDireita)
+            LarguraConteudo = "width: 732px !important;";
+
+}
+
 <div class="geral-1050">
     <div class="conteudo">
         
@@ -94,7 +113,7 @@
         <!--internas navegacao-->
         <!--lateral esquerda-->
         <div class="lateral">
-            <div class="lateral-conteudo">
+            <div class="lateral-conteudo" style="@((ExibirLateralEsquerda != null && !(bool)ExibirLateralEsquerda) ? Html.Raw("display: none;") : Html.Raw(""))">
 
                 <!--menu internas-->
                 @*if ((Model.ListaMenuInterna.Count > 0) && (!Model.ListaMenuInterna.Any(x=>x.PublicacaoId == Model.Conteudo.PublicacaoId)))*@
@@ -197,7 +216,7 @@
 
 
 
-        <div class="internas-conteudo">
+        <div class="internas-conteudo" style="@LarguraConteudo">
 
             @if (Model.Conteudo != null)
             {
@@ -300,7 +319,7 @@
 
 
         <!--lateral direita-->
-        <div class="internas-direita" style="float: right !important;">
+        <div class="internas-direita" style="float: right !important; @((ExibirLateralDireita != null && !(bool)ExibirLateralDireita) ? Html.Raw("display: none;") : Html.Raw("")) ">
 
 
             @{

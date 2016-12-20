@@ -28,7 +28,8 @@ namespace DAL
             PAGINA = 5,
             HOME = 6,
             REVISTA = 7,
-            NEWSLETTER = 8
+            NEWSLETTER = 8,
+            HOTSITE = 9
         }
 
         public enum ARQUIVO_CATEGORIA_TIPO

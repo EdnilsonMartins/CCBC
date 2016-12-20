@@ -138,6 +138,23 @@ function PreencherCadastro(data, IdiomaId) {
         $("[name='ExibirHome']").filter("[value='0']").attr("checked", true);
     }
 
+    if (data.Publicacao.ExibirLateralEsquerda != null && data.Publicacao.ExibirLateralEsquerda) {
+        $("[name='ExibirLateralEsquerda']").filter("[value='1']").attr("checked", true);
+    } else if (data.Publicacao.ExibirLateralEsquerda != null) {
+        $("[name='ExibirLateralEsquerda']").filter("[value='0']").attr("checked", true);
+    }
+
+    if (data.Publicacao.ExibirLateralDireita != null && data.Publicacao.ExibirLateralDireita) {
+        $("[name='ExibirLateralDireita']").filter("[value='1']").attr("checked", true);
+    } else if (data.Publicacao.ExibirLateralDireita != null) {
+        $("[name='ExibirLateralDireita']").filter("[value='0']").attr("checked", true);
+    }
+
+    if (data.Publicacao.PublicacaoId == 0) {
+        $("[name='ExibirLateralEsquerda']").filter("[value='1']").attr("checked", true);
+        $("[name='ExibirLateralDireita']").filter("[value='1']").attr("checked", true);
+    }
+
     if (data.Publicacao.Complemento.Privado != null && data.Publicacao.Complemento.Privado) {
         $("[name='Privado']").filter("[value='1']").attr("checked", true);
     } else if (data.Publicacao.Complemento.Privado != null) {
