@@ -340,7 +340,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taxa de Câmbio.
+        ///   Looks up a localized string similar to Tempo e Taxa de Câmbio.
         /// </summary>
         internal static string Home_Informacoes_SubTitulo {
             get {

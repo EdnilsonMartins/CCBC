@@ -55,6 +55,15 @@ Senha   : letsGRUPPO2015!
 10:39 -> Script gerado com dados.
 
 ------------------------------------------------------------------------
+
+https://openweathermap.org/
+http://api.openweathermap.org/data/2.5/forecast/city?id=3448439&APPID=6398a401b84ef7a5e5e41e04d6abc2ab
+Toronto   = 6167865
+Sao Paulo = 3448439
+6398a401b84ef7a5e5e41e04d6abc2ab
+------------------------------------------------------------------------
+
+
 Rotina de Liberação:
 caroline, marcos, marcelo, joao
 Publicação 1127

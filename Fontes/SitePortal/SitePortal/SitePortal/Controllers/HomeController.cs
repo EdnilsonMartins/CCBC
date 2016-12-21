@@ -13,6 +13,10 @@ using SitePortal.Models;
 using DTO.Mailing;
 using System.Xml;
 using System.Data;
+using System.Net;
+using System.IO;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace SitePortal.Controllers
 {
@@ -72,100 +76,205 @@ namespace SitePortal.Controllers
         {
             string cidade = "";
             string pais = "Brazil";
+
+            string urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22S%C3%A3o%20Paulo%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
             switch (CidadeId) {
                 case 1:
                     cidade = "Quebec, Que";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%202344924&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6325494";
                     break;
                 case 2:
                     cidade = "Toronto Pearson Int'L. Ont.";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%204118&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6167865";
                     break;
                 case 3:
                     cidade = "Vancouver International Air-Port, B. C.";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%209807&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6173331";
                     break;
                 case 4:
                     cidade = "Sao Paulo";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455827&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3448439";
                     break;
                 case 5:
                     cidade = "Brasilia Aeroporto";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455819&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3469058";
                     break;
                 case 6:
                     cidade = "Rio de Janeiro Aeroporto";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455825&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3451190";
                     break;
                 case 7:
                     cidade = "Recife Aeroporto";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455824&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3390760";
                     break;
                 //case 8:
                 //    cidade = "Joao Pessoa";
                 //    break;
                 case 9:
                     cidade = "Curitiba";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455822&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3464975";
                     break;
                 case 10:
                     cidade = "Salvador Aeroporto";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455826&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6321026";
                     break;
-
-
                 case 11:
                     cidade = "Belo Horizonte";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455821&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3470127";
                     break;
                 case 12:
                     cidade = "Porto Alegre";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%20455823&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "3452925";
                     break;
                 case 13:
                     cidade = "Montreal-Est";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%203534&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6077251";
                     break;
                 case 14:
                     cidade = "Edmonton Municipal Alta.";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%2012511647&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "5946768";
                     break;
                 case 15:
                     cidade = "Winnipeg Int. Airportman.";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%202972&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6183235";
                     break;
                 case 16:
                     cidade = "Ottawa Int'L. Ont.";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%2091982014&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "6094817";
                     break;
                 case 17:
                     cidade = "Calgary International, Alta.";
                     pais = "Canada";
+                    //urlY = "https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20=%208775&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
+                    urlY = "5913490";
                     break;
             }
 
+            urlY = String.Format("http://api.openweathermap.org/data/2.5/forecast/city?id={0}&APPID=6398a401b84ef7a5e5e41e04d6abc2ab", urlY);
+
             string temperatura = "";
             string ceu = "";
-            try
-            {
-                using (Weather.GlobalWeatherSoapClient w = new Weather.GlobalWeatherSoapClient())
+            //try
+            //{
+            //    using (Weather.GlobalWeatherSoapClient w = new Weather.GlobalWeatherSoapClient())
+            //    {
+            //        string respWeather = w.GetWeather(cidade, pais);
+            //        using (XmlTextReader xtr = new XmlTextReader(new System.IO.StringReader(respWeather)))
+            //        {
+            //            using (DataSet ds = new DataSet())
+            //            {
+            //                ds.ReadXml(xtr);
+            //                if (ds.Tables.Count >= 1 && ds.Tables[0].Rows.Count >= 1)
+            //                {
+            //                    temperatura = ds.Tables[0].Rows[0]["Temperature"].ToString().Replace("F", "°F").Replace("C", "°C");
+            //                    temperatura = temperatura.Substring(temperatura.IndexOf("(") + 1, temperatura.IndexOf(")") - 1 - temperatura.IndexOf("("));
+            //                    //ceu = ds.Tables[0].Rows[0]["SkyConditions"].ToString();
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    temperatura = "unavailable";
+            //}
+
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlY);
+
+            //request.MaximumAutomaticRedirections = 4;
+            //request.MaximumResponseHeadersLength = 4;
+            //request.Credentials = CredentialCache.DefaultCredentials;
+           
+            // int i = 0;
+            //while (i < 10)
+            //{
+                try
                 {
-                    string respWeather = w.GetWeather(cidade, pais);
-                    using (XmlTextReader xtr = new XmlTextReader(new System.IO.StringReader(respWeather)))
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
-                        using (DataSet ds = new DataSet())
+                        using (Stream receiveStream = response.GetResponseStream())
                         {
-                            ds.ReadXml(xtr);
-                            if (ds.Tables.Count >= 1 && ds.Tables[0].Rows.Count >= 1)
+                            using (StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8))
                             {
-                                temperatura = ds.Tables[0].Rows[0]["Temperature"].ToString().Replace("F", "°F").Replace("C", "°C");
-                                temperatura = temperatura.Substring(temperatura.IndexOf("(") + 1, temperatura.IndexOf(")") - 1 - temperatura.IndexOf("("));
-                                //ceu = ds.Tables[0].Rows[0]["SkyConditions"].ToString();
+                                string resposta = readStream.ReadToEnd();
+
+                                dynamic stuff = JsonConvert.DeserializeObject(resposta);
+
+                                temperatura = stuff.list[0].main.temp;
+
+                                NumberFormatInfo provider = new NumberFormatInfo();
+                                provider.NumberGroupSeparator = ",";
+                                provider.NumberDecimalSeparator = ".";
+
+                                double t = (double)Convert.ToDecimal(temperatura, provider);
+                                //double t = Convert.ToDouble(temperatura.Replace(".",","));
+
+                                t = (t - 273.15); //Kelvin     //C = (F - 32)/1.8
+                                temperatura = Math.Round(t, 1).ToString() + " °C";
+
+                                response.Close();
+                                readStream.Close();
+
+                                //break;
                             }
                         }
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                temperatura = "unavailable";
-            }
+                catch (Exception e)
+                {
+                    //i++;
+                    temperatura = "unavailable";
+                }
+            //}
+
 
             return Json(new { Temperatura = temperatura, Ceu = ceu }, JsonRequestBehavior.AllowGet);
         }
-
+        public bool AcceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
+        }
         public ActionResult EfetuarLogin(string Login, string Senha)
         {
             //Resposta resposta = new Resposta();

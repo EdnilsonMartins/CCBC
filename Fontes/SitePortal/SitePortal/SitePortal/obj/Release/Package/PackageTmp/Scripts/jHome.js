@@ -236,13 +236,13 @@ function AtualizarTemperatura(item) {
 
 function CarregarTemperaturaTaxaCambio() {
 
-    /*
-    $.post(AppPath + "Home/GetWeatherExchangeFee", { CidadeId: 1 }, function (data) {
+    
+    $.post(AppPath + "Home/GetWeatherExchangeFee", { CidadeId: 2 }, function (data) {
         if (data != null) {
             $("#lblTemperatura").html(data.Temperatura);
         }
     });
-    */
+    
 
 
     var moedas = "%28%22USDBRL%22%2C%22CADBRL%22%2C%22AUDBRL%22%2C%22EURBRL%22%29";
