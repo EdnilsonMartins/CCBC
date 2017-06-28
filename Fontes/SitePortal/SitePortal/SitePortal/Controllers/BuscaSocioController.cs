@@ -35,7 +35,33 @@ namespace SitePortal.Controllers
 
         public ActionResult ListarAssociado(int SiteId, int AssociadoCategoriaId, string LetraInicial)
         {
-            return Json(new AssociadoDAL().ListarAssociado(SiteId, AssociadoCategoriaId, LetraInicial, false), JsonRequestBehavior.AllowGet);
+
+            var lista = new AssociadoDAL().ListarAssociado(SiteId, AssociadoCategoriaId, LetraInicial, false);
+            
+            
+
+            var currentCulture = HttpContext.Request.Cookies["lang"] != null ? HttpContext.Request.Cookies["lang"].Value : "pt-BR";
+            if (string.IsNullOrEmpty(currentCulture)) currentCulture = "pt-BR";
+            
+            foreach(var item in lista){
+                if (item.Detalhe != null && item.Detalhe.DataAtualizacao !=null){
+
+                    if(Util.GetIdiomaId(currentCulture) == (int)Util.IDIOMA.PORTUGUES){
+                        item.Detalhe.DataAtualizacao = Resources.Portal.Associado_AtualizadoEm + " " + string.Format("{0} de {1} de {2}", ((DateTime)item.DataAtualizacao).ToString("dd"), ((DateTime)item.DataAtualizacao).ToString("MMMM"), ((DateTime)item.DataAtualizacao).ToString("yyyy"));
+
+                    }else if(Util.GetIdiomaId(currentCulture) == (int)Util.IDIOMA.ENGLISH){
+                        item.Detalhe.DataAtualizacao = Resources.Portal.Associado_AtualizadoEm + " " + ((DateTime)item.DataAtualizacao).ToString("MMMM dd, yyyy") ;
+
+                    }else if(Util.GetIdiomaId(currentCulture) == (int)Util.IDIOMA.ESPANHOL){
+                        item.Detalhe.DataAtualizacao = Resources.Portal.Associado_AtualizadoEm + " " + string.Format("{0} de {1} de {2}", ((DateTime)item.DataAtualizacao).ToString("dd"), ((DateTime)item.DataAtualizacao).ToString("MMMM"), ((DateTime)item.DataAtualizacao).ToString("yyyy"));
+
+                    }else if(Util.GetIdiomaId(currentCulture) == (int)Util.IDIOMA.FRANCES){
+
+                    }
+
+                }
+            }
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
     }

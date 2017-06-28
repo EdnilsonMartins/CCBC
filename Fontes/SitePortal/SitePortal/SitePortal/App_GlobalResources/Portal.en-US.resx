@@ -190,7 +190,7 @@
     <value>Republication and dissemination of public content are permitted provided that cited source, title and author. In the case of restricted content, the unauthorized use of the controller is not allowed. It is totally free to quote from the Portal URL (http // www.ccbc.org.br) in sites and third party sites.</value>
   </data>
   <data name="Home_Rodape_DireitosAutorais" xml:space="preserve">
-    <value>© 2014/2015 - CCBC - All rights reserved.</value>
+    <value>© 2014/2017 - CCBC - All rights reserved.</value>
   </data>
   <data name="Home_Saiba_Mais" xml:space="preserve">
     <value>READ MORE</value>
@@ -214,7 +214,7 @@
     <value>Welcome</value>
   </data>
   <data name="Login_Mensagem_Desconectar" xml:space="preserve">
-    <value>Whether disconnect?</value>
+    <value>Rather disconnect?</value>
   </data>
   <data name="Login_Mensagem_FiqueAvontade" xml:space="preserve">
     <value>feel free, exclusive content</value>
@@ -329,5 +329,8 @@
   </data>
   <data name="Selecione_Divisao" xml:space="preserve">
     <value>Bt_divisoesEN.png</value>
+  </data>
+  <data name="Associado_AtualizadoEm" xml:space="preserve">
+    <value>Updated on</value>
   </data>
 </root>

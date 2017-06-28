@@ -23,9 +23,11 @@
 @{
     bool? ExibirLateralEsquerda = null;
     bool? ExibirLateralDireita = null;
+    bool? ExibirHeader = null;
 
     ExibirLateralEsquerda = @Model.Conteudo != null ? @Model.Conteudo.ExibirLateralEsquerda : false;
     ExibirLateralDireita = @Model.Conteudo != null ? @Model.Conteudo.ExibirLateralDireita : false;
+    ExibirHeader = Model.Conteudo != null ? Model.Conteudo.ExibirHeader : true;
 
     var LarguraConteudo = "width: 480px !important;";
     if (ExibirLateralEsquerda != null && !(bool)ExibirLateralEsquerda)
@@ -37,10 +39,13 @@
         if (ExibirLateralDireita != null && !(bool)ExibirLateralDireita)
             LarguraConteudo = "width: 732px !important;";
 
+    var ConteudoTopo = "margin: 190px 0 0 0!important;";
+    if (ExibirHeader != null && !(bool)ExibirHeader)
+        ConteudoTopo = "margin: 60px 0 0 0!important;";
 }
 
 <div class="geral-1050">
-    <div class="conteudo">
+    <div class="conteudo" style="@ConteudoTopo">
 
         @*@{
             Html.RenderAction("Index", "Conteudo", new { Id = Model.Conteudo.PublicacaoId });

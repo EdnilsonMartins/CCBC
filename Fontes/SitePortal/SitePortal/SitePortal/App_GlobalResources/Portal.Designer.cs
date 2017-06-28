@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Atualizado em.
+        /// </summary>
+        internal static string Associado_AtualizadoEm {
+            get {
+                return ResourceManager.GetString("Associado_AtualizadoEm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BUSCA POR.
         /// </summary>
         internal static string BuscaSocio_BuscaPor {
@@ -439,7 +448,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © 2014 / 2015 - CCBC - Todos os direitos reservados..
+        ///   Looks up a localized string similar to © 2014 / 2017 - CCBC - Todos os direitos reservados..
         /// </summary>
         internal static string Home_Rodape_DireitosAutorais {
             get {

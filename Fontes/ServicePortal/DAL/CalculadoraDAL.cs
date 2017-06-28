@@ -11,7 +11,7 @@ namespace DAL
     public class CalculadoraDAL
     {
 
-        public CalculadoraResponse Calcular(string _Valor)
+        public CalculadoraResponse Calcular(string _Valor, int CalculadoraId = 1)
         {
             NumberFormatInfo provider = new NumberFormatInfo();
                     provider.NumberGroupSeparator = ",";
@@ -26,6 +26,7 @@ namespace DAL
                 using (ConexaoDB objetoConexao = new ConexaoDB())
                 {
                     objetoConexao.AdicionarParametro("@Valor", SqlDbType.Decimal, Valor);
+                    objetoConexao.AdicionarParametro("@CalculadoraId", SqlDbType.Int, CalculadoraId);
                     using (DataTable dt = objetoConexao.RetornarTabela("USP_SEL_Calculadora"))
                     {
                         if (dt != null && dt.Rows.Count > 0)
@@ -65,6 +66,11 @@ namespace DAL
                 dto.CoArbitros = Convert.ToDouble(dr["CoArbitros"]);
                 dto.CoArbitrosStr = ((double)dto.CoArbitros).ToString("R$ #,#00.00");
             }
+            if (Util.GetNonNull(dr["CoArbitros"]))
+            {
+                dto.CoArbitros = Convert.ToDouble(dr["CoArbitros"]);
+                dto.CoArbitrosStr2 = ((double)dto.CoArbitros/2).ToString("R$ #,#00.00");
+            }
             if (Util.GetNonNull(dr["Total"]))
             {
                 dto.Total = Convert.ToDouble(dr["Total"]);
@@ -75,6 +81,66 @@ namespace DAL
                 dto.DespesasAdministrativas = Convert.ToDouble(dr["DespesasAdministrativas"]);
                 dto.DespesasAdministrativasStr = ((double)dto.DespesasAdministrativas).ToString("R$ #,#00.00");
             }
+
+
+
+            if (dr.Table.Columns["TaxaRegistro"] != null)
+            {
+                if (Util.GetNonNull(dr["TaxaRegistro"]))
+                {
+                    dto.TaxaRegistro = Convert.ToDouble(dr["TaxaRegistro"]);
+                    dto.TaxaRegistroStr = ((double)dto.TaxaRegistro).ToString("R$ #,#00.00");
+                }
+            }
+            if (dr.Table.Columns["HonorarioArbitroUnico"] != null)
+            {
+                if (Util.GetNonNull(dr["HonorarioArbitroUnico"]))
+                {
+                    dto.HonorarioArbitroUnico = Convert.ToDouble(dr["HonorarioArbitroUnico"]);
+                    dto.HonorarioArbitroUnicoStr = ((double)dto.HonorarioArbitroUnico).ToString("R$ #,#00.00");
+                }
+            }
+            if (dr.Table.Columns["TotalRequerenteArbitroUnico"] != null)
+            {
+                if (Util.GetNonNull(dr["TotalRequerenteArbitroUnico"]))
+                {
+                    dto.TotalRequerenteArbitroUnico = Convert.ToDouble(dr["TotalRequerenteArbitroUnico"]);
+                    dto.TotalRequerenteArbitroUnicoStr = ((double)dto.TotalRequerenteArbitroUnico).ToString("R$ #,#00.00");
+                }
+            }
+            if (dr.Table.Columns["TotalRequeridoArbitroUnico"] != null)
+            {
+                if (Util.GetNonNull(dr["TotalRequeridoArbitroUnico"]))
+                {
+                    dto.TotalRequeridoArbitroUnico = Convert.ToDouble(dr["TotalRequeridoArbitroUnico"]);
+                    dto.TotalRequeridoArbitroUnicoStr = ((double)dto.TotalRequeridoArbitroUnico).ToString("R$ #,#00.00");
+                }
+            }
+            if (dr.Table.Columns["Honorario3Arbitros"] != null)
+            {
+                if (Util.GetNonNull(dr["Honorario3Arbitros"]))
+                {
+                    dto.Honorario3Arbitros = Convert.ToDouble(dr["Honorario3Arbitros"]);
+                    dto.Honorario3ArbitrosStr = ((double)dto.Honorario3Arbitros).ToString("R$ #,#00.00");
+                }
+            }
+            if (dr.Table.Columns["TotalRequerente3Arbitros"] != null)
+            {
+                if (Util.GetNonNull(dr["TotalRequerente3Arbitros"]))
+                {
+                    dto.TotalRequerente3Arbitros = Convert.ToDouble(dr["TotalRequerente3Arbitros"]);
+                    dto.TotalRequerente3ArbitrosStr = ((double)dto.TotalRequerente3Arbitros).ToString("R$ #,#00.00");
+                }
+            }
+            if (dr.Table.Columns["TotalRequerido3Arbitros"] != null)
+            {
+                if (Util.GetNonNull(dr["TotalRequerido3Arbitros"]))
+                {
+                    dto.TotalRequerido3Arbitros = Convert.ToDouble(dr["TotalRequerido3Arbitros"]);
+                    dto.TotalRequerido3ArbitrosStr = ((double)dto.TotalRequerido3Arbitros).ToString("R$ #,#00.00");
+                }
+            }
+
         }
 
     }

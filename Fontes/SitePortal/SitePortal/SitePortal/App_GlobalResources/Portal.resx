@@ -190,7 +190,7 @@
     <value>A republicação e divulgação de conteúdos públicos são permitidas, desde que citados fonte, título e autor. No caso dos conteúdos restritos, não é permitida a utilização sem autorização do responsável. É totalmente livre a citação da URL do Portal (http//www.ccbc.org.br) em sítios e páginas de terceiros.</value>
   </data>
   <data name="Home_Rodape_DireitosAutorais" xml:space="preserve">
-    <value>© 2014 / 2015 - CCBC - Todos os direitos reservados.</value>
+    <value>© 2014 / 2017 - CCBC - Todos os direitos reservados.</value>
   </data>
   <data name="Home_Saiba_Mais" xml:space="preserve">
     <value>SAIBA MAIS</value>
@@ -326,5 +326,8 @@
   </data>
   <data name="Selecione_Divisao" xml:space="preserve">
     <value>Bt_divisoes.png</value>
+  </data>
+  <data name="Associado_AtualizadoEm" xml:space="preserve">
+    <value>Atualizado em</value>
   </data>
 </root>

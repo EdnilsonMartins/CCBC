@@ -164,6 +164,8 @@ namespace BackofficeCMS.Controllers
             _novo.Destaque = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirHome"));
             _novo.ExibirLateralEsquerda = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirLateralEsquerda"));
             _novo.ExibirLateralDireita = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirLateralDireita"));
+            _novo.ExibirHeader = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirHeader"));
+            _novo.ExibirRodape = Convert.ToBoolean((int?)Util.GetValue<int?>(form, "ExibirRodape"));
             _novo.Posicao = (int?)Util.GetValue<int?>(form, "Posicao");
             _novo.EditoriaId = (int)Util.GetValue<int>(form, "Editoria", 0);
             _novo.Detalhe.Fonte = (string)Util.GetValue<string>(form, "Fonte");

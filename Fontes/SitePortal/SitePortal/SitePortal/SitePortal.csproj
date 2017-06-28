@@ -264,12 +264,19 @@
     <Content Include="Images\Bt_divisoesEN.png" />
     <Content Include="Images\Bt_divisoesES.png" />
     <Content Include="Images\Bt_divisoesFR.png" />
+    <Content Include="Images\cam-ccbc-en-US.png" />
+    <Content Include="Images\cam-ccbc-es-ES.png" />
+    <Content Include="Images\cam-ccbc-pt-BR.png" />
+    <Content Include="Images\ccbc-en-US.png" />
+    <Content Include="Images\ccbc-fr-CA.png" />
+    <Content Include="Images\ccbc-pt-BR.png" />
     <Content Include="Images\e2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\evento-default.png" />
     <Content Include="Images\facebook.svg" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\Icon_MenuSemHeader.png" />
     <Content Include="Images\Icon_Saiba_Mais.png" />
     <Content Include="Content\list-rotator.css" />
     <Content Include="Content\style.css" />
@@ -447,6 +454,9 @@
     <Content Include="Views\LembrarSenha\Index.cshtml" />
     <Content Include="Views\Galeria\Index.cshtml" />
     <Content Include="Views\Conteudo\RevistasNewsletter.cshtml" />
+    <Content Include="Views\Conteudo\Calculadora2017.cshtml" />
+    <Content Include="Views\Conteudo\Composicao.cshtml" />
+    <Content Include="Views\Conteudo\Composicao2017Imprimir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

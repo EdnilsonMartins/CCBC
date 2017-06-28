@@ -92,6 +92,8 @@ namespace DAL
                     objetoConexao.AdicionarParametro("@TargetId", SqlDbType.Int, Publicacao.TargetId);
                     objetoConexao.AdicionarParametro("@ExibirLateralEsquerda", SqlDbType.Bit, Publicacao.ExibirLateralEsquerda);
                     objetoConexao.AdicionarParametro("@ExibirLateralDireita", SqlDbType.Bit, Publicacao.ExibirLateralDireita);
+                    objetoConexao.AdicionarParametro("@ExibirHeader", SqlDbType.Bit, Publicacao.ExibirHeader);
+                    objetoConexao.AdicionarParametro("@ExibirRodape", SqlDbType.Bit, Publicacao.ExibirRodape);
                     using (DataTable dt = objetoConexao.RetornarTabela("USP_INS_Publicacao"))
                     {
                         if (dt != null && dt.Rows.Count > 0)
@@ -380,6 +382,13 @@ namespace DAL
                 if (Util.GetNonNull(dr["ExibirLateralDireita"]))
                     dto.ExibirLateralDireita = (bool)dr["ExibirLateralDireita"];
 
+            if (dr.Table.Columns["ExibirHeader"] != null)
+                if (Util.GetNonNull(dr["ExibirHeader"]))
+                    dto.ExibirHeader = (bool)dr["ExibirHeader"];
+
+            if (dr.Table.Columns["ExibirRodape"] != null)
+                if (Util.GetNonNull(dr["ExibirRodape"]))
+                    dto.ExibirRodape = (bool)dr["ExibirRodape"];
         }
     }
 }

@@ -150,9 +150,22 @@ function PreencherCadastro(data, IdiomaId) {
         $("[name='ExibirLateralDireita']").filter("[value='0']").attr("checked", true);
     }
 
+    if (data.Publicacao.ExibirHeader != null && data.Publicacao.ExibirHeader) {
+        $("[name='ExibirHeader']").filter("[value='1']").attr("checked", true);
+    } else if (data.Publicacao.ExibirHeader != null) {
+        $("[name='ExibirHeader']").filter("[value='0']").attr("checked", true);
+    }
+
+    if (data.Publicacao.ExibirRodape != null && data.Publicacao.ExibirRodape) {
+        $("[name='ExibirRodape']").filter("[value='1']").attr("checked", true);
+    } else if (data.Publicacao.ExibirRodape != null) {
+        $("[name='ExibirRodape']").filter("[value='0']").attr("checked", true);
+    }
     if (data.Publicacao.PublicacaoId == 0) {
         $("[name='ExibirLateralEsquerda']").filter("[value='1']").attr("checked", true);
         $("[name='ExibirLateralDireita']").filter("[value='1']").attr("checked", true);
+        $("[name='ExibirHeader']").filter("[value='1']").attr("checked", true);
+        $("[name='ExibirRodape']").filter("[value='1']").attr("checked", true);
     }
 
     if (data.Publicacao.Complemento.Privado != null && data.Publicacao.Complemento.Privado) {

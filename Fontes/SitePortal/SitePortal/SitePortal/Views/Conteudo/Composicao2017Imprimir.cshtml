@@ -1,0 +1,173 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Composição</title>
+
+    <script type="text/javascript">
+        var AppPath = '@Url.Content("~/")';
+    </script>
+
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Rotativo"))
+    @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>*@
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Calculadora"))
+
+
+    <script>
+        $(function () {
+            $("#lblRequerenteTaxaRegistro").val($("#lblRequerenteTaxaRegistroX", opener.document.body).val());
+            $("#lblRequerenteTaxaAdministracao").val($("#lblRequerenteTaxaAdministracaoX", opener.document.body).val());
+            $("#lblRequeridoTaxaAdministracao").val($("#lblRequeridoTaxaAdministracaoX", opener.document.body).val());
+            $("#lblRequerenteHonorarioArbitros").val($("#lblRequerenteHonorarioArbitrosX", opener.document.body).val());
+            $("#lblRequeridoHonorarioArbitros").val($("#lblRequeridoHonorarioArbitrosX", opener.document.body).val());
+            $("#lblRequerenteTotal").val($("#lblRequerenteTotalX", opener.document.body).val());
+            $("#lblRequeridoTotal").val($("#lblRequeridoTotalX", opener.document.body).val());
+
+            $("#lblRequerenteTaxaRegistro2").val($("#lblRequerenteTaxaRegistro2X", opener.document.body).val());
+            $("#lblRequerenteTaxaAdministracao2").val($("#lblRequerenteTaxaAdministracao2X", opener.document.body).val());
+            $("#lblRequeridoTaxaAdministracao2").val($("#lblRequeridoTaxaAdministracao2X", opener.document.body).val());
+            $("#lblRequerenteHonorarioArbitros2").val($("#lblRequerenteHonorarioArbitros2X", opener.document.body).val());
+            $("#lblRequeridoHonorarioArbitros2").val($("#lblRequeridoHonorarioArbitros2X", opener.document.body).val());
+            $("#lblRequerenteTotal2").val($("#lblRequerenteTotal2X", opener.document.body).val());
+            $("#lblRequeridoTotal2").val($("#lblRequeridoTotal2X", opener.document.body).val());
+
+            $("#lblPresidente").val($("#lblPresidente", opener.document.body).val());
+            $("#lblCoArbitros1").val($("#lblCoArbitrosX", opener.document.body).val());
+            $("#lblCoArbitros2").val($("#lblCoArbitrosX", opener.document.body).val());
+            $("#lblTotal").val($("#lblTotal", opener.document.body).val());
+            $("#lblRequerente").val($("#lblRequerenteX", opener.document.body).val());
+            $("#lblRequerido").val($("#lblRequeridoX", opener.document.body).val());
+
+            window.print();
+        });
+
+
+    </script>
+</head>
+<body>
+
+    <center>
+        <img id="logoSite" src="@Url.Content("~/Images/Logo_cam.png")" alt="CAM / CCBC" style="vertical-align: middle; padding-left: 0; margin-left: -104px;">
+        <label style="font-family: Arial; resize:14px; font-weight:bold;">TABELA DE DESPESAS 2017</label>
+    </center>
+
+    <br /><br />
+
+
+    <center>
+        <table border="1" cellspacing="0" cellpadding="2" style="width: 600px; font-family: arial; font-size: 12px; text-align: center;">
+            <tr>
+                <td colspan="3"><b>Tribunal Arbitral (3 Árbitros)</b></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td></td>
+                <td>Requerente(s)</td>
+                <td>Requerido(s)</td>
+            </tr>
+            <tr style="height: 24px;">
+                <td style="text-align: left; padding-left: 18px; font-size: 13px;">Taxa de Registro</td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequerenteTaxaRegistro" /></td>
+                <td>-</td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td style="text-align: left; padding-left: 18px; font-size: 13px;">Taxa de Administração</td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequerenteTaxaAdministracao" /></td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequeridoTaxaAdministracao" /></td>
+            </tr>
+            <tr style="height: 24px;">
+                <td style="text-align: left; padding-left: 18px; font-size: 13px;">Honorários do Tribunal Arbitral</td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequerenteHonorarioArbitros" /></td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequeridoHonorarioArbitros" /></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td style="padding-left: 18px; font-size: 13px;">Total</td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequerenteTotal" disabled /></td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequeridoTotal" disabled /></td>
+            </tr>
+
+        </table>
+
+    </center>
+
+    <br /><br />
+
+    <center>
+        <table border="1" cellspacing="0" cellpadding="2" style="width: 600px; font-family: arial; font-size: 12px; text-align: center;">
+            <tr>
+                <td colspan="3"><b>Árbitro Único</b></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td></td>
+                <td>Requerente(s)</td>
+                <td>Requerido(s)</td>
+            </tr>
+            <tr style="height: 24px;">
+                <td style="text-align: left; padding-left: 18px; font-size: 13px;">Taxa de Registro</td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequerenteTaxaRegistro2" /></td>
+                <td>-</td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td style="text-align: left; padding-left: 18px; font-size: 13px;">Taxa de Administração</td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequerenteTaxaAdministracao2" /></td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequeridoTaxaAdministracao2" /></td>
+            </tr>
+            <tr style="height: 24px;">
+                <td style="text-align: left; padding-left: 18px; font-size: 13px;">Honorários do Árbitro Único</td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequerenteHonorarioArbitros2" /></td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequeridoHonorarioArbitros2" /></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td style="padding-left: 18px; font-size: 13px;">Total</td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequerenteTotal2" disabled /></td>
+                <td><input type="text" style="text-align: center; background-color: lightblue; border: none;" id="lblRequeridoTotal2" disabled /></td>
+            </tr>
+            
+        </table>
+
+    </center>
+
+    <br /><br />
+
+    <center>
+        <table border="1" cellspacing="0" cellpadding="2" style="font-family: arial; font-size: 12px; text-align: center;">
+            <tr>
+                <td colspan="2"><b>Honorários do Tribunal Arbitral</b></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td colspan="2">Presidente</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" style="text-align: center; background-color: white; border: none;" id="lblPresidente" /></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td>co-árbitro</td>
+                <td>co-árbitro</td>
+            </tr>
+            <tr>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblCoArbitros1" disabled /></td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblCoArbitros2" disabled /></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td colspan="2" style="text-align: center;">Total</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" style="text-align: center; background-color: white; border: none;" id="lblTotal" /></td>
+            </tr>
+            <tr style="background-color: lightblue; height: 24px;">
+                <td>Requerente(s)</td>
+                <td>Requerido(s)</td>
+            </tr>
+            <tr>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequerente" /></td>
+                <td><input type="text" style="text-align: center; background-color: white; border: none;" id="lblRequerido" /></td>
+            </tr>
+        </table>
+
+    </center>
+</body>
+</html>

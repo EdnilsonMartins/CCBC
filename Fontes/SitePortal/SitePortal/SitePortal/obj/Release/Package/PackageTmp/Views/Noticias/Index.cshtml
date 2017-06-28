@@ -44,7 +44,7 @@
     var columns = new List<WebGridColumn>();
     var grid = new WebGrid(Model.Noticias.OrderByDescending(x => x.Data), canPage: true, rowsPerPage: 10);
 
-    var colResult = "<div class=\"resultados\">{6} <div style=\"float: left; padding-left: 12px;\"><h3>{0}&nbsp;&nbsp;{3}</h3><h1><a href=\"" + AppPath + "Noticias/{4}/{5}\" class=\"opacidade\">{1}</a></h1><h2>{2}</h2></div></div>";
+    var colResult = "<div class=\"resultados\">{6} <div style=\"float: left; padding-left: 12px; max-width: 912px; text-align: justify;\"><h3>{0}&nbsp;&nbsp;{3}</h3><h1><a href=\"" + AppPath + "Noticias/{4}/{5}\" class=\"opacidade\">{1}</a></h1><h2>{2}</h2></div></div>";
 
     columns.Add(grid.Column("Detalhe.Titulo", "Título",
         (item) => Html.Raw(

@@ -14,6 +14,7 @@ namespace DTO
         public int AssociadoCategoriaId { get; set; }
         public int TipoPessoaId { get; set; }
         public int PaisId { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
 
         public AssociadoComplemento Detalhe { get; set; }
 
@@ -27,6 +28,7 @@ namespace DTO
             public string TipoPessoa { get; set; }
             public string AssociadoCategoria { get; set; }
             public string Pais { get; set; }
+            public string DataAtualizacao { get; set; }
         }
     }
 }

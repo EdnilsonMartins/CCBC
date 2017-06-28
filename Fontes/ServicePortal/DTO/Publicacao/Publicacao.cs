@@ -38,6 +38,8 @@ namespace DTO.Publicacao
 
         public bool? ExibirLateralEsquerda { get; set; }
         public bool? ExibirLateralDireita { get; set; }
+        public bool? ExibirHeader { get; set; }
+        public bool? ExibirRodape { get; set; }
         
         public class PublicacaoComplemento
         {

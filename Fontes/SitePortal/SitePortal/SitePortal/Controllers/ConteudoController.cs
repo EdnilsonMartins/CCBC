@@ -69,6 +69,27 @@ namespace SitePortal.Controllers
             return Json(calculo, JsonRequestBehavior.DenyGet);
         }
 
+        public ActionResult Calculadora2017()
+        {
+            return View();
+        }
+
+        public ActionResult Calcular2017(string Valor = "0")
+        {
+            var calculo = new CalculadoraDAL().Calcular(Valor, 2);
+            return Json(calculo, JsonRequestBehavior.DenyGet);
+        }
+
+        public ActionResult Composicao()
+        {
+            return View();
+        }
+
+        public ActionResult Composicao2017Imprimir()
+        {
+            return View();
+        }
+
         public ActionResult RegistrarClick(string BannerId, string ArquivoId)
         {
             int bannerId;

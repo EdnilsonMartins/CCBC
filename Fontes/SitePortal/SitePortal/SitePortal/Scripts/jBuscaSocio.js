@@ -57,7 +57,10 @@ function ListarAssociado(letra) {
 
     $.get(AppPath + "BuscaSocio/ListarAssociado", { SiteId: siteId, AssociadoCategoriaId: associadoCategoriaId, LetraInicial: letra }, function (data) {
         if (data != null) {
-            $.each(data, function (i, item) {
+
+            var dataAtualizacao;
+            $.each(data, function (
+                i, item) {
                 // 1 = Pessoa Física
                 // 2 = Pessoa Jurídica
                 var bandeira = "";
@@ -76,7 +79,21 @@ function ListarAssociado(letra) {
                     $("#ListaDireita").append(pessoa);
                 }
 
+                
+                if (item.DataAtualizacao != null) {
+                    if (dataAtualizacao == null || (item.Detalhe.DataAtualizacao!= null && item.DataAtualizacao > data)) {
+                        dataAtualizacao = item.DataAtualizacao;
+                        document.getElementById("lblUltimaAtualizacao").innerHTML = item.Detalhe.DataAtualizacao;
+                        console.log("Ultima Atualização (Formatado): " + item.Detalhe.DataAtualizacao);
+                    }
+                }
+
+
+
             });
+
+            console.log("Ultima Atualização: " + dataAtualizacao);
+
 
             $.each($('[id^="Resumo_"]'), function (i, item) {
                 $(item).hide();

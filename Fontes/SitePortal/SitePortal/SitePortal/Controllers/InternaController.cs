@@ -135,19 +135,27 @@ namespace SitePortal.Controllers
 
             #region -->> Callback
             //Identificar o outro site que contém o conteúdo e redirecionar usando Callback:
+            string _tipo = "Interna";
+            if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.PAGINA)
+            {
+                _tipo = "Pagina";
+            }
+            else if (PublicacaoTipoId == (int)Util.TIPOPUBLICACAO.HOTSITE)
+            {
+                _tipo = "Hotsite";
+            }
             if (model.Conteudo == null && _internaid != 0)
             {
                 int siteId = (model.SiteId == 1 ? 2 : 1);
                 model.Conteudo = new DAL.PublicacaoDAL().Carregar(siteId, model.IdiomaId, _internaid, model.UsuarioId).Publicacao;
                 if (model.Conteudo != null)
                 {
-                    var _callbackPortal = new HttpCookie("CallbackPortal", Url.Content("~/Interna/" + _internaid + "/" + titulo)) { HttpOnly = true };
+                    var _callbackPortal = new HttpCookie("CallbackPortal", Url.Content("~/" + _tipo + "/" + _internaid + "/" + titulo)) { HttpOnly = true };
                     Response.AppendCookie(_callbackPortal);
                     HttpContext.Request.Cookies.Set(_callbackPortal);
 
                     Response.RedirectPermanent(Url.Content("~/Home/SessionSite?_site=" + siteId));
                     return null;
-
                 }
             }
             else
@@ -159,7 +167,7 @@ namespace SitePortal.Controllers
                 //Novo callback usado para marcar a página anterior: Será utilizado qdo usuario trocar idioma.
                 if (model.Conteudo != null)
                 {
-                    var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/Interna/" + _internaid + "/" + titulo)) { HttpOnly = true };
+                    var _callbackPortal_Anterior = new HttpCookie("CallbackPortal_Anterior", Url.Content("~/" + _tipo + "/" + _internaid + "/" + titulo)) { HttpOnly = true };
                     Response.AppendCookie(_callbackPortal_Anterior);
                     HttpContext.Request.Cookies.Set(_callbackPortal_Anterior);
                 }

@@ -28,6 +28,10 @@ namespace DAL
                 lista.Add(reg);
             }
 
+            foreach(var item in lista){
+                    
+            }
+
             return lista;
         }
 
@@ -155,6 +159,12 @@ namespace DAL
                 dto.Detalhe.AssociadoCategoria = dr["AssociadoCategoria"].ToString();
             if (Util.GetNonNull(dr["TipoPessoa"]))
                 dto.Detalhe.TipoPessoa = dr["TipoPessoa"].ToString();
+
+            if (Util.GetNonNull(dr["DataAtualizacao"]))
+            {
+                dto.DataAtualizacao = (DateTime)dr["DataAtualizacao"];
+                dto.Detalhe.DataAtualizacao = ((DateTime)dr["DataAtualizacao"]).ToString();
+            }
         }
     }
 }

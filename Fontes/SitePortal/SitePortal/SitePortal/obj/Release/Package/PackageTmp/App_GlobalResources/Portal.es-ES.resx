@@ -190,7 +190,7 @@
     <value>Se permiten reedición y difusión de contenido público, siempre que citada fuente, título y autor. En el caso de contenido restringido, no se permite el uso no autorizado del controlador. Es totalmente libre de citar de la URL Portal (http // www.ccbc.org.br) en lugares y sitios de terceros.</value>
   </data>
   <data name="Home_Rodape_DireitosAutorais" xml:space="preserve">
-    <value>© 2014/2015 - CCBC - Todos los derechos reservados.</value>
+    <value>© 2014/2017 - CCBC - Todos los derechos reservados.</value>
   </data>
   <data name="Home_Saiba_Mais" xml:space="preserve">
     <value>Leer más</value>
@@ -326,5 +326,8 @@
   </data>
   <data name="Selecione_Divisao" xml:space="preserve">
     <value>Bt_divisoesES.png</value>
+  </data>
+  <data name="Associado_AtualizadoEm" xml:space="preserve">
+    <value>Actualizado:</value>
   </data>
 </root>

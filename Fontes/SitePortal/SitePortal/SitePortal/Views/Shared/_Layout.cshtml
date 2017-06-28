@@ -26,8 +26,36 @@
     }
     //titulo = "Publicacao";
 
+    bool? ExibirHeader = null;
+    ExibirHeader = Model.Conteudo != null ? Model.Conteudo.ExibirHeader : true;
     
+    bool ExibirRodape = true;
+    ExibirRodape = Model.Conteudo != null ? (bool)Model.Conteudo.ExibirRodape : true;
+
+    var AlturaTopo = "height: 0px !important;"; //125px
+    var AlturaTopoDisplay = "display: none;"; //block
+    var ExibirLogoSemHeader = "display: block; float: left; padding: 15px 0 8px 0;"; //none
+    var ConteudoTopo = "margin-top: 60px !important;"; //190px
+    var MargemIdiomas = "margin: 0 0 0 10px; padding: 32px 0 0 0"; // Vazio ;
+    var BotaoMenu = "display: block; padding: 7px 0 0 0"; // ;
+    var VisibilidadeMenu = "visibility: hidden; float: left; padding: 15px 0 0 0;";
+    var LarguraMenu = "width:970px; height: 80px;";
+
+
+    if (ExibirHeader == null || (ExibirHeader != null && (bool)ExibirHeader == true)) {
+        AlturaTopo = "height: 125px !important;";
+        AlturaTopoDisplay = "display: block;";
+        ExibirLogoSemHeader = "display: none;";
+        ConteudoTopo = "margin-top: 190px !important;";
+        MargemIdiomas = "";
+        BotaoMenu = "display: none;";
+        VisibilidadeMenu = "visibility: visible;";
+        LarguraMenu = "width:715px;";
+    }
+
+
 }
+
 <html>
 <head>
     <title>@titulo</title>
@@ -120,11 +148,23 @@
         var AppPath = '@Url.Content("~/")';
         var Culture = "";
         var Site = '@Model.SiteId';
-        
+        var MenuSemHeaderAtivo = 0;
         
 
         $(function () {
             $("#cab_show_proc").hide();
+
+            $("#cmdMenu").click(function () {
+                if (MenuSemHeaderAtivo == 0) {
+                    MenuSemHeaderAtivo = 1;
+                    //$("#cmdMenu").attr("style", "visibility: hidden;");
+                    $("#menuTopo").attr("style", "visibility: visible;");
+                } else {
+                    MenuSemHeaderAtivo = 0;
+                    //$("#cmdMenu").attr("style", "visibility: visible;");
+                    $("#menuTopo").attr("style", "visibility: hidden;");
+                }
+            });
         });
 
         $(document).ready(
@@ -138,15 +178,28 @@
 
                 $("#lang_" + Culture).attr("style", "color: #fff; font-weight: bold;");
 
-                if (Site == "1") { $("#logoSite").attr("src", "@Url.Content("~/")Images/Logo_CCBC.png").attr("alt", "CCBC"); }
-                else if (Site == "2") { $("#logoSite").attr("src", "@Url.Content("~/")Images/Logo_cam.png").attr("alt", "CAM / CCBC"); }
+                if (Site == "1") {
+                    $("#logoSite").attr("src", "@Url.Content("~/")Images/Logo_CCBC.png").attr("alt", "CCBC");
+                    $("#logoSiteSemHeader").attr("src", "@Url.Content("~/")Images/ccbc-" + Culture + ".png").attr("alt", "CCBC");
+                }
+                else if (Site == "2") {
+                    $("#logoSite").attr("src", "@Url.Content("~/")Images/Logo_cam.png").attr("alt", "CAM / CCBC");
+                    $("#logoSiteSemHeader").attr("src", "@Url.Content("~/")Images/cam-ccbc-" + Culture + ".png").attr("alt", "CAM / CCBC");
+                }
                 else if (Site == "3") { $("#logoSite").attr("src", "@Url.Content("~/")Images/Logo_instituto.png").attr("alt", "Instituto Cultural Brasil Canadá"); }
                 else if (Site == "4") { $("#logoSite").attr("src", "@Url.Content("~/")Images/Logo_amigoscanada.png").attr("alt", "Amigos do Canadá"); }
                 //else { window.location.href = "/Portal/Index"; }
 
+
+
+
+
+
+
                 $("#cab_procurar").attr("style", "visibility: visible; display: block;");
             }
         );
+
 
         
     </script>
@@ -201,13 +254,13 @@
 
     <div class="cabecalho">
         <!--linha topo-->
-        <div class="topo-linha cor-padrao"></div>
+        <div class="topo-linha cor-padrao" style="@AlturaTopoDisplay"></div>
         <!--linha topo-->
 
-        <div class="topo-conteudo-bg">
+        <div class="topo-conteudo-bg" style="@AlturaTopo">
             <div class="geral-1100">
                 <!--logo / divisoes / acesso-->
-                <div class="topo-conteudo">
+                <div class="topo-conteudo" style="@AlturaTopoDisplay">
                     <!--logo-->
                     <div class="topo-conteudo-logo">
                         <a href="@Url.Content("/Home")">
@@ -228,16 +281,16 @@
                                         <img src="@Url.Content("~/")Images/Logo_Cam.png" alt="Cam - CCBC" style="height: 71px; padding-left: 20px; margin: 0 38px 0 0;" />
                                     </a>
                                     @*<a href="@Url.Action("SessionSite", "Home", new { site = "3" })">
-                                            <img src="@Url.Content("~/")Images/divisoes_instituto.png" alt="Cam - CCBC" />
-                                        </a>
-                                        <a href="@Url.Action("SessionSite", "Home", new { site = "4" })">
-                                            <img src="@Url.Content("~/")Images/divisoes_amigoscanada.png" alt="Cam - CCBC" />
-                                        </a>*@
+                                        <img src="@Url.Content("~/")Images/divisoes_instituto.png" alt="Cam - CCBC" />
+                                    </a>
+                                    <a href="@Url.Action("SessionSite", "Home", new { site = "4" })">
+                                        <img src="@Url.Content("~/")Images/divisoes_amigoscanada.png" alt="Cam - CCBC" />
+                                    </a>*@
                                 </div>
                             </div>
                         </div>
                         <a href="#" id="procurar">
-                            
+
                             <img src="@Url.Content("~/")Images/@Resources.Portal.Selecione_Divisao" alt="CAM / CCBC" />
                         </a>
                     </div>
@@ -291,25 +344,36 @@
 
 
 
-        <div class="topo-menu-bg cor-padrao">
-            <div class="geral-1100">
+        <div class="topo-menu-bg cor-padrao" style="@(ExibirHeader == true? "" : "height: 80px;")">
+            <div class="geral-1100" style="@(ExibirHeader == true? "" : "width: 1140px;")">
 
                 <!-- Tedesco WebFull-->
-                @if (!String.IsNullOrEmpty(Model.TedescoURL) && (Model.SiteId != null && Model.SiteId == 1)) { 
-                <form id="frmTedesco" action="@Model.TedescoURL/index.asp" method="post" >
-                    <input type="hidden" name="Login" value="@Model.TedescoLogin" />
-                    <input type="hidden" name="Email" value="@Model.TedescoEmail" />
-                    <input type="hidden" name="Token" value="@Model.TedescoToken" />
-                </form>
+                @if (!String.IsNullOrEmpty(Model.TedescoURL) && (Model.SiteId != null && Model.SiteId == 1))
+                {
+                    <form id="frmTedesco" action="@Model.TedescoURL/index.asp" method="post">
+                        <input type="hidden" name="Login" value="@Model.TedescoLogin" />
+                        <input type="hidden" name="Email" value="@Model.TedescoEmail" />
+                        <input type="hidden" name="Token" value="@Model.TedescoToken" />
+                    </form>
                 }
 
                 <!-- menu -->
-                <div class="topo-menu">
-                    <ul>
+                <div class="topo-menu" id="topo-menu" style="@LarguraMenu">
+                    <a href="@Url.Content("/Home")" id="LogoSiteSemHeader" style="@ExibirLogoSemHeader">
+                        @if (Model.SiteId == 1)
+                        {
+                            <img id="logoSiteSemHeader" height="54" style="margin-right: 10px;" src="@Url.Content("~/")Images/ccbc-pt-BR.png" alt="CAM / CCBC" />
+                        }
+                        else
+                        {
+                            <img id="logoSiteSemHeader" height="50" style="margin-right: 10px;" src="@Url.Content("~/")Images/cam-ccbc-pt-BR.png" alt="CAM / CCBC" />
+                        }
+                    </a>
+                    <ul id="menuTopo" style="@VisibilidadeMenu">
 
                         @*<li><a href="CAM-CCBC.aspx" id="menu_cam" runat="server" class="topo-menu-off">Cam</a></li>
-                            <li><a href="servicos.aspx" id="menu_servicos" runat="server" class="topo-menu-off">Serviços</a></li>
-                            <li><a href="Contato.aspx" id="menu_contato" runat="server" class="topo-menu-off">Contato</a></li>*@
+                <li><a href="servicos.aspx" id="menu_servicos" runat="server" class="topo-menu-off">Serviços</a></li>
+                <li><a href="Contato.aspx" id="menu_contato" runat="server" class="topo-menu-off">Contato</a></li>*@
 
                         @foreach (Menu m in Model.ListaMenuPrincipal)
                         {
@@ -318,25 +382,27 @@
                             if (m.TargetId == 2) { _target = "_blank"; }
                             if (m.MenuTipoAcaoId == 1)
                             {
-                                <li><a href="@Url.Content("~/")@m.LinkURL" target="@_target">@m.Rotulo</a></li>
+                                <li><a href="@Url.Content("~/")@m.LinkURL" target="@_target" style="@(ExibirHeader == true? "" : "height: 51px; padding-top: 29px;")">@m.Rotulo</a></li>
                             }
                             else if (m.MenuTipoAcaoId == 2)
                             {
-                                <li><a href="@m.LinkURL" target="@_target">@m.Rotulo</a></li>
+                                <li><a href="@m.LinkURL" target="@_target" style="@(ExibirHeader == true ? "" : "height: 51px; padding-top: 29px;")">@m.Rotulo</a></li>
                             }
                         }
 
-                        @if (!String.IsNullOrEmpty(Model.TedescoLogin)) {
-                            if (Model.SiteId != null && Model.SiteId == 1) { 
+                        @if (!String.IsNullOrEmpty(Model.TedescoLogin))
+                        {
+                            if (Model.SiteId != null && Model.SiteId == 1)
+                            {
                                 <li><a href="#" onclick="javascript: $('#frmTedesco').submit();" target="_self">Procedimento Online</a></li>
                             }
                         }
-                        
+
                     </ul>
                 </div>
                 <!--/menu -->
                 <!--linguas-->
-                <div class="topo-menu-linguas">
+                <div class="topo-menu-linguas" style="@MargemIdiomas">
                     <a id="lang_pt-BR" href="@Url.Action("SessionCulture", "Home", new { lang = "pt-BR", _d = DateTime.Now.Millisecond.ToString() })">PT</a>
                     &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a id="lang_en-US" href="@Url.Action("SessionCulture", "Home", new { lang = "en-US", _d = DateTime.Now.Millisecond.ToString() })">EN</a>
@@ -352,7 +418,7 @@
                 </div>
                 <!--linguas-->
                 <!--busca-->
-                <div class="topo-menu-busca">
+                <div class="topo-menu-busca" style="@AlturaTopoDisplay">
                     @*<form action="@Url.Content("~/Busca/Resultado")" method="POST">*@
                     @using (Html.BeginForm("Resultado", "Busca", new { }, FormMethod.Post))
                     {
@@ -362,6 +428,11 @@
                     @*</form>*@
                 </div>
                 <!--busca-->
+                <!--menu-->
+                <div style="@BotaoMenu">
+                    <input type="image" name="cmdMenu" id="cmdMenu" alt="Menu" src="@Url.Content("~/")Images/Icon_MenuSemHeader.png" style=" border: 1px solid white; border-radius: 4px; margin: 17px 0 0 20px;">
+                </div>
+                <!--menu-->
             </div>
         </div>
     </div>
@@ -371,7 +442,7 @@
     </div>
 
     <!--rodape-->
-    <div class="rodape cor-padrao">
+    <div class="rodape cor-padrao" style="display: @(ExibirRodape? "block" : "none")">
         <div class="geral-1100">
             <div class="rodape-1100 cor-padrao">
                 <!--coluna01-->
