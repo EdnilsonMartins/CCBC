@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript">
+        var AppPath = '@Url.Content("~/")';
+    </script>
+
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Rotativo"))
+    @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>*@
+    @Scripts.Render(System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/Calculadora"))
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Calculadora 2017 - Segregação</title>
+    <style>
+        .centro {
+            left: 50%;
+            margin-left: -240px; /* A metade de sua largura. */
+            position: absolute;
+            width: 480px; /* O valor que você desejar. */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .geral {
+            float: left;
+            width: 220px;
+            border: 1px solid silver;
+            border-radius: 6px;
+            padding-left: 8px;
+            padding-bottom: 11px;
+            margin-left: 126px;
+        }
+
+        .linha {
+            float: left;
+            margin-bottom: 8px;
+        }
+
+        .ferramenta {
+            float: left;
+            margin: 2px;
+            margin-bottom: 20px;
+            font-family: arial;
+            font-size: 13px;
+            color: #015291;
+            font-weight: bold;
+        }
+
+            .ferramenta .campo {
+                float: left;
+                width: 130px;
+                text-align: right;
+                border: 1px solid gray;
+            }
+
+            .ferramenta .botao {
+                float: right;
+                margin-left: 4px;
+            }
+
+        .coluna1 {
+            float: left;
+            width: 200px;
+            background-color: #015291;
+            margin: 2px;
+            color: white;
+            font-family: arial;
+            font-size: 13px;
+            padding: 2px 2px 2px 6px;
+            border-radius: 5px;
+        }
+
+        .coluna2 {
+            float: left;
+            width: 200px;
+            margin: 2px;
+            border-bottom: 1px dotted #015291;
+            border-right: 1px dotted;
+            padding-right: 7px;
+        }
+
+            .coluna2 span {
+                float: left;
+                width: 100%;
+                text-align: right;
+                font-family: arial;
+                font-size: 13px;
+                min-height: 15px;
+            }
+    </style>
+
+    <script>
+        $(function () {
+            $("#lblSegregacao3ArbitrosTaxaAdm").html($("#lblSegregacao3ArbitrosTaxaAdmX", opener.document.body).val());
+            $("#lblSegregacao3ArbitrosHonorarios").html($("#lblSegregacao3ArbitrosHonorariosX", opener.document.body).val());
+            $("#lblSegregacao3ArbitrosTotal").html($("#lblSegregacao3ArbitrosTotalX", opener.document.body).val());
+            $("#lblSegregacao1ArbitroTaxaAdm").html($("#lblSegregacao1ArbitroTaxaAdmX", opener.document.body).val());
+            $("#lblSegregacao1ArbitroHonorarios").html($("#lblSegregacao1ArbitroHonorariosX", opener.document.body).val());
+            $("#lblSegregacao1ArbitroTotal").html($("#lblSegregacao1ArbitroTotalX", opener.document.body).val());
+        });
+
+
+    </script>
+</head>
+<body>
+    <div class="centro">
+
+       
+        <div style="float: left; width: 370px; font-family: arial; font-size: 12px;">
+
+            <div style="float: left; width: 366px; border: 1px solid gray; border-radius: 6px; margin-top: 10px;">
+                <div style="width: 360px; text-align: left; float: left; border-bottom: 1px solid gray; padding: 4px 0 4px 6px; background-color: #015291; color: white; border-top-left-radius: 6px; border-top-right-radius:6px;">Tribunal Arbitral (3 Árbitros)</div>
+                <div style="float: left; width: 479px;">
+                    <div style="text-align: center; float: left;"><div style="width: 253px; text-align: left; float: left; background-color: #d0e4ea; border-bottom: 1px dotted gray; padding: 2px 0; height: 16px; ">&nbsp;</div><div style="width: 113px; text-align: left; float: left; background-color: #d0e4ea; border-bottom: 1px dotted gray; padding: 2px 0; height: 16px; color:#015291; "><span></span></div></div>
+                    <div style="text-align: center; float: left; padding: 2px 0; border-bottom: 1px dotted gray; "><div style="width: 247px; text-align: left; float: left; padding-left: 6px;">Taxa de Administração</div><div style="width: 113px; text-align: left; float: left;"><span id="lblSegregacao3ArbitrosTaxaAdm"></span></div></div>
+                    <div style="text-align: center; float: left; padding: 2px 0; border-bottom: 1px dotted gray; "><div style="width: 247px; text-align: left; float: left; padding-left: 6px;">Honorários do Tribunal Arbitral</div><div style="width: 113px; text-align: left; float: left;"><span id="lblSegregacao3ArbitrosHonorarios"></span></div></div>
+                    <div style="text-align: center; float: left; padding: 2px 0; border-bottom: 1px dotted gray; font-weight: bold;"><div style="width: 247px; text-align: left; float: left; padding-left: 6px;">Total</div><div style="width: 113px; text-align: left; float: left;"><span id="lblSegregacao3ArbitrosTotal"></span></div></div>
+                </div>
+            </div>
+            <div style="float: left; width: 366px; border: 1px solid gray; border-radius: 6px; margin-top: 10px;">
+                <div style="width: 360px; text-align: left; float: left; border-bottom: 1px solid gray; padding: 4px 0 4px 6px; background-color: #015291; color: white; border-top-left-radius: 6px; border-top-right-radius:6px;">Árbitro Único</div>
+                <div style="float: left; width: 479px;">
+                    <div style="text-align: center; float: left;"><div style="width: 253px; text-align: left; float: left; background-color: #d0e4ea; border-bottom: 1px dotted gray; padding: 2px 0; height: 16px; ">&nbsp;</div><div style="width: 113px; text-align: left; float: left; background-color: #d0e4ea; border-bottom: 1px dotted gray; padding: 2px 0; height: 16px; color:#015291; "><span></span></div></div>
+                    <div style="text-align: center; float: left; padding: 2px 0; border-bottom: 1px dotted gray;"><div style="width: 247px; text-align: left; float: left; padding-left: 6px;">Taxa de Administração</div><div style="width: 113px; text-align: left; float: left;"><span id="lblSegregacao1ArbitroTaxaAdm"></span></div></div>
+                    <div style="text-align: center; float: left; padding: 2px 0; border-bottom: 1px dotted gray;"><div style="width: 247px; text-align: left; float: left; padding-left: 6px;">Honorários do Árbitro Único</div><div style="width: 113px; text-align: left; float: left;"><span id="lblSegregacao1ArbitroHonorarios"></span></div></div>
+                    <div style="text-align: center; float: left; padding: 2px 0; border-bottom: 1px dotted gray; font-weight: bold; "><div style="width: 247px; text-align: left; float: left; padding-left: 6px;">Total</div><div style="width: 113px; text-align: left; float: left;"><span id="lblSegregacao1ArbitroTotal"></span></div></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

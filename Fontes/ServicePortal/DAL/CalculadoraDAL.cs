@@ -141,6 +141,34 @@ namespace DAL
                 }
             }
 
+
+            if (dto.DespesasAdministrativas != null)
+                dto.Segregacao3ArbitrosTaxaAdm = dto.DespesasAdministrativas;
+            if (dto.Honorario3Arbitros!=null && dto.Honorario3Arbitros!=null)
+                dto.Segregacao3ArbitrosHonorarios = dto.Honorario3Arbitros + dto.Honorario3Arbitros;
+            if (dto.TotalRequerente3Arbitros !=null && dto.TotalRequerido3Arbitros !=null && dto.TaxaRegistro != null && dto.DespesasAdministrativas != null)
+                dto.Segregacao3ArbitrosTotal = dto.TotalRequerente3Arbitros + dto.TotalRequerido3Arbitros - dto.TaxaRegistro - dto.DespesasAdministrativas;
+            if (dto.DespesasAdministrativasStr != null)
+                dto.Segregacao3ArbitrosTaxaAdmStr = dto.DespesasAdministrativasStr;
+            if (dto.Segregacao3ArbitrosHonorarios != null)
+                dto.Segregacao3ArbitrosHonorariosStr = ((double)dto.Segregacao3ArbitrosHonorarios).ToString("R$ #,#00.00");
+            if (dto.Segregacao3ArbitrosTotal != null)
+                dto.Segregacao3ArbitrosTotalStr = ((double)dto.Segregacao3ArbitrosTotal).ToString("R$ #,#00.00");
+
+
+            if (dto.DespesasAdministrativas != null)
+                dto.Segregacao1ArbitroTaxaAdm = dto.DespesasAdministrativas;
+            if (dto.HonorarioArbitroUnico != null && dto.HonorarioArbitroUnico != null)
+                dto.Segregacao1ArbitroHonorarios = dto.HonorarioArbitroUnico + dto.HonorarioArbitroUnico;
+            if (dto.TotalRequerenteArbitroUnico != null && dto.TotalRequeridoArbitroUnico != null && dto.TaxaRegistro != null && dto.DespesasAdministrativas != null)
+                dto.Segregacao1ArbitroTotal = dto.TotalRequerenteArbitroUnico + dto.TotalRequeridoArbitroUnico - dto.TaxaRegistro - dto.DespesasAdministrativas;
+            if (dto.DespesasAdministrativasStr != null)
+                dto.Segregacao1ArbitroTaxaAdmStr = dto.DespesasAdministrativasStr;
+            if (dto.Segregacao1ArbitroHonorarios != null)
+                dto.Segregacao1ArbitroHonorariosStr = ((double)dto.Segregacao1ArbitroHonorarios).ToString("R$ #,#00.00");
+            if (dto.Segregacao1ArbitroTotal != null)
+                dto.Segregacao1ArbitroTotalStr = ((double)dto.Segregacao1ArbitroTotal).ToString("R$ #,#00.00");
+
         }
 
     }

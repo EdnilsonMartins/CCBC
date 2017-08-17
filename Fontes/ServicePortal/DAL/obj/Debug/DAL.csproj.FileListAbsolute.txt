@@ -13,11 +13,3 @@ C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\ServicePortal\DAL\bin\Debug\DTO.pdb
 C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\ServicePortal\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\ServicePortal\DAL\obj\Debug\DAL.dll
 C:\Ed\CCBC - 20150116_0859\CCBC\Fontes\ServicePortal\DAL\obj\Debug\DAL.pdb
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Debug\DAL.dll
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Debug\DAL.pdb
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Debug\DTO.dll
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Debug\Newtonsoft.Json.dll
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\bin\Debug\DTO.pdb
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\obj\Debug\DAL.dll
-C:\Projetos\CCBC\Fontes\ServicePortal\DAL\obj\Debug\DAL.pdb

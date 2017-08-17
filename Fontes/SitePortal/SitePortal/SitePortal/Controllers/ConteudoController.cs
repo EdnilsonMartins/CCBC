@@ -85,6 +85,11 @@ namespace SitePortal.Controllers
             return View();
         }
 
+        public ActionResult Segregacao()
+        {
+            return View();
+        }
+
         public ActionResult Composicao2017Imprimir()
         {
             return View();

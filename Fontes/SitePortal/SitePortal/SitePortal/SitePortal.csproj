@@ -457,6 +457,7 @@
     <Content Include="Views\Conteudo\Calculadora2017.cshtml" />
     <Content Include="Views\Conteudo\Composicao.cshtml" />
     <Content Include="Views\Conteudo\Composicao2017Imprimir.cshtml" />
+    <Content Include="Views\Conteudo\Segregacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,5 +37,20 @@ namespace DTO.Calculadora
         public string Honorario3ArbitrosStr { get; set; }
         public string TotalRequerente3ArbitrosStr { get; set; }
         public string TotalRequerido3ArbitrosStr { get; set; }
+
+        public double? Segregacao3ArbitrosTaxaAdm { get; set; }
+        public double? Segregacao3ArbitrosHonorarios { get; set; }
+        public double? Segregacao3ArbitrosTotal { get; set; }
+        public string Segregacao3ArbitrosTaxaAdmStr { get; set; }
+        public string Segregacao3ArbitrosHonorariosStr { get; set; }
+        public string Segregacao3ArbitrosTotalStr { get; set; }
+
+        public double? Segregacao1ArbitroTaxaAdm { get; set; }
+        public double? Segregacao1ArbitroHonorarios { get; set; }
+        public double? Segregacao1ArbitroTotal { get; set; }
+        public string Segregacao1ArbitroTaxaAdmStr { get; set; }
+        public string Segregacao1ArbitroHonorariosStr { get; set; }
+        public string Segregacao1ArbitroTotalStr { get; set; }
+
     }
 }

@@ -26,13 +26,15 @@
 
                 @foreach (DTO.Banner.Banner b in Model.BannerPrincipal)
                 {
-                    var _target = "_self";
-                    if (b.TargetId == 1) { _target = "_parent"; }
-                    if (b.TargetId == 2) { _target = "_blank"; }
-                    var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
-                    <a href="@_link" target="@_target" class="cms-counter" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
-                        <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="" />
-                    </a>
+                    if (b.DataValidade == null || ((DateTime)b.DataValidade).CompareTo(DateTime.Now.AddDays(-1)) > -1) { 
+                        var _target = "_self";
+                        if (b.TargetId == 1) { _target = "_parent"; }
+                        if (b.TargetId == 2) { _target = "_blank"; }
+                        var _link = String.IsNullOrEmpty(b.LinkURL) ? "" : b.LinkURL;
+                        <a href="@_link" target="@_target" class="cms-counter" referenciaid="@b.BannerId" arquivoid="@b.ArquivoId_Primaria">
+                            <img src="@Url.Content("~/")File?id=@b.ArquivoId_Primaria" alt="" />
+                        </a>
+                    }
                 }
 
             </div>

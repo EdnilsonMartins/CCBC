@@ -93,6 +93,17 @@ function Calcular2017() {
                 $("#lblRequeridoHonorarioArbitros2X").val(data.Calculadora.HonorarioArbitroUnicoStr);
                 $("#lblRequerenteTotal2X").val(data.Calculadora.TotalRequerenteArbitroUnicoStr);
                 $("#lblRequeridoTotal2X").val(data.Calculadora.TotalRequeridoArbitroUnicoStr);
+
+            //Segregacao
+                $("#lblSegregacao3ArbitrosTaxaAdmX").val(data.Calculadora.Segregacao3ArbitrosTaxaAdmStr);
+                $("#lblSegregacao3ArbitrosHonorariosX").val(data.Calculadora.Segregacao3ArbitrosHonorariosStr);
+                $("#lblSegregacao3ArbitrosTotalX").val(data.Calculadora.Segregacao3ArbitrosTotalStr);
+                $("#lblSegregacao1ArbitroTaxaAdmX").val(data.Calculadora.Segregacao1ArbitroTaxaAdmStr);
+                $("#lblSegregacao1ArbitroHonorariosX").val(data.Calculadora.Segregacao1ArbitroHonorariosStr);
+                $("#lblSegregacao1ArbitroTotalX").val(data.Calculadora.Segregacao1ArbitroTotalStr);
+                console.log("Segregacao");
+                console.log(data.Calculadora.Segregacao3ArbitrosTaxaAdmStr);
+
         }
     });
 }
