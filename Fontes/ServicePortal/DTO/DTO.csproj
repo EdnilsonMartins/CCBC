@@ -64,6 +64,9 @@
     <Compile Include="Menu\MenuResponse.cs" />
     <Compile Include="Pasta\Pasta.cs" />
     <Compile Include="Pasta\PastaResponse.cs" />
+    <Compile Include="Podcast\Podcast.cs" />
+    <Compile Include="Podcast\PodcastIdiomaExcecao.cs" />
+    <Compile Include="Podcast\PodcastResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publicacao\Editoria.cs" />
     <Compile Include="Publicacao\EditoriaIdiomaExcecao.cs" />

@@ -81,6 +81,19 @@ namespace DAL
                     }
                 }
             }
+            else if (_ArquivoCategoriaTipoId == (int)Util.ARQUIVO_CATEGORIA_TIPO.PODCAST)
+            {
+                tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_INS_PodcastArquivo", OwnerId, ArquivoId);
+                if (tabela.Rows.Count > 0)
+                {
+                    DataRow dr = tabela.Rows[0];
+                    if (Util.GetNonNull(dr["PodcastArquivoId"]))
+                    {
+                        resposta.Resposta.Erro = false;
+                        resposta.Resposta.Mensagem = "";
+                    }
+                }
+            }
             else if (_ArquivoCategoriaTipoId == (int)Util.ARQUIVO_CATEGORIA_TIPO.MEDIA_GLOBAL)
             {
 
@@ -157,6 +170,10 @@ namespace DAL
             else if (_ArquivoCategoriaTipoId == (int)Util.ARQUIVO_CATEGORIA_TIPO.MEDIA_GLOBAL)
             {
                 tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_SEL_GeralArquivo", PastaId);
+            }
+            else if (_ArquivoCategoriaTipoId == (int)Util.ARQUIVO_CATEGORIA_TIPO.PODCAST)
+            {
+                tabela = acesso.CarregarDadosParametros("dbCCBC", "USP_SEL_PodcastArquivo", OwnerId, ArquivoCategoriaId);
             }
             if (tabela.Rows.Count > 0)
             {

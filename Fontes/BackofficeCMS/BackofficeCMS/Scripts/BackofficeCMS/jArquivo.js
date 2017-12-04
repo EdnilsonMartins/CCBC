@@ -196,7 +196,7 @@ function MostrarCadastroArquivo() {
     $("#ArquivoCategoriaTipoId", "#frmArquivo").val(ArquivoCategoriaTipoId);
 
     console.log("OwnerId: " + OwnerId);
-    console.log("ArquivoCategoriaTipoId: " + ArquivoCategoriaTipoId);
+    console.log("ArquivoCategoriaTipoId...: " + ArquivoCategoriaTipoId);
 
 
 
@@ -210,6 +210,10 @@ function MostrarCadastroArquivo() {
     } else if (ArquivoCategoriaTipoId == 3) {
         $('#Categoria').append('<option value="5">Imagem Primária</option>');
         $('#Categoria').append('<option value="6">Imagem Secundária</option>');
+    } else if (ArquivoCategoriaTipoId == 5) {
+        $('#Categoria').append('<option value="7">Imagem de Capa</option>');
+        $('#Categoria').append('<option value="8">Arquivo de Audio</option>');
+        console.log("adicionadas 2 opcao");
     }
     $('#Categoria').selectpicker('refresh');
 

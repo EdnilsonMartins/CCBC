@@ -37,7 +37,8 @@ namespace DAL
             PUBLICACAO = 1,
             MENU = 2,
             BANNER = 3,
-            MEDIA_GLOBAL = 4
+            MEDIA_GLOBAL = 4,
+            PODCAST = 5
         }
 
         public enum BANNER_EVENTO_TIPO
@@ -112,7 +113,9 @@ namespace DAL
             PESSOA_EXCLUIR = 410,
 
             TEMPLATEEMAILADMIN_LISTAR = 420,
-            TEMPLATEEMAILADMIN_EDITAR = 430
+            TEMPLATEEMAILADMIN_EDITAR = 430,
+
+            PODCAST_GERENCIAMENTO = 440
 
         }
 

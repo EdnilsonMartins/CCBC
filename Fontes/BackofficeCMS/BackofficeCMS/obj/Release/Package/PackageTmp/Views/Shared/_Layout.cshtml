@@ -773,6 +773,14 @@
                                         Ações <i class="fa fa-angle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
+                                        @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.PODCAST_GERENCIAMENTO)))
+                                        {
+                                            <li>
+                                                <a href="#" id="btnNovoPodcast" style="display: none;">Adicionar Podcast</a>
+                                                <a href="#" id="btnNovoPodcastEpisodio" style="display: none;">Adicionar Episódio</a>
+                                            </li>
+                                        }
+                                        
                                         @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.PUBLICACAO_ADICIONAR)))
                                         {
                                             <li>

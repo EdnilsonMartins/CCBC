@@ -2,6 +2,7 @@
 using DTO.Arquivo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -33,8 +34,11 @@ namespace BackofficeCMS.Controllers
                     if (hpf.ContentLength == 0)
                         continue;
 
-                    //string savedFileName = Path.Combine(Server.MapPath("~/App_Data"), Path.GetFileName(hpf.FileName));
-                    //hpf.SaveAs(savedFileName);
+                    if (_ArquivoCategoriaTipoId == (int)Util.ARQUIVO_CATEGORIA_TIPO.PODCAST)
+                    {
+                        string savedFileName = Path.Combine(Server.MapPath("~/podcastCMS"), _OwnerId.ToString() + "_" + _ArquivoCategoriaTipoId + "_" + Path.GetFileName(hpf.FileName));
+                        hpf.SaveAs(savedFileName);
+                    }
 
                     byte[] image = new byte[hpf.ContentLength];
                     hpf.InputStream.Read(image, 0, image.Length);

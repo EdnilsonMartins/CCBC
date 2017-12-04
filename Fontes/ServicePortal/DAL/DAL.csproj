@@ -58,6 +58,7 @@
     <Compile Include="MailingDAL.cs" />
     <Compile Include="MenuDAL.cs" />
     <Compile Include="PastaDAL.cs" />
+    <Compile Include="PodcastDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicacaoDAL.cs" />
     <Compile Include="RegraDAL.cs" />

@@ -1,0 +1,670 @@
+﻿@{
+    ViewBag.Title = "CadPodcast";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Tipo = ViewBag.Tipo;
+    var exibeCategoria = false;
+    var exibePodcastPaiId = false;
+    
+    if (Tipo.Equals("1")) {
+        exibeCategoria = true;
+    }
+    if (Tipo.Equals("2"))
+    {
+        exibePodcastPaiId = true;
+    }
+        
+}
+
+@section Scripts
+{
+
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")Scripts/Libs/jquery.fileupload.js"></script>
+
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jArquivo.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jPodcast.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")Scripts/BackofficeCMS/jMediaCenter.js" type="text/javascript"></script>
+
+
+   
+}
+
+@model BackofficeCMS.Models.CMS
+
+
+<div class="row">
+
+    <div class="modalInterna" style="display: none;">
+        <img src="@Url.Content("~/Content/Images/loader.gif")" alt="Aguarde..." style="border: 1px solid gray; border-radius: 4px !important; left: 50%; margin-left: -16px; position: absolute; width: 32px; top: 50%; transform: translateY(-50%); " />
+    </div>
+
+    <div class="col-md-12">
+        @*<div class="portlet box blue-hoki">*@
+        @*<div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-edit"></i>Publicação
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
+                </div>
+            </div>*@
+
+        <div class="">
+            @*portlet-body form*@
+            <!-- BEGIN FORM-->
+            <form id="frmCadPodcast" action="#" class="horizontal-form">
+
+
+                <input type="hidden" id="PodcastId" name="PodcastId" value="@ViewBag.PodcastId" />
+                <input type="hidden" id="Tipo" name="Tipo" value="@ViewBag.Tipo" />
+
+                <div class="form-body tabbable tabbable-custom tabbable-noborder">
+
+                    <!-- Abas -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tabGeral" data-toggle="tab">
+                                Geral
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Extra <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#tabEN" tabindex="-1" data-toggle="tab">
+                                        Inglês
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tabES" tabindex="-1" data-toggle="tab">
+                                        Espanhol
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tabFR" tabindex="-1" data-toggle="tab">
+                                        Francês
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#tabGaleria" data-toggle="tab">
+                                Media
+                            </a>
+                        </li>
+                        @*<li>
+                            <a href="#tabDivulgacao" data-toggle="tab">
+                                Divulgação
+                            </a>
+                        </li>*@
+                    </ul>
+                    <!--/Abas -->
+                    <!-- Conteúdo -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tabGeral">
+                            
+                            <div class="row">
+                                <div class="col-md-6" style="display: @((exibeCategoria) ? "block" : "none")">
+                                    <div class="form-group">
+                                        <label class="control-label">Categoria</label>
+                                        <select name="PodcastGrupo" class="bs-select form-control">
+                                            <option value="1">Arts</option>
+                                            <option value="2">Business</option>
+                                            <option value="3">Comedy</option>
+                                            <option value="4">Education</option>
+                                            <option value="5">Games & Hobbies</option>
+                                            <option value="6">Government & Organizations</option>
+                                            <option value="7">Health</option>
+                                            <option value="8">Kids & Family</option>
+                                            <option value="9">Music</option>
+                                            <option value="10">News & Politics</option>
+                                            <option value="11">Religion & Spirituality</option>
+                                            <option value="12">Science & Medicine</option>
+                                            <option value="13">Society & Culture</option>
+                                            <option value="14">Sports & Recreation</option>
+                                            <option value="15">Technology</option>
+                                            <option value="16">TV & Film</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                               
+                                    <div class="col-md-2" style="display: @((exibePodcastPaiId) ? "block" : "none")">
+                                        <div class="form-group">
+                                            <label class="control-label">Código do Canal</label>
+                                            <input type="text" id="PodcastPaiId" name="PodcastPaiId" class="form-control">
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="Titulo" name="Titulo" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-6" style="display: @((exibePodcastPaiId) ? "block" : "none")">
+                                    <div class="form-group">
+                                        <label class="control-label">Subtítulo</label>
+                                        <input type="text" id="SubTitulo" name="SubTitulo" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <input type="text" id="Descricao" name="Descricao" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                
+                            </div>
+                            <!--/row-->
+
+                            <div class="row" style="display: @((exibeCategoria) ? "block" : "none")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Autor</label>
+                                        <input type="text" id="Autor" name="Autor" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Direitos Autorais</label>
+                                        <input type="text" id="DireitosAutorais" name="DireitosAutorais" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="display: @((exibeCategoria) ? "block" : "none")">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Proprietário do Podcast</label>
+                                        <input type="text" id="ProprietarioNome" name="ProprietarioNome" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">E-mail do Proprietário</label>
+                                        <input type="text" id="ProprietarioEmail" name="ProprietarioEmail" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-2" style="display: @((exibePodcastPaiId) ? "block" : "none")">
+                                    <div class="form-group">
+                                        <label class="control-label">Data Publicação</label>
+                                        <div class="input-group date date-picker" id="dtDataPublicacao" data-date-format="dd/mm/yyyy" style="width: 140px;">
+                                            <input type="text" class="form-control" readonly id="DataPublicacao" name="DataPublicacao">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label"></label>
+                                        
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label"></label>
+
+                                    </div>
+                                </div>
+                                <!--/span-->
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label"></label>
+                                        
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row" style="display: @((exibeCategoria) ? "block" : "none")">
+                                <!-- span -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            RSS Feed<span class="help-inline font-blue-soft">(Gerado automaticamente)</span>
+                                        </label>
+                                        <input type="text" id="LinkURL" name="LinkURL" class="form-control">
+                                        <span class="help-block">
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                                <!-- span -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Link<span class="help-inline font-blue-soft">&nbsp;</span>
+                                        </label>
+                                        <input type="text" id="LinkURLImagem" name="LinkURLImagem" class="form-control">
+                                        <span class="help-block">
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span -->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-3" style="display: @((exibePodcastPaiId) ? "block" : "none")">
+                                    <div class="form-group">
+                                        <label class="control-label">Duração (em segundos)</label>
+                                        <input type="text" id="Duracao" name="Duracao" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Tamanho Arquivo</label>
+                                        <input type="text" id="Tamanho" name="Tamanho" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>*@
+                            </div>
+
+
+                            @*<div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Referência <span class="help-inline font-blue-soft">(Informe o ID da publicação que exclusivamente exibirá este banner)</span></label>
+                                        <input type="text" id="Referencia" name="Referencia" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>*@
+
+
+
+                            @*<h3 class="form-section">Episódio</h3>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Título do Episódio</label>
+                                        <input type="text" id="TituloEpisodio" name="TituloEpisodio" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <input type="text" id="Descricao" name="Descricao" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>*@
+                            <!--/row-->
+
+                        </div>
+
+                        <div class="tab-pane fade " id="tabEN">
+                            <div class="alert alert-info">
+                                O conteúdo registrado nesta área será exibido apenas quando o site estiver com o idioma <b>Inglês</b> selecionado.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="TituloEN" name="TituloEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">SubTitulo</label>
+                                        <input type="text" id="SubTituloEN" name="SubTituloEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">TituloEpisodio</label>
+                                        <input type="text" id="TituloEpisodioEN" name="TituloEpisodioEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <input type="text" id="DescricaoEN" name="DescricaoEN" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                        </div>
+
+                        <div class="tab-pane fade " id="tabES">
+                            <div class="alert alert-info">
+                                O conteúdo registrado nesta área será exibido apenas quando o site estiver com o idioma <b>Espanhol</b> selecionado.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="TituloES" name="TituloES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">SubTitulo</label>
+                                        <input type="text" id="SubTituloES" name="SubTituloES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">TituloEpisodio</label>
+                                        <input type="text" id="TituloEpisodioES" name="TituloEpisodioES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <input type="text" id="DescricaoES" name="DescricaoES" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                        </div>
+
+                        <div class="tab-pane fade " id="tabFR">
+                            <div class="alert alert-info">
+                                O conteúdo registrado nesta área será exibido apenas quando o site estiver com o idioma <b>Francês</b> selecionado.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Título</label>
+                                        <input type="text" id="TituloFR" name="TituloFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">SubTitulo</label>
+                                        <input type="text" id="SubTituloFR" name="SubTituloFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">TituloEpisodio</label>
+                                        <input type="text" id="TituloEpisodioFR" name="TituloEpisodioFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <input type="text" id="DescricaoFR" name="DescricaoFR" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+
+                        </div>
+
+
+                        <div class="tab-pane fade " id="tabGaleria">
+
+                            <div class="table-toolbar">
+
+                                <div class="row">
+
+                                    <!-- Filtro de Arquivos-->
+                                    <div class="col-md-6">
+                                        <ul class="mix-filter">
+                                            <li class="filter" data-filter="mix_all">
+                                                Todas
+                                            </li>
+                                            <li class="filter" data-filter="category_7">
+                                                Imagem de Capa
+                                            </li>
+                                            <li class="filter" data-filter="category_8">
+                                                Arquivo de Áudio
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--/Filtro de Arquivos-->
+                                    @if (Model.ListaFuncionalidades.Any(x => (x.Ativo == true && x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.MEDIACENTER_EXPLORAR)))
+                                    {
+                                        <div class="col-md-6">
+                                            <div class="btn-group" style="float: right;">
+                                                <a id="btnNovoArquivo" class="btn blue-hoki" style="font-size: 13px !important;"><i class="fa fa-upload"></i> Gerenciador</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="row mix-grid" id="gridArquivos" ownerid="" arquivocategoriatipoid="">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade " id="tabDivulgacao">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Controle de Exibição do Conteúdo</label>
+                                        <div class="radio-list">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="Privado" id="Privado" value="0"> Público
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="Privado" id="Privado" value="1"> Privado
+                                            </label>
+                                        </div>
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div id="dvRestricao">
+                                <h3 class="form-section">Restrição</h3>
+                                <div class="alert alert-danger">
+                                    Apenas usuários pertencentes aos <b>Grupos / Departamentos</b> selecionados poderão visualizar esta publicação.
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Grupos / Departamentos</label>
+
+                                            <div id="tvUsuarioGrupo"></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label Header_Restricao_UsuarioGrupo_Usuario">Usuários</label>
+
+                                            <div id="tvUsuario" style="height: 250px; overflow: auto;"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+
+                    </div>
+                    <!--/Conteúdo -->
+
+                    <div style="width: 100%; text-align: right; margin-top: 0px; border-top: 1px solid lightgray; padding-top: 5px; ">
+                        <button type="button" id="btnSalvarPodcast" class="btn green" title="Salvar dados do Podcast"><i class="fa fa-check"></i> Salvar</button>
+                        <button type="button" id="btnFecharPodcast" onclick="javascript: history.go(-1);" class="btn default">Voltar</button>
+                    </div>
+
+                </div>
+
+            </form>
+            <!-- END FORM-->
+        </div>
+        @*</div>*@
+    </div>
+</div>
+
+
+@{Html.RenderPartial("../Publicacao/CadArquivo", null);}
+@{Html.RenderPartial("../Publicacao/SelArquivo", null);}

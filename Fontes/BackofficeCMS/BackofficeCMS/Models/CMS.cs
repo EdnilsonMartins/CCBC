@@ -144,6 +144,33 @@ namespace BackofficeCMS.Models
                 lista.Add(menu);
             }
 
+            if (funcionalidades.Any(x => x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.PODCAST_GERENCIAMENTO))
+            {
+                menu = new Menu();
+                menu.MenuId = 440;
+                menu.MenuPaiId = 100;
+                menu.LinkURL = "";
+                menu.Rotulo = "Podcasts";
+                menu.IconClass = "fa fa-rss";
+                lista.Add(menu);
+
+                menu = new Menu();
+                menu.MenuId = 440100;
+                menu.MenuPaiId = 440;
+                menu.LinkURL = "Podcast/ListaPodcast?Tipo=1";
+                menu.Rotulo = "Canais";
+                menu.IconClass = "fa fa-rss-square";
+                lista.Add(menu);
+
+                menu = new Menu();
+                menu.MenuId = 440200;
+                menu.MenuPaiId = 440;
+                menu.LinkURL = "Podcast/ListaPodcast?Tipo=2";
+                menu.Rotulo = "Episódios";
+                menu.IconClass = "fa fa-list";
+                lista.Add(menu);
+            }
+
             if (funcionalidades.Any(x => x.FuncionalidadeId == (int)DAL.Util.FUNCIONALIDADES.PUBLICACAO_LISTAR))
             {
                 menu = new Menu();

@@ -148,6 +148,7 @@
     <Compile Include="Controllers\MediaCenterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PastaController.cs" />
+    <Compile Include="Controllers\PodcastController.cs" />
     <Compile Include="Controllers\PublicacaoController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -156,6 +157,9 @@
     </Compile>
     <Compile Include="HandlerFile.ashx.cs">
       <DependentUpon>HandlerFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HandlerPodcast.ashx.cs">
+      <DependentUpon>HandlerPodcast.ashx</DependentUpon>
     </Compile>
     <Compile Include="Models\CMS.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -2625,6 +2629,7 @@
     <Content Include="Scripts\BackofficeCMS\jMailing.js" />
     <Content Include="Scripts\BackofficeCMS\jMediaCenter.js" />
     <Content Include="Scripts\BackofficeCMS\jMenu.js" />
+    <Content Include="Scripts\BackofficeCMS\jPodcast.js" />
     <Content Include="Scripts\BackofficeCMS\jPublicacao.js" />
     <Content Include="Scripts\BackofficeCMS\jRegra.js" />
     <Content Include="Scripts\BackofficeCMS\jSite.js" />
@@ -2883,6 +2888,7 @@
     <Content Include="Views\Publicacao\CadPublicacao.cshtml" />
     <Content Include="Views\Publicacao\CadGaleria.cshtml" />
     <Content Include="HandlerFile.ashx" />
+    <Content Include="HandlerPodcast.ashx" />
     <None Include="Properties\PublishProfiles\Deploy BackOffice CMS - No Delete.pubxml" />
     <None Include="Properties\PublishProfiles\Deploy CMS.pubxml" />
     <Content Include="Views\Usuario\MinhaConta.cshtml" />
@@ -2913,6 +2919,8 @@
     <Content Include="Views\Associado\CadAssociado.cshtml" />
     <Content Include="Views\EmailTemplate\ListaEmailTemplate.cshtml" />
     <Content Include="Views\EmailTemplate\CadEmailTemplate.cshtml" />
+    <Content Include="Views\Podcast\CadPodcast.cshtml" />
+    <Content Include="Views\Podcast\ListaPodcast.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Login.resx">
