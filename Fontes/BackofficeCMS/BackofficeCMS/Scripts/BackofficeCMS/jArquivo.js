@@ -253,10 +253,12 @@ function GravarArquivo() {
     } else {
         console.log("Categorias selecionadas para gravação: " + listaCategoria);
         //listaCategoria = "2,3";
+        
+        //$("#frmModalUpload").attr("style", "display: block;");
         $.post("../Arquivo/GravarArquivo", { _OwnerId: _ownerId, _ArquivoId: arquivoId, _Legenda: legenda, _ListaCategoria: listaCategoria, _ArquivoCategoriaTipoId: _arquivocategoriatipoid, _IdiomaId: idiomaId }, function (data) {
             if (data == true) {
                 $("#CadArquivo").modal("hide");
-                
+                //$(".modalInterna").fadeOut();
 
                 //Recarrega todos
                
@@ -274,7 +276,7 @@ function GravarArquivo() {
 
         
     }
-
+    $("#frmModalUpload").fadeIn();
 }
 
 function EditarArquivo(arquivoId, i) {
@@ -503,6 +505,9 @@ $(function () {
                 $("#infoDiversos").attr("style", "float: right; width: 200px; display: block;");
             },
             done: function (e, data) {
+                $("#frmModalUpload").attr("style", "display: none;");
+
+                $("#uploadInfo").html(filesToUpload.length + ' Arquivo(s) 100%');
 
                 console.log("done...");
                 console.log(data);
@@ -539,6 +544,7 @@ $(function () {
         }).on('fileuploadprogressall', function (e, data) {
             //var progress = parseInt(data.loaded / data.total * 100, 10);
             //$('.progress .progress-bar').css('width', progress + '%');
+            //$('#uploadInfo').html(progress);
         });
 
 

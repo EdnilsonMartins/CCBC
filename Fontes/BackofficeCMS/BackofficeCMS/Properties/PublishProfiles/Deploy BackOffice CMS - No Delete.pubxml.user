@@ -8077,7 +8077,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/05/2015 21:31:38</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jArquivo.js">
-      <publishTime>12/03/2017 22:57:46</publishTime>
+      <publishTime>12/12/2017 01:14:12</publishTime>
     </File>
     <File Include="Scripts/BackofficeCMS/jAssociado.js">
       <publishTime>06/28/2017 22:10:35</publishTime>
@@ -8224,7 +8224,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2017 08:48:33</publishTime>
     </File>
     <File Include="Views/Publicacao/CadArquivo.cshtml">
-      <publishTime>06/28/2017 22:10:35</publishTime>
+      <publishTime>12/12/2017 00:57:06</publishTime>
     </File>
     <File Include="Views/Publicacao/CadGaleria.cshtml">
       <publishTime>01/26/2015 15:22:31</publishTime>
@@ -8266,7 +8266,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/05/2015 21:42:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/04/2017 08:58:57</publishTime>
+      <publishTime>12/12/2017 02:03:26</publishTime>
     </File>
   </ItemGroup>
 </Project>
