@@ -224,6 +224,28 @@ xmlns:media=""http://search.yahoo.com/mrss/"" version=""2.0"">
                     LinkAudio = retorno2 + LinkAudio;
                 }
 
+                string DataPublicacaoItem = ((DateTime)e.DataPublicacao).ToString("ddd, dd MMM yyyy HH:mm:ss ") + "GMT";
+                DataPublicacaoItem = DataPublicacaoItem.Replace("dom", "Sun");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("seg", "Mon");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("ter", "Tue");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("qua", "Wed");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("qui", "Thu");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("sex", "Fri");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("sab", "Sat");
+
+                DataPublicacaoItem = DataPublicacaoItem.Replace("dez", "Dec");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("jan", "Jan");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("fev", "Feb");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("mar", "Mar");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("abr", "Apr");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("mai", "May");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("jun", "Jun");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("jul", "Jul");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("ago", "Aug");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("set", "Sep");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("out", "Oct");
+                DataPublicacaoItem = DataPublicacaoItem.Replace("nov", "Nov");
+
                 XMLiTunesFinal += String.Format(XMLiTunesItem,
                     Autor,
                     Titulo,
@@ -237,7 +259,7 @@ xmlns:media=""http://search.yahoo.com/mrss/"" version=""2.0"">
                     DireitosAutorais,
                     ProprietarioNome,
                     ProprietarioEmail,
-                    DataPublicacao,
+                    DataPublicacaoItem,
                     Duracao,
                     Descricao,
                     Tamanho

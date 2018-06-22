@@ -43,10 +43,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/28/2017 22:10:35</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>08/17/2017 07:39:17</publishTime>
+      <publishTime>12/16/2017 12:24:06</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>08/15/2017 23:53:11</publishTime>
+      <publishTime>12/04/2017 08:58:49</publishTime>
     </File>
     <File Include="bin/Images/e2.png">
       <publishTime>06/28/2017 22:10:35</publishTime>
@@ -64,7 +64,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/SitePortal.dll">
-      <publishTime>08/17/2017 07:39:18</publishTime>
+      <publishTime>02/18/2018 22:29:26</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>06/28/2017 22:10:35</publishTime>
@@ -661,7 +661,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2015 08:33:03</publishTime>
     </File>
     <File Include="Views/Conteudo/Calculadora2017.cshtml">
-      <publishTime>08/16/2017 00:01:10</publishTime>
+      <publishTime>11/21/2017 08:45:49</publishTime>
     </File>
     <File Include="Views/Conteudo/Calendario.cshtml">
       <publishTime>04/05/2015 20:47:14</publishTime>
@@ -718,7 +718,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/28/2017 22:10:35</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/28/2017 22:10:35</publishTime>
+      <publishTime>02/18/2018 22:47:53</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPadrao.cshtml">
       <publishTime>12/13/2014 16:21:04</publishTime>
@@ -727,7 +727,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2015 13:23:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/15/2017 22:16:47</publishTime>
+      <publishTime>02/18/2018 22:29:27</publishTime>
     </File>
     <File Include="WebForm/Calendario.aspx">
       <publishTime>12/27/2014 01:59:12</publishTime>

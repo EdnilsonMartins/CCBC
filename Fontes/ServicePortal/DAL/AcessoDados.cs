@@ -23,7 +23,7 @@ namespace DAL
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = nomeProcedure;
                 comando.Connection = conn;
-                comando.CommandTimeout = 120;
+                comando.CommandTimeout = 1200;
 
                 if (transaction != null) comando.Transaction = transaction;
 

@@ -22,16 +22,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/BackofficeCMS.dll">
-      <publishTime>12/04/2017 09:30:45</publishTime>
+      <publishTime>06/22/2018 09:45:36</publishTime>
     </File>
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>12/04/2017 08:58:50</publishTime>
+      <publishTime>06/22/2018 09:45:33</publishTime>
     </File>
     <File Include="bin/DTO.dll">
-      <publishTime>12/04/2017 08:58:49</publishTime>
+      <publishTime>06/22/2018 09:45:32</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/07/2014 16:50:10</publishTime>
@@ -40,19 +40,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2014 16:50:12</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/02/2013 12:10:10</publishTime>
+      <publishTime>10/02/2013 11:10:10</publishTime>
     </File>
     <File Include="bin/ru-ru/BundleTransformer.Core.resources.dll">
       <publishTime>01/03/2015 00:58:50</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>06/28/2017 22:10:35</publishTime>
+      <publishTime>07/09/2013 10:04:48</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>12/07/2014 16:50:12</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
-      <publishTime>06/28/2017 22:10:35</publishTime>
+      <publishTime>07/09/2013 10:04:48</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>12/07/2014 16:50:12</publishTime>
@@ -8266,7 +8266,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/05/2015 21:42:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/12/2017 02:03:26</publishTime>
+      <publishTime>06/22/2018 09:45:44</publishTime>
     </File>
   </ItemGroup>
 </Project>

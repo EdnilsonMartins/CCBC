@@ -1,5 +1,4 @@
 C:\Projetos\CCBC\Fontes\ServicePortal\DTO\bin\Release\DTO.dll
 C:\Projetos\CCBC\Fontes\ServicePortal\DTO\bin\Release\DTO.pdb
-C:\Projetos\CCBC\Fontes\ServicePortal\DTO\obj\Release\DTO.csprojResolveAssemblyReference.cache
 C:\Projetos\CCBC\Fontes\ServicePortal\DTO\obj\Release\DTO.dll
 C:\Projetos\CCBC\Fontes\ServicePortal\DTO\obj\Release\DTO.pdb
