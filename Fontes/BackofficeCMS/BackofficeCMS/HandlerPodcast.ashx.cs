@@ -247,45 +247,45 @@ xmlns:media=""http://search.yahoo.com/mrss/"" version=""2.0"">
                 DataPublicacaoItem = DataPublicacaoItem.Replace("nov", "Nov");
 
                 XMLiTunesFinal += String.Format(XMLiTunesItem,
-                    Autor,
-                    Titulo,
-                    Categoria,
+                    TrataTexto(Autor),
+                    TrataTexto(Titulo),
+                    TrataTexto(Categoria),
                     Link,
                     LinkImagem,
                     LinkAudio,
-                    Keywords,
-                    SubTitulo,
-                    TituloEpisodio,
-                    DireitosAutorais,
-                    ProprietarioNome,
+                    TrataTexto(Keywords),
+                    TrataTexto(SubTitulo),
+                    TrataTexto(TituloEpisodio),
+                    TrataTexto(DireitosAutorais),
+                    TrataTexto(ProprietarioNome),
                     ProprietarioEmail,
                     DataPublicacaoItem,
                     Duracao,
-                    Descricao,
+                    TrataTexto(Descricao),
                     Tamanho
                     );
             }
 
 
-            if (!String.IsNullOrEmpty(Categoria))
-                Categoria = Categoria.Replace("&", "&amp;");
+            //if (!String.IsNullOrEmpty(Categoria))
+            //    Categoria = Categoria.Replace("&", "&amp;");
 
             XMLiTunres = string.Format(XMLiTunres,
-                Autor,
-                Titulo1,
-                Categoria,
+                TrataTexto(Autor),
+                TrataTexto(Titulo1),
+                TrataTexto(Categoria),
                 Link,
                 LinkImagem,
                 LinkAudio,
-                Keywords,
-                Descricao1,
-                TituloEpisodio,
-                DireitosAutorais,
-                ProprietarioNome,
+                TrataTexto(Keywords),
+                TrataTexto(Descricao1),
+                TrataTexto(TituloEpisodio),
+                TrataTexto(DireitosAutorais),
+                TrataTexto(ProprietarioNome),
                 ProprietarioEmail,
                 DataPublicacao,
                 Duracao,
-                Descricao,
+                TrataTexto(Descricao),
                 Tamanho,
                 XMLiTunesFinal
                 );
@@ -293,6 +293,14 @@ xmlns:media=""http://search.yahoo.com/mrss/"" version=""2.0"">
 
             context.Response.Write(XMLiTunres);
 
+        }
+
+        private string TrataTexto(string Texto)
+        {
+            if (string.IsNullOrEmpty(Texto)) 
+                return null;
+            else
+                return Texto.Replace("&", "&amp;");
         }
 
         public bool IsReusable
